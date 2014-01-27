@@ -57,7 +57,20 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    NSString *jsons = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
     
+    if([self.delegate respondsToSelector:@selector(request:didFinishWithObject:)])
+    {
+        [self.delegate request:self didFinishWithObject:jsons];
+    }
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    if([self.delegate respondsToSelector:@selector(request:didFailWithError:)])
+    {
+        [self.delegate request:self didFailWithError:error];
+    }
 }
 
 @end
