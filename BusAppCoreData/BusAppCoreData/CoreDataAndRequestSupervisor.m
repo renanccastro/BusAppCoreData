@@ -8,6 +8,12 @@
 
 #import "CoreDataAndRequestSupervisor.h"
 
+@interface CoreDataAndRequestSupervisor ()
+
+@property (nonatomic, strong) 
+
+@end
+
 @implementation CoreDataAndRequestSupervisor
 
 @end

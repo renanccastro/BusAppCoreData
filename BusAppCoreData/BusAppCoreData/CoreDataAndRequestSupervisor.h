@@ -19,4 +19,6 @@
 
 @interface CoreDataAndRequestSupervisor : NSObject
 
+-(void) requestBusLinesWithDelegate:(id<CoreDataAndRequestSupervisorDelegate>)delegate;
+
 @end
