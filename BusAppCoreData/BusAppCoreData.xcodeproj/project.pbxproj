@@ -160,6 +160,8 @@
 				E8BAF75E1896BA330087E999 /* AppDelegate.h */,
 				E8BAF75F1896BA330087E999 /* AppDelegate.m */,
 				E8BAF7641896BA330087E999 /* Images.xcassets */,
+				E8BAF7611896BA330087E999 /* BusAppCoreData.xcdatamodeld */,
+				ABA847651896BCBF008B0172 /* Storyboard.storyboard */,
 				E8BAF7561896BA330087E999 /* Supporting Files */,
 			);
 			path = BusAppCoreData;
@@ -271,6 +273,7 @@
 			files = (
 				E8BAF75A1896BA330087E999 /* InfoPlist.strings in Resources */,
 				E8BAF7651896BA330087E999 /* Images.xcassets in Resources */,
+				ABA847661896BCBF008B0172 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BusAppCoreData/BusAppCoreData-Prefix.pch";
 				INFOPLIST_FILE = "BusAppCoreData/BusAppCoreData-Info.plist";
@@ -428,6 +432,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BusAppCoreData/BusAppCoreData-Prefix.pch";
 				INFOPLIST_FILE = "BusAppCoreData/BusAppCoreData-Info.plist";
