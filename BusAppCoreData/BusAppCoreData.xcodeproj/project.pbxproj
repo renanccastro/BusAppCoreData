@@ -12,6 +12,7 @@
 		B9F926AC1896BBDC00B5A61E /* Polyline_points.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926AB1896BBDC00B5A61E /* Polyline_points.m */; };
 		B9F926B01896BC7400B5A61E /* CoreDataAndRequestSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926AF1896BC7400B5A61E /* CoreDataAndRequestSupervisor.m */; };
 		B9F926B31896CC9D00B5A61E /* ServerUpdateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926B21896CC9D00B5A61E /* ServerUpdateRequest.m */; };
+		E89809301896CDD200ECE205 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E898092F1896CDD200ECE205 /* Storyboard.storyboard */; };
 		E8BAF74E1896BA330087E999 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF74D1896BA330087E999 /* Foundation.framework */; };
 		E8BAF7501896BA330087E999 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF74F1896BA330087E999 /* CoreGraphics.framework */; };
 		E8BAF7521896BA330087E999 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF7511896BA330087E999 /* UIKit.framework */; };
@@ -50,6 +51,7 @@
 		B9F926AF1896BC7400B5A61E /* CoreDataAndRequestSupervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataAndRequestSupervisor.m; sourceTree = "<group>"; };
 		B9F926B11896CC9D00B5A61E /* ServerUpdateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerUpdateRequest.h; sourceTree = "<group>"; };
 		B9F926B21896CC9D00B5A61E /* ServerUpdateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerUpdateRequest.m; sourceTree = "<group>"; };
+		E898092F1896CDD200ECE205 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		E8BAF74A1896BA330087E999 /* BusAppCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusAppCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BAF74D1896BA330087E999 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E8BAF74F1896BA330087E999 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -155,13 +157,13 @@
 		E8BAF7551896BA330087E999 /* BusAppCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				E898092F1896CDD200ECE205 /* Storyboard.storyboard */,
 				B9F926AD1896BC4600B5A61E /* Model */,
 				B9F9269A1896BB5200B5A61E /* Core Data */,
 				E8BAF75E1896BA330087E999 /* AppDelegate.h */,
 				E8BAF75F1896BA330087E999 /* AppDelegate.m */,
 				E8BAF7641896BA330087E999 /* Images.xcassets */,
 				E8BAF7611896BA330087E999 /* BusAppCoreData.xcdatamodeld */,
-				ABA847651896BCBF008B0172 /* Storyboard.storyboard */,
 				E8BAF7561896BA330087E999 /* Supporting Files */,
 			);
 			path = BusAppCoreData;
@@ -273,7 +275,7 @@
 			files = (
 				E8BAF75A1896BA330087E999 /* InfoPlist.strings in Resources */,
 				E8BAF7651896BA330087E999 /* Images.xcassets in Resources */,
-				ABA847661896BCBF008B0172 /* Storyboard.storyboard in Resources */,
+				E89809301896CDD200ECE205 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
