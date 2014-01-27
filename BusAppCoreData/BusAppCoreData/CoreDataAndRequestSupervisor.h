@@ -20,7 +20,7 @@
 @interface CoreDataAndRequestSupervisor : NSObject
 
 @property (nonatomic, weak) id<CoreDataAndRequestSupervisorDelegate> delegate;
-
+@property (nonatomic) NSManagedObjectContext* context;
 -(void) requestBusLinesWithDelegate:(id<CoreDataAndRequestSupervisorDelegate>)delegate;
 
 @end

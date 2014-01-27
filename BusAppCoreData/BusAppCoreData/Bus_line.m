@@ -14,7 +14,7 @@
 @implementation Bus_line
 
 @dynamic full_name;
-@dynamic id;
+@dynamic line_number;
 @dynamic web_number;
 @dynamic polyline_ida;
 @dynamic polyline_volta;
