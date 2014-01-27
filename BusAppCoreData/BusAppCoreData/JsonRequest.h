@@ -1,5 +1,5 @@
 //
-//  CoreDataAndRequestSupervisor.h
+//  JsonRequest.h
 //  BusAppCoreData
 //
 //  Created by Flavio Matheus on 27/01/14.
@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CoreDataAndRequestSupervisor : NSObject
-
--(void) requestBusLines;
+@interface JsonRequest : NSObject
 
 @end

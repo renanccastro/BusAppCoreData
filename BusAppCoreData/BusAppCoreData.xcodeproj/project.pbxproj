@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ABA847661896BCBF008B0172 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA847651896BCBF008B0172 /* Storyboard.storyboard */; };
 		B9F926A61896BBDC00B5A61E /* Bus_points.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926A51896BBDC00B5A61E /* Bus_points.m */; };
 		B9F926A91896BBDC00B5A61E /* Bus_line.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926A81896BBDC00B5A61E /* Bus_line.m */; };
 		B9F926AC1896BBDC00B5A61E /* Polyline_points.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926AB1896BBDC00B5A61E /* Polyline_points.m */; };
 		B9F926B01896BC7400B5A61E /* CoreDataAndRequestSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926AF1896BC7400B5A61E /* CoreDataAndRequestSupervisor.m */; };
 		B9F926B31896CC9D00B5A61E /* ServerUpdateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926B21896CC9D00B5A61E /* ServerUpdateRequest.m */; };
+		B9F926B61896CE1E00B5A61E /* JsonRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926B51896CE1E00B5A61E /* JsonRequest.m */; };
 		E8BAF74E1896BA330087E999 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF74D1896BA330087E999 /* Foundation.framework */; };
 		E8BAF7501896BA330087E999 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF74F1896BA330087E999 /* CoreGraphics.framework */; };
 		E8BAF7521896BA330087E999 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF7511896BA330087E999 /* UIKit.framework */; };
@@ -40,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ABA847651896BCBF008B0172 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		B9F926A41896BBDC00B5A61E /* Bus_points.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus_points.h; sourceTree = "<group>"; };
 		B9F926A51896BBDC00B5A61E /* Bus_points.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus_points.m; sourceTree = "<group>"; };
 		B9F926A71896BBDC00B5A61E /* Bus_line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus_line.h; sourceTree = "<group>"; };
@@ -50,6 +53,8 @@
 		B9F926AF1896BC7400B5A61E /* CoreDataAndRequestSupervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataAndRequestSupervisor.m; sourceTree = "<group>"; };
 		B9F926B11896CC9D00B5A61E /* ServerUpdateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerUpdateRequest.h; sourceTree = "<group>"; };
 		B9F926B21896CC9D00B5A61E /* ServerUpdateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerUpdateRequest.m; sourceTree = "<group>"; };
+		B9F926B41896CE1E00B5A61E /* JsonRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonRequest.h; sourceTree = "<group>"; };
+		B9F926B51896CE1E00B5A61E /* JsonRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonRequest.m; sourceTree = "<group>"; };
 		E8BAF74A1896BA330087E999 /* BusAppCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusAppCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BAF74D1896BA330087E999 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E8BAF74F1896BA330087E999 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -117,6 +122,8 @@
 				B9F926AF1896BC7400B5A61E /* CoreDataAndRequestSupervisor.m */,
 				B9F926B11896CC9D00B5A61E /* ServerUpdateRequest.h */,
 				B9F926B21896CC9D00B5A61E /* ServerUpdateRequest.m */,
+				B9F926B41896CE1E00B5A61E /* JsonRequest.h */,
+				B9F926B51896CE1E00B5A61E /* JsonRequest.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -293,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9F926AC1896BBDC00B5A61E /* Polyline_points.m in Sources */,
+				B9F926B61896CE1E00B5A61E /* JsonRequest.m in Sources */,
 				B9F926A91896BBDC00B5A61E /* Bus_line.m in Sources */,
 				B9F926A61896BBDC00B5A61E /* Bus_points.m in Sources */,
 				B9F926B31896CC9D00B5A61E /* ServerUpdateRequest.m in Sources */,
