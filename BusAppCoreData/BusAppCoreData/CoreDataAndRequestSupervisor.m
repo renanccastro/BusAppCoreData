@@ -7,6 +7,7 @@
 //
 
 #import "CoreDataAndRequestSupervisor.h"
+#import "ServerUpdateRequest.h"
 #import "Bus_line.h"
 
 @interface CoreDataAndRequestSupervisor () <ServerUpdateRequestDelegate>
