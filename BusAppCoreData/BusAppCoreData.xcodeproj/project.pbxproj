@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ABA847661896BCBF008B0172 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABA847651896BCBF008B0172 /* Storyboard.storyboard */; };
+		ABA8476A1896CBA5008B0172 /* TrajectoryPlanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA847691896CBA5008B0172 /* TrajectoryPlanningViewController.m */; };
+		ABA8476D1896CE0B008B0172 /* StopsNearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA8476C1896CE0B008B0172 /* StopsNearViewController.m */; };
+		ABA847701896CE86008B0172 /* BusAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA8476F1896CE86008B0172 /* BusAppViewController.m */; };
 		B9F926A61896BBDC00B5A61E /* Bus_points.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926A51896BBDC00B5A61E /* Bus_points.m */; };
 		B9F926A91896BBDC00B5A61E /* Bus_line.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926A81896BBDC00B5A61E /* Bus_line.m */; };
 		B9F926AC1896BBDC00B5A61E /* Polyline_points.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926AB1896BBDC00B5A61E /* Polyline_points.m */; };
 		B9F926B01896BC7400B5A61E /* CoreDataAndRequestSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926AF1896BC7400B5A61E /* CoreDataAndRequestSupervisor.m */; };
-		B9F926B31896CC9D00B5A61E /* ServerUpdateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926B21896CC9D00B5A61E /* ServerUpdateRequest.m */; };
-		E89809301896CDD200ECE205 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E898092F1896CDD200ECE205 /* Storyboard.storyboard */; };
 		E8BAF74E1896BA330087E999 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF74D1896BA330087E999 /* Foundation.framework */; };
 		E8BAF7501896BA330087E999 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF74F1896BA330087E999 /* CoreGraphics.framework */; };
-		E8BAF7521896BA330087E999 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF7511896BA330087E999 /* UIKit.framework */; };
+		E8BAF7521896BA330087E999 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		E8BAF7541896BA330087E999 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF7531896BA330087E999 /* CoreData.framework */; };
 		E8BAF75A1896BA330087E999 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E8BAF7581896BA330087E999 /* InfoPlist.strings */; };
 		E8BAF75C1896BA330087E999 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BAF75B1896BA330087E999 /* main.m */; };
@@ -24,7 +26,7 @@
 		E8BAF7651896BA330087E999 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8BAF7641896BA330087E999 /* Images.xcassets */; };
 		E8BAF76C1896BA330087E999 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF76B1896BA330087E999 /* XCTest.framework */; };
 		E8BAF76D1896BA330087E999 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF74D1896BA330087E999 /* Foundation.framework */; };
-		E8BAF76E1896BA330087E999 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF7511896BA330087E999 /* UIKit.framework */; };
+		E8BAF76E1896BA330087E999 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		E8BAF76F1896BA330087E999 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF7531896BA330087E999 /* CoreData.framework */; };
 		E8BAF7771896BA330087E999 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E8BAF7751896BA330087E999 /* InfoPlist.strings */; };
 		E8BAF7791896BA330087E999 /* BusAppCoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BAF7781896BA330087E999 /* BusAppCoreDataTests.m */; };
@@ -41,6 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ABA847651896BCBF008B0172 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		ABA847681896CBA5008B0172 /* TrajectoryPlanningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrajectoryPlanningViewController.h; sourceTree = "<group>"; };
+		ABA847691896CBA5008B0172 /* TrajectoryPlanningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrajectoryPlanningViewController.m; sourceTree = "<group>"; };
+		ABA8476B1896CE0B008B0172 /* StopsNearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopsNearViewController.h; sourceTree = "<group>"; };
+		ABA8476C1896CE0B008B0172 /* StopsNearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopsNearViewController.m; sourceTree = "<group>"; };
+		ABA8476E1896CE86008B0172 /* BusAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusAppViewController.h; sourceTree = "<group>"; };
+		ABA8476F1896CE86008B0172 /* BusAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusAppViewController.m; sourceTree = "<group>"; };
 		B9F926A41896BBDC00B5A61E /* Bus_points.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus_points.h; sourceTree = "<group>"; };
 		B9F926A51896BBDC00B5A61E /* Bus_points.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus_points.m; sourceTree = "<group>"; };
 		B9F926A71896BBDC00B5A61E /* Bus_line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus_line.h; sourceTree = "<group>"; };
@@ -49,13 +58,9 @@
 		B9F926AB1896BBDC00B5A61E /* Polyline_points.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Polyline_points.m; sourceTree = "<group>"; };
 		B9F926AE1896BC7400B5A61E /* CoreDataAndRequestSupervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataAndRequestSupervisor.h; sourceTree = "<group>"; };
 		B9F926AF1896BC7400B5A61E /* CoreDataAndRequestSupervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataAndRequestSupervisor.m; sourceTree = "<group>"; };
-		B9F926B11896CC9D00B5A61E /* ServerUpdateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerUpdateRequest.h; sourceTree = "<group>"; };
-		B9F926B21896CC9D00B5A61E /* ServerUpdateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerUpdateRequest.m; sourceTree = "<group>"; };
-		E898092F1896CDD200ECE205 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		E8BAF74A1896BA330087E999 /* BusAppCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusAppCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BAF74D1896BA330087E999 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E8BAF74F1896BA330087E999 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		E8BAF7511896BA330087E999 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E8BAF7531896BA330087E999 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E8BAF7571896BA330087E999 /* BusAppCoreData-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BusAppCoreData-Info.plist"; sourceTree = "<group>"; };
 		E8BAF7591896BA330087E999 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -79,7 +84,7 @@
 			files = (
 				E8BAF7501896BA330087E999 /* CoreGraphics.framework in Frameworks */,
 				E8BAF7541896BA330087E999 /* CoreData.framework in Frameworks */,
-				E8BAF7521896BA330087E999 /* UIKit.framework in Frameworks */,
+				E8BAF7521896BA330087E999 /* (null) in Frameworks */,
 				E8BAF74E1896BA330087E999 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,7 +95,7 @@
 			files = (
 				E8BAF76C1896BA330087E999 /* XCTest.framework in Frameworks */,
 				E8BAF76F1896BA330087E999 /* CoreData.framework in Frameworks */,
-				E8BAF76E1896BA330087E999 /* UIKit.framework in Frameworks */,
+				E8BAF76E1896BA330087E999 /* (null) in Frameworks */,
 				E8BAF76D1896BA330087E999 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +103,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ABA847671896CB2F008B0172 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ABA8476E1896CE86008B0172 /* BusAppViewController.h */,
+				ABA8476F1896CE86008B0172 /* BusAppViewController.m */,
+				ABA847681896CBA5008B0172 /* TrajectoryPlanningViewController.h */,
+				ABA847691896CBA5008B0172 /* TrajectoryPlanningViewController.m */,
+				ABA8476B1896CE0B008B0172 /* StopsNearViewController.h */,
+				ABA8476C1896CE0B008B0172 /* StopsNearViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		B9F9269A1896BB5200B5A61E /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,7 +165,6 @@
 			children = (
 				E8BAF74D1896BA330087E999 /* Foundation.framework */,
 				E8BAF74F1896BA330087E999 /* CoreGraphics.framework */,
-				E8BAF7511896BA330087E999 /* UIKit.framework */,
 				E8BAF7531896BA330087E999 /* CoreData.framework */,
 				E8BAF76B1896BA330087E999 /* XCTest.framework */,
 			);
@@ -157,7 +174,7 @@
 		E8BAF7551896BA330087E999 /* BusAppCoreData */ = {
 			isa = PBXGroup;
 			children = (
-				E898092F1896CDD200ECE205 /* Storyboard.storyboard */,
+				ABA847671896CB2F008B0172 /* Controller */,
 				B9F926AD1896BC4600B5A61E /* Model */,
 				B9F9269A1896BB5200B5A61E /* Core Data */,
 				E8BAF75E1896BA330087E999 /* AppDelegate.h */,
@@ -295,9 +312,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9F926AC1896BBDC00B5A61E /* Polyline_points.m in Sources */,
+				ABA847701896CE86008B0172 /* BusAppViewController.m in Sources */,
 				B9F926A91896BBDC00B5A61E /* Bus_line.m in Sources */,
+				ABA8476A1896CBA5008B0172 /* TrajectoryPlanningViewController.m in Sources */,
 				B9F926A61896BBDC00B5A61E /* Bus_points.m in Sources */,
-				B9F926B31896CC9D00B5A61E /* ServerUpdateRequest.m in Sources */,
+				ABA8476D1896CE0B008B0172 /* StopsNearViewController.m in Sources */,
 				E8BAF7601896BA330087E999 /* AppDelegate.m in Sources */,
 				E8BAF75C1896BA330087E999 /* main.m in Sources */,
 				E8BAF7631896BA330087E999 /* BusAppCoreData.xcdatamodeld in Sources */,
