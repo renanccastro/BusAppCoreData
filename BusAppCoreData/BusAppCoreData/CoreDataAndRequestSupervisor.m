@@ -61,7 +61,11 @@
 											range:NSMakeRange(0, [dictionary[@"name"] length])];
 		line.line_number = [NSNumber numberWithInt:[[matches lastObject] integerValue] ];
 		line.web_number = dictionary[@"web_code"];
+		
 //		NSMutableArray* stops = [[NSMutableArray alloc] init];
+#warning TODO
+		
+		
 	}
 	//if there already has
 	else{
@@ -72,6 +76,7 @@
 	return YES;
 }
 
+//get bus from database with identifider(web_code)
 -(Bus_line*) getBusWithWebCode:(int)web_code{
 	//Check if it already exists:
 	NSEntityDescription *entityDescription = [NSEntityDescription
@@ -90,5 +95,46 @@
 	}
 	return [array lastObject];
 }
+
+//get bus stop with lat and lng
+-(Bus_points*) getBusPointWithLatitude:(double)lat withLongitude:(double)lng{
+	NSEntityDescription *entityDescription = [NSEntityDescription
+											  
+											  entityForName:@"Bus_points" inManagedObjectContext:self.context];
+	
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	[request setEntity:entityDescription];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:
+							  @"lat == %@ AND lng == %@", lat, lng];
+	[request setPredicate:predicate];
+	NSError *error;
+	NSArray *array = [self.context executeFetchRequest:request error:&error];
+	if (error){
+		NSLog(@"error getting bus");
+	}
+	
+	return [array lastObject];
+}
+
+//Return all stops from one bus line
+-(NSArray*) getBusLineStops:(Bus_line*)bus_line{
+	NSEntityDescription *entityDescription = [NSEntityDescription
+											  
+											  entityForName:@"Bus_points" inManagedObjectContext:self.context];
+	
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	[request setEntity:entityDescription];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:
+							  @"onibus_que_passam CONTAINS %@", bus_line];
+	[request setPredicate:predicate];
+	NSError *error;
+	NSArray *array = [self.context executeFetchRequest:request error:&error];
+	if (error){
+		NSLog(@"error getting bus");
+	}
+	return array;
+}
+
+
 
 @end
