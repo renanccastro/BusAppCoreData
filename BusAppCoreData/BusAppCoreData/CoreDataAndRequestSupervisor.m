@@ -19,16 +19,8 @@
 
 @implementation CoreDataAndRequestSupervisor
 
--(void)requestBusLinesWithDelegate:(id<CoreDataAndRequestSupervisorDelegate>)delegate
+-(void)requestBusLines
 {
-    [self setDelegate:delegate];
-    
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    
-    if(![prefs integerForKey:@"version"])
-    {
-        [prefs setInteger:0 forKey:@"version"];
-    }
     
     
     
