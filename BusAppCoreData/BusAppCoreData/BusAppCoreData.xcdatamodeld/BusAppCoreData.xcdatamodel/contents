@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Bus_line" syncable="YES">
+        <attribute name="full_name" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="web_number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="polyline_ida" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Polyline_points" inverseName="linhas_ida" inverseEntity="Polyline_points" syncable="YES"/>
+        <relationship name="polyline_volta" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Polyline_points" inverseName="linhas_volta" inverseEntity="Polyline_points" syncable="YES"/>
+        <relationship name="stops" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bus_points" inverseName="onibus_que_passam" inverseEntity="Bus_points" syncable="YES"/>
+    </entity>
+    <entity name="Bus_points" syncable="YES">
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="long" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="onibus_que_passam" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bus_line" inverseName="stops" inverseEntity="Bus_line" syncable="YES"/>
+    </entity>
+    <entity name="Polyline_points" syncable="YES">
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="long" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="linhas_ida" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bus_line" inverseName="polyline_ida" inverseEntity="Bus_line" syncable="YES"/>
+        <relationship name="linhas_volta" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bus_line" inverseName="polyline_volta" inverseEntity="Bus_line" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Bus_line" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Bus_points" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Polyline_points" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

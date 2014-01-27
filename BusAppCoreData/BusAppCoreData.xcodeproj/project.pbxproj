@@ -1,0 +1,479 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E8BAF74E1896BA330087E999 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF74D1896BA330087E999 /* Foundation.framework */; };
+		E8BAF7501896BA330087E999 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF74F1896BA330087E999 /* CoreGraphics.framework */; };
+		E8BAF7521896BA330087E999 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF7511896BA330087E999 /* UIKit.framework */; };
+		E8BAF7541896BA330087E999 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF7531896BA330087E999 /* CoreData.framework */; };
+		E8BAF75A1896BA330087E999 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E8BAF7581896BA330087E999 /* InfoPlist.strings */; };
+		E8BAF75C1896BA330087E999 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BAF75B1896BA330087E999 /* main.m */; };
+		E8BAF7601896BA330087E999 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BAF75F1896BA330087E999 /* AppDelegate.m */; };
+		E8BAF7631896BA330087E999 /* BusAppCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8BAF7611896BA330087E999 /* BusAppCoreData.xcdatamodeld */; };
+		E8BAF7651896BA330087E999 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8BAF7641896BA330087E999 /* Images.xcassets */; };
+		E8BAF76C1896BA330087E999 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF76B1896BA330087E999 /* XCTest.framework */; };
+		E8BAF76D1896BA330087E999 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF74D1896BA330087E999 /* Foundation.framework */; };
+		E8BAF76E1896BA330087E999 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF7511896BA330087E999 /* UIKit.framework */; };
+		E8BAF76F1896BA330087E999 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF7531896BA330087E999 /* CoreData.framework */; };
+		E8BAF7771896BA330087E999 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E8BAF7751896BA330087E999 /* InfoPlist.strings */; };
+		E8BAF7791896BA330087E999 /* BusAppCoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BAF7781896BA330087E999 /* BusAppCoreDataTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E8BAF7701896BA330087E999 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E8BAF7421896BA330087E999 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E8BAF7491896BA330087E999;
+			remoteInfo = BusAppCoreData;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E8BAF74A1896BA330087E999 /* BusAppCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusAppCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8BAF74D1896BA330087E999 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E8BAF74F1896BA330087E999 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E8BAF7511896BA330087E999 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E8BAF7531896BA330087E999 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E8BAF7571896BA330087E999 /* BusAppCoreData-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BusAppCoreData-Info.plist"; sourceTree = "<group>"; };
+		E8BAF7591896BA330087E999 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E8BAF75B1896BA330087E999 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E8BAF75D1896BA330087E999 /* BusAppCoreData-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BusAppCoreData-Prefix.pch"; sourceTree = "<group>"; };
+		E8BAF75E1896BA330087E999 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E8BAF75F1896BA330087E999 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E8BAF7621896BA330087E999 /* BusAppCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BusAppCoreData.xcdatamodel; sourceTree = "<group>"; };
+		E8BAF7641896BA330087E999 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E8BAF76A1896BA330087E999 /* BusAppCoreDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusAppCoreDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8BAF76B1896BA330087E999 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E8BAF7741896BA330087E999 /* BusAppCoreDataTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BusAppCoreDataTests-Info.plist"; sourceTree = "<group>"; };
+		E8BAF7761896BA330087E999 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E8BAF7781896BA330087E999 /* BusAppCoreDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusAppCoreDataTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E8BAF7471896BA330087E999 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8BAF7501896BA330087E999 /* CoreGraphics.framework in Frameworks */,
+				E8BAF7541896BA330087E999 /* CoreData.framework in Frameworks */,
+				E8BAF7521896BA330087E999 /* UIKit.framework in Frameworks */,
+				E8BAF74E1896BA330087E999 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8BAF7671896BA330087E999 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8BAF76C1896BA330087E999 /* XCTest.framework in Frameworks */,
+				E8BAF76F1896BA330087E999 /* CoreData.framework in Frameworks */,
+				E8BAF76E1896BA330087E999 /* UIKit.framework in Frameworks */,
+				E8BAF76D1896BA330087E999 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E8BAF7411896BA330087E999 = {
+			isa = PBXGroup;
+			children = (
+				E8BAF7551896BA330087E999 /* BusAppCoreData */,
+				E8BAF7721896BA330087E999 /* BusAppCoreDataTests */,
+				E8BAF74C1896BA330087E999 /* Frameworks */,
+				E8BAF74B1896BA330087E999 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E8BAF74B1896BA330087E999 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E8BAF74A1896BA330087E999 /* BusAppCoreData.app */,
+				E8BAF76A1896BA330087E999 /* BusAppCoreDataTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E8BAF74C1896BA330087E999 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E8BAF74D1896BA330087E999 /* Foundation.framework */,
+				E8BAF74F1896BA330087E999 /* CoreGraphics.framework */,
+				E8BAF7511896BA330087E999 /* UIKit.framework */,
+				E8BAF7531896BA330087E999 /* CoreData.framework */,
+				E8BAF76B1896BA330087E999 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E8BAF7551896BA330087E999 /* BusAppCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				E8BAF75E1896BA330087E999 /* AppDelegate.h */,
+				E8BAF75F1896BA330087E999 /* AppDelegate.m */,
+				E8BAF7641896BA330087E999 /* Images.xcassets */,
+				E8BAF7611896BA330087E999 /* BusAppCoreData.xcdatamodeld */,
+				E8BAF7561896BA330087E999 /* Supporting Files */,
+			);
+			path = BusAppCoreData;
+			sourceTree = "<group>";
+		};
+		E8BAF7561896BA330087E999 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E8BAF7571896BA330087E999 /* BusAppCoreData-Info.plist */,
+				E8BAF7581896BA330087E999 /* InfoPlist.strings */,
+				E8BAF75B1896BA330087E999 /* main.m */,
+				E8BAF75D1896BA330087E999 /* BusAppCoreData-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E8BAF7721896BA330087E999 /* BusAppCoreDataTests */ = {
+			isa = PBXGroup;
+			children = (
+				E8BAF7781896BA330087E999 /* BusAppCoreDataTests.m */,
+				E8BAF7731896BA330087E999 /* Supporting Files */,
+			);
+			path = BusAppCoreDataTests;
+			sourceTree = "<group>";
+		};
+		E8BAF7731896BA330087E999 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E8BAF7741896BA330087E999 /* BusAppCoreDataTests-Info.plist */,
+				E8BAF7751896BA330087E999 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E8BAF7491896BA330087E999 /* BusAppCoreData */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8BAF77C1896BA330087E999 /* Build configuration list for PBXNativeTarget "BusAppCoreData" */;
+			buildPhases = (
+				E8BAF7461896BA330087E999 /* Sources */,
+				E8BAF7471896BA330087E999 /* Frameworks */,
+				E8BAF7481896BA330087E999 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BusAppCoreData;
+			productName = BusAppCoreData;
+			productReference = E8BAF74A1896BA330087E999 /* BusAppCoreData.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E8BAF7691896BA330087E999 /* BusAppCoreDataTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8BAF77F1896BA330087E999 /* Build configuration list for PBXNativeTarget "BusAppCoreDataTests" */;
+			buildPhases = (
+				E8BAF7661896BA330087E999 /* Sources */,
+				E8BAF7671896BA330087E999 /* Frameworks */,
+				E8BAF7681896BA330087E999 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E8BAF7711896BA330087E999 /* PBXTargetDependency */,
+			);
+			name = BusAppCoreDataTests;
+			productName = BusAppCoreDataTests;
+			productReference = E8BAF76A1896BA330087E999 /* BusAppCoreDataTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E8BAF7421896BA330087E999 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = BEPiD;
+				TargetAttributes = {
+					E8BAF7691896BA330087E999 = {
+						TestTargetID = E8BAF7491896BA330087E999;
+					};
+				};
+			};
+			buildConfigurationList = E8BAF7451896BA330087E999 /* Build configuration list for PBXProject "BusAppCoreData" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E8BAF7411896BA330087E999;
+			productRefGroup = E8BAF74B1896BA330087E999 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E8BAF7491896BA330087E999 /* BusAppCoreData */,
+				E8BAF7691896BA330087E999 /* BusAppCoreDataTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E8BAF7481896BA330087E999 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8BAF75A1896BA330087E999 /* InfoPlist.strings in Resources */,
+				E8BAF7651896BA330087E999 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8BAF7681896BA330087E999 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8BAF7771896BA330087E999 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E8BAF7461896BA330087E999 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8BAF7601896BA330087E999 /* AppDelegate.m in Sources */,
+				E8BAF75C1896BA330087E999 /* main.m in Sources */,
+				E8BAF7631896BA330087E999 /* BusAppCoreData.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8BAF7661896BA330087E999 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8BAF7791896BA330087E999 /* BusAppCoreDataTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E8BAF7711896BA330087E999 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E8BAF7491896BA330087E999 /* BusAppCoreData */;
+			targetProxy = E8BAF7701896BA330087E999 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E8BAF7581896BA330087E999 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E8BAF7591896BA330087E999 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E8BAF7751896BA330087E999 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E8BAF7761896BA330087E999 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E8BAF77A1896BA330087E999 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E8BAF77B1896BA330087E999 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E8BAF77D1896BA330087E999 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BusAppCoreData/BusAppCoreData-Prefix.pch";
+				INFOPLIST_FILE = "BusAppCoreData/BusAppCoreData-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E8BAF77E1896BA330087E999 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BusAppCoreData/BusAppCoreData-Prefix.pch";
+				INFOPLIST_FILE = "BusAppCoreData/BusAppCoreData-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		E8BAF7801896BA330087E999 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BusAppCoreData.app/BusAppCoreData";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BusAppCoreData/BusAppCoreData-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BusAppCoreDataTests/BusAppCoreDataTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		E8BAF7811896BA330087E999 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BusAppCoreData.app/BusAppCoreData";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BusAppCoreData/BusAppCoreData-Prefix.pch";
+				INFOPLIST_FILE = "BusAppCoreDataTests/BusAppCoreDataTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E8BAF7451896BA330087E999 /* Build configuration list for PBXProject "BusAppCoreData" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8BAF77A1896BA330087E999 /* Debug */,
+				E8BAF77B1896BA330087E999 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8BAF77C1896BA330087E999 /* Build configuration list for PBXNativeTarget "BusAppCoreData" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8BAF77D1896BA330087E999 /* Debug */,
+				E8BAF77E1896BA330087E999 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E8BAF77F1896BA330087E999 /* Build configuration list for PBXNativeTarget "BusAppCoreDataTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8BAF7801896BA330087E999 /* Debug */,
+				E8BAF7811896BA330087E999 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E8BAF7611896BA330087E999 /* BusAppCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E8BAF7621896BA330087E999 /* BusAppCoreData.xcdatamodel */,
+			);
+			currentVersion = E8BAF7621896BA330087E999 /* BusAppCoreData.xcdatamodel */;
+			path = BusAppCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E8BAF7421896BA330087E999 /* Project object */;
+}
