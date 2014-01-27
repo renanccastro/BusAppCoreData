@@ -135,6 +135,8 @@
 			children = (
 				B9F926AE1896BC7400B5A61E /* CoreDataAndRequestSupervisor.h */,
 				B9F926AF1896BC7400B5A61E /* CoreDataAndRequestSupervisor.m */,
+				B9F926B11896CC9D00B5A61E /* ServerUpdateRequest.h */,
+				B9F926B21896CC9D00B5A61E /* ServerUpdateRequest.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -179,7 +181,6 @@
 				E8BAF75F1896BA330087E999 /* AppDelegate.m */,
 				E8BAF7641896BA330087E999 /* Images.xcassets */,
 				E8BAF7611896BA330087E999 /* BusAppCoreData.xcdatamodeld */,
-				ABA847651896BCBF008B0172 /* Storyboard.storyboard */,
 				E8BAF7561896BA330087E999 /* Supporting Files */,
 			);
 			path = BusAppCoreData;
@@ -291,7 +292,7 @@
 			files = (
 				E8BAF75A1896BA330087E999 /* InfoPlist.strings in Resources */,
 				E8BAF7651896BA330087E999 /* Images.xcassets in Resources */,
-				ABA847661896BCBF008B0172 /* Storyboard.storyboard in Resources */,
+				E89809301896CDD200ECE205 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
