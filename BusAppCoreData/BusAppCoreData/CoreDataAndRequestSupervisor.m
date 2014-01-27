@@ -9,11 +9,11 @@
 #import "CoreDataAndRequestSupervisor.h"
 #import "Bus_line.h"
 
-@interface CoreDataAndRequestSupervisor ()
+@interface CoreDataAndRequestSupervisor () <ServerUpdateRequestDelegate>
 
 @property (nonatomic, strong) UIManagedDocument * document;
-@property (nonatomic, strong) NSURLRequest *serverFirstRequest;
 @property (nonatomic, strong) NSArray *jsonsRequests;
+@property (nonatomic, strong) ServerUpdateRequest *serverUpdate;
 
 @end
 
