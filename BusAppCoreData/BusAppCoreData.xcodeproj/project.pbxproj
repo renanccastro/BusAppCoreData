@@ -83,6 +83,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B9F9269A1896BB5200B5A61E /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				B9F926A41896BBDC00B5A61E /* Bus_points.h */,
+				B9F926A51896BBDC00B5A61E /* Bus_points.m */,
+				B9F926AA1896BBDC00B5A61E /* Polyline_points.h */,
+				B9F926AB1896BBDC00B5A61E /* Polyline_points.m */,
+				B9F926A71896BBDC00B5A61E /* Bus_line.h */,
+				B9F926A81896BBDC00B5A61E /* Bus_line.m */,
+				E8BAF7611896BA330087E999 /* BusAppCoreData.xcdatamodeld */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		B9F926AD1896BC4600B5A61E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B9F926AE1896BC7400B5A61E /* CoreDataAndRequestSupervisor.h */,
+				B9F926AF1896BC7400B5A61E /* CoreDataAndRequestSupervisor.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		E8BAF7411896BA330087E999 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +140,8 @@
 		E8BAF7551896BA330087E999 /* BusAppCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				B9F926AD1896BC4600B5A61E /* Model */,
+				B9F9269A1896BB5200B5A61E /* Core Data */,
 				E8BAF75E1896BA330087E999 /* AppDelegate.h */,
 				E8BAF75F1896BA330087E999 /* AppDelegate.m */,
 				E8BAF7641896BA330087E999 /* Images.xcassets */,
@@ -252,9 +277,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9F926AC1896BBDC00B5A61E /* Polyline_points.m in Sources */,
+				B9F926A91896BBDC00B5A61E /* Bus_line.m in Sources */,
+				B9F926A61896BBDC00B5A61E /* Bus_points.m in Sources */,
 				E8BAF7601896BA330087E999 /* AppDelegate.m in Sources */,
 				E8BAF75C1896BA330087E999 /* main.m in Sources */,
 				E8BAF7631896BA330087E999 /* BusAppCoreData.xcdatamodeld in Sources */,
+				B9F926B01896BC7400B5A61E /* CoreDataAndRequestSupervisor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
