@@ -10,7 +10,7 @@
 
 @interface CoreDataAndRequestSupervisor ()
 
-@property (nonatomic, strong) UIManagedDocument*
+@property (nonatomic, strong) UIManagedDocument* document;
 
 @end
 
