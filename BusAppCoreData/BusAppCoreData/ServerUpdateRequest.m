@@ -71,6 +71,7 @@
         return;
     }
     
+    //return for the supervisor the dictionary with the jsons names
     if([self.delegate respondsToSelector:@selector(request:didFinishWithObject:)])
     {
         [self.delegate request:self didFinishWithObject:parsedData];
