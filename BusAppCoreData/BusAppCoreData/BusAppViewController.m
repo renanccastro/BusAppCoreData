@@ -10,7 +10,6 @@
 #import "CoreDataAndRequestSupervisor.h"
 
 @interface BusAppViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *a;
 
 @end
 
