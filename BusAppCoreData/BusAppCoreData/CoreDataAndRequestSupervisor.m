@@ -76,7 +76,7 @@ static CoreDataAndRequestSupervisor *supervisor;
 //          TODO
 //      }
     
-    //makes a request for 
+    //makes a request for the json with the names of the jsons of the bus lines
     [serverUpdate requestServerUpdateWithVersion:[prefs integerForKey:@"version"]
                                     withDelegate:self];
 }

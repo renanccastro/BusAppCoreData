@@ -23,6 +23,7 @@
 {
     [self setDelegate:delegate];
 
+    //makes the request and fires its connection on the main loop
     self.request = [NSURLRequest requestWithURL:[self makeJsonURLWithName:name]];
     
     self.connection = [[NSURLConnection alloc] initWithRequest:self.request
@@ -37,6 +38,7 @@
 
 -(NSURL*)makeJsonURLWithName:(NSString*)name
 {
+    //makes the url for the requested json
     NSString *urlString = [NSString stringWithFormat:@"https://127.0.0.1:8000/get_json?file=json/%@",name];
     
     NSURL *url = [NSURL URLWithString:urlString];
@@ -72,7 +74,7 @@
         return;
     }
     
-    
+    //return the serializated json
     if ([self.delegate respondsToSelector:@selector(request:didFinishWithJson:)])
     {
         [self.delegate request:self didFinishWithJson:parsedData];
