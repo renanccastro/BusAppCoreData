@@ -24,7 +24,6 @@
 		E8BAF75A1896BA330087E999 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E8BAF7581896BA330087E999 /* InfoPlist.strings */; };
 		E8BAF75C1896BA330087E999 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BAF75B1896BA330087E999 /* main.m */; };
 		E8BAF7601896BA330087E999 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BAF75F1896BA330087E999 /* AppDelegate.m */; };
-		E8BAF7631896BA330087E999 /* BusAppCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8BAF7611896BA330087E999 /* BusAppCoreData.xcdatamodeld */; };
 		E8BAF7651896BA330087E999 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8BAF7641896BA330087E999 /* Images.xcassets */; };
 		E8BAF76C1896BA330087E999 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF76B1896BA330087E999 /* XCTest.framework */; };
 		E8BAF76D1896BA330087E999 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF74D1896BA330087E999 /* Foundation.framework */; };
@@ -76,7 +75,6 @@
 		E8BAF75D1896BA330087E999 /* BusAppCoreData-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BusAppCoreData-Prefix.pch"; sourceTree = "<group>"; };
 		E8BAF75E1896BA330087E999 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E8BAF75F1896BA330087E999 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E8BAF7621896BA330087E999 /* BusAppCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BusAppCoreData.xcdatamodel; sourceTree = "<group>"; };
 		E8BAF7641896BA330087E999 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E8BAF76A1896BA330087E999 /* BusAppCoreDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusAppCoreDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BAF76B1896BA330087E999 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -194,7 +192,6 @@
 				E8BAF75E1896BA330087E999 /* AppDelegate.h */,
 				E8BAF75F1896BA330087E999 /* AppDelegate.m */,
 				E8BAF7641896BA330087E999 /* Images.xcassets */,
-				E8BAF7611896BA330087E999 /* BusAppCoreData.xcdatamodeld */,
 				E8BAF7561896BA330087E999 /* Supporting Files */,
 			);
 			path = BusAppCoreData;
@@ -336,7 +333,6 @@
 				ABA8476D1896CE0B008B0172 /* StopsNearViewController.m in Sources */,
 				E8BAF7601896BA330087E999 /* AppDelegate.m in Sources */,
 				E8BAF75C1896BA330087E999 /* main.m in Sources */,
-				E8BAF7631896BA330087E999 /* BusAppCoreData.xcdatamodeld in Sources */,
 				B9F926B01896BC7400B5A61E /* CoreDataAndRequestSupervisor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,11 +557,10 @@
 		E8BAF7611896BA330087E999 /* BusAppCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E8BAF7621896BA330087E999 /* BusAppCoreData.xcdatamodel */,
 			);
-			currentVersion = E8BAF7621896BA330087E999 /* BusAppCoreData.xcdatamodel */;
-			path = BusAppCoreData.xcdatamodeld;
-			sourceTree = "<group>";
+			name = BusAppCoreData.xcdatamodeld;
+			path = /Users/renancastro/Desktop/Projetos/Challenge2/BusAppCoreData/BusAppCoreData/BusAppCoreData/BusAppCoreData.xcdatamodeld;
+			sourceTree = "<absolute>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
