@@ -32,6 +32,7 @@
 		E8BAF76F1896BA330087E999 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF7531896BA330087E999 /* CoreData.framework */; };
 		E8BAF7771896BA330087E999 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E8BAF7751896BA330087E999 /* InfoPlist.strings */; };
 		E8BAF7791896BA330087E999 /* BusAppCoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BAF7781896BA330087E999 /* BusAppCoreDataTests.m */; };
+		E8C22A3D189818380050CD0B /* line_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E8C22A3C189818380050CD0B /* line_1.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		E8BAF7741896BA330087E999 /* BusAppCoreDataTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BusAppCoreDataTests-Info.plist"; sourceTree = "<group>"; };
 		E8BAF7761896BA330087E999 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E8BAF7781896BA330087E999 /* BusAppCoreDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusAppCoreDataTests.m; sourceTree = "<group>"; };
+		E8C22A3C189818380050CD0B /* line_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = line_1.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 			children = (
 				E89809311896D6C500ECE205 /* Storyboard.storyboard */,
 				E89809351896DC4900ECE205 /* BusAppViewController.h */,
+				E8C22A3C189818380050CD0B /* line_1.json */,
 				E89809361896DC4900ECE205 /* BusAppViewController.m */,
 				ABA847671896CB2F008B0172 /* Controller */,
 				B9F926AD1896BC4600B5A61E /* Model */,
@@ -304,6 +307,7 @@
 				E8BAF75A1896BA330087E999 /* InfoPlist.strings in Resources */,
 				E8BAF7651896BA330087E999 /* Images.xcassets in Resources */,
 				E89809321896D6C500ECE205 /* Storyboard.storyboard in Resources */,
+				E8C22A3D189818380050CD0B /* line_1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

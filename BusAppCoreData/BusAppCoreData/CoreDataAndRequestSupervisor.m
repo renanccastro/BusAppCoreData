@@ -9,6 +9,7 @@
 #import "CoreDataAndRequestSupervisor.h"
 #import "ServerUpdateRequest.h"
 #import "Bus_line.h"
+#import "Bus_points.h"
 
 @interface CoreDataAndRequestSupervisor () <ServerUpdateRequestDelegate>
 
@@ -60,9 +61,9 @@ static CoreDataAndRequestSupervisor *supervisor;
     ServerUpdateRequest *serverUpdate = [[ServerUpdateRequest alloc] init];
 //    NSDate *currentDate = [NSDate date];
     
-    NSBlockOperation *operation = [[NSBlockOperation alloc] init];
-    
-    [operation addExecutionBlock:^{
+//    NSBlockOperation *operation = [[NSBlockOperation alloc] init];
+//    
+//    [operation addExecutionBlock:^{
     
         if(![prefs integerForKey:@"version"])
         {
@@ -82,9 +83,9 @@ static CoreDataAndRequestSupervisor *supervisor;
         [serverUpdate requestServerUpdateWithVersion:[prefs integerForKey:@"version"]
                                         withDelegate:self];
         
-    }];
+//    }];
     
-    [self.queue addOperation:operation];
+//    [self.queue addOperation:operation];
 }
 
 //-(BOOL)needUpdateSince:(NSDate*)currentDate
@@ -106,45 +107,100 @@ static CoreDataAndRequestSupervisor *supervisor;
 
 #pragma mark - core data methods
 
--(BOOL) saveBusLineWithJsonString:(NSData*)jsonData{
+-(BOOL) saveBusLineWithJsonData:(NSData*)jsonData{
 	NSError *jsonParsingError = nil;
 	NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&jsonParsingError];
+	
 	if (jsonParsingError)
 		return NO;
 	
-	
-	Bus_line *bus = [self getBusWithWebCode:[dictionary[@"web_code"] integerValue]];
-	
+	Bus_line *bus = [self getBusWithWebCode:[dictionary[@"web_code"] intValue]];
+	#warning AINDA FALTA IMPLEMENTAR A ADIÇÃO DAS POLYLINES!!!!
+
 	//if there wasn't a bus with the same code:
 	if (bus == nil){
-		//Create a new bus_line
-		Bus_line* line = [NSEntityDescription
+		//Create a new bus_line with name new_line
+		Bus_line* new_line = [NSEntityDescription
 						  
 						  insertNewObjectForEntityForName:@"Bus_line"
 						  
 						  inManagedObjectContext:self.context];
-		line.full_name = dictionary[@"name"];
+		new_line.full_name = dictionary[@"name"];
 		
-		//Getting all numbers in the string.
-		NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\d" options:NSRegularExpressionCaseInsensitive error:nil];
-		NSArray *matches = [regex matchesInString:dictionary[@"name"]
-										  options:0
-											range:NSMakeRange(0, [dictionary[@"name"] length])];
-		line.line_number = [NSNumber numberWithInt:[[matches lastObject] integerValue] ];
-		line.web_number = dictionary[@"web_code"];
 		
-//		NSMutableArray* stops = [[NSMutableArray alloc] init];
-#warning TODO
+		new_line.line_number = [self getBusNumberFromFullName:new_line.full_name];
+		new_line.web_number = [[NSNumber alloc ] initWithInt:[dictionary[@"web_code"] integerValue]];
+		NSLog(@"%@",new_line.web_number);
+		Bus_points* bus_stop;
 		
+		for (NSDictionary* point in dictionary[@"pontos"]) {
+			//Set the bus_stop variable to the database stop point
+			// IF THERE ISN`T A BUS STOP WITH THIS LAT AND LONG, CREATE A NEW ONE
+			if (!(bus_stop = [self getBusPointWithLatitude:[dictionary[@"lat"] doubleValue] withLongitude:[dictionary[@"lng"] doubleValue]])) {
+				//Create a new bus_point
+				Bus_points* stop = [NSEntityDescription
+								  
+								  insertNewObjectForEntityForName:@"Bus_points"
+								  
+								  inManagedObjectContext:self.context];
+				stop.lat = point[@"lat"];
+				stop.lng = point[@"lng"];
+				[stop addOnibus_que_passamObject:new_line];
+				[new_line addStopsObject:stop];
+			}
+			else{
+				[bus_stop addOnibus_que_passamObject:new_line];
+				[new_line addStopsObject:bus_stop];
+			}
+
+		}
 		
 	}
-	//if there already has
+	//IF THERE WAS ALREADY A BUS IN THE DATABASE
 	else{
 		bus.full_name = dictionary[@"name"];
-		bus.web_number = dictionary[@"web_code"];
 		
+		//Getting all numbers in the string.
+		bus.line_number = [self getBusNumberFromFullName:bus.full_name];
+		
+		bus.web_number = [[NSNumber alloc ] initWithInt:[dictionary[@"web_code"] integerValue]];
+
+		for (Bus_points* stops in [self getBusLineStops:bus]) {
+			[stops removeOnibus_que_passamObject:bus];
+			NSLog(@"%@ %@",stops.lat,stops.lng);
+		}
+		Bus_points* bus_stop = nil;
+		for (NSDictionary* point in dictionary[@"pontos"]) {
+			bus_stop = [self getBusPointWithLatitude:[point[@"lat"] doubleValue] withLongitude:[point[@"lng"] doubleValue]];
+			NSLog(@"%f, %f",[point[@"lat"] doubleValue] ,[point[@"lng"] doubleValue] );
+			//Set the bus_stop variable to the database stop point
+			// IF THERE ISN`T A BUS STOP WITH THIS LAT AND LONG, CREATE A NEW ONE
+			if (bus_stop == nil) {
+				//Create a new bus_point
+				Bus_points* stop = [NSEntityDescription
+									
+									insertNewObjectForEntityForName:@"Bus_points"
+									
+									inManagedObjectContext:self.context];
+				stop.lat = point[@"lat"];
+				stop.lng = point[@"lng"];
+				[stop addOnibus_que_passamObject:bus];
+				[bus addStopsObject:stop];
+			}
+			else{
+				[bus_stop addOnibus_que_passamObject:bus];
+				[bus addStopsObject:bus_stop];
+			}
+			
+		}
 	}
-	return YES;
+	NSError * saveError;
+	[self.context save:&saveError];
+		
+#warning TODO
+		
+	
+	return saveError ? NO : YES;
 }
 
 //get bus from database with identifider(web_code)
@@ -157,14 +213,14 @@ static CoreDataAndRequestSupervisor *supervisor;
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	[request setEntity:entityDescription];
 	NSPredicate *predicate = [NSPredicate predicateWithFormat:
-							  @"web_number == %@", web_code];
+							  @"web_number == %d", web_code];
 	[request setPredicate:predicate];
 	NSError *error;
 	NSArray *array = [self.context executeFetchRequest:request error:&error];
 	if (error){
 		NSLog(@"error getting bus");
 	}
-	return [array lastObject];
+	return [array firstObject];
 }
 
 //get bus stop with lat and lng
@@ -175,8 +231,9 @@ static CoreDataAndRequestSupervisor *supervisor;
 	
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	[request setEntity:entityDescription];
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:
-							  @"lat == %@ AND lng == %@", lat, lng];
+//	NSPredicate *predicate = [NSPredicate predicateWithFormat:
+//							  @"ANY"];
+	NSPredicate* predicate = [NSPredicate predicateWithFormat:@"lat == %lf AND lng == %lf",lat, lng];
 	[request setPredicate:predicate];
 	NSError *error;
 	NSArray *array = [self.context executeFetchRequest:request error:&error];
@@ -184,7 +241,7 @@ static CoreDataAndRequestSupervisor *supervisor;
 		NSLog(@"error getting bus");
 	}
 	
-	return [array lastObject];
+	return [array firstObject];
 }
 
 //Return all stops from one bus line
@@ -196,14 +253,27 @@ static CoreDataAndRequestSupervisor *supervisor;
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	[request setEntity:entityDescription];
 	NSPredicate *predicate = [NSPredicate predicateWithFormat:
-							  @"onibus_que_passam CONTAINS %@", bus_line];
+							  @"ANY onibus_que_passam.web_number == %d", [bus_line.web_number integerValue]];
 	[request setPredicate:predicate];
 	NSError *error;
 	NSArray *array = [self.context executeFetchRequest:request error:&error];
+	NSLog(@"%@",[[array firstObject] class]);
 	if (error){
 		NSLog(@"error getting bus");
 	}
 	return array;
+}
+
+-(NSNumber*) getBusNumberFromFullName:(NSString*)name{
+	//Getting all numbers in the string.
+	NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\d" options:	NSRegularExpressionCaseInsensitive error:nil];
+	NSTextCheckingResult *match = [regex firstMatchInString:name
+													options:0
+													  range:NSMakeRange(0, [name length])];
+	NSRange range = NSMakeRange([match range].location, 3);
+	
+	return [[NSNumber alloc] initWithInt:[[name substringWithRange:range] integerValue]];
+
 }
 
 

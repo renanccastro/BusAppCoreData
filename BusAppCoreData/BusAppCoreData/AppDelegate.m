@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "CoreDataAndRequestSupervisor.h"
 
 @implementation AppDelegate
 
@@ -16,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	
+	[[CoreDataAndRequestSupervisor startSupervisor] setContext: self.managedObjectContext];
     return YES;
 }
 

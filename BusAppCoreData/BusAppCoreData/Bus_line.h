@@ -13,7 +13,7 @@
 
 @interface Bus_line : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * full_name;
+@property (nonatomic, retain) NSString * full_name;
 @property (nonatomic, retain) NSNumber * line_number;
 @property (nonatomic, retain) NSNumber * web_number;
 @property (nonatomic, retain) NSSet *polyline_ida;

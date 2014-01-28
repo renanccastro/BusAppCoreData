@@ -30,9 +30,15 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    CoreDataAndRequestSupervisor *supervisor = [CoreDataAndRequestSupervisor startSupervisor];
-    
-    [supervisor requestBusLines];
+//    CoreDataAndRequestSupervisor *supervisor = [CoreDataAndRequestSupervisor startSupervisor];
+//    
+//    [supervisor requestBusLines];
+	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"line_1" ofType:@"json"];
+    NSData *myData = [NSData dataWithContentsOfFile:filePath];
+    if (myData) {
+		CoreDataAndRequestSupervisor* supervisor = [CoreDataAndRequestSupervisor startSupervisor];
+		[supervisor saveBusLineWithJsonData:myData];
+    }
 }
 
 - (void)didReceiveMemoryWarning
