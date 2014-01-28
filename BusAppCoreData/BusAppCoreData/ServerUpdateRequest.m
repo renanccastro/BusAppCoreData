@@ -35,7 +35,7 @@
 {
     
     //creates the url of the servidor
-    NSString *strURL = [NSString stringWithFormat:@"127.0.0.1:8000/update?version=%d",version];
+    NSString *strURL = [NSString stringWithFormat:@"http://127.0.0.1:8000/update?version=%d",version];
     
     NSURL *url = [NSURL URLWithString:strURL];
     
@@ -57,11 +57,23 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSString *jsons = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
+    NSError *error = [[NSError alloc] init];
+    
+    NSDictionary *parsedData = _data ? [NSJSONSerialization JSONObjectWithData:_data options:0 error:&error] : nil;
+    
+    if (error)
+    {
+        if ([self.delegate respondsToSelector:@selector(request:didFailWithError:)])
+        {
+            [self.delegate request:self didFailWithError:error];
+        }
+        
+        return;
+    }
     
     if([self.delegate respondsToSelector:@selector(request:didFinishWithObject:)])
     {
-        [self.delegate request:self didFinishWithObject:jsons];
+        [self.delegate request:self didFinishWithObject:parsedData];
     }
 }
 

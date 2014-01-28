@@ -60,14 +60,10 @@ static CoreDataAndRequestSupervisor *supervisor;
     ServerUpdateRequest *serverUpdate = [[ServerUpdateRequest alloc] init];
 //    NSDate *currentDate = [NSDate date];
     
-    NSBlockOperation *operation = [[NSBlockOperation alloc] init];
-    
-    [operation addExecutionBlock:^{
-    
-        if(![prefs integerForKey:@"version"])
-        {
-            [prefs setInteger:0 forKey:@"version"];
-        }
+    if(![prefs integerForKey:@"version"])
+    {
+        [prefs setInteger:0 forKey:@"version"];
+    }
     
 //      if(![prefs objectForKey:@"last update"])
 //      {
@@ -79,12 +75,8 @@ static CoreDataAndRequestSupervisor *supervisor;
 //          TODO
 //      }
     
-        [serverUpdate requestServerUpdateWithVersion:[prefs integerForKey:@"version"]
-                                        withDelegate:self];
-        
-    }];
-    
-    [self.queue addOperation:operation];
+    [serverUpdate requestServerUpdateWithVersion:[prefs integerForKey:@"version"]
+                                    withDelegate:self];
 }
 
 //-(BOOL)needUpdateSince:(NSDate*)currentDate
@@ -101,6 +93,14 @@ static CoreDataAndRequestSupervisor *supervisor;
 
 -(void)request:(ServerUpdateRequest *)request didFinishWithObject:(id)object
 {
+    NSBlockOperation *operation = [[NSBlockOperation alloc] init];
+    
+    [operation addExecutionBlock:^{
+        
+    }];
+    
+    [self.queue addOperation:operation];
+    
     
 }
 
