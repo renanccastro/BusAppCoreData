@@ -33,6 +33,7 @@
 		E8BAF7771896BA330087E999 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E8BAF7751896BA330087E999 /* InfoPlist.strings */; };
 		E8BAF7791896BA330087E999 /* BusAppCoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BAF7781896BA330087E999 /* BusAppCoreDataTests.m */; };
 		E8C22A3D189818380050CD0B /* line_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E8C22A3C189818380050CD0B /* line_1.json */; };
+		E8C22A40189832D10050CD0B /* BusAppCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8C22A3E189832D10050CD0B /* BusAppCoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		E8BAF7761896BA330087E999 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E8BAF7781896BA330087E999 /* BusAppCoreDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusAppCoreDataTests.m; sourceTree = "<group>"; };
 		E8C22A3C189818380050CD0B /* line_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = line_1.json; sourceTree = "<group>"; };
+		E8C22A3F189832D10050CD0B /* BusAppCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BusAppCoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +136,8 @@
 				B9F926AA1896BBDC00B5A61E /* Polyline_points.h */,
 				B9F926AB1896BBDC00B5A61E /* Polyline_points.m */,
 				B9F926A71896BBDC00B5A61E /* Bus_line.h */,
+				E8C22A3E189832D10050CD0B /* BusAppCoreData.xcdatamodeld */,
 				B9F926A81896BBDC00B5A61E /* Bus_line.m */,
-				E8BAF7611896BA330087E999 /* BusAppCoreData.xcdatamodeld */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -334,6 +336,7 @@
 				B9F926B61896CE1E00B5A61E /* JsonRequest.m in Sources */,
 				B9F926A91896BBDC00B5A61E /* Bus_line.m in Sources */,
 				ABA8476A1896CBA5008B0172 /* TrajectoryPlanningViewController.m in Sources */,
+				E8C22A40189832D10050CD0B /* BusAppCoreData.xcdatamodeld in Sources */,
 				B9F926A61896BBDC00B5A61E /* Bus_points.m in Sources */,
 				E89809371896DC4900ECE205 /* BusAppViewController.m in Sources */,
 				ABA8476D1896CE0B008B0172 /* StopsNearViewController.m in Sources */,
@@ -560,13 +563,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E8BAF7611896BA330087E999 /* BusAppCoreData.xcdatamodeld */ = {
+		E8C22A3E189832D10050CD0B /* BusAppCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E8C22A3F189832D10050CD0B /* BusAppCoreData.xcdatamodel */,
 			);
-			name = BusAppCoreData.xcdatamodeld;
-			path = /Users/renancastro/Desktop/Projetos/Challenge2/BusAppCoreData/BusAppCoreData/BusAppCoreData/BusAppCoreData.xcdatamodeld;
-			sourceTree = "<absolute>";
+			currentVersion = E8C22A3F189832D10050CD0B /* BusAppCoreData.xcdatamodel */;
+			path = BusAppCoreData.xcdatamodeld;
+			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */

@@ -10,6 +10,7 @@
 #import "ServerUpdateRequest.h"
 #import "Bus_line.h"
 #import "Bus_points.h"
+#import "JsonRequest.h"
 
 @interface CoreDataAndRequestSupervisor () <ServerUpdateRequestDelegate,JsonRequestDelegate>
 
@@ -60,32 +61,14 @@ static CoreDataAndRequestSupervisor *supervisor;
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     ServerUpdateRequest *serverUpdate = [[ServerUpdateRequest alloc] init];
     
-//    NSBlockOperation *operation = [[NSBlockOperation alloc] init];
-//    
-//    [operation addExecutionBlock:^{
-    
         if(![prefs integerForKey:@"version"])
         {
             [prefs setInteger:0 forKey:@"version"];
         }
     
-//      if(![prefs objectForKey:@"last update"])
-//      {
-//          [prefs setObject:currentDate forKey:@"last update"];
-//      }
-//    
-//
-//      if([self needUpdateSince:currentDate])
-//      {
-//          TODO
-//      }
-    
         [serverUpdate requestServerUpdateWithVersion:[prefs integerForKey:@"version"]
                                         withDelegate:self];
         
-//    }];
-    
-//    [self.queue addOperation:operation];
 }
 
 //-(BOOL)needUpdateSince:(NSDate*)currentDate
@@ -257,8 +240,6 @@ static CoreDataAndRequestSupervisor *supervisor;
 	
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	[request setEntity:entityDescription];
-//	NSPredicate *predicate = [NSPredicate predicateWithFormat:
-//							  @"ANY"];
 	NSPredicate* predicate = [NSPredicate predicateWithFormat:@"lat == %lf AND lng == %lf",lat, lng];
 	[request setPredicate:predicate];
 	NSError *error;
