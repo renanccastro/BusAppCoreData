@@ -9,8 +9,9 @@
 #import "CoreDataAndRequestSupervisor.h"
 #import "ServerUpdateRequest.h"
 #import "Bus_line.h"
+#import "JsonRequest.h"
 
-@interface CoreDataAndRequestSupervisor () <ServerUpdateRequestDelegate>
+@interface CoreDataAndRequestSupervisor () <ServerUpdateRequestDelegate,JsonRequestDelegate>
 
 @property (nonatomic, strong) UIManagedDocument * document;
 @property (nonatomic, strong) NSMutableArray *jsonsRequests;
@@ -75,6 +76,7 @@ static CoreDataAndRequestSupervisor *supervisor;
 //          TODO
 //      }
     
+    //makes a request for 
     [serverUpdate requestServerUpdateWithVersion:[prefs integerForKey:@"version"]
                                     withDelegate:self];
 }
@@ -96,12 +98,38 @@ static CoreDataAndRequestSupervisor *supervisor;
     NSBlockOperation *operation = [[NSBlockOperation alloc] init];
     
     [operation addExecutionBlock:^{
+    
+        //Update the current version of the server
+        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+        
+        [prefs setInteger:[[object objectForKey:@"newest_version"] integerValue] forKey:@"version"];
+        
+        NSArray *allJsons = [object objectForKey:@"diff_files"];
+        
+        //make a request for the jsons with the bus lines points
+        for(NSString *busLine in allJsons)
+        {
+            JsonRequest *jsonRequest = [[JsonRequest alloc] init];
+            [jsonRequest requestJsonWithName:busLine withdelegate:self];
+            [self.jsonsRequests addObject:jsonRequest];
+        }
         
     }];
     
     [self.queue addOperation:operation];
     
-    
+}
+
+#pragma mark - json request delegate  methods
+
+-(void)request:(JsonRequest *)request didFailInGetJson:(NSError *)error
+{
+    //TODO
+}
+
+-(void)request:(JsonRequest *)request didFinishWithJson:(id)json
+{
+    //Core Data Methods Here
 }
 
 #pragma mark - core data methods
