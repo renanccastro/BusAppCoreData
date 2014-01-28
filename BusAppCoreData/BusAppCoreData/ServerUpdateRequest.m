@@ -57,8 +57,8 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSError *error = [[NSError alloc] init];
-    
+    NSError *error = nil;
+
     NSDictionary *parsedData = _data ? [NSJSONSerialization JSONObjectWithData:_data options:0 error:&error] : nil;
     
     if (error)

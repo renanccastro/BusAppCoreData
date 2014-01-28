@@ -59,18 +59,20 @@ static CoreDataAndRequestSupervisor *supervisor;
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     ServerUpdateRequest *serverUpdate = [[ServerUpdateRequest alloc] init];
-//    NSDate *currentDate = [NSDate date];
     
     if(![prefs integerForKey:@"version"])
     {
         [prefs setInteger:0 forKey:@"version"];
     }
-    
-//      if(![prefs objectForKey:@"last update"])
-//      {
-//          [prefs setObject:currentDate forKey:@"last update"];
-//      }
 //    
+//    if(![prefs objectForKey:@"last update"])
+//    {
+//        NSDate *currentDate = [NSDate date];
+//        [prefs setObject:currentDate forKey:@"last update"];
+//    }
+//    
+//    
+//
 //      if([self needUpdateSince:currentDate])
 //      {
 //          TODO
@@ -95,15 +97,11 @@ static CoreDataAndRequestSupervisor *supervisor;
 
 -(void)request:(ServerUpdateRequest *)request didFinishWithObject:(id)object
 {
-    NSBlockOperation *operation = [[NSBlockOperation alloc] init];
-    
-    [operation addExecutionBlock:^{
-    
         //Update the current version of the server
         NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
         
         [prefs setInteger:[[object objectForKey:@"newest_version"] integerValue] forKey:@"version"];
-        
+    
         NSArray *allJsons = [object objectForKey:@"diff_files"];
         
         //make a request for the jsons with the bus lines points
@@ -113,10 +111,6 @@ static CoreDataAndRequestSupervisor *supervisor;
             [jsonRequest requestJsonWithName:busLine withdelegate:self];
             [self.jsonsRequests addObject:jsonRequest];
         }
-        
-    }];
-    
-    [self.queue addOperation:operation];
     
 }
 
