@@ -7,6 +7,7 @@
 //
 
 #import "StopsNearViewController.h"
+#import "CoreDataAndRequestSupervisor.h"
 
 @interface StopsNearViewController ()
 
@@ -27,6 +28,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning

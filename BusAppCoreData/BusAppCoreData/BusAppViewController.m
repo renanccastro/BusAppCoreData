@@ -7,6 +7,7 @@
 //
 
 #import "BusAppViewController.h"
+#import "CoreDataAndRequestSupervisor.h"
 
 @interface BusAppViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *a;
@@ -28,6 +29,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    CoreDataAndRequestSupervisor *supervisor = [CoreDataAndRequestSupervisor startSupervisor];
+    
+    [supervisor requestBusLines];
 }
 
 - (void)didReceiveMemoryWarning

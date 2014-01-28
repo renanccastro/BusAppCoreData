@@ -14,6 +14,7 @@
 		B9F926AC1896BBDC00B5A61E /* Polyline_points.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926AB1896BBDC00B5A61E /* Polyline_points.m */; };
 		B9F926B01896BC7400B5A61E /* CoreDataAndRequestSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926AF1896BC7400B5A61E /* CoreDataAndRequestSupervisor.m */; };
 		B9F926B61896CE1E00B5A61E /* JsonRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926B51896CE1E00B5A61E /* JsonRequest.m */; };
+		B9F926B71897D02300B5A61E /* ServerUpdateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926B21896CC9D00B5A61E /* ServerUpdateRequest.m */; };
 		E89809321896D6C500ECE205 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89809311896D6C500ECE205 /* Storyboard.storyboard */; };
 		E89809341896D84D00ECE205 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89809331896D84D00ECE205 /* MapKit.framework */; };
 		E89809371896DC4900ECE205 /* BusAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E89809361896DC4900ECE205 /* BusAppViewController.m */; };
@@ -321,9 +322,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9F926B71897D02300B5A61E /* ServerUpdateRequest.m in Sources */,
 				B9F926AC1896BBDC00B5A61E /* Polyline_points.m in Sources */,
 				B9F926B61896CE1E00B5A61E /* JsonRequest.m in Sources */,
-				ABA847701896CE86008B0172 /* BusAppViewController.m in Sources */,
 				B9F926A91896BBDC00B5A61E /* Bus_line.m in Sources */,
 				ABA8476A1896CBA5008B0172 /* TrajectoryPlanningViewController.m in Sources */,
 				B9F926A61896BBDC00B5A61E /* Bus_points.m in Sources */,

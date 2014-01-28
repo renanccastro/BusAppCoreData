@@ -11,6 +11,8 @@
 @interface CoreDataAndRequestSupervisor : NSObject
 
 @property (nonatomic) NSManagedObjectContext* context;
+
 -(void) requestBusLines;
++(CoreDataAndRequestSupervisor*) startSupervisor;
 
 @end

@@ -13,20 +13,98 @@
 @interface CoreDataAndRequestSupervisor () <ServerUpdateRequestDelegate>
 
 @property (nonatomic, strong) UIManagedDocument * document;
-@property (nonatomic, strong) NSArray *jsonsRequests;
-@property (nonatomic, strong) ServerUpdateRequest *serverUpdate;
+@property (nonatomic, strong) NSMutableArray *jsonsRequests;
+@property (nonatomic, strong) NSOperationQueue *queue;
 
 @end
 
 @implementation CoreDataAndRequestSupervisor
 
+static CoreDataAndRequestSupervisor *supervisor;
+
+#pragma mark -  singleton methods
+
++(id) allocWithZone:(struct _NSZone *)zone
+{
+    return [CoreDataAndRequestSupervisor startSupervisor];
+}
+
++(CoreDataAndRequestSupervisor*) startSupervisor
+{
+    if(!supervisor)
+    {
+        supervisor = [[super allocWithZone:nil]  init];
+    }
+    
+    return supervisor;
+}
+
+-(id) init
+{
+    self = [super init];
+    
+    if(self)
+    {
+        self.jsonsRequests = [[NSMutableArray alloc] init];
+        self.queue = [[NSOperationQueue alloc] init];
+    }
+    
+    return self;
+}
+
+#pragma mark - request methods
+
 -(void)requestBusLines
 {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    ServerUpdateRequest *serverUpdate = [[ServerUpdateRequest alloc] init];
+//    NSDate *currentDate = [NSDate date];
     
+    NSBlockOperation *operation = [[NSBlockOperation alloc] init];
     
+    [operation addExecutionBlock:^{
     
+        if(![prefs integerForKey:@"version"])
+        {
+            [prefs setInteger:0 forKey:@"version"];
+        }
+    
+//      if(![prefs objectForKey:@"last update"])
+//      {
+//          [prefs setObject:currentDate forKey:@"last update"];
+//      }
+//    
+//      if([self needUpdateSince:currentDate])
+//      {
+//          TODO
+//      }
+    
+        [serverUpdate requestServerUpdateWithVersion:[prefs integerForKey:@"version"]
+                                        withDelegate:self];
+        
+    }];
+    
+    [self.queue addOperation:operation];
+}
+
+//-(BOOL)needUpdateSince:(NSDate*)currentDate
+//{
+//    TODO
+//}
+
+#pragma mark - server update delegate methods
+
+-(void)request:(ServerUpdateRequest *)request didFailWithError:(NSError *)error
+{
+    //TODO
+}
+
+-(void)request:(ServerUpdateRequest *)request didFinishWithObject:(id)object
+{
     
 }
+
+#pragma mark - core data methods
 
 -(BOOL) saveBusLineWithJsonString:(NSData*)jsonData{
 	NSError *jsonParsingError = nil;
