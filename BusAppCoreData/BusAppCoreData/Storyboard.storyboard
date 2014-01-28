@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Bus Line View Controller-->
         <scene sceneID="fcq-NL-50x">
             <objects>
-                <viewController id="bxf-Rf-9fD" sceneMemberID="viewController">
+                <viewController id="bxf-Rf-9fD" customClass="BusLineViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dwy-Zo-SwX"/>
                         <viewControllerLayoutGuide type="bottom" id="zFi-eO-Oth"/>
@@ -41,6 +41,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EAh-AO-1ee"/>
+                    <connections>
+                        <outlet property="webPage" destination="ghI-2L-iLI" id="Hh3-ic-bNr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRg-Md-zVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,9 +75,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="riz-0x-P4a"/>
-                    <connections>
-                        <segue destination="bxf-Rf-9fD" kind="push" id="twg-mC-Dq0"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uI-ZH-GQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -145,7 +145,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="XOq-n4-aYC" kind="push" identifier="teste" id="sAn-Wo-hdf"/>
+                                            <segue destination="bxf-Rf-9fD" kind="push" id="iQS-g8-VNA"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -170,13 +170,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JQS-Ol-Zao"/>
-                    <connections>
-                        <outlet property="a" destination="YB3-JM-T9o" id="9yU-3e-bD1"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLP-hg-LwM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1940" y="-122"/>
+            <point key="canvasLocation" x="1988" y="-112"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="umu-VO-FdU">
