@@ -58,11 +58,24 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSString *jsons = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+
+    NSDictionary *parsedData = _data ? [NSJSONSerialization JSONObjectWithData:_data options:0 error:&error] : nil;
     
+    if (error)
+    {
+        if ([self.delegate respondsToSelector:@selector(request:didFailWithError:)])
+        {
+            [self.delegate request:self didFailWithError:error];
+        }
+        
+        return;
+    }
+    
+    //return for the supervisor the dictionary with the jsons names
     if([self.delegate respondsToSelector:@selector(request:didFinishWithObject:)])
     {
-        [self.delegate request:self didFinishWithObject:jsons];
+        [self.delegate request:self didFinishWithObject:parsedData];
     }
 }
 

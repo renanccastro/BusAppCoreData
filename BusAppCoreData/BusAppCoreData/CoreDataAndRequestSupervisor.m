@@ -11,7 +11,7 @@
 #import "Bus_line.h"
 #import "Bus_points.h"
 
-@interface CoreDataAndRequestSupervisor () <ServerUpdateRequestDelegate>
+@interface CoreDataAndRequestSupervisor () <ServerUpdateRequestDelegate,JsonRequestDelegate>
 
 @property (nonatomic, strong) UIManagedDocument * document;
 @property (nonatomic, strong) NSMutableArray *jsonsRequests;
@@ -59,7 +59,6 @@ static CoreDataAndRequestSupervisor *supervisor;
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     ServerUpdateRequest *serverUpdate = [[ServerUpdateRequest alloc] init];
-//    NSDate *currentDate = [NSDate date];
     
 //    NSBlockOperation *operation = [[NSBlockOperation alloc] init];
 //    
@@ -75,6 +74,7 @@ static CoreDataAndRequestSupervisor *supervisor;
 //          [prefs setObject:currentDate forKey:@"last update"];
 //      }
 //    
+//
 //      if([self needUpdateSince:currentDate])
 //      {
 //          TODO
@@ -102,7 +102,33 @@ static CoreDataAndRequestSupervisor *supervisor;
 
 -(void)request:(ServerUpdateRequest *)request didFinishWithObject:(id)object
 {
+        //Update the current version of the server
+        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+        
+        [prefs setInteger:[[object objectForKey:@"newest_version"] integerValue] forKey:@"version"];
     
+        NSArray *allJsons = [object objectForKey:@"diff_files"];
+        
+        //make a request for the jsons with the bus lines points
+        for(NSString *busLine in allJsons)
+        {
+            JsonRequest *jsonRequest = [[JsonRequest alloc] init];
+            [jsonRequest requestJsonWithName:busLine withdelegate:self];
+            [self.jsonsRequests addObject:jsonRequest];
+        }
+    
+}
+
+#pragma mark - json request delegate  methods
+
+-(void)request:(JsonRequest *)request didFailInGetJson:(NSError *)error
+{
+    //TODO
+}
+
+-(void)request:(JsonRequest *)request didFinishWithJson:(id)json
+{
+    //Core Data Methods Here
 }
 
 #pragma mark - core data methods
