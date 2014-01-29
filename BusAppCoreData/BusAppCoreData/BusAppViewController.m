@@ -8,7 +8,7 @@
 
 #import "BusAppViewController.h"
 #import "CoreDataAndRequestSupervisor.h"
-
+#import "Bus_line+Core_Data_Methods.h"
 @interface BusAppViewController ()
 
 @end
