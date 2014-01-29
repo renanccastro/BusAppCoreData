@@ -11,4 +11,9 @@
 
 @interface StopsNearViewController : UIViewController
 
+@property (nonatomic, strong) NSArray *annotations;
+
+-(void)updateMapView;
+-(void)addOverlay;
+
 @end

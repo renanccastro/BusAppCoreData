@@ -35,8 +35,8 @@
 	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"line_1" ofType:@"json"];
     NSData *myData = [NSData dataWithContentsOfFile:filePath];
     if (myData) {
-		CoreDataAndRequestSupervisor* supervisor = [CoreDataAndRequestSupervisor startSupervisor];
-		[supervisor saveBusLineWithJsonData:myData];
+//		CoreDataAndRequestSupervisor* supervisor = [CoreDataAndRequestSupervisor startSupervisor];
+//		[supervisor saveBusLineWithJsonData:myData];
     }
 }
 
