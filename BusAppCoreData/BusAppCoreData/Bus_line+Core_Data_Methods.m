@@ -31,7 +31,7 @@
 		new_line.line_number = [Bus_line getBusNumberFromFullName:new_line.full_name];
 		new_line.web_number = [[NSNumber alloc ] initWithInt:[parsedData[@"web_code"] integerValue]];
         
-        [Bus_line createReferencesForBus:new_line WithLineWithDictionary:parsedData];
+        [new_line createReferencesWithLineWithDictionary:parsedData];
 	}
 	//IF THERE WAS ALREADY A BUS IN THE DATABASE
 	else{
@@ -44,7 +44,7 @@
         
         [bus removeReferencesOfBusLine];
         
-        [Bus_line createReferencesForBus:bus WithLineWithDictionary:parsedData];
+        [bus createReferencesWithLineWithDictionary:parsedData];
         
 	}
 	NSError * saveError;
@@ -73,25 +73,25 @@
     }
 }
 
-+(void)createReferencesForBus:(Bus_line*)bus WithLineWithDictionary:(NSDictionary*)parsedData
+-(void)createReferencesWithLineWithDictionary:(NSDictionary*)parsedData
 {
     for(NSDictionary *point in parsedData[@"pontos"])
     {
-        [bus addStopsObject:[Bus_points createBusPointFromBusLine:bus
+        [self addStopsObject:[Bus_points createBusPointFromBusLine:self
                                                            withLat:[point[@"lat"] doubleValue]
 												  andLong:[point[@"lng"] doubleValue]]];;
     }
     
     for(NSDictionary *polyLine in parsedData[@"polyline_ida"])
     {
-        [bus addPolyline_idaObject:[Polyline_points createPolylinePointIdaWithBus:bus
+        [self addPolyline_idaObject:[Polyline_points createPolylinePointIdaWithBus:self
                                                                            withLat:[polyLine[@"lat"] doubleValue]
                                                                             andLng:[polyLine[@"lng"] doubleValue]]];
     }
     
     for(NSDictionary *polyLine in parsedData[@"polyline_volta"])
     {
-        [bus addPolyline_voltaObject:[Polyline_points createPolylinePointVoltaWithBus:bus
+        [self addPolyline_voltaObject:[Polyline_points createPolylinePointVoltaWithBus:self
                                                                                withLat:[polyLine[@"lat"] doubleValue]
                                                                                 andLng:[polyLine[@"lng"] doubleValue]]];
     }
