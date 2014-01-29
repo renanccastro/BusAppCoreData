@@ -8,7 +8,7 @@
 
 #import "BusAppViewController.h"
 #import "CoreDataAndRequestSupervisor.h"
-
+#import "Bus_line+Core_Data_Methods.h"
 @interface BusAppViewController ()
 
 @end
@@ -36,7 +36,8 @@
     NSData *myData = [NSData dataWithContentsOfFile:filePath];
     if (myData) {
 		CoreDataAndRequestSupervisor* supervisor = [CoreDataAndRequestSupervisor startSupervisor];
-		[supervisor saveBusLineWithJsonData:myData];
+        NSDictionary *parsedData = myData ? [NSJSONSerialization JSONObjectWithData:myData options:0 error:nil] : nil;
+        [Bus_line saveBusLineWithDictionary:parsedData];
     }
 }
 

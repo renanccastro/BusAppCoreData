@@ -18,6 +18,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	[[CoreDataAndRequestSupervisor startSupervisor] setContext: self.managedObjectContext];
+    
+//    [[CoreDataAndRequestSupervisor startSupervisor] requestBusLines];
+    
     return YES;
 }
 

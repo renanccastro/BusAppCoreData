@@ -14,6 +14,5 @@
 
 -(void) requestBusLines;
 +(CoreDataAndRequestSupervisor*) startSupervisor;
--(BOOL) saveBusLineWithJsonData:(NSData*)jsonData;
 
 @end

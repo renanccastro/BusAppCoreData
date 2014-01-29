@@ -51,7 +51,7 @@
     
     turn = [turn stringByAppendingString:@".web_number"];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY %@ == %d", turn, [bus.web_number integerValue]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY linhas_ida.web_number == %d", [bus.web_number integerValue]];
     [request setPredicate:predicate];
     
 	NSError *error;
@@ -83,6 +83,34 @@
 	else{
 		if (![point.linhas_ida containsObject:bus]) {
 			[point addLinhas_idaObject:bus];
+		}
+	}
+	
+	[context save:&error];
+	
+	return error == nil ? point : nil;
+}
+
++(Polyline_points*) createPolylinePointVoltaWithBus:(Bus_line*)bus withLat:(double)lat andLng:(double)lng
+{
+	NSManagedObjectContext* context = [CoreDataAndRequestSupervisor startSupervisor].context;
+	
+	NSNumber * lat_number = [NSNumber numberWithDouble:lat];
+	NSNumber * lng_number = [NSNumber numberWithDouble:lng];
+	NSError* error = nil;
+	
+	Polyline_points* point;
+	if (![Polyline_points getPolyLinePointsWithLatitude:lat andWithLongitude:lng]) {
+		point = [NSEntityDescription insertNewObjectForEntityForName:@"Polyline_points"
+                                              inManagedObjectContext:context];
+		
+		point.lat = lat_number;
+		point.lng = lng_number;
+		[point addLinhas_voltaObject:bus];
+	}
+	else{
+		if (![point.linhas_volta containsObject:bus]) {
+			[point addLinhas_voltaObject:bus];
 		}
 	}
 	

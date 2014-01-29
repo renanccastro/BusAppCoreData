@@ -7,16 +7,16 @@
 //
 
 #import "Bus_line+Core_Data_Methods.h"
-#import "Bus_points.h"
-#import "Polyline_points.h"
+#import "Bus_points+CoreDataMethods.h"
+#import "Polyline_points+CoreDataMethods.h"
 #import "CoreDataAndRequestSupervisor.h"
 
 @implementation Bus_line (Core_Data_Methods)
 
--(BOOL) saveBusLineWithDictionary:(NSDictionary*)parsedData
++(BOOL) saveBusLineWithDictionary:(NSDictionary*)parsedData
 {
 	CoreDataAndRequestSupervisor *supervisor = [CoreDataAndRequestSupervisor startSupervisor];
-	Bus_line *bus = [self getBusWithWebCode:[parsedData[@"web_code"] intValue]];
+	Bus_line *bus = [Bus_line getBusWithWebCode:[parsedData[@"web_code"] intValue]];
     
 	//if there wasn't a bus with the same code:
 	if (bus == nil)
@@ -28,30 +28,100 @@
         
 		new_line.full_name = parsedData[@"name"];
 		
-		new_line.line_number = [self getBusNumberFromFullName:new_line.full_name];
+		new_line.line_number = [Bus_line getBusNumberFromFullName:new_line.full_name];
 		new_line.web_number = [[NSNumber alloc ] initWithInt:[parsedData[@"web_code"] integerValue]];
-		
+        
+        [new_line createReferencesForBusLineWithDictionary:parsedData];
 	}
 	//IF THERE WAS ALREADY A BUS IN THE DATABASE
 	else{
 		bus.full_name = parsedData[@"name"];
 		
 		//Getting all numbers in the string.
-		bus.line_number = [self getBusNumberFromFullName:bus.full_name];
+		bus.line_number = [Bus_line getBusNumberFromFullName:bus.full_name];
 		
 		bus.web_number = [[NSNumber alloc ] initWithInt:[parsedData[@"web_code"] integerValue]];
+        
+        [bus removeReferencesOfBusLine];
+        
+        [bus createReferencesForBusLineWithDictionary:parsedData];
         
 	}
 	NSError * saveError;
 	[supervisor.context save:&saveError];
-    
-#warning TODO
-    
 	
 	return saveError ? NO : YES;
 }
 
--(NSNumber*) getBusNumberFromFullName:(NSString*)name{
+-(void)removeReferencesOfBusLine
+{
+    for(Bus_points *points in [Bus_points getBusLineStops:self])
+    {
+        [points removeOnibus_que_passamObject:self];
+    }
+    
+    for(Polyline_points *points in [Polyline_points getBusLineTrajectory:self
+                                                                withTurn:@"linhas_ida"])
+    {
+        [points removeLinhas_idaObject:self];
+    }
+    
+    for(Polyline_points *points in [Polyline_points getBusLineTrajectory:self
+                                                                withTurn:@"linhas_volta"])
+    {
+        [points removeLinhas_voltaObject:self];
+    }
+}
+
+-(void)createReferencesForBusLineWithDictionary:(NSDictionary*)parsedData
+{
+    for(NSDictionary *point in parsedData[@"pontos"])
+    {
+        [self addStopsObject:[Bus_points createBusPointFromBusLine:self
+                                                           withLat:[point[@"lat"] doubleValue]
+                                                           andLong:[point[@"lng"] doubleValue]]];
+    }
+    
+    for(NSDictionary *polyLine in parsedData[@"polyline_ida"])
+    {
+        [self addPolyline_idaObject:[Polyline_points createPolylinePointIdaWithBus:self
+                                                                           withLat:[polyLine[@"lat"] doubleValue]
+                                                                            andLng:[polyLine[@"lng"] doubleValue]]];
+    }
+    
+    for(NSDictionary *polyLine in parsedData[@"polyline_volta"])
+    {
+        [self addPolyline_voltaObject:[Polyline_points createPolylinePointVoltaWithBus:self
+                                                                               withLat:[polyLine[@"lat"] doubleValue]
+                                                                                andLng:[polyLine[@"lng"] doubleValue]]];
+    }
+}
+
+//get bus from database with identifider(web_code)
++(Bus_line*) getBusWithWebCode:(int)web_code
+{
+    NSManagedObjectContext* context = [CoreDataAndRequestSupervisor startSupervisor].context;
+
+    
+	//Check if it already exists:
+	NSEntityDescription *entityDescription = [NSEntityDescription
+											  
+											  entityForName:@"Bus_line" inManagedObjectContext:context];
+	
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	[request setEntity:entityDescription];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:
+							  @"web_number == %d", web_code];
+	[request setPredicate:predicate];
+	NSError *error;
+	NSArray *array = [context executeFetchRequest:request error:&error];
+	if (error){
+		NSLog(@"error getting bus");
+	}
+	return [array firstObject];
+}
+
++(NSNumber*) getBusNumberFromFullName:(NSString*)name{
 	//Getting all numbers in the string.
 	NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\d" options:	NSRegularExpressionCaseInsensitive error:nil];
 	NSTextCheckingResult *match = [regex firstMatchInString:name

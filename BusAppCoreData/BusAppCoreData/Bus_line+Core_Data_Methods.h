@@ -10,6 +10,6 @@
 
 @interface Bus_line (Core_Data_Methods)
 
--(BOOL) saveBusLineWithDictionary:(NSDictionary*)parsedData;
++(BOOL) saveBusLineWithDictionary:(NSDictionary*)parsedData;
 
 @end

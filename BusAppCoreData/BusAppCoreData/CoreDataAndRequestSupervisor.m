@@ -8,10 +8,9 @@
 
 #import "CoreDataAndRequestSupervisor.h"
 #import "ServerUpdateRequest.h"
-#import "Bus_line.h"
-#import "Bus_points.h"
+#import "Bus_line+Core_Data_Methods.h"
 #import "JsonRequest.h"
-#import "Polyline_points.h"
+
 
 @interface CoreDataAndRequestSupervisor () <ServerUpdateRequestDelegate,JsonRequestDelegate>
 
@@ -111,115 +110,20 @@ static CoreDataAndRequestSupervisor *supervisor;
 
 -(void)request:(JsonRequest *)request didFinishWithJson:(id)json
 {
-    //Core Data Methods Here
+    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+        
+        BOOL save =[Bus_line saveBusLineWithDictionary:json];
+        if(!save)
+        {
+            NSLog(@"i deu zica no save");
+        }
+        else
+        {
+            NSLog(@"Funfo mossu");
+        }
+    }];
+    
+    [self.queue addOperation:operation];
 }
-
-#pragma mark - core data methods
-
-//get bus stop with lat and lng
--(Bus_points*) getBusPointWithLatitude:(double)lat withLongitude:(double)lng{
-	NSEntityDescription *entityDescription = [NSEntityDescription
-											  
-											  entityForName:@"Bus_points" inManagedObjectContext:self.context];
-	
-	NSFetchRequest *request = [[NSFetchRequest alloc] init];
-	[request setEntity:entityDescription];
-	NSPredicate* predicate = [NSPredicate predicateWithFormat:@"lat == %lf AND lng == %lf",lat, lng];
-	[request setPredicate:predicate];
-	NSError *error;
-	NSArray *array = [self.context executeFetchRequest:request error:&error];
-	if (error){
-		NSLog(@"error getting bus");
-	}
-	
-	return [array firstObject];
-}
-
-////get bus stop with lat and lng
-//-(Bus_points*) getBusPointWithLatitude:(double)lat withLongitude:(double)lng{
-//	NSEntityDescription *entityDescription = [NSEntityDescription
-//											  
-//											  entityForName:@"Bus_points" inManagedObjectContext:self.context];
-//	
-//	NSFetchRequest *request = [[NSFetchRequest alloc] init];
-//	[request setEntity:entityDescription];
-//	NSPredicate* predicate = [NSPredicate predicateWithFormat:@"lat == %lf AND lng == %lf",lat, lng];
-//	[request setPredicate:predicate];
-//	NSError *error;
-//	NSArray *array = [self.context executeFetchRequest:request error:&error];
-//	if (error){
-//		NSLog(@"error getting bus");
-//	}
-//	
-//	return [array firstObject];
-//}
-
-////Return all stops from one bus line
-//-(NSArray*) getBusLineStops:(Bus_line*)bus_line{
-//	NSEntityDescription *entityDescription = [NSEntityDescription
-//											  
-//											  entityForName:@"Bus_points" inManagedObjectContext:self.context];
-//	
-//	NSFetchRequest *request = [[NSFetchRequest alloc] init];
-//	[request setEntity:entityDescription];
-//	NSPredicate *predicate = [NSPredicate predicateWithFormat:
-//							  @"ANY onibus_que_passam.web_number == %d", [bus_line.web_number integerValue]];
-//	[request setPredicate:predicate];
-//	NSError *error;
-//	NSArray *array = [self.context executeFetchRequest:request error:&error];
-//	NSLog(@"%@",[[array firstObject] class]);
-//	if (error){
-//		NSLog(@"error getting bus");
-//	}
-//	return array;
-//}
-
--(Polyline_points*) getPolyLinePointsWithLatitude:(double)lat andWithLongitude:(double)lng
-{
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Polyline_points"
-                                                         inManagedObjectContext:self.context];
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDescription];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"lat == %lf AND lng == %lf", lat, lng];
-    [request setPredicate:predicate];
-    
-    NSError *error = nil;
-    NSArray *array = [self.context executeFetchRequest:request error:&error];
-    if(error)
-    {
-        NSLog(@"i deu zica");
-    }
-    
-    return [array firstObject];
-}
-
-//-(NSArray*) getBusLineTrajectory:(Bus_line*)bus withTurn:(NSString*)turn
-//{
-//    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Polyline_points"
-//                                                         inManagedObjectContext:self.context];
-//    
-//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-//    [request setEntity:entityDescription];
-//    
-//    turn = [turn stringByAppendingString:@".web_number"];
-//    
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY %@ == %d", turn, [bus.web_number integerValue]];
-//    [request setPredicate:predicate];
-//    
-//	NSError *error;
-//	NSArray *array = [self.context executeFetchRequest:request error:&error];
-//    if(error)
-//    {
-//        NSLog(@"ha deu zica nessa trajetoria ai");
-//    }
-//    
-//    return array;
-//}
-
-//-(BOOL) removeReferencesFromAllStopsOfBus:(Bus_line* bus){
-//	
-//}
 
 @end

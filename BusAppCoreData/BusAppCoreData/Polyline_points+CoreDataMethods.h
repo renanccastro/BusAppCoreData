@@ -9,6 +9,10 @@
 #import "Polyline_points.h"
 
 @interface Polyline_points (CoreDataMethods)
+
 +(Polyline_points*) getPolyLinePointsWithLatitude:(double)lat andWithLongitude:(double)lng;
 +(NSArray*) getBusLineTrajectory:(Bus_line*)bus withTurn:(NSString*)turn;
++(Polyline_points*) createPolylinePointIdaWithBus:(Bus_line*)bus withLat:(double)lat andLng:(double)lng;
++(Polyline_points*) createPolylinePointVoltaWithBus:(Bus_line*)bus withLat:(double)lat andLng:(double)lng;
+
 @end
