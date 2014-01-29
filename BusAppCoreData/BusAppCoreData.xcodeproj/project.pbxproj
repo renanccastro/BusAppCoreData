@@ -35,6 +35,8 @@
 		E8BAF7791896BA330087E999 /* BusAppCoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BAF7781896BA330087E999 /* BusAppCoreDataTests.m */; };
 		E8C22A3D189818380050CD0B /* line_1.json in Resources */ = {isa = PBXBuildFile; fileRef = E8C22A3C189818380050CD0B /* line_1.json */; };
 		E8C22A40189832D10050CD0B /* BusAppCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8C22A3E189832D10050CD0B /* BusAppCoreData.xcdatamodeld */; };
+		E8F78B1B189955E300C0EFCB /* Polyline_points+CoreDataMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F78B1A189955E300C0EFCB /* Polyline_points+CoreDataMethods.m */; };
+		E8F78B1E1899561900C0EFCB /* Bus_points+CoreDataMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F78B1D1899561900C0EFCB /* Bus_points+CoreDataMethods.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,10 @@
 		E8BAF7781896BA330087E999 /* BusAppCoreDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusAppCoreDataTests.m; sourceTree = "<group>"; };
 		E8C22A3C189818380050CD0B /* line_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = line_1.json; sourceTree = "<group>"; };
 		E8C22A3F189832D10050CD0B /* BusAppCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BusAppCoreData.xcdatamodel; sourceTree = "<group>"; };
+		E8F78B19189955E300C0EFCB /* Polyline_points+CoreDataMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Polyline_points+CoreDataMethods.h"; sourceTree = "<group>"; };
+		E8F78B1A189955E300C0EFCB /* Polyline_points+CoreDataMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Polyline_points+CoreDataMethods.m"; sourceTree = "<group>"; };
+		E8F78B1C1899561900C0EFCB /* Bus_points+CoreDataMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bus_points+CoreDataMethods.h"; sourceTree = "<group>"; };
+		E8F78B1D1899561900C0EFCB /* Bus_points+CoreDataMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Bus_points+CoreDataMethods.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,8 @@
 				B9CC17551899192500618BB7 /* Polyline_points.m */,
 				B9CC175A1899192500618BB7 /* Bus_points.h */,
 				B9CC175B1899192500618BB7 /* Bus_points.m */,
+				E8F78B1C1899561900C0EFCB /* Bus_points+CoreDataMethods.h */,
+				E8F78B1D1899561900C0EFCB /* Bus_points+CoreDataMethods.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -340,10 +348,12 @@
 				B9F926B71897D02300B5A61E /* ServerUpdateRequest.m in Sources */,
 				B9F926B61896CE1E00B5A61E /* JsonRequest.m in Sources */,
 				ABA8476A1896CBA5008B0172 /* TrajectoryPlanningViewController.m in Sources */,
+				E8F78B1B189955E300C0EFCB /* Polyline_points+CoreDataMethods.m in Sources */,
 				B9CC17591899192500618BB7 /* Bus_line.m in Sources */,
 				E8C22A40189832D10050CD0B /* BusAppCoreData.xcdatamodeld in Sources */,
 				E89809371896DC4900ECE205 /* BusAppViewController.m in Sources */,
 				ABA8476D1896CE0B008B0172 /* StopsNearViewController.m in Sources */,
+				E8F78B1E1899561900C0EFCB /* Bus_points+CoreDataMethods.m in Sources */,
 				E8BAF7601896BA330087E999 /* AppDelegate.m in Sources */,
 				B9CC175C1899192500618BB7 /* Bus_points.m in Sources */,
 				E8BAF75C1896BA330087E999 /* main.m in Sources */,

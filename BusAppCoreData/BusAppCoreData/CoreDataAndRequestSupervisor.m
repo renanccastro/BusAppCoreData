@@ -135,25 +135,44 @@ static CoreDataAndRequestSupervisor *supervisor;
 	return [array firstObject];
 }
 
-//Return all stops from one bus line
--(NSArray*) getBusLineStops:(Bus_line*)bus_line{
-	NSEntityDescription *entityDescription = [NSEntityDescription
-											  
-											  entityForName:@"Bus_points" inManagedObjectContext:self.context];
-	
-	NSFetchRequest *request = [[NSFetchRequest alloc] init];
-	[request setEntity:entityDescription];
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:
-							  @"ANY onibus_que_passam.web_number == %d", [bus_line.web_number integerValue]];
-	[request setPredicate:predicate];
-	NSError *error;
-	NSArray *array = [self.context executeFetchRequest:request error:&error];
-	NSLog(@"%@",[[array firstObject] class]);
-	if (error){
-		NSLog(@"error getting bus");
-	}
-	return array;
-}
+////get bus stop with lat and lng
+//-(Bus_points*) getBusPointWithLatitude:(double)lat withLongitude:(double)lng{
+//	NSEntityDescription *entityDescription = [NSEntityDescription
+//											  
+//											  entityForName:@"Bus_points" inManagedObjectContext:self.context];
+//	
+//	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//	[request setEntity:entityDescription];
+//	NSPredicate* predicate = [NSPredicate predicateWithFormat:@"lat == %lf AND lng == %lf",lat, lng];
+//	[request setPredicate:predicate];
+//	NSError *error;
+//	NSArray *array = [self.context executeFetchRequest:request error:&error];
+//	if (error){
+//		NSLog(@"error getting bus");
+//	}
+//	
+//	return [array firstObject];
+//}
+
+////Return all stops from one bus line
+//-(NSArray*) getBusLineStops:(Bus_line*)bus_line{
+//	NSEntityDescription *entityDescription = [NSEntityDescription
+//											  
+//											  entityForName:@"Bus_points" inManagedObjectContext:self.context];
+//	
+//	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//	[request setEntity:entityDescription];
+//	NSPredicate *predicate = [NSPredicate predicateWithFormat:
+//							  @"ANY onibus_que_passam.web_number == %d", [bus_line.web_number integerValue]];
+//	[request setPredicate:predicate];
+//	NSError *error;
+//	NSArray *array = [self.context executeFetchRequest:request error:&error];
+//	NSLog(@"%@",[[array firstObject] class]);
+//	if (error){
+//		NSLog(@"error getting bus");
+//	}
+//	return array;
+//}
 
 -(Polyline_points*) getPolyLinePointsWithLatitude:(double)lat andWithLongitude:(double)lng
 {
@@ -176,27 +195,31 @@ static CoreDataAndRequestSupervisor *supervisor;
     return [array firstObject];
 }
 
--(NSArray*) getBusLineTrajectory:(Bus_line*)bus withTurn:(NSString*)turn
-{
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Polyline_points"
-                                                         inManagedObjectContext:self.context];
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDescription];
-    
-    turn = [turn stringByAppendingString:@".web_number"];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY %@ == %d", turn, [bus.web_number integerValue]];
-    [request setPredicate:predicate];
-    
-	NSError *error;
-	NSArray *array = [self.context executeFetchRequest:request error:&error];
-    if(error)
-    {
-        NSLog(@"ha deu zica nessa trajetoria ai");
-    }
-    
-    return array;
-}
+//-(NSArray*) getBusLineTrajectory:(Bus_line*)bus withTurn:(NSString*)turn
+//{
+//    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Polyline_points"
+//                                                         inManagedObjectContext:self.context];
+//    
+//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//    [request setEntity:entityDescription];
+//    
+//    turn = [turn stringByAppendingString:@".web_number"];
+//    
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY %@ == %d", turn, [bus.web_number integerValue]];
+//    [request setPredicate:predicate];
+//    
+//	NSError *error;
+//	NSArray *array = [self.context executeFetchRequest:request error:&error];
+//    if(error)
+//    {
+//        NSLog(@"ha deu zica nessa trajetoria ai");
+//    }
+//    
+//    return array;
+//}
+
+//-(BOOL) removeReferencesFromAllStopsOfBus:(Bus_line* bus){
+//	
+//}
 
 @end
