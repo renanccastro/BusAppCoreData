@@ -32,8 +32,8 @@
                             <constraint firstItem="HNT-e3-WZm" firstAttribute="top" secondItem="ghI-2L-iLI" secondAttribute="bottom" constant="8" symbolic="YES" id="2EK-Xt-HsW"/>
                             <constraint firstItem="ghI-2L-iLI" firstAttribute="width" secondItem="HNT-e3-WZm" secondAttribute="width" id="Dxy-wf-FfR"/>
                             <constraint firstItem="HNT-e3-WZm" firstAttribute="top" secondItem="ghI-2L-iLI" secondAttribute="bottom" constant="8" symbolic="YES" id="F3q-Fh-fZ2"/>
-                            <constraint firstItem="zFi-eO-Oth" firstAttribute="top" secondItem="HNT-e3-WZm" secondAttribute="bottom" constant="20" symbolic="YES" id="GvM-pj-hAI"/>
-                            <constraint firstItem="ghI-2L-iLI" firstAttribute="top" secondItem="Dwy-Zo-SwX" secondAttribute="bottom" constant="20" symbolic="YES" id="OMw-ZZ-Y0Q"/>
+                            <constraint firstItem="zFi-eO-Oth" firstAttribute="top" secondItem="HNT-e3-WZm" secondAttribute="bottom" constant="8" id="GvM-pj-hAI"/>
+                            <constraint firstItem="ghI-2L-iLI" firstAttribute="top" secondItem="Dwy-Zo-SwX" secondAttribute="bottom" constant="8" id="OMw-ZZ-Y0Q"/>
                             <constraint firstAttribute="centerX" secondItem="ghI-2L-iLI" secondAttribute="centerX" id="dXP-sn-xQs"/>
                             <constraint firstAttribute="trailing" secondItem="HNT-e3-WZm" secondAttribute="trailing" constant="20" symbolic="YES" id="pXY-lg-gjv"/>
                             <constraint firstItem="HNT-e3-WZm" firstAttribute="leading" secondItem="l8Y-Ie-rRE" secondAttribute="leading" constant="20" symbolic="YES" id="wAd-IG-fwa"/>
@@ -61,7 +61,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Uhs-eS-0q1">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uhs-eS-0q1">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
@@ -75,6 +75,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="riz-0x-P4a"/>
+                    <connections>
+                        <outlet property="mapView" destination="Uhs-eS-0q1" id="RDr-zF-Qhi"/>
+                        <segue destination="bxf-Rf-9fD" kind="push" identifier="info" id="jOy-2L-0Kn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uI-ZH-GQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -145,7 +149,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="bxf-Rf-9fD" kind="push" id="iQS-g8-VNA"/>
+                                            <segue destination="XOq-n4-aYC" kind="push" id="779-7H-Bh5"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -191,7 +195,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oh7-SQ-u3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1554" y="-134"/>
+            <point key="canvasLocation" x="1627" y="-112"/>
         </scene>
     </scenes>
     <color key="tintColor" red="1" green="0.75243891230000004" blue="0.36652966209999999" alpha="1" colorSpace="calibratedRGB"/>

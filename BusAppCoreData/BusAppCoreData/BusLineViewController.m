@@ -29,12 +29,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    
-    int REF = 1986;
+    int webCode = 3;
     
     self.webPage.scalesPageToFit = YES;
     
-    NSString *fullURL = [NSString stringWithFormat: @"http://www.emdec.com.br/ABusInf/detalhelinha.asp?TpDiaID=0&CdPjOID=%d", REF];
+    NSString *fullURL = [NSString stringWithFormat: @"http://www.emdec.com.br/ABusInf/detalhelinha.asp?TpDiaID=0&CdPjOID=%d", webCode];
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webPage loadRequest:requestObj];
