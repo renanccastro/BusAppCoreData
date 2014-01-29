@@ -31,7 +31,7 @@
 		new_line.line_number = [Bus_line getBusNumberFromFullName:new_line.full_name];
 		new_line.web_number = [[NSNumber alloc ] initWithInt:[parsedData[@"web_code"] integerValue]];
         
-        [new_line createReferencesForBusLineWithDictionary:parsedData];
+        [Bus_line createReferencesForBus:new_line WithLineWithDictionary:parsedData];
 	}
 	//IF THERE WAS ALREADY A BUS IN THE DATABASE
 	else{
@@ -44,7 +44,7 @@
         
         [bus removeReferencesOfBusLine];
         
-        [bus createReferencesForBusLineWithDictionary:parsedData];
+        [Bus_line createReferencesForBus:bus WithLineWithDictionary:parsedData];
         
 	}
 	NSError * saveError;
@@ -73,25 +73,25 @@
     }
 }
 
--(void)createReferencesForBusLineWithDictionary:(NSDictionary*)parsedData
++(void)createReferencesForBus:(Bus_line*)bus WithLineWithDictionary:(NSDictionary*)parsedData
 {
     for(NSDictionary *point in parsedData[@"pontos"])
     {
-        [self addStopsObject:[Bus_points createBusPointFromBusLine:self
+        [bus addStopsObject:[Bus_points createBusPointFromBusLine:bus
                                                            withLat:[point[@"lat"] doubleValue]
-                                                           andLong:[point[@"lng"] doubleValue]]];
+												  andLong:[point[@"lng"] doubleValue]]];;
     }
     
     for(NSDictionary *polyLine in parsedData[@"polyline_ida"])
     {
-        [self addPolyline_idaObject:[Polyline_points createPolylinePointIdaWithBus:self
+        [bus addPolyline_idaObject:[Polyline_points createPolylinePointIdaWithBus:bus
                                                                            withLat:[polyLine[@"lat"] doubleValue]
                                                                             andLng:[polyLine[@"lng"] doubleValue]]];
     }
     
     for(NSDictionary *polyLine in parsedData[@"polyline_volta"])
     {
-        [self addPolyline_voltaObject:[Polyline_points createPolylinePointVoltaWithBus:self
+        [bus addPolyline_voltaObject:[Polyline_points createPolylinePointVoltaWithBus:bus
                                                                                withLat:[polyLine[@"lat"] doubleValue]
                                                                                 andLng:[polyLine[@"lng"] doubleValue]]];
     }

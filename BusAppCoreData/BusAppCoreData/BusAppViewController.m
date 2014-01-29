@@ -32,13 +32,13 @@
 //    CoreDataAndRequestSupervisor *supervisor = [CoreDataAndRequestSupervisor startSupervisor];
 //    
 //    [supervisor requestBusLines];
-	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"line_1" ofType:@"json"];
-    NSData *myData = [NSData dataWithContentsOfFile:filePath];
-    if (myData) {
-		CoreDataAndRequestSupervisor* supervisor = [CoreDataAndRequestSupervisor startSupervisor];
-        NSDictionary *parsedData = myData ? [NSJSONSerialization JSONObjectWithData:myData options:0 error:nil] : nil;
-        [Bus_line saveBusLineWithDictionary:parsedData];
-    }
+//	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"line_1" ofType:@"json"];
+//    NSData *myData = [NSData dataWithContentsOfFile:filePath];
+//    if (myData) {
+//		CoreDataAndRequestSupervisor* supervisor = [CoreDataAndRequestSupervisor startSupervisor];
+//        NSDictionary *parsedData = myData ? [NSJSONSerialization JSONObjectWithData:myData options:0 error:nil] : nil;
+//        [Bus_line saveBusLineWithDictionary:parsedData];
+//    }
 }
 
 - (void)didReceiveMemoryWarning

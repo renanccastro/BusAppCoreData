@@ -112,7 +112,8 @@ static CoreDataAndRequestSupervisor *supervisor;
 {
     NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
         
-        BOOL save =[Bus_line saveBusLineWithDictionary:json];
+        BOOL save = [Bus_line saveBusLineWithDictionary:json];
+		
         if(!save)
         {
             NSLog(@"i deu zica no save");

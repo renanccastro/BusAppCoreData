@@ -71,8 +71,8 @@
 	NSNumber * lng_number = [NSNumber numberWithDouble:lng];
 	NSError* error = nil;
 	
-	Polyline_points* point;
-	if (![Polyline_points getPolyLinePointsWithLatitude:lat andWithLongitude:lng]) {
+	Polyline_points* point = [Polyline_points getPolyLinePointsWithLatitude:lat andWithLongitude:lng];
+	if (!point) {
 		point = [NSEntityDescription insertNewObjectForEntityForName:@"Polyline_points"
 																	inManagedObjectContext:context];
 		
@@ -99,8 +99,8 @@
 	NSNumber * lng_number = [NSNumber numberWithDouble:lng];
 	NSError* error = nil;
 	
-	Polyline_points* point;
-	if (![Polyline_points getPolyLinePointsWithLatitude:lat andWithLongitude:lng]) {
+	Polyline_points* point = [Polyline_points getPolyLinePointsWithLatitude:lat andWithLongitude:lng];
+	if (!point) {
 		point = [NSEntityDescription insertNewObjectForEntityForName:@"Polyline_points"
                                               inManagedObjectContext:context];
 		

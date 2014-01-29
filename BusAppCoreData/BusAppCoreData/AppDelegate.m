@@ -19,7 +19,7 @@
 {
 	[[CoreDataAndRequestSupervisor startSupervisor] setContext: self.managedObjectContext];
     
-//    [[CoreDataAndRequestSupervisor startSupervisor] requestBusLines];
+    [[CoreDataAndRequestSupervisor startSupervisor] requestBusLines];
     
     return YES;
 }

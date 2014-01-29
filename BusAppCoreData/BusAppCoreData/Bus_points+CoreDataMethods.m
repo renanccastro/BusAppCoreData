@@ -27,7 +27,7 @@
 	[request setPredicate:predicate];
 	NSError *error;
 	NSArray *array = [context executeFetchRequest:request error:&error];
-	NSLog(@"%@",[[array firstObject] class]);
+
 	if (error){
 		NSLog(@"error getting bus");
 	}
@@ -64,8 +64,9 @@
 	NSNumber * lng_number = [NSNumber numberWithDouble:lng];
 	NSError* error = nil;
 	
-	Bus_points* stop;
-	if (![Bus_points getBusPointWithLatitude:lat withLongitude:lng]) {
+	Bus_points* stop=[Bus_points getBusPointWithLatitude:lat withLongitude:lng];
+	
+	if (!stop) {
 		//Create a new bus_point
 		stop = [NSEntityDescription insertNewObjectForEntityForName:@"Bus_points"
 														 inManagedObjectContext:context];
