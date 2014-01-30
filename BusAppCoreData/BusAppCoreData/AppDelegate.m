@@ -103,10 +103,28 @@
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
     }
-    
+    //Getting initial version from the bundle
+	NSString *defaultStorePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"BusAppCoreData" ofType:@"sqlite"];
+	
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"BusAppCoreData.sqlite"];
+	
+#warning NEED TO FINISH THIS!!!!
+	NSError *error = nil;
+	if (![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]])
+		//if (![[NSFileManager defaultManager] fileExistsAtPath:storePath])
+	{
+		if ([[NSFileManager defaultManager] copyItemAtPath:defaultStorePath toPath:[storeURL path] error:&error]){
+			NSLog(@"Copied starting data to %@", storeURL);
+			NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+			[prefs setInteger:1 forKey:@"version"];
+			
+		}
+		else
+			NSLog(@"Error copying default DB to %@ (%@)", storeURL, error);
+	}
+	
     
-    NSError *error = nil;
+    error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
         /*

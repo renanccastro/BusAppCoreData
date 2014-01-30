@@ -9,6 +9,7 @@
 #import "Bus_points+CoreDataMethods.h"
 #import "Bus_line.h"
 #import "CoreDataAndRequestSupervisor.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation Bus_points (CoreDataMethods)
 
@@ -85,6 +86,38 @@
 	[context save:&error];
 	
 	return error == nil ? stop : nil;
+}
+
+/**
+ @param NSArray* box -> This is a array of coordinates that determines a square. They are meant to be constructed
+		clockwise.
+  */
++(NSArray*)	getAllBusStopsWithinGeographicalBox:(NSArray*)box{
+	NSManagedObjectContext* context = [CoreDataAndRequestSupervisor startSupervisor].context;
+	CLLocation * N = box[0];
+	CLLocation * E = box[1];
+	CLLocation * S = box[2];
+	CLLocation * W = box[3];
+
+	
+	
+	NSEntityDescription *entityDescription = [NSEntityDescription
+											  
+											  entityForName:@"Bus_points" inManagedObjectContext:context];
+	
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	[request setEntity:entityDescription];
+	NSPredicate* predicate = [NSPredicate predicateWithFormat:@"(lat > %lf AND lat < %lf) AND (lng > %lf AND lng < %lf)",
+																S.coordinate.latitude, N.coordinate.latitude,
+																W.coordinate.longitude, E.coordinate.longitude];
+	[request setPredicate:predicate];
+	NSError *error;
+	NSArray *array = [context executeFetchRequest:request error:&error];
+	if (error){
+		NSLog(@"error getting bus points from geobox");
+	}
+	
+	return array;
 }
 
 

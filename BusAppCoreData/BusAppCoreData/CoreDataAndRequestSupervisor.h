@@ -7,12 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CoreLocationExtension.h"
+
+@class CoreDataAndRequestSupervisor;
+
+@protocol CoreDataRequestDelegate <NSObject>
+
+-(void) requestdidFinishWithObject:(id)object;
+-(void) requestdidFailWithError:(NSError*)error;
+
+@end
 
 @interface CoreDataAndRequestSupervisor : NSObject
 
 @property (nonatomic) NSManagedObjectContext* context;
+@property (nonatomic) id<CoreDataRequestDelegate> delegate;
 
 -(void) requestBusLines;
 +(CoreDataAndRequestSupervisor*) startSupervisor;
+-(void) getAllBusPointsAsyncWithinDistance:(CGFloat)distance fromPoint:(CLLocationCoordinate2D)point;
 
 @end

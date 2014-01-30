@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoreDataAndRequestSupervisor.h"
 
-@interface BusLineViewController : UIViewController
+@interface BusLineViewController : UIViewController 
 
 @end
