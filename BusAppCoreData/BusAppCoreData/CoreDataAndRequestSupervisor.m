@@ -17,6 +17,9 @@
 
 @property (nonatomic, strong) NSMutableArray *jsonsRequests;
 @property (nonatomic, strong) NSOperationQueue *queue;
+@property (nonatomic) int finishedOperations;
+@property (nonatomic) int dueOperations;
+@property (nonatomic) int newestVersion;
 
 @end
 
@@ -49,6 +52,7 @@ static CoreDataAndRequestSupervisor *supervisor;
     {
         self.jsonsRequests = [[NSMutableArray alloc] init];
         self.queue = [[NSOperationQueue alloc] init];
+		self.finishedOperations = 0;
     }
     
     return self;
@@ -60,13 +64,6 @@ static CoreDataAndRequestSupervisor *supervisor;
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     ServerUpdateRequest *serverUpdate = [[ServerUpdateRequest alloc] init];
-    
-    if(![prefs integerForKey:@"version"])
-    {
-        [prefs setInteger:0 forKey:@"version"];
-        NSDate *firstUpdate = [NSDate date];
-        [prefs setObject:firstUpdate forKey:@"last update"];
-    }
     
     NSDate *currentDate = [NSDate date];
     
@@ -88,20 +85,17 @@ static CoreDataAndRequestSupervisor *supervisor;
 
 -(void)request:(ServerUpdateRequest *)request didFinishWithObject:(id)object
 {
-        //Update the current version of the server
-        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-        
-        [prefs setInteger:[[object objectForKey:@"newest_version"] integerValue] forKey:@"version"];
-    
-        NSArray *allJsons = [object objectForKey:@"diff_files"];
-        
-        //make a request for the jsons with the bus lines points
-        for(NSString *busLine in allJsons)
-        {
-            JsonRequest *jsonRequest = [[JsonRequest alloc] init];
-            [jsonRequest requestJsonWithName:busLine withdelegate:self];
-            [self.jsonsRequests addObject:jsonRequest];
-        }
+	NSArray *allJsons = [object objectForKey:@"diff_files"];
+	self.dueOperations = [allJsons count];
+	self.newestVersion = [[object objectForKey:@"newest_version"] intValue];
+	
+	//make a request for the jsons with the bus lines points
+	for(NSString *busLine in allJsons)
+	{
+		JsonRequest *jsonRequest = [[JsonRequest alloc] init];
+		[jsonRequest requestJsonWithName:busLine withdelegate:self];
+		[self.jsonsRequests addObject:jsonRequest];
+	}
     
 }
 
@@ -124,7 +118,12 @@ static CoreDataAndRequestSupervisor *supervisor;
         }
         else
         {
-            NSLog(@"Funfo mossu");
+            NSLog(@"Terminou 1 save.");
+			self.finishedOperations++;
+			if (self.finishedOperations == self.dueOperations) {
+				[[NSUserDefaults standardUserDefaults] setInteger:self.newestVersion forKey:@"version"];
+				self.finishedOperations = 0;
+			}
         }
     }];
     

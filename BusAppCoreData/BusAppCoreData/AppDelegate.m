@@ -111,13 +111,13 @@
 #warning NEED TO FINISH THIS!!!!
 	NSError *error = nil;
 	if (![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]])
-		//if (![[NSFileManager defaultManager] fileExistsAtPath:storePath])
 	{
 		if ([[NSFileManager defaultManager] copyItemAtPath:defaultStorePath toPath:[storeURL path] error:&error]){
 			NSLog(@"Copied starting data to %@", storeURL);
 			NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-			[prefs setInteger:1 forKey:@"version"];
-			
+			NSDate *firstUpdate = [NSDate date];
+			[prefs setObject:firstUpdate forKey:@"last update"];
+			[prefs setInteger:3 forKey:@"version"];
 		}
 		else
 			NSLog(@"Error copying default DB to %@ (%@)", storeURL, error);
