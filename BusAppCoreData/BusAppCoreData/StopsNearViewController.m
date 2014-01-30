@@ -26,89 +26,6 @@
 @synthesize mapView = _mapView;
 @synthesize annotations = _annotations;
 
--(void)updateMapView
-{
-    if (self.mapView.annotations){
-        [self.mapView removeAnnotations:self.mapView.annotations];
-    }
-    if (self.annotations){
-        [self.mapView addAnnotations: self.annotations];
-//        [self addOverlay];
-    }
-    
-}
-
--(void)setMapView:(MKMapView *)mapView
-{
-    _mapView = mapView;
-    [self updateMapView];
-}
-
--(void)setAnnotations:(NSArray *)annotations
-{
-    _annotations = annotations;
-    [self updateMapView];
-}
-
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
-    static NSString *identifier = @"myAnnotation";
-    if ([annotation isKindOfClass:[Annotation class]]) {
-        
-        MKAnnotationView *annotationView = (MKAnnotationView *) [_mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-        if (annotationView == nil) {
-            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
-            annotationView.enabled = YES;
-            annotationView.canShowCallout = YES;
-            annotationView.image = [UIImage imageNamed:@"arrest.png"];//here we use a nice image instead of the default pins
-            annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];//UIButtonTypeInfoDark];
-        } else {
-            annotationView.annotation = annotation;
-        }
-        
-        return annotationView;
-    }
-    
-    return nil;
-}
-
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
-	NSNumber *index = [NSNumber numberWithInt:((Annotation*)view.annotation).index];
-	
-    self.selectedAnnotationInfo = [((Bus_points*)self.stopsNear[index.intValue]).onibus_que_passam allObjects];
-    [self performSegueWithIdentifier: @"BusLines" sender:nil];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if( [[segue identifier] isEqualToString:@"BusLines"])
-    {
-        BusTableViewController *tela = [segue destinationViewController];
-		
-        tela.busLinesInStop = self.selectedAnnotationInfo;
-    }
-}
-
-- (void)addOverlay
-{
-    
-    CLLocationCoordinate2D coordinates[10];
-    for (NSInteger index = 0; index < 10; index++) {
-        MKPlacemark *placeMark = [self.mapView.annotations objectAtIndex: index];
-        coordinates[index] = placeMark.coordinate;
-    }
-    
-    MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:10];
-    [_mapView addOverlay:polyLine];
-}
-
-- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
-{
-    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline: overlay];
-    polylineView.strokeColor = [UIColor blueColor];
-    polylineView.lineWidth = 5.0;
-    return polylineView; 
-}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -130,10 +47,8 @@
     
     [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
     
-    // Specifying the region to display
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.location.coordinate, 1000, 1000);
     [self.mapView setRegion: viewRegion animated:YES];
-//    [self displayingStops];
 }
 
 - (void)didReceiveMemoryWarning
@@ -142,39 +57,48 @@
     // Dispose of any resources that can be recreated.
 }
 
-
--(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-	
-	MKCoordinateRegion region;
-    region.span = MKCoordinateSpanMake(0.005, 0.005);
-    region.center = userLocation.location.coordinate;
-    [self.mapView setRegion:region animated:YES];
-	
-	[[CoreDataAndRequestSupervisor startSupervisor] setDelegate:self];
-	[[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:100.0 fromPoint:userLocation.coordinate];
+#pragma - MapView Methods
+//Remove old annotations and set new ones
+- (void)updateMapView
+{
+    if (self.mapView.annotations){
+        [self.mapView removeAnnotations:self.mapView.annotations];
+    }
+    if (self.annotations){
+        [self.mapView addAnnotations: self.annotations];
+    }
 }
 
--(void)requestdidFinishWithObject:(NSArray*)nearStops{
-	self.stopsNear = nearStops;
-	[self creatAnnotationsFromBusPointsArray:nearStops];
-	
+- (void)setMapView:(MKMapView *)mapView
+{
+    _mapView = mapView;
+    [self updateMapView];
 }
 
--(void)requestdidFailWithError:(NSError *)error{
-	
+- (void)setAnnotations:(NSArray *)annotations
+{
+    _annotations = annotations;
+    [self updateMapView];
 }
 
--(void)creatAnnotationsFromBusPointsArray:(NSArray*)nearStops{
-	NSMutableArray* annotationArray = [[NSMutableArray alloc] init];
+//Create annotations with data from requests
+- (void)creatAnnotationsFromBusPointsArray:(NSArray*)stopsNear{
+	
+    NSMutableArray* annotationArray = [[NSMutableArray alloc] init];
 	int i = 0;
-	for (Bus_points* stop in nearStops){
+    //Each annotation has: title, subtitle, coordinate and index
+	for (Bus_points* stop in stopsNear){
         Annotation* annotation = [[Annotation alloc] init];
 		NSString* subTitle = [[NSString alloc] init];
 		for (Bus_line* bus in stop.onibus_que_passam) {
-			subTitle = [subTitle stringByAppendingString:[NSString stringWithFormat:@"%@, ",bus.line_number]];
+			subTitle = [subTitle stringByAppendingString:[NSString stringWithFormat:@"%@, ", bus.line_number]];
 		}
 		subTitle = [subTitle substringToIndex:[subTitle length]-2];
-        [annotation setTitle: [NSString stringWithFormat: @"Ônibus nesse ponto:%d", [stop.onibus_que_passam count]]];
+        if ([stop.onibus_que_passam count] == 1){
+            [annotation setTitle: @"1 linha passa aqui:"];
+        } else {
+            [annotation setTitle: [NSString stringWithFormat: @"%d linhas passam aqui:", [stop.onibus_que_passam count]]];
+        }
 		[annotation setSubtitle: subTitle];
         [annotation setCoordinate: CLLocationCoordinate2DMake([stop.lat doubleValue], [stop.lng doubleValue])];
         [annotationArray addObject: annotation];
@@ -182,6 +106,67 @@
 		i++;
     }
 	[self setAnnotations:annotationArray];
+}
+
+//Configure annotationView
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    static NSString *identifier = @"myAnnotation";
+    if ([annotation isKindOfClass:[Annotation class]]) {
+        
+        MKAnnotationView *annotationView = (MKAnnotationView *) [_mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        if (annotationView == nil) {
+            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+            annotationView.enabled = YES;
+            annotationView.canShowCallout = YES;
+            annotationView.image = [UIImage imageNamed:@"arrest.png"];
+            annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        } else {
+            annotationView.annotation = annotation;
+        }
+        return annotationView;
+    }
+    
+    return nil;
+}
+
+//Save selected annotation info
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+	
+    NSNumber *index = [NSNumber numberWithInt:((Annotation*)view.annotation).index];
+	
+    self.selectedAnnotationInfo = [((Bus_points*)self.stopsNear[index.intValue]).onibus_que_passam allObjects];
+    [self performSegueWithIdentifier: @"BusLines" sender:nil];
+    
+}
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+	
+	MKCoordinateRegion region = MKCoordinateRegionMake(userLocation.location.coordinate, MKCoordinateSpanMake(0.005, 0.005));
+    [self.mapView setRegion:region animated:YES];
+	
+	[[CoreDataAndRequestSupervisor startSupervisor] setDelegate:self];
+	[[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:100.0 fromPoint: userLocation.coordinate];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if( [[segue identifier] isEqualToString:@"BusLines"])
+    {
+        BusTableViewController *tela = [segue destinationViewController];
+		
+        tela.busLinesInStop = self.selectedAnnotationInfo;
+    }
+}
+
+#pragma - Request
+- (void)requestdidFinishWithObject:(NSArray*)nearStops{
+	self.stopsNear = nearStops;
+	[self creatAnnotationsFromBusPointsArray:nearStops];
+	
+}
+
+- (void)requestdidFailWithError:(NSError *)error{
+	
 }
 
 @end
