@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="2386" y="-462"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Bus Table View Controller-->
         <scene sceneID="RpD-tq-vAM">
             <objects>
-                <tableViewController id="yv4-TG-TzZ" sceneMemberID="viewController">
+                <tableViewController id="yv4-TG-TzZ" customClass="BusTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="00N-8d-Amq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -122,8 +122,8 @@
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PKH-Zf-Gv4">
                                             <rect key="frame" x="73" y="0.0" width="212" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
+                                            <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bus image" id="bHj-iU-n6s">
@@ -133,7 +133,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="bxf-Rf-9fD" kind="push" identifier="bus trajectory" id="Ztx-Vi-XvU"/>
+                                    <segue destination="bxf-Rf-9fD" kind="push" identifier="BusTrajectory" id="Ztx-Vi-XvU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

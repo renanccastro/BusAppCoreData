@@ -8,6 +8,7 @@
 
 #import "BusTableViewController.h"
 #import "Bus_line+Core_Data_Methods.h"
+#import "BusLineViewController.h"
 
 @interface BusTableViewController ()
 
@@ -73,6 +74,15 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if([[segue identifier] isEqualToString:@"BusTrajectory"])
+    {
+        BusLineViewController *tela = [segue destinationViewController];
+        NSIndexPath *path = [self.tableView indexPathForCell:sender];
+        tela.rotaDeIda = [((Bus_line*)self.busLinesInStop[path.row]).polyline_ida allObjects];
+        tela.rotaDeVolta = [((Bus_line*)self.busLinesInStop[path.row]).polyline_volta allObjects];
+
+    }
 }
 
 

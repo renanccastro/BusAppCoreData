@@ -85,7 +85,7 @@
         BusTableViewController *tela = [segue destinationViewController];
 		
         tela.busLinesInStop = self.selectedAnnotationInfo;
-    }
+     }
 }
 
 - (void)addOverlay
