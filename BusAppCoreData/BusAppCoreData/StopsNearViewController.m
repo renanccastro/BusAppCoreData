@@ -9,6 +9,8 @@
 #import "StopsNearViewController.h"
 #import "CoreDataAndRequestSupervisor.h"
 #import "Annotation.h"
+#import "Bus_points.h"
+#import "Bus_line.h"
 
 @interface StopsNearViewController () <MKMapViewDelegate>
 
@@ -28,7 +30,7 @@
     }
     if (self.annotations){
         [self.mapView addAnnotations: self.annotations];
-        [self addOverlay];
+//        [self addOverlay];
     }
     
 }
@@ -108,18 +110,18 @@
 	// Do any additional setup after loading the view.
     self.mapView.delegate = self;
     
-    NSMutableArray *temp = [[NSMutableArray alloc] init];
-    
-    int a;
-    for (a = 0; a < 10; a++){
-        Annotation* i = [[Annotation alloc]init];
-        [i setSubtitle: [NSString stringWithFormat: @"ahh%d", a]];
-        [i setTitle: [NSString stringWithFormat: @"title%d", a]];
-        [i setCoordinate: CLLocationCoordinate2DMake([[NSString stringWithFormat: @"-22.97%d", a] doubleValue], [[NSString stringWithFormat: @"-47.063%d", a] doubleValue])];
-        [temp addObject: i];
-        
-    }
-    [self setAnnotations: temp];
+//    NSMutableArray *temp = [[NSMutableArray alloc] init];
+//    
+//    int a;
+//    for (a = 0; a < 10; a++){
+//        Annotation* i = [[Annotation alloc]init];
+//        [i setSubtitle: [NSString stringWithFormat: @"ahh%d", a]];
+//        [i setTitle: [NSString stringWithFormat: @"title%d", a]];
+//        [i setCoordinate: CLLocationCoordinate2DMake([[NSString stringWithFormat: @"-22.97%d", a] doubleValue], [[NSString stringWithFormat: @"-47.063%d", a] doubleValue])];
+//        [temp addObject: i];
+//        
+//    }
+//    [self setAnnotations: temp];
     
 }
 
@@ -143,15 +145,47 @@
 
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+	
+	MKCoordinateRegion region;
+    MKCoordinateSpan span;
+    span.latitudeDelta = 0.005;
+    span.longitudeDelta = 0.005;
+    CLLocationCoordinate2D location;
+    location.latitude = userLocation.coordinate.latitude;
+    location.longitude = userLocation.coordinate.longitude;
+    region.span = span;
+    region.center = location;
+    [self.mapView setRegion:region animated:YES];
+	
 	[[CoreDataAndRequestSupervisor startSupervisor] setDelegate:self];
 	[[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:100.0 fromPoint:userLocation.coordinate];
 }
 
 -(void)requestdidFinishWithObject:(NSArray*)nearStops{
-	NSLog(@"%@",nearStops);
+//	NSLog(@"%@",nearStops);
+	[self creatAnnotationsFromBusPointsArray:nearStops];
+	
 }
 -(void)requestdidFailWithError:(NSError *)error{
 	
+}
+
+-(void) creatAnnotationsFromBusPointsArray:(NSArray*)nearStops{
+	NSMutableArray* annotationArray = [[NSMutableArray alloc] init];
+	for (Bus_points* stop in nearStops){
+        Annotation* annotation = [[Annotation alloc] init];
+		NSString* subTitle = [[NSString alloc] init];
+		for (Bus_line* bus in stop.onibus_que_passam) {
+			subTitle = [subTitle stringByAppendingString:[NSString stringWithFormat:@"%@, ",bus.line_number]];
+			
+		}
+		subTitle = [subTitle substringToIndex:[subTitle length]-2];
+        [annotation setTitle: [NSString stringWithFormat: @"Ônibus nesse ponto:%d", [stop.onibus_que_passam count]]];
+		[annotation setSubtitle: subTitle];
+        [annotation setCoordinate: CLLocationCoordinate2DMake([stop.lat doubleValue], [stop.lng doubleValue])];
+        [annotationArray addObject: annotation];
+    }
+	[self setAnnotations:annotationArray];
 }
 
 @end
