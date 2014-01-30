@@ -9,6 +9,7 @@
 #import "StopsNearViewController.h"
 #import "CoreDataAndRequestSupervisor.h"
 #import "Annotation.h"
+#import "BusTableViewController.h"
 
 @interface StopsNearViewController () <MKMapViewDelegate>
 
@@ -68,7 +69,16 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
 
-    [self performSegueWithIdentifier: @"info" sender:nil];
+    [self performSegueWithIdentifier: @"bus lines" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if( [[segue identifier] isEqualToString:@"bus lines"])
+    {
+        BusTableViewController *tela = [segue destinationViewController];
+//        tela.busLinesInStop ;
+    }
 }
 
 - (void)addOverlay

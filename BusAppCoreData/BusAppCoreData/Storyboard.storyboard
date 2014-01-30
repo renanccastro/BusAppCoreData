@@ -47,7 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRg-Md-zVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2732" y="192"/>
+            <point key="canvasLocation" x="3496" y="192"/>
         </scene>
         <!--Stops Near View Controller-->
         <scene sceneID="M2K-VY-PaJ">
@@ -77,7 +77,7 @@
                     <navigationItem key="navigationItem" id="riz-0x-P4a"/>
                     <connections>
                         <outlet property="mapView" destination="Uhs-eS-0q1" id="RDr-zF-Qhi"/>
-                        <segue destination="bxf-Rf-9fD" kind="push" identifier="info" id="jOy-2L-0Kn"/>
+                        <segue destination="yv4-TG-TzZ" kind="push" identifier="bus lines" id="OgM-gC-zLg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uI-ZH-GQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -102,6 +102,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eq-tS-Vvq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2386" y="-462"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="RpD-tq-vAM">
+            <objects>
+                <tableViewController id="yv4-TG-TzZ" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="00N-8d-Amq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Bus Line" textLabel="PKH-Zf-Gv4" imageView="bHj-iU-n6s" style="IBUITableViewCellStyleDefault" id="aWQ-N8-OyI">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aWQ-N8-OyI" id="swX-xg-Fin">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PKH-Zf-Gv4">
+                                            <rect key="frame" x="73" y="0.0" width="212" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bus image" id="bHj-iU-n6s">
+                                            <rect key="frame" x="15" y="0.0" width="43" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="bxf-Rf-9fD" kind="push" identifier="bus trajectory" id="Ztx-Vi-XvU"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yv4-TG-TzZ" id="9hB-RM-fs8"/>
+                            <outlet property="delegate" destination="yv4-TG-TzZ" id="lMP-Kh-KQU"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="pJb-uY-Cbq"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NxO-vD-O7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2926" y="192"/>
         </scene>
         <!--Bus App View Controller-->
         <scene sceneID="Zv5-AQ-Z1t">
@@ -177,7 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLP-hg-LwM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988" y="-112"/>
+            <point key="canvasLocation" x="1770" y="-118"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="umu-VO-FdU">
@@ -195,9 +240,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oh7-SQ-u3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1627" y="-112"/>
+            <point key="canvasLocation" x="1375" y="-112"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bus image" width="300" height="300"/>
+    </resources>
     <color key="tintColor" red="1" green="0.75243891230000004" blue="0.36652966209999999" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
