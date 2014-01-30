@@ -103,8 +103,7 @@
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
 {
-    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline:
-                                    overlay];
+    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline: overlay];
     polylineView.strokeColor = [UIColor blueColor];
     polylineView.lineWidth = 5.0;
     return polylineView; 
@@ -125,30 +124,15 @@
 	// Do any additional setup after loading the view.
     self.mapView.delegate = self;
     
-//    NSMutableArray *temp = [[NSMutableArray alloc] init];
-//    
-//    int a;
-//    for (a = 0; a < 10; a++){
-//        Annotation* i = [[Annotation alloc]init];
-//        [i setSubtitle: [NSString stringWithFormat: @"ahh%d", a]];
-//        [i setTitle: [NSString stringWithFormat: @"title%d", a]];
-//        [i setCoordinate: CLLocationCoordinate2DMake([[NSString stringWithFormat: @"-22.97%d", a] doubleValue], [[NSString stringWithFormat: @"-47.063%d", a] doubleValue])];
-//        [temp addObject: i];
-//        
-//    }
-//    [self setAnnotations: temp];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    // Initial location
-    CLLocationCoordinate2D initialLocation;
-    initialLocation.latitude = -22.970100;
-    initialLocation.longitude= -47.063200;
+    
+    [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
     
     // Specifying the region to display
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(initialLocation, 4000, 4000);
-    [_mapView setRegion:viewRegion animated:YES];
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.location.coordinate, 1000, 1000);
+    [self.mapView setRegion: viewRegion animated:YES];
 //    [self displayingStops];
 }
 
@@ -162,14 +146,8 @@
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
 	
 	MKCoordinateRegion region;
-    MKCoordinateSpan span;
-    span.latitudeDelta = 0.005;
-    span.longitudeDelta = 0.005;
-    CLLocationCoordinate2D location;
-    location.latitude = userLocation.coordinate.latitude;
-    location.longitude = userLocation.coordinate.longitude;
-    region.span = span;
-    region.center = location;
+    region.span = MKCoordinateSpanMake(0.005, 0.005);
+    region.center = userLocation.location.coordinate;
     [self.mapView setRegion:region animated:YES];
 	
 	[[CoreDataAndRequestSupervisor startSupervisor] setDelegate:self];
@@ -181,11 +159,12 @@
 	[self creatAnnotationsFromBusPointsArray:nearStops];
 	
 }
+
 -(void)requestdidFailWithError:(NSError *)error{
 	
 }
 
--(void) creatAnnotationsFromBusPointsArray:(NSArray*)nearStops{
+-(void)creatAnnotationsFromBusPointsArray:(NSArray*)nearStops{
 	NSMutableArray* annotationArray = [[NSMutableArray alloc] init];
 	int i = 0;
 	for (Bus_points* stop in nearStops){
