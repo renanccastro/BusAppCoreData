@@ -60,20 +60,23 @@ static CoreDataAndRequestSupervisor *supervisor;
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     ServerUpdateRequest *serverUpdate = [[ServerUpdateRequest alloc] init];
     
-        if(![prefs integerForKey:@"version"])
-        {
-            [prefs setInteger:0 forKey:@"version"];
-        }
+    if(![prefs integerForKey:@"version"])
+    {
+        [prefs setInteger:0 forKey:@"version"];
+        NSDate *firstUpdate = [NSDate date];
+        [prefs setObject:firstUpdate forKey:@"last update"];
+    }
     
+    NSDate *currentDate = [NSDate date];
+    
+    
+    
+    if(([currentDate timeIntervalSinceDate:[prefs objectForKey:@"last update"]] > 60*60*24*7) || ([prefs integerForKey:@"version"] == 0))
+    {
         [serverUpdate requestServerUpdateWithVersion:[prefs integerForKey:@"version"]
                                         withDelegate:self];
-        
+    }
 }
-
-//-(BOOL)needUpdateSince:(NSDate*)currentDate
-//{
-//    TODO
-//}
 
 #pragma mark - server update delegate methods
 
@@ -126,5 +129,6 @@ static CoreDataAndRequestSupervisor *supervisor;
     
     [self.queue addOperation:operation];
 }
+
 
 @end
