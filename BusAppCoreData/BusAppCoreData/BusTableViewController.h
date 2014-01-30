@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Bus_line+Core_Data_Methods.h"
 
 @interface BusTableViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *busLinesInStop;
-//@property (nonatomic) int index;
 
 @end

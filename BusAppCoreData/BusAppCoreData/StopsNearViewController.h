@@ -14,7 +14,8 @@
 
 @property (nonatomic, strong) NSArray *annotations;
 
--(void)updateMapView;
--(void)addOverlay;
+- (void)updateMapView;
+- (void)creatAnnotationsFromBusPointsArray:(NSArray*)stopsNear;
+
 
 @end

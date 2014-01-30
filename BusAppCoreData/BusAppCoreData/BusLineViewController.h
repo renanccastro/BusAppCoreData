@@ -11,4 +11,7 @@
 
 @interface BusLineViewController : UIViewController 
 
+@property (nonatomic, strong) NSArray *rotaDeIda;
+@property (nonatomic, strong) NSArray *rotaDeVolta;
+
 @end
