@@ -7,10 +7,13 @@
 //
 
 #import "BusLineViewController.h"
+#import <MapKit/MapKit.h>
 
-@interface BusLineViewController ()
+@interface BusLineViewController () <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webPage;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
 @end
 
 @implementation BusLineViewController
@@ -28,6 +31,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.mapView.delegate = self;
     
     int webCode = 3;
     
@@ -39,6 +43,28 @@
     [self.webPage loadRequest:requestObj];
     
 }
+
+//- (void)addRoute
+//{
+//    
+//    CLLocationCoordinate2D coordinates[[self.mapView.annotations count]];
+//    for (NSInteger index = 0; index < [self.mapView.annotations count]; index++) {
+//        MKPlacemark *placeMark = [self.mapView.annotations objectAtIndex: index];
+//        coordinates[index] = placeMark.coordinate;
+//    }
+//    
+//    MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:10];
+//    [_mapView addOverlay:polyLine];
+//}
+//
+//- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
+//{
+//    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline: overlay];
+//    polylineView.strokeColor = [UIColor blueColor];
+//    polylineView.lineWidth = 5.0;
+//    return polylineView;
+//}
+
 
 - (void)didReceiveMemoryWarning
 {

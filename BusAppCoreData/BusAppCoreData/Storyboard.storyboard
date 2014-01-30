@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HNT-e3-WZm">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HNT-e3-WZm">
                                 <rect key="frame" x="20" y="320" width="280" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
@@ -42,6 +42,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="EAh-AO-1ee"/>
                     <connections>
+                        <outlet property="mapView" destination="HNT-e3-WZm" id="DiL-eV-uaZ"/>
                         <outlet property="webPage" destination="ghI-2L-iLI" id="Hh3-ic-bNr"/>
                     </connections>
                 </viewController>
@@ -146,7 +147,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NxO-vD-O7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2926" y="192"/>
+            <point key="canvasLocation" x="2927" y="192"/>
         </scene>
         <!--Bus App View Controller-->
         <scene sceneID="Zv5-AQ-Z1t">

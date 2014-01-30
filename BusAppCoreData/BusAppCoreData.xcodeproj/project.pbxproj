@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB3AB66A189AB83800BB16BB /* BusAppCoreData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E8EE1B9E189AA8C500F29667 /* BusAppCoreData.sqlite */; };
 		AB5C2AAC1898193B0068F017 /* BusLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5C2AAB1898193B0068F017 /* BusLineViewController.m */; };
 		AB5C2AAF18995ED30068F017 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5C2AAE18995ED30068F017 /* Annotation.m */; };
 		ABA8476A1896CBA5008B0172 /* TrajectoryPlanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA847691896CBA5008B0172 /* TrajectoryPlanningViewController.m */; };
@@ -339,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB3AB66A189AB83800BB16BB /* BusAppCoreData.sqlite in Resources */,
 				E8BAF75A1896BA330087E999 /* InfoPlist.strings in Resources */,
 				E8BAF7651896BA330087E999 /* Images.xcassets in Resources */,
 				E89809321896D6C500ECE205 /* Storyboard.storyboard in Resources */,
