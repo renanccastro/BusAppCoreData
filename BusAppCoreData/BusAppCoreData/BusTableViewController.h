@@ -11,5 +11,6 @@
 @interface BusTableViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *busLinesInStop;
+//@property (nonatomic) int index;
 
 @end

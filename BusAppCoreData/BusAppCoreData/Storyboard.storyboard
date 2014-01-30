@@ -77,7 +77,7 @@
                     <navigationItem key="navigationItem" id="riz-0x-P4a"/>
                     <connections>
                         <outlet property="mapView" destination="Uhs-eS-0q1" id="RDr-zF-Qhi"/>
-                        <segue destination="yv4-TG-TzZ" kind="push" identifier="bus lines" id="OgM-gC-zLg"/>
+                        <segue destination="yv4-TG-TzZ" kind="push" identifier="BusLines" id="OgM-gC-zLg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uI-ZH-GQj" userLabel="First Responder" sceneMemberID="firstResponder"/>

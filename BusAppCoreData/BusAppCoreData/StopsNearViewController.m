@@ -17,6 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic) NSArray* stopsNear;
+@property (nonatomic) NSArray* selectedAnnotationInfo;
 
 @end
 
@@ -70,19 +71,20 @@
     return nil;
 }
 
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
-{
-
-    [self performSegueWithIdentifier: @"bus lines" sender:nil];
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+	NSNumber *index = [NSNumber numberWithInt:((Annotation*)view.annotation).index];
+	
+    self.selectedAnnotationInfo = [((Bus_points*)self.stopsNear[index.intValue]).onibus_que_passam allObjects];
+    [self performSegueWithIdentifier: @"BusLines" sender:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if( [[segue identifier] isEqualToString:@"bus lines"])
+    if( [[segue identifier] isEqualToString:@"BusLines"])
     {
         BusTableViewController *tela = [segue destinationViewController];
 		
-//        tela.busLinesInStop ;
+        tela.busLinesInStop = self.selectedAnnotationInfo;
     }
 }
 
