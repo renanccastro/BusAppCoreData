@@ -16,6 +16,7 @@
 @interface StopsNearViewController () <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (nonatomic) NSArray* stopsNear;
 
 @end
 
@@ -80,6 +81,7 @@
     if( [[segue identifier] isEqualToString:@"bus lines"])
     {
         BusTableViewController *tela = [segue destinationViewController];
+		
 //        tela.busLinesInStop ;
     }
 }
@@ -173,7 +175,7 @@
 }
 
 -(void)requestdidFinishWithObject:(NSArray*)nearStops{
-//	NSLog(@"%@",nearStops);
+	self.stopsNear = nearStops;
 	[self creatAnnotationsFromBusPointsArray:nearStops];
 	
 }
@@ -183,18 +185,20 @@
 
 -(void) creatAnnotationsFromBusPointsArray:(NSArray*)nearStops{
 	NSMutableArray* annotationArray = [[NSMutableArray alloc] init];
+	int i = 0;
 	for (Bus_points* stop in nearStops){
         Annotation* annotation = [[Annotation alloc] init];
 		NSString* subTitle = [[NSString alloc] init];
 		for (Bus_line* bus in stop.onibus_que_passam) {
 			subTitle = [subTitle stringByAppendingString:[NSString stringWithFormat:@"%@, ",bus.line_number]];
-			
 		}
 		subTitle = [subTitle substringToIndex:[subTitle length]-2];
         [annotation setTitle: [NSString stringWithFormat: @"Ônibus nesse ponto:%d", [stop.onibus_que_passam count]]];
 		[annotation setSubtitle: subTitle];
         [annotation setCoordinate: CLLocationCoordinate2DMake([stop.lat doubleValue], [stop.lng doubleValue])];
         [annotationArray addObject: annotation];
+		annotation.index = i;
+		i++;
     }
 	[self setAnnotations:annotationArray];
 }
