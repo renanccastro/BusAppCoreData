@@ -108,8 +108,6 @@
 	// Do any additional setup after loading the view.
     self.mapView.delegate = self;
     
-    
-    
     NSMutableArray *temp = [[NSMutableArray alloc] init];
     
     int a;
@@ -141,6 +139,19 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+	[[CoreDataAndRequestSupervisor startSupervisor] setDelegate:self];
+	[[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:100.0 fromPoint:userLocation.coordinate];
+}
+
+-(void)requestdidFinishWithObject:(NSArray*)nearStops{
+	NSLog(@"%@",nearStops);
+}
+-(void)requestdidFailWithError:(NSError *)error{
+	
 }
 
 @end

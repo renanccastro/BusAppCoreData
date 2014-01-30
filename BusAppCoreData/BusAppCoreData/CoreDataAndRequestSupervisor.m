@@ -9,6 +9,7 @@
 #import "CoreDataAndRequestSupervisor.h"
 #import "ServerUpdateRequest.h"
 #import "Bus_line+Core_Data_Methods.h"
+#import "Bus_points+CoreDataMethods.h"
 #import "JsonRequest.h"
 
 
@@ -125,6 +126,21 @@ static CoreDataAndRequestSupervisor *supervisor;
     }];
     
     [self.queue addOperation:operation];
+}
+
+#pragma mark - CoreData methods
+-(void) getAllBusPointsAsyncWithinDistance:(CGFloat)distance fromPoint:(CLLocationCoordinate2D)point{
+	NSMutableArray* geoBox = [[NSMutableArray alloc] init];
+	NSBlockOperation * operation = [NSBlockOperation blockOperationWithBlock:^{
+		//Create the geobox
+		for (int i = 0; i < 4; i++) {
+			CLLocationCoordinate2D tempPoint = [CoreLocationExtension NewLocationFrom:point atDistanceInMeters:distance alongBearingInDegrees:i*90.0];
+			[geoBox addObject:[[CLLocation alloc] initWithLatitude:tempPoint.latitude longitude:tempPoint.longitude]];
+		}
+		[self.delegate requestdidFinishWithObject:[Bus_points getAllBusStopsWithinGeographicalBox:geoBox]];
+	}];
+	
+	[self.queue addOperation:operation];
 }
 
 @end

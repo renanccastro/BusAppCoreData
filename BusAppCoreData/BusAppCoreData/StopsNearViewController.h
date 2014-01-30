@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "CoreDataAndRequestSupervisor.h"
 
-@interface StopsNearViewController : UIViewController
+@interface StopsNearViewController : UIViewController <CoreDataRequestDelegate>
 
 @property (nonatomic, strong) NSArray *annotations;
 

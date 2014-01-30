@@ -18,6 +18,7 @@
 		B9F926B01896BC7400B5A61E /* CoreDataAndRequestSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926AF1896BC7400B5A61E /* CoreDataAndRequestSupervisor.m */; };
 		B9F926B61896CE1E00B5A61E /* JsonRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926B51896CE1E00B5A61E /* JsonRequest.m */; };
 		B9F926B71897D02300B5A61E /* ServerUpdateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926B21896CC9D00B5A61E /* ServerUpdateRequest.m */; };
+		E82D9733189A73020005173B /* CoreLocationExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E82D9732189A73020005173B /* CoreLocationExtension.m */; };
 		E89809321896D6C500ECE205 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89809311896D6C500ECE205 /* Storyboard.storyboard */; };
 		E89809341896D84D00ECE205 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89809331896D84D00ECE205 /* MapKit.framework */; };
 		E89809371896DC4900ECE205 /* BusAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E89809361896DC4900ECE205 /* BusAppViewController.m */; };
@@ -73,6 +74,8 @@
 		B9F926B21896CC9D00B5A61E /* ServerUpdateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerUpdateRequest.m; sourceTree = "<group>"; };
 		B9F926B41896CE1E00B5A61E /* JsonRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonRequest.h; sourceTree = "<group>"; };
 		B9F926B51896CE1E00B5A61E /* JsonRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonRequest.m; sourceTree = "<group>"; };
+		E82D9731189A73020005173B /* CoreLocationExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationExtension.h; sourceTree = "<group>"; };
+		E82D9732189A73020005173B /* CoreLocationExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLocationExtension.m; sourceTree = "<group>"; };
 		E89809311896D6C500ECE205 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		E89809331896D84D00ECE205 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E89809351896DC4900ECE205 /* BusAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusAppViewController.h; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				B9F926B21896CC9D00B5A61E /* ServerUpdateRequest.m */,
 				B9F926B41896CE1E00B5A61E /* JsonRequest.h */,
 				B9F926B51896CE1E00B5A61E /* JsonRequest.m */,
+				E82D9731189A73020005173B /* CoreLocationExtension.h */,
+				E82D9732189A73020005173B /* CoreLocationExtension.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 				E8F78B1E1899561900C0EFCB /* Bus_points+CoreDataMethods.m in Sources */,
 				E8BAF7601896BA330087E999 /* AppDelegate.m in Sources */,
 				B9CC175C1899192500618BB7 /* Bus_points.m in Sources */,
+				E82D9733189A73020005173B /* CoreLocationExtension.m in Sources */,
 				AB5C2AAF18995ED30068F017 /* Annotation.m in Sources */,
 				E8BAF75C1896BA330087E999 /* main.m in Sources */,
 				B9F926B01896BC7400B5A61E /* CoreDataAndRequestSupervisor.m in Sources */,

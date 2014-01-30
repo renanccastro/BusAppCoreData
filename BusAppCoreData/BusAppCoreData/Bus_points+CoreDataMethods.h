@@ -12,5 +12,6 @@
 +(Bus_points*) getBusPointWithLatitude:(double)lat withLongitude:(double)lng;
 +(NSArray*) getBusLineStops:(Bus_line*)bus_line;
 +(Bus_points*) createBusPointFromBusLine:(Bus_line*)bus withLat:(double)lat andLong:(double)lng;
++(NSArray*)	getAllBusStopsWithinGeographicalBox:(NSArray*)box;
 
 @end
