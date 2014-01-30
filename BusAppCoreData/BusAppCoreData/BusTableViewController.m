@@ -61,7 +61,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = ((Bus_line*)self.busLinesInStop[indexPath.row]).full_name;
+	NSString *text  = ((Bus_line*)self.busLinesInStop[indexPath.row]).full_name;
+    cell.textLabel.text = text;
     
     return cell;
 }

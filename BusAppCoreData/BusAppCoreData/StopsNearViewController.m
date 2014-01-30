@@ -82,7 +82,7 @@
 {
     if( [[segue identifier] isEqualToString:@"BusLines"])
     {
-        BusTableViewController *tela = [segue destinationViewController];
+        BusTableViewController *tela = (BusTableViewController*)[segue destinationViewController];
 		
         tela.busLinesInStop = self.selectedAnnotationInfo;
     }

@@ -20,12 +20,15 @@
 @property (nonatomic) int finishedOperations;
 @property (nonatomic) int dueOperations;
 @property (nonatomic) int newestVersion;
+@property (nonatomic) int requestsFeitas;
+@property (nonatomic, strong) NSMutableArray* operations;
+@property (nonatomic, strong) NSString* lock;
 
 @end
 
 @implementation CoreDataAndRequestSupervisor
 
-static CoreDataAndRequestSupervisor *supervisor;
+static  CoreDataAndRequestSupervisor *supervisor;
 
 #pragma mark -  singleton methods
 
@@ -53,6 +56,9 @@ static CoreDataAndRequestSupervisor *supervisor;
         self.jsonsRequests = [[NSMutableArray alloc] init];
         self.queue = [[NSOperationQueue alloc] init];
 		self.finishedOperations = 0;
+		self.requestsFeitas = 0;
+		self.operations = [[NSMutableArray alloc] init];
+		self.lock = @"lock";
     }
     
     return self;
@@ -63,6 +69,11 @@ static CoreDataAndRequestSupervisor *supervisor;
 -(void)requestBusLines
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+	
+//	if ([prefs integerForKey:@"version"] == nil) {
+//		[prefs setObject:[[NSNumber alloc] initWithInt:0] forKey:@"version"];
+//	}
+	NSLog(@"%d",[prefs integerForKey:@"version"]);
     ServerUpdateRequest *serverUpdate = [[ServerUpdateRequest alloc] init];
     
     NSDate *currentDate = [NSDate date];
@@ -107,8 +118,12 @@ static CoreDataAndRequestSupervisor *supervisor;
 -(void)request:(JsonRequest *)request didFinishWithJson:(id)json
 {
     NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
-        
-        BOOL save = [Bus_line saveBusLineWithDictionary:json];
+        self.requestsFeitas++;
+		NSLog(@"requestsFeitas: %d\n", self.requestsFeitas);
+		BOOL save = NO;
+		@synchronized(self.lock){
+			 save = [Bus_line saveBusLineWithDictionary:json];
+		}
 		
         if(!save)
         {
@@ -118,13 +133,14 @@ static CoreDataAndRequestSupervisor *supervisor;
         {
             NSLog(@"Terminou 1 save.");
 			self.finishedOperations++;
+			NSLog(@"%d\n",self.finishedOperations);
 			if (self.finishedOperations == self.dueOperations) {
 				[[NSUserDefaults standardUserDefaults] setInteger:self.newestVersion forKey:@"version"];
 				self.finishedOperations = 0;
 			}
         }
     }];
-    
+    [self.operations addObject:operation];
     [self.queue addOperation:operation];
 }
 

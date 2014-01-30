@@ -112,8 +112,12 @@
 	NSError *error = nil;
 	if (![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]])
 	{
-		if ([[NSFileManager defaultManager] copyItemAtPath:defaultStorePath toPath:[storeURL path] error:&error]){
+		if ([[NSFileManager defaultManager] copyItemAtPath:defaultStorePath
+													toPath:[storeURL path]
+													 error:&error])
+		{
 			NSLog(@"Copied starting data to %@", storeURL);
+			
 			NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 			NSDate *firstUpdate = [NSDate date];
 			[prefs setObject:firstUpdate forKey:@"last update"];
