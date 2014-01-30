@@ -9,6 +9,7 @@
 #import "StopsNearViewController.h"
 #import "CoreDataAndRequestSupervisor.h"
 #import "Annotation.h"
+#import "BusTableViewController.h"
 #import "Bus_points.h"
 #import "Bus_line.h"
 
