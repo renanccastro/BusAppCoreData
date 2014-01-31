@@ -13,6 +13,7 @@
 @interface StopsNearViewController : UIViewController <CoreDataRequestDelegate>
 
 @property (nonatomic, strong) NSArray *annotations;
+@property (nonatomic) BOOL isStopsOnScreen;
 
 - (void)updateMapView;
 - (void)creatAnnotationsFromBusPointsArray:(NSArray*)stopsNear;

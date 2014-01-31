@@ -10,7 +10,7 @@
 #import "CoreDataAndRequestSupervisor.h"
 #import "Bus_line+Core_Data_Methods.h"
 #import <CoreLocation/CoreLocation.h>
-
+#import "StopsNearViewController.h"
 @interface BusAppViewController ()
 
 @end
@@ -38,7 +38,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+	if ([[segue identifier] isEqualToString:@"stopsNearSegue"]) {
+		StopsNearViewController* vc = [segue destinationViewController];
+		vc.isStopsOnScreen = NO;
+	}
+}
 
 
 
