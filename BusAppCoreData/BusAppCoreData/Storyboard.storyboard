@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pq6-yp-7Yp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pq6-yp-7Yp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--Bus Line View Controller-->
+        <!--Bus Line View Controller - Rota-->
         <scene sceneID="fcq-NL-50x">
             <objects>
                 <viewController id="bxf-Rf-9fD" customClass="BusLineViewController" sceneMemberID="viewController">
@@ -43,7 +43,7 @@
                             <constraint firstItem="ghI-2L-iLI" firstAttribute="height" secondItem="HNT-e3-WZm" secondAttribute="height" id="xkD-XJ-kRC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="EAh-AO-1ee"/>
+                    <navigationItem key="navigationItem" title="Rota" id="EAh-AO-1ee"/>
                     <connections>
                         <outlet property="mapView" destination="HNT-e3-WZm" id="DiL-eV-uaZ"/>
                         <outlet property="webPage" destination="ghI-2L-iLI" id="Hh3-ic-bNr"/>
@@ -53,7 +53,7 @@
             </objects>
             <point key="canvasLocation" x="3092" y="192"/>
         </scene>
-        <!--Stops Near View Controller-->
+        <!--Stops Near View Controller - Menu-->
         <scene sceneID="M2K-VY-PaJ">
             <objects>
                 <viewController id="XOq-n4-aYC" customClass="StopsNearViewController" sceneMemberID="viewController">
@@ -78,7 +78,9 @@
                             <constraint firstItem="Uhs-eS-0q1" firstAttribute="leading" secondItem="3Mc-jr-GTE" secondAttribute="leading" id="mAU-Wc-UCz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="riz-0x-P4a"/>
+                    <navigationItem key="navigationItem" title="Menu" id="riz-0x-P4a">
+                        <barButtonItem key="backBarButtonItem" title="Menu" id="GR2-zI-naN"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="Uhs-eS-0q1" id="RDr-zF-Qhi"/>
                         <segue destination="yv4-TG-TzZ" kind="push" identifier="BusLines" id="OgM-gC-zLg"/>
@@ -107,7 +109,7 @@
             </objects>
             <point key="canvasLocation" x="2386" y="-462"/>
         </scene>
-        <!--Bus Table View Controller-->
+        <!--Bus Table View Controller - Linhas De Onibus-->
         <scene sceneID="RpD-tq-vAM">
             <objects>
                 <tableViewController id="yv4-TG-TzZ" customClass="BusTableViewController" sceneMemberID="viewController">
@@ -116,7 +118,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Bus Line" textLabel="PKH-Zf-Gv4" imageView="bHj-iU-n6s" style="IBUITableViewCellStyleDefault" id="aWQ-N8-OyI">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Bus Line" textLabel="PKH-Zf-Gv4" style="IBUITableViewCellStyleDefault" id="aWQ-N8-OyI">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aWQ-N8-OyI" id="swX-xg-Fin">
@@ -124,16 +126,12 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PKH-Zf-Gv4">
-                                            <rect key="frame" x="73" y="0.0" width="212" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
                                             <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bus image" id="bHj-iU-n6s">
-                                            <rect key="frame" x="15" y="0.0" width="43" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -146,13 +144,15 @@
                             <outlet property="delegate" destination="yv4-TG-TzZ" id="lMP-Kh-KQU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="pJb-uY-Cbq"/>
+                    <navigationItem key="navigationItem" title="Linhas De Onibus" id="pJb-uY-Cbq">
+                        <barButtonItem key="backBarButtonItem" title="Linhas" id="PTk-nR-mzF"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NxO-vD-O7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2735" y="192"/>
         </scene>
-        <!--Bus App View Controller-->
+        <!--Bus App View Controller - Menu-->
         <scene sceneID="Zv5-AQ-Z1t">
             <objects>
                 <viewController id="3gO-1d-0YW" customClass="BusAppViewController" sceneMemberID="viewController">
@@ -222,7 +222,7 @@
                             <constraint firstAttribute="trailing" secondItem="WwF-TR-JwJ" secondAttribute="trailing" id="xly-tf-ktY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="JQS-Ol-Zao"/>
+                    <navigationItem key="navigationItem" title="Menu" id="JQS-Ol-Zao"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLP-hg-LwM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -236,6 +236,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SGg-ae-ACb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                            <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textShadowColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -247,9 +252,6 @@
             <point key="canvasLocation" x="1375" y="-112"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="bus image" width="300" height="300"/>
-    </resources>
     <color key="tintColor" red="1" green="0.75243891230000004" blue="0.36652966209999999" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
