@@ -7,6 +7,7 @@
 //
 
 #import "BusLineViewController.h"
+#import "Polyline_points.h"
 #import <MapKit/MapKit.h>
 
 @interface BusLineViewController () <MKMapViewDelegate>
@@ -17,6 +18,8 @@
 @end
 
 @implementation BusLineViewController
+
+@synthesize mapView = _mapView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,26 +47,51 @@
     
 }
 
-//- (void)addRoute
-//{
-//    
-//    CLLocationCoordinate2D coordinates[[self.mapView.annotations count]];
-//    for (NSInteger index = 0; index < [self.mapView.annotations count]; index++) {
-//        MKPlacemark *placeMark = [self.mapView.annotations objectAtIndex: index];
-//        coordinates[index] = placeMark.coordinate;
-//    }
-//    
-//    MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:10];
-//    [_mapView addOverlay:polyLine];
-//}
-//
-//- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
-//{
-//    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline: overlay];
-//    polylineView.strokeColor = [UIColor blueColor];
-//    polylineView.lineWidth = 5.0;
-//    return polylineView;
-//}
+- (void)addRoute
+{
+    
+    CLLocationCoordinate2D coordinates[[self.rotaDeIda count]];
+    for (NSInteger index = 0; index < [self.rotaDeIda count]; index++) {
+        Polyline_points *point = [self.rotaDeIda objectAtIndex: index];
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(point.lat.doubleValue, point.lng.doubleValue);
+        coordinates[index] = coordinate;
+    }
+    
+    MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count: [self.rotaDeIda count]];
+    [_mapView addOverlay:polyLine];
+}
+
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
+{
+    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline: overlay];
+    polylineView.strokeColor = [UIColor blueColor];
+    polylineView.lineWidth = 5.0;
+    return polylineView;
+}
+
+- (void)updateMapView
+{
+    if (self.mapView.overlays){
+        [self.mapView removeOverlays: self.mapView.overlays];
+    }
+    if (self.rotaDeIda){
+        [self addRoute];
+    }
+}
+
+- (void)setMapView:(MKMapView *)mapView
+{
+    _mapView = mapView;
+    [self updateMapView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.location.coordinate, 1000, 1000);
+    [self.mapView setRegion: viewRegion animated:YES];
+}
 
 
 - (void)didReceiveMemoryWarning
