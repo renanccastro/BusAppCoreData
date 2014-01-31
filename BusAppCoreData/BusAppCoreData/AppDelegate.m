@@ -121,7 +121,7 @@
 			NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 			NSDate *firstUpdate = [NSDate date];
 			[prefs setObject:firstUpdate forKey:@"last update"];
-			[prefs setInteger:3 forKey:@"version"];
+			[prefs setInteger:4 forKey:@"version"];
 		}
 		else
 			NSLog(@"Error copying default DB to %@ (%@)", storeURL, error);

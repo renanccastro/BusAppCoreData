@@ -64,7 +64,7 @@
     // Configure the cell...
 	NSString *text  = ((Bus_line*)self.busLinesInStop[indexPath.row]).full_name;
     cell.textLabel.text = text;
-    
+	
     return cell;
 }
 
@@ -82,6 +82,7 @@
         NSIndexPath *path = [self.tableView indexPathForCell:sender];
         tela.rotaDeIda = [((Bus_line*)self.busLinesInStop[path.row]).polyline_ida allObjects];
         tela.rotaDeVolta = [((Bus_line*)self.busLinesInStop[path.row]).polyline_volta allObjects];
+		tela.bus_line =((Bus_line*)self.busLinesInStop[path.row]);
 
     }
 }

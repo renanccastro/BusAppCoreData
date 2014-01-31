@@ -71,13 +71,16 @@
     for(Polyline_points *points in [Polyline_points getBusLineTrajectory:self
                                                                 withTurn:@"linhas_ida"])
     {
-        [points removeLinhas_idaObject:self];
+        [points removePointFromDatabase];
+		[self removePolyline_idaObject:points];
     }
     
     for(Polyline_points *points in [Polyline_points getBusLineTrajectory:self
                                                                 withTurn:@"linhas_volta"])
     {
-        [points removeLinhas_voltaObject:self];
+        [points removePointFromDatabase];
+		[self removePolyline_voltaObject:points];
+
     }
 }
 
@@ -89,19 +92,23 @@
                                                            withLat:[point[@"lat"] doubleValue]
 												  andLong:[point[@"lng"] doubleValue]]];;
     }
-    
+	
+    int i = 0;
     for(NSDictionary *polyLine in parsedData[@"polyline_ida"])
     {
-        [self addPolyline_idaObject:[Polyline_points createPolylinePointIdaWithBus:self
-                                                                           withLat:[polyLine[@"lat"] doubleValue]
-                                                                            andLng:[polyLine[@"lng"] doubleValue]]];
+        Polyline_points* point = [Polyline_points createPolylinePointIdaWithBus:self
+																		 withLat:[polyLine[@"lat"] doubleValue]
+																		 andLng:[polyLine[@"lng"] doubleValue] withOrder:i];
+		i++;
+		[self addPolyline_idaObject:point];
     }
-    
+    i=0;
     for(NSDictionary *polyLine in parsedData[@"polyline_volta"])
     {
         [self addPolyline_voltaObject:[Polyline_points createPolylinePointVoltaWithBus:self
                                                                                withLat:[polyLine[@"lat"] doubleValue]
-                                                                                andLng:[polyLine[@"lng"] doubleValue]]];
+                                                                                andLng:[polyLine[@"lng"] doubleValue] withOrder:i]];
+		i++;
     }
 }
 

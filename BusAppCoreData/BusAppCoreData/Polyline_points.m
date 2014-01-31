@@ -2,7 +2,7 @@
 //  Polyline_points.m
 //  BusAppCoreData
 //
-//  Created by Flavio Matheus on 29/01/14.
+//  Created by Renan Camargo de Castro on 31/01/14.
 //  Copyright (c) 2014 BEPiD. All rights reserved.
 //
 
@@ -14,7 +14,8 @@
 
 @dynamic lat;
 @dynamic lng;
-@dynamic linhas_ida;
-@dynamic linhas_volta;
+@dynamic order;
+@dynamic linha_ida;
+@dynamic linha_volta;
 
 @end

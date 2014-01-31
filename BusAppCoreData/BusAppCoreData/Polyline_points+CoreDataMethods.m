@@ -53,6 +53,9 @@
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY linhas_ida.web_number == %d", [bus.web_number integerValue]];
     [request setPredicate:predicate];
+	NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order"
+																 ascending:YES];
+	[request setSortDescriptors:@[descriptor]];
     
 	NSError *error;
 	NSArray *array = [context executeFetchRequest:request error:&error];
@@ -64,34 +67,38 @@
     return array;
 }
 
-+(Polyline_points*) createPolylinePointIdaWithBus:(Bus_line*)bus withLat:(double)lat andLng:(double)lng{
++(Polyline_points*) createPolylinePointIdaWithBus:(Bus_line*)bus withLat:(double)lat andLng:(double)lng withOrder:(int)order{
 	NSManagedObjectContext* context = [CoreDataAndRequestSupervisor startSupervisor].context;
 	
 	NSNumber * lat_number = [NSNumber numberWithDouble:lat];
 	NSNumber * lng_number = [NSNumber numberWithDouble:lng];
 	NSError* error = nil;
 	
-	Polyline_points* point = [Polyline_points getPolyLinePointsWithLatitude:lat andWithLongitude:lng];
-	if (!point) {
-		point = [NSEntityDescription insertNewObjectForEntityForName:@"Polyline_points"
-                                              inManagedObjectContext:context];
-		
-		point.lat = lat_number;
-		point.lng = lng_number;
-		[point addLinhas_idaObject:bus];
-	}
-	else{
-		if (![point.linhas_ida containsObject:bus]) {
-			[point addLinhas_idaObject:bus];
-		}
-	}
+	
+//	= [Polyline_points getPolyLinePointsWithLatitude:lat andWithLongitude:lng];
+//	if (!point) {
+	Polyline_points* point = [NSEntityDescription insertNewObjectForEntityForName:@"Polyline_points"
+										  inManagedObjectContext:context];
+	
+	point.lat = lat_number;
+	point.lng = lng_number;
+	point.linha_ida = bus;
+	point.order = [[NSNumber alloc] initWithInt:order];
+	[bus addPolyline_idaObject:point];
+//		[point set:bus];
+//	}
+//	else{
+//		if (![point.linhas_ida containsObject:bus]) {
+//			[point addLinhas_idaObject:bus];
+//		}
+//	}
 	
 	[context save:&error];
 	
 	return error == nil ? point : nil;
 }
 
-+(Polyline_points*) createPolylinePointVoltaWithBus:(Bus_line*)bus withLat:(double)lat andLng:(double)lng
++(Polyline_points*) createPolylinePointVoltaWithBus:(Bus_line*)bus withLat:(double)lat andLng:(double)lng withOrder:(int)order
 {
 	NSManagedObjectContext* context = [CoreDataAndRequestSupervisor startSupervisor].context;
 	
@@ -99,24 +106,31 @@
 	NSNumber * lng_number = [NSNumber numberWithDouble:lng];
 	NSError* error = nil;
 	
-	Polyline_points* point = [Polyline_points getPolyLinePointsWithLatitude:lat andWithLongitude:lng];
-	if (!point) {
-		point = [NSEntityDescription insertNewObjectForEntityForName:@"Polyline_points"
+//	 = [Polyline_points getPolyLinePointsWithLatitude:lat andWithLongitude:lng];
+//	if (!point) {
+		Polyline_points* point  = [NSEntityDescription insertNewObjectForEntityForName:@"Polyline_points"
                                               inManagedObjectContext:context];
 		
 		point.lat = lat_number;
 		point.lng = lng_number;
-		[point addLinhas_voltaObject:bus];
-	}
-	else{
-		if (![point.linhas_volta containsObject:bus]) {
-			[point addLinhas_voltaObject:bus];
-		}
-	}
+	point.order = [[NSNumber alloc] initWithInt:order];
+	point.linha_volta = bus;
+	[bus addPolyline_voltaObject:point];
+//		[point addLinhas_voltaObject:bus];
+//	}
+//	else{
+//		if (![point.linhas_volta containsObject:bus]) {
+//			[point addLinhas_voltaObject:bus];
+//		}
+//	}
 	
 	[context save:&error];
 	
 	return error == nil ? point : nil;
+}
+
+-(void) removePointFromDatabase{
+	[[[CoreDataAndRequestSupervisor startSupervisor] context] deleteObject:self];
 }
 
 

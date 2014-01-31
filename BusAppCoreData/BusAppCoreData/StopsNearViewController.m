@@ -42,13 +42,12 @@
     self.mapView.delegate = self;
     
 }
+-(void)viewWillDisappear:(BOOL)animated{
+	self.mapView.showsUserLocation = NO;
+}
 
 - (void)viewWillAppear:(BOOL)animated {
-    
-    [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
-    
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.location.coordinate, 1000, 1000);
-    [self.mapView setRegion: viewRegion animated:YES];
+	self.mapView.showsUserLocation = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -148,12 +147,12 @@
 	[[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:100.0 fromPoint: userLocation.coordinate];
 }
 
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if( [[segue identifier] isEqualToString:@"BusLines"])
     {
         BusTableViewController *tela = (BusTableViewController*)[segue destinationViewController];
-		
         tela.busLinesInStop = self.selectedAnnotationInfo;
      }
 }
