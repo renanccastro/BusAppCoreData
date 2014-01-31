@@ -118,7 +118,7 @@
             annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
             annotationView.enabled = YES;
             annotationView.canShowCallout = YES;
-            annotationView.image = [UIImage imageNamed:@"arrest.png"];
+            annotationView.image = [UIImage imageNamed:@"ThePin.png"];
             annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         } else {
             annotationView.annotation = annotation;
