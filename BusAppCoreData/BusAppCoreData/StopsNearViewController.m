@@ -42,8 +42,11 @@
     self.mapView.delegate = self;
     
 }
--(void)viewWillDisappear:(BOOL)animated{
+-(void)viewDidDisappear:(BOOL)animated{
 	self.mapView.showsUserLocation = NO;
+}
+-(void)viewWillDisappear:(BOOL)animated{
+//	self.mapView.showsUserLocation = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -143,8 +146,11 @@
 	MKCoordinateRegion region = MKCoordinateRegionMake(userLocation.location.coordinate, MKCoordinateSpanMake(0.005, 0.005));
     [self.mapView setRegion:region animated:YES];
 	
-	[[CoreDataAndRequestSupervisor startSupervisor] setDelegate:self];
-	[[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:100.0 fromPoint: userLocation.coordinate];
+	if(![self isStopsOnScreen]){
+		[[CoreDataAndRequestSupervisor startSupervisor] setDelegate:self];
+		[[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:100.0 fromPoint: userLocation.coordinate];
+		self.isStopsOnScreen = YES;
+	}
 }
 
 
