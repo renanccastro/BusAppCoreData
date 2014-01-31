@@ -26,7 +26,8 @@
                               insertNewObjectForEntityForName:@"Bus_line"
                               inManagedObjectContext:supervisor.context];
         
-		new_line.full_name = parsedData[@"name"];
+		NSString * full_name = [[parsedData[@"name"] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]] stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
+		new_line.full_name = full_name;
 		
 		new_line.line_number = [Bus_line getBusNumberFromFullName:new_line.full_name];
 		new_line.web_number = [[NSNumber alloc ] initWithInt:[parsedData[@"web_code"] integerValue]];
@@ -35,7 +36,9 @@
 	}
 	//IF THERE WAS ALREADY A BUS IN THE DATABASE
 	else{
-		bus.full_name = parsedData[@"name"];
+		NSString * full_name = [[parsedData[@"name"] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]] stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
+
+		bus.full_name = full_name;
 		
 		//Getting all numbers in the string.
 		bus.line_number = [Bus_line getBusNumberFromFullName:bus.full_name];
@@ -48,9 +51,14 @@
         
 	}
 	NSError * saveError;
-	[supervisor.context save:&saveError];
+	//[supervisor.context save:&saveError];
+	
+	NSLog(@"Save error %@",[saveError localizedDescription]);
 	
 	return saveError ? NO : YES;
+	
+	
+	
 }
 
 -(void)removeReferencesOfBusLine
