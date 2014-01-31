@@ -52,11 +52,7 @@
 
 - (void)addRoute
 {
-	//    CLLocationCoordinate2D coordinates[[self.mapView.annotations count]];
-	//    for (NSInteger index = 0; index < [self.mapView.annotations count]; index++) {
-	//        MKPlacemark *placeMark = [self.mapView.annotations objectAtIndex: index];
-	//        coordinates[index] = placeMark.coordinate;
-	//    }
+
 	CLLocationCoordinate2D* coordinates = malloc(sizeof(CLLocationCoordinate2D)* [self.rotaDeIda count]);
 	NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order"
 																 ascending:YES];
@@ -66,10 +62,6 @@
 	for (NSInteger index = 0; index < [self.rotaDeIda count]; index++) {
 		point = [self.rotaDeIda objectAtIndex:index];
 		coordinates[index] = CLLocationCoordinate2DMake(point.lat.doubleValue, point.lng.doubleValue);
-	}
-
-	for (Polyline_points* point in self.rotaDeIda) {
-		NSLog(@"ordem:%d", point.order.integerValue);
 	}
 
     MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:[self.rotaDeIda count]];
@@ -106,9 +98,27 @@
     [super viewDidAppear:animated];
     [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
     
-    CLLocationCoordinate2D coord1 =  CLLocationCoordinate2DMake( ( ((Polyline_points *)self.rotaDeIda[0]).lat.doubleValue + ((Polyline_points *)self.rotaDeIda[[self.rotaDeIda count]-1]).lat.doubleValue )/2, ( ((Polyline_points *)self.rotaDeIda[/*[self.rotaDeIda count]/2*/0]).lng.doubleValue + ((Polyline_points *)self.rotaDeIda[[self.rotaDeIda count]-1]).lng.doubleValue)/2 );
+    CLLocationCoordinate2D max, min;
+    max = min = CLLocationCoordinate2DMake(((Polyline_points *)self.rotaDeIda[0]).lat.doubleValue, ((Polyline_points *)self.rotaDeIda[0]).lng.doubleValue);
     
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord1, 15000, 15000);
+    for (Polyline_points *polyline in self.rotaDeIda) {
+        if (polyline.lat.doubleValue > max.latitude){
+            max = CLLocationCoordinate2DMake(polyline.lat.doubleValue, max.longitude);
+        } else if (polyline.lat.doubleValue < min.latitude){
+            min = CLLocationCoordinate2DMake(polyline.lat.doubleValue, min.longitude);
+        }
+        if (polyline.lng.doubleValue > max.longitude){
+            max = CLLocationCoordinate2DMake(max.latitude, polyline.lng.doubleValue);
+        } else if (polyline.lat.doubleValue < min.latitude){
+            min = CLLocationCoordinate2DMake(min.latitude, polyline.lng.doubleValue);
+        }
+    }
+    
+    CLLocationCoordinate2D centerCoord = CLLocationCoordinate2DMake((max.latitude + min.latitude)/2, (max.longitude + min.longitude)/2);
+    
+    MKCoordinateSpan span = MKCoordinateSpanMake(max.latitude - min.latitude + 0.00001, max.longitude - min.longitude + 0.00001);
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMake(centerCoord, span);
     
     [self.mapView setRegion: viewRegion animated:YES];
     
