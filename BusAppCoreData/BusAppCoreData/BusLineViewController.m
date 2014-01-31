@@ -7,6 +7,7 @@
 //
 
 #import "BusLineViewController.h"
+#import "Polyline_points.h"
 #import <MapKit/MapKit.h>
 #import "Polyline_points.h"
 
@@ -18,6 +19,8 @@
 @end
 
 @implementation BusLineViewController
+
+@synthesize mapView = _mapView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
