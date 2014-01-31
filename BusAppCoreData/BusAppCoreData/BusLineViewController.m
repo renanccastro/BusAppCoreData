@@ -101,14 +101,18 @@
     return polylineView;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
     
+    [super viewDidAppear:animated];
     [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
     
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.location.coordinate, 1000, 1000);
+    CLLocationCoordinate2D coord1 =  CLLocationCoordinate2DMake( ( ((Polyline_points *)self.rotaDeIda[0]).lat.doubleValue + ((Polyline_points *)self.rotaDeIda[[self.rotaDeIda count]-1]).lat.doubleValue )/2, ( ((Polyline_points *)self.rotaDeIda[/*[self.rotaDeIda count]/2*/0]).lng.doubleValue + ((Polyline_points *)self.rotaDeIda[[self.rotaDeIda count]-1]).lng.doubleValue)/2 );
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord1, 15000, 15000);
+    
     [self.mapView setRegion: viewRegion animated:YES];
+    
 }
-
 
 - (void)didReceiveMemoryWarning
 {
