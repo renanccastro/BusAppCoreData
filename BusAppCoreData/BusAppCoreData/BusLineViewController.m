@@ -48,6 +48,9 @@
     [self.webPage loadRequest:requestObj];
 	[self addRoute];
     
+    
+//    [self activateorientation];
+    
 }
 
 - (void)addRoute
@@ -124,6 +127,51 @@
     
 }
 
+#pragma - NAO APAGUE AINDA :P
+//-(void) activateorientation{
+//	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+//    [[NSNotificationCenter defaultCenter] addObserver:self										 selector:@selector(didRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
+//}
+//
+//
+//#define degreesToRadian(x) (M_PI * (x) / 180.0)
+//
+//
+//- (void) didRotate:(NSNotification *)notification
+//{
+//	UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+//    
+//	if (orientation == UIDeviceOrientationLandscapeLeft)
+//	{
+//        // implement here
+//	}
+//	if (orientation == UIDeviceOrientationLandscapeRight)
+//	{
+//        // implement here
+//        CGAffineTransform landscapeTransform = CGAffineTransformMakeRotation(degreesToRadian(90));
+//        
+//        
+//        
+//        landscapeTransform = CGAffineTransformTranslate (landscapeTransform, 0.0, 0.0);
+//        
+//        //        self.view.bounds = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, 480, 320);
+//        
+//        //
+//        
+//        //
+//        
+//        //        [self.view setTransform:landscapeTransform];
+//        
+//        
+//        
+//        [self.webPage setTransform:landscapeTransform];
+//	}
+//}
+//
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+//	return (interfaceOrientation == UIInterfaceOrientationPortrait);
+//}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -131,13 +179,15 @@
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-	   [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('mapFrame').style.display='none';"];
+    
+    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('mapFrame').style.display='none';"];
+    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('tituloTopo').style.display='none';"];
+    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('portMenu').style.display='none';"];
 //	NSString * removeTables = @"var tables=document.getElementById('conteiner').getElementsByTagName('table');\
 //								for(var i = 0 ; i > tables.length; i++){\
 //										tables[i].style.display='none';\
 //								}";
 //		   [webView stringByEvaluatingJavaScriptFromString:removeTables];
 
-	
 }
 @end

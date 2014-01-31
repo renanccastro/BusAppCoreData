@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghI-2L-iLI">
-                                <rect key="frame" x="20" y="72" width="280" height="240"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="252"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -25,21 +25,21 @@
                                 </connections>
                             </webView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HNT-e3-WZm">
-                                <rect key="frame" x="20" y="320" width="280" height="240"/>
+                                <rect key="frame" x="0.0" y="316" width="320" height="252"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="HNT-e3-WZm" secondAttribute="centerX" id="0T3-OY-1cd"/>
-                            <constraint firstItem="HNT-e3-WZm" firstAttribute="top" secondItem="ghI-2L-iLI" secondAttribute="bottom" constant="8" symbolic="YES" id="2EK-Xt-HsW"/>
+                            <constraint firstItem="HNT-e3-WZm" firstAttribute="top" secondItem="ghI-2L-iLI" secondAttribute="bottom" id="2EK-Xt-HsW"/>
                             <constraint firstItem="ghI-2L-iLI" firstAttribute="width" secondItem="HNT-e3-WZm" secondAttribute="width" id="Dxy-wf-FfR"/>
-                            <constraint firstItem="HNT-e3-WZm" firstAttribute="top" secondItem="ghI-2L-iLI" secondAttribute="bottom" constant="8" symbolic="YES" id="F3q-Fh-fZ2"/>
-                            <constraint firstItem="zFi-eO-Oth" firstAttribute="top" secondItem="HNT-e3-WZm" secondAttribute="bottom" constant="8" id="GvM-pj-hAI"/>
-                            <constraint firstItem="ghI-2L-iLI" firstAttribute="top" secondItem="Dwy-Zo-SwX" secondAttribute="bottom" constant="8" id="OMw-ZZ-Y0Q"/>
+                            <constraint firstItem="HNT-e3-WZm" firstAttribute="top" secondItem="ghI-2L-iLI" secondAttribute="bottom" id="F3q-Fh-fZ2"/>
+                            <constraint firstItem="zFi-eO-Oth" firstAttribute="top" secondItem="HNT-e3-WZm" secondAttribute="bottom" id="GvM-pj-hAI"/>
+                            <constraint firstItem="ghI-2L-iLI" firstAttribute="top" secondItem="Dwy-Zo-SwX" secondAttribute="bottom" id="OMw-ZZ-Y0Q"/>
                             <constraint firstAttribute="centerX" secondItem="ghI-2L-iLI" secondAttribute="centerX" id="dXP-sn-xQs"/>
-                            <constraint firstAttribute="trailing" secondItem="HNT-e3-WZm" secondAttribute="trailing" constant="20" symbolic="YES" id="pXY-lg-gjv"/>
-                            <constraint firstItem="HNT-e3-WZm" firstAttribute="leading" secondItem="l8Y-Ie-rRE" secondAttribute="leading" constant="20" symbolic="YES" id="wAd-IG-fwa"/>
+                            <constraint firstAttribute="trailing" secondItem="HNT-e3-WZm" secondAttribute="trailing" id="pXY-lg-gjv"/>
+                            <constraint firstItem="HNT-e3-WZm" firstAttribute="leading" secondItem="l8Y-Ie-rRE" secondAttribute="leading" id="wAd-IG-fwa"/>
                             <constraint firstItem="ghI-2L-iLI" firstAttribute="height" secondItem="HNT-e3-WZm" secondAttribute="height" id="xkD-XJ-kRC"/>
                         </constraints>
                     </view>
@@ -51,7 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRg-Md-zVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3496" y="192"/>
+            <point key="canvasLocation" x="3092" y="192"/>
         </scene>
         <!--Stops Near View Controller-->
         <scene sceneID="M2K-VY-PaJ">
@@ -150,7 +150,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NxO-vD-O7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2927" y="192"/>
+            <point key="canvasLocation" x="2735" y="192"/>
         </scene>
         <!--Bus App View Controller-->
         <scene sceneID="Zv5-AQ-Z1t">
