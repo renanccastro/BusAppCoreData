@@ -108,7 +108,6 @@
 	
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"BusAppCoreData.sqlite"];
 	
-#warning NEED TO FINISH THIS!!!!
 	NSError *error = nil;
 	if (![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]])
 	{
