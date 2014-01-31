@@ -76,12 +76,37 @@
     [_mapView addOverlay:polyLine];
 }
 
+
+- (void)updateMapView
+{
+    if (self.mapView.overlays){
+        [self.mapView removeOverlays: self.mapView.overlays];
+    }
+    if (self.rotaDeIda){
+        [self addRoute];
+    }
+}
+
+- (void)setMapView:(MKMapView *)mapView
+{
+    _mapView = mapView;
+    [self updateMapView];
+}
+
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
 {
     MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline: overlay];
     polylineView.strokeColor = [UIColor blueColor];
     polylineView.lineWidth = 5.0;
     return polylineView;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.location.coordinate, 1000, 1000);
+    [self.mapView setRegion: viewRegion animated:YES];
 }
 
 
