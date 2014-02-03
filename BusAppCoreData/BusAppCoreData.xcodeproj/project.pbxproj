@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB3AB66D189FD20D00BB16BB /* TrajectoryPlanner.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3AB66C189FD20D00BB16BB /* TrajectoryPlanner.m */; };
+		AB3AB670189FF00E00BB16BB /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3AB66F189FF00E00BB16BB /* Node.m */; };
 		AB5C2AAC1898193B0068F017 /* BusLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5C2AAB1898193B0068F017 /* BusLineViewController.m */; };
 		AB5C2AAF18995ED30068F017 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5C2AAE18995ED30068F017 /* Annotation.m */; };
 		ABA8476A1896CBA5008B0172 /* TrajectoryPlanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA847691896CBA5008B0172 /* TrajectoryPlanningViewController.m */; };
@@ -64,6 +66,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB3AB66B189FD20D00BB16BB /* TrajectoryPlanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrajectoryPlanner.h; sourceTree = "<group>"; };
+		AB3AB66C189FD20D00BB16BB /* TrajectoryPlanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrajectoryPlanner.m; sourceTree = "<group>"; };
+		AB3AB66E189FF00E00BB16BB /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		AB3AB66F189FF00E00BB16BB /* Node.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
 		AB5C2AAA1898193B0068F017 /* BusLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusLineViewController.h; sourceTree = "<group>"; };
 		AB5C2AAB1898193B0068F017 /* BusLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusLineViewController.m; sourceTree = "<group>"; };
 		AB5C2AAD18995ED30068F017 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
@@ -217,6 +223,10 @@
 		B9F926AD1896BC4600B5A61E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AB3AB66E189FF00E00BB16BB /* Node.h */,
+				AB3AB66F189FF00E00BB16BB /* Node.m */,
+				AB3AB66B189FD20D00BB16BB /* TrajectoryPlanner.h */,
+				AB3AB66C189FD20D00BB16BB /* TrajectoryPlanner.m */,
 				B9F926AE1896BC7400B5A61E /* CoreDataAndRequestSupervisor.h */,
 				B9F926AF1896BC7400B5A61E /* CoreDataAndRequestSupervisor.m */,
 				B9F926B11896CC9D00B5A61E /* ServerUpdateRequest.h */,
