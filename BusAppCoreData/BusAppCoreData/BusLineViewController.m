@@ -180,9 +180,17 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     
-    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('mapFrame').style.display='none';"];
-    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('tituloTopo').style.display='none';"];
-    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('portMenu').style.display='none';"];
+//    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('mapFrame').style.display='none';"];
+//    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('tituloTopo').style.display='none';"];
+//    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('portMenu').style.display='none';"];
+	
+	NSString* removeALL = @"var all = document.getElementsByTagName('*');\
+	for (var i = 0; i < all.length; i++) {\
+			all[i].style.display = 'none';\
+	}\
+	document.getElementById('tabs').style.display = 'inline';";
+	[webView stringByEvaluatingJavaScriptFromString:removeALL];
+
 //	NSString * removeTables = @"var tables=document.getElementById('conteiner').getElementsByTagName('table');\
 //								for(var i = 0 ; i > tables.length; i++){\
 //										tables[i].style.display='none';\
