@@ -7,8 +7,10 @@
 //
 
 #import "TrajectoryPlanningViewController.h"
+#import "CoreDataAndRequestSupervisor.h"
+#import "TrajectoryPlanner.h"
 
-@interface TrajectoryPlanningViewController ()
+@interface TrajectoryPlanningViewController () <TreeDataRequestDelegate>
 
 @end
 
@@ -26,9 +28,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[CoreDataAndRequestSupervisor startSupervisor] setTreeDelegate:self];
+    [[CoreDataAndRequestSupervisor startSupervisor] getRequiredTreeLinesWithInitialPoint:CLLocationCoordinate2DMake(-22.83010, -47.07940) andFinalPoint:CLLocationCoordinate2DMake(-22.82151, -47.08802) withRange:600];
 	// Do any additional setup after loading the view.
 }
-
+-(void)requestDataDidFinishWithInitialArray:(NSArray *)initial andWithFinal:(NSArray *)final{
+    
+    TrajectoryPlanner *trajectory = [[TrajectoryPlanner alloc] init];
+    NSArray *route = [trajectory planningFrom: initial to: final];
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

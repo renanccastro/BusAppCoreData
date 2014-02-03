@@ -55,6 +55,27 @@
 //            }
 //            }
 //        }
+        
+        
+        else{
+        if (j <= size){
+            node = node.next;
+            end.next = [[Node alloc] initWithData: [node.data.line_interceptions allObjects][0] ];
+            
+            for (NSInteger index = 1; index < [[node.data.line_interceptions allObjects] count]; index++){
+                end.next = [[Node alloc] initWithData: [node.data.line_interceptions allObjects][index]];
+                end.next.parent = end;
+                end = end.next;
+            }
+                                               total += [[node.data.line_interceptions allObjects] count];
+                                               j++;
+                                               if (j == size){
+                                                   i++;
+                                                   size = total;
+                                               }
+                                               }
+                                               }
+
     }
     return route;
 }

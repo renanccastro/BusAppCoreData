@@ -178,8 +178,8 @@ static  CoreDataAndRequestSupervisor *supervisor;
 			[geoBoxFinal addObject:[[CLLocation alloc] initWithLatitude:tempPoint.latitude longitude:tempPoint.longitude]];
 		}
 
-		NSArray* initial = [Bus_points getAllBusStopsWithinGeographicalBox:geoBoxInitial];
-		NSArray* final = [Bus_points getAllBusStopsWithinGeographicalBox:geoBoxFinal];
+		NSArray* initial = [((Bus_points*)[Bus_points getAllBusStopsWithinGeographicalBox:geoBoxInitial]).onibus_que_passam allObjects];
+        NSArray* final = [((Bus_points*)[Bus_points getAllBusStopsWithinGeographicalBox:geoBoxFinal]).onibus_que_passam allObjects];
 		[self.treeDelegate requestDataDidFinishWithInitialArray:initial andWithFinal:final];
 	}];
 	
