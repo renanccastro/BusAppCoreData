@@ -88,13 +88,13 @@
     [self updateMapView];
 }
 
-- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
-{
-    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline: overlay];
-    polylineView.strokeColor = [UIColor blueColor];
-    polylineView.lineWidth = 5.0;
-    return polylineView;
-}
+//- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
+//{
+//    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline: overlay];
+//    polylineView.strokeColor = [UIColor blueColor];
+//    polylineView.lineWidth = 5.0;
+//    return polylineView;
+//}
 
 - (void)viewDidAppear:(BOOL)animated {
     
