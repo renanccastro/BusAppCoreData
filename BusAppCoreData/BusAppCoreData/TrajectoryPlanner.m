@@ -19,64 +19,41 @@
     Node *node = self.head;
     NSInteger size = [finalLines count];
     
-    for (NSInteger index = 1; index < size; index++){
-        node.next = [[Node alloc] initWithData: initialLines[index]];
-        node = node.next;
-    }
-    Node *end = node;
-    
-    BOOL find = NO;
+                      BOOL find = NO;
+                  BOOL stop = NO;
     int i = 0, j = 0;
-    NSInteger total = size;
-    while (find != YES && node.next != nil && i < 3){
-        NSInteger index = [finalLines indexOfObjectIdenticalTo: node.data];
+    while (i < [self.lines count] && find != YES && stop == NO){
+        NSInteger index = [finalLines indexOfObjectIdenticalTo: ((Node*)self.lines[i]).data];
         if (index != NSNotFound){
             find = YES;
-            while (node != nil){
-                [route addObject: node.data];
-                node = node.parent;
+            while (((Node*)self.lines[i]).data != nil){
+                [route addObject: ((Node*)self.lines[i]).data];
+                self.lines[i] = ((Node*)self.lines[i]).parent;
             }
         }
-//        } else {
+
+        
+    }
+//        else {
 //            if (j <= size){
 //                node = node.next;
-//                end.next = [[Node alloc] initWithData: node.data.INTER[0]];
-//                
-//                for (NSInteger index = 1; index < [node.data.INTER[0]; index++){
-//                    end.next = [[Node alloc] initWithData: node.data.INTER[index]];
+//                end.next = [[Node alloc] initWithData: [node.data.line_interceptions allObjects][0] ];
+//            
+//                for (NSInteger index = 1; index < [[node.data.line_interceptions allObjects] count]; index++){
+//                    end.next = [[Node alloc] initWithData: [node.data.line_interceptions allObjects][index]];
 //                    end.next.parent = end;
 //                    end = end.next;
 //                }
-//                total += [node.data.INTER[0]];
+//                total += [[node.data.line_interceptions allObjects] count];
 //                j++;
-//            if (j == size){
-//                i++;
-//                size = total;
-//            }
+//                if (j == size){
+//                    i++;
+//                    size = total;
+//                }
 //            }
 //        }
-        
-        
-        else{
-        if (j <= size){
-            node = node.next;
-            end.next = [[Node alloc] initWithData: [node.data.line_interceptions allObjects][0] ];
-            
-            for (NSInteger index = 1; index < [[node.data.line_interceptions allObjects] count]; index++){
-                end.next = [[Node alloc] initWithData: [node.data.line_interceptions allObjects][index]];
-                end.next.parent = end;
-                end = end.next;
-            }
-                                               total += [[node.data.line_interceptions allObjects] count];
-                                               j++;
-                                               if (j == size){
-                                                   i++;
-                                                   size = total;
-                                               }
-                                               }
-                                               }
-
-    }
+//
+//    }
     return route;
 }
 

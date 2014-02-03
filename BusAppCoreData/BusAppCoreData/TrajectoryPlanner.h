@@ -11,7 +11,7 @@
 
 @interface TrajectoryPlanner : NSObject
 
-@property (nonatomic, strong) Node *head;
+@property (nonatomic, strong) NSMutableArray *lines;
 
 
 - (NSArray *)planningFrom: (NSArray*)initialLines to: (NSArray *)finalLines;
