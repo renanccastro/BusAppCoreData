@@ -13,7 +13,6 @@
 - (id)initWithData: (Bus_line *)data
 {
     self.data = data;
-    self.next = nil;
     self.parent = nil;
 
     return self;
