@@ -10,7 +10,7 @@
 #import "Annotation.h"
 #import	<MapKit/MapKit.h>
 
-@interface PinDropViewController ()
+@interface PinDropViewController () <MKMapViewDelegate>
 @property (nonatomic, weak) IBOutlet MKMapView* mapView;
 @property (nonatomic) CLLocationCoordinate2D pinLocation;
 @end
