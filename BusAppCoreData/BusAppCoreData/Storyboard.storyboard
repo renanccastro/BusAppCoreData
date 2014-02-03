@@ -4,6 +4,104 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
+        <!--View Controller - Endereço-->
+        <scene sceneID="Qzf-AQ-U5u">
+            <objects>
+                <viewController id="c7x-8d-jaA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="56m-CF-hJE"/>
+                        <viewControllerLayoutGuide type="bottom" id="kem-3T-fPP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ibk-Tz-A8I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hi2-Is-4AL">
+                                <rect key="frame" x="112" y="245" width="139" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Endereço" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKL-ok-vQk">
+                                <rect key="frame" x="15" y="248" width="79" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pkp-b8-AHO">
+                                <rect key="frame" x="112" y="299" width="139" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Numero" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PiP-sZ-qo4">
+                                <rect key="frame" x="15" y="302" width="64" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bairro" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uI6-0d-eOA">
+                                <rect key="frame" x="20" y="356" width="59" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3CD-L3-m0P">
+                                <rect key="frame" x="112" y="352" width="139" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2i4-ms-Ekl">
+                                <rect key="frame" x="67" y="445" width="184" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
+                                <state key="normal" title="Pesquisar Rota">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ZV3-ap-nIc" kind="push" id="qdO-fi-I4K"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Endereço" id="ndi-Ac-HHd">
+                        <barButtonItem key="backBarButtonItem" title="Endereço" id="S8x-e3-ORE"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ew-Sb-j8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2735" y="-1112"/>
+        </scene>
+        <!--View Controller - Rota-->
+        <scene sceneID="I7c-NH-N4o">
+            <objects>
+                <viewController id="ZV3-ap-nIc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ufl-Us-wlQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="EB1-3F-6QV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yVW-fs-NUu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IX4-6L-dAq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Rota" id="p3x-Ta-y9D"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JXi-2f-O6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3092" y="-462"/>
+        </scene>
         <!--Bus Line View Controller - Rota-->
         <scene sceneID="fcq-NL-50x">
             <objects>
@@ -90,7 +188,7 @@
             </objects>
             <point key="canvasLocation" x="2386" y="192"/>
         </scene>
-        <!--Trajectory Planning View Controller-->
+        <!--Trajectory Planning View Controller - Tipo de Pequisa-->
         <scene sceneID="C5V-Sl-fT5">
             <objects>
                 <viewController id="hu4-u4-m8j" customClass="TrajectoryPlanningViewController" sceneMemberID="viewController">
@@ -101,13 +199,78 @@
                     <view key="view" contentMode="scaleToFill" id="TKW-Yd-SSP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBR-3q-anV">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="c7x-8d-jaA" kind="push" id="og3-Np-7MU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nb4-YU-adq">
+                                <rect key="frame" x="0.0" y="292" width="320" height="283"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="SaY-Jt-uZn" kind="push" id="hit-bo-3NW"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yBR-3q-anV" firstAttribute="leading" secondItem="TKW-Yd-SSP" secondAttribute="leading" constant="137" id="0gq-Hi-Lax"/>
+                            <constraint firstAttribute="trailing" secondItem="yBR-3q-anV" secondAttribute="trailing" constant="137" id="5St-Km-zZL"/>
+                            <constraint firstItem="yBR-3q-anV" firstAttribute="width" secondItem="nb4-YU-adq" secondAttribute="width" id="EBI-OC-k7x"/>
+                            <constraint firstAttribute="trailing" secondItem="nb4-YU-adq" secondAttribute="trailing" constant="137" id="IWa-fe-Y5E"/>
+                            <constraint firstItem="yBR-3q-anV" firstAttribute="height" secondItem="nb4-YU-adq" secondAttribute="height" id="VMU-ZU-ZqV"/>
+                            <constraint firstItem="yBR-3q-anV" firstAttribute="top" secondItem="3zd-t7-HJL" secondAttribute="bottom" constant="190" id="WvC-r6-tkv"/>
+                            <constraint firstItem="yI3-Ax-Wxp" firstAttribute="top" secondItem="nb4-YU-adq" secondAttribute="bottom" constant="226" id="blR-rc-1bX"/>
+                            <constraint firstItem="nb4-YU-adq" firstAttribute="leading" secondItem="TKW-Yd-SSP" secondAttribute="leading" constant="137" id="dnx-dW-DUh"/>
+                            <constraint firstItem="nb4-YU-adq" firstAttribute="top" secondItem="yBR-3q-anV" secondAttribute="bottom" constant="40" id="qDN-fd-ig5"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tgz-z2-FVn"/>
+                    <navigationItem key="navigationItem" title="Tipo de Pequisa" id="tgz-z2-FVn">
+                        <barButtonItem key="backBarButtonItem" title="Pesquisa" id="oGM-jn-xmh"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eq-tS-Vvq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2386" y="-462"/>
+        </scene>
+        <!--View Controller - Localidade-->
+        <scene sceneID="j2y-t2-b5P">
+            <objects>
+                <viewController id="SaY-Jt-uZn" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5mP-Yw-8TS"/>
+                        <viewControllerLayoutGuide type="bottom" id="hCU-WZ-emi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EsD-pW-Yyw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="s6B-jD-31s">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Localidade" id="7zt-ff-IVN">
+                        <barButtonItem key="backBarButtonItem" title="Localidade" id="TPB-Rb-f3Y"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="ZV3-ap-nIc" kind="push" id="D6B-C1-689"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d52-cz-s5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2740" y="-462"/>
         </scene>
         <!--Bus Table View Controller - Linhas De Onibus-->
         <scene sceneID="RpD-tq-vAM">
@@ -258,4 +421,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="D6B-C1-689"/>
+    </inferredMetricsTieBreakers>
 </document>
