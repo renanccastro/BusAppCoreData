@@ -4,7 +4,105 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--Bus Line View Controller-->
+        <!--View Controller - Endereço-->
+        <scene sceneID="Qzf-AQ-U5u">
+            <objects>
+                <viewController id="c7x-8d-jaA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="56m-CF-hJE"/>
+                        <viewControllerLayoutGuide type="bottom" id="kem-3T-fPP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ibk-Tz-A8I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hi2-Is-4AL">
+                                <rect key="frame" x="112" y="245" width="139" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Endereço" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKL-ok-vQk">
+                                <rect key="frame" x="15" y="248" width="79" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pkp-b8-AHO">
+                                <rect key="frame" x="112" y="299" width="139" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Numero" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PiP-sZ-qo4">
+                                <rect key="frame" x="15" y="302" width="64" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bairro" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uI6-0d-eOA">
+                                <rect key="frame" x="20" y="356" width="59" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3CD-L3-m0P">
+                                <rect key="frame" x="112" y="352" width="139" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2i4-ms-Ekl">
+                                <rect key="frame" x="67" y="445" width="184" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
+                                <state key="normal" title="Pesquisar Rota">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ZV3-ap-nIc" kind="push" id="qdO-fi-I4K"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Endereço" id="ndi-Ac-HHd">
+                        <barButtonItem key="backBarButtonItem" title="Endereço" id="S8x-e3-ORE"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ew-Sb-j8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2735" y="-1112"/>
+        </scene>
+        <!--View Controller - Rota-->
+        <scene sceneID="I7c-NH-N4o">
+            <objects>
+                <viewController id="ZV3-ap-nIc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ufl-Us-wlQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="EB1-3F-6QV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yVW-fs-NUu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IX4-6L-dAq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Rota" id="p3x-Ta-y9D"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JXi-2f-O6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3092" y="-462"/>
+        </scene>
+        <!--Bus Line View Controller - Rota-->
         <scene sceneID="fcq-NL-50x">
             <objects>
                 <viewController id="bxf-Rf-9fD" customClass="BusLineViewController" sceneMemberID="viewController">
@@ -43,7 +141,7 @@
                             <constraint firstItem="ghI-2L-iLI" firstAttribute="height" secondItem="HNT-e3-WZm" secondAttribute="height" id="xkD-XJ-kRC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="EAh-AO-1ee"/>
+                    <navigationItem key="navigationItem" title="Rota" id="EAh-AO-1ee"/>
                     <connections>
                         <outlet property="mapView" destination="HNT-e3-WZm" id="DiL-eV-uaZ"/>
                         <outlet property="webPage" destination="ghI-2L-iLI" id="Hh3-ic-bNr"/>
@@ -53,7 +151,7 @@
             </objects>
             <point key="canvasLocation" x="3092" y="192"/>
         </scene>
-        <!--Stops Near View Controller-->
+        <!--Stops Near View Controller - Menu-->
         <scene sceneID="M2K-VY-PaJ">
             <objects>
                 <viewController id="XOq-n4-aYC" customClass="StopsNearViewController" sceneMemberID="viewController">
@@ -78,7 +176,9 @@
                             <constraint firstItem="Uhs-eS-0q1" firstAttribute="leading" secondItem="3Mc-jr-GTE" secondAttribute="leading" id="mAU-Wc-UCz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="riz-0x-P4a"/>
+                    <navigationItem key="navigationItem" title="Menu" id="riz-0x-P4a">
+                        <barButtonItem key="backBarButtonItem" title="Menu" id="GR2-zI-naN"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="Uhs-eS-0q1" id="RDr-zF-Qhi"/>
                         <segue destination="yv4-TG-TzZ" kind="push" identifier="BusLines" id="OgM-gC-zLg"/>
@@ -88,7 +188,7 @@
             </objects>
             <point key="canvasLocation" x="2386" y="192"/>
         </scene>
-        <!--Trajectory Planning View Controller-->
+        <!--Trajectory Planning View Controller - Tipo de Pequisa-->
         <scene sceneID="C5V-Sl-fT5">
             <objects>
                 <viewController id="hu4-u4-m8j" customClass="TrajectoryPlanningViewController" sceneMemberID="viewController">
@@ -99,15 +199,80 @@
                     <view key="view" contentMode="scaleToFill" id="TKW-Yd-SSP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBR-3q-anV">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="c7x-8d-jaA" kind="push" id="og3-Np-7MU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nb4-YU-adq">
+                                <rect key="frame" x="0.0" y="292" width="320" height="283"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="SaY-Jt-uZn" kind="push" id="hit-bo-3NW"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yBR-3q-anV" firstAttribute="leading" secondItem="TKW-Yd-SSP" secondAttribute="leading" constant="137" id="0gq-Hi-Lax"/>
+                            <constraint firstAttribute="trailing" secondItem="yBR-3q-anV" secondAttribute="trailing" constant="137" id="5St-Km-zZL"/>
+                            <constraint firstItem="yBR-3q-anV" firstAttribute="width" secondItem="nb4-YU-adq" secondAttribute="width" id="EBI-OC-k7x"/>
+                            <constraint firstAttribute="trailing" secondItem="nb4-YU-adq" secondAttribute="trailing" constant="137" id="IWa-fe-Y5E"/>
+                            <constraint firstItem="yBR-3q-anV" firstAttribute="height" secondItem="nb4-YU-adq" secondAttribute="height" id="VMU-ZU-ZqV"/>
+                            <constraint firstItem="yBR-3q-anV" firstAttribute="top" secondItem="3zd-t7-HJL" secondAttribute="bottom" constant="190" id="WvC-r6-tkv"/>
+                            <constraint firstItem="yI3-Ax-Wxp" firstAttribute="top" secondItem="nb4-YU-adq" secondAttribute="bottom" constant="226" id="blR-rc-1bX"/>
+                            <constraint firstItem="nb4-YU-adq" firstAttribute="leading" secondItem="TKW-Yd-SSP" secondAttribute="leading" constant="137" id="dnx-dW-DUh"/>
+                            <constraint firstItem="nb4-YU-adq" firstAttribute="top" secondItem="yBR-3q-anV" secondAttribute="bottom" constant="40" id="qDN-fd-ig5"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tgz-z2-FVn"/>
+                    <navigationItem key="navigationItem" title="Tipo de Pequisa" id="tgz-z2-FVn">
+                        <barButtonItem key="backBarButtonItem" title="Pesquisa" id="oGM-jn-xmh"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eq-tS-Vvq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2386" y="-462"/>
         </scene>
-        <!--Bus Table View Controller-->
+        <!--View Controller - Localidade-->
+        <scene sceneID="j2y-t2-b5P">
+            <objects>
+                <viewController id="SaY-Jt-uZn" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5mP-Yw-8TS"/>
+                        <viewControllerLayoutGuide type="bottom" id="hCU-WZ-emi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EsD-pW-Yyw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="s6B-jD-31s">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Localidade" id="7zt-ff-IVN">
+                        <barButtonItem key="backBarButtonItem" title="Localidade" id="TPB-Rb-f3Y"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="ZV3-ap-nIc" kind="push" id="D6B-C1-689"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d52-cz-s5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2740" y="-462"/>
+        </scene>
+        <!--Bus Table View Controller - Linhas De Onibus-->
         <scene sceneID="RpD-tq-vAM">
             <objects>
                 <tableViewController id="yv4-TG-TzZ" customClass="BusTableViewController" sceneMemberID="viewController">
@@ -116,7 +281,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Bus Line" textLabel="PKH-Zf-Gv4" imageView="bHj-iU-n6s" style="IBUITableViewCellStyleDefault" id="aWQ-N8-OyI">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Bus Line" textLabel="PKH-Zf-Gv4" style="IBUITableViewCellStyleDefault" id="aWQ-N8-OyI">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aWQ-N8-OyI" id="swX-xg-Fin">
@@ -124,16 +289,12 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PKH-Zf-Gv4">
-                                            <rect key="frame" x="73" y="0.0" width="212" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
                                             <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bus image" id="bHj-iU-n6s">
-                                            <rect key="frame" x="15" y="0.0" width="43" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -146,13 +307,15 @@
                             <outlet property="delegate" destination="yv4-TG-TzZ" id="lMP-Kh-KQU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="pJb-uY-Cbq"/>
+                    <navigationItem key="navigationItem" title="Linhas De Onibus" id="pJb-uY-Cbq">
+                        <barButtonItem key="backBarButtonItem" title="Linhas" id="PTk-nR-mzF"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NxO-vD-O7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2735" y="192"/>
         </scene>
-        <!--Bus App View Controller-->
+        <!--Bus App View Controller - Menu-->
         <scene sceneID="Zv5-AQ-Z1t">
             <objects>
                 <viewController id="3gO-1d-0YW" customClass="BusAppViewController" sceneMemberID="viewController">
@@ -222,7 +385,7 @@
                             <constraint firstAttribute="trailing" secondItem="WwF-TR-JwJ" secondAttribute="trailing" id="xly-tf-ktY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="JQS-Ol-Zao"/>
+                    <navigationItem key="navigationItem" title="Menu" id="JQS-Ol-Zao"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLP-hg-LwM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -236,6 +399,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SGg-ae-ACb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                            <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textShadowColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -247,13 +415,13 @@
             <point key="canvasLocation" x="1375" y="-112"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="bus image" width="300" height="300"/>
-    </resources>
     <color key="tintColor" red="1" green="0.75243891230000004" blue="0.36652966209999999" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="D6B-C1-689"/>
+    </inferredMetricsTieBreakers>
 </document>

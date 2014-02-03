@@ -64,6 +64,18 @@
     // Configure the cell...
 	NSString *text  = ((Bus_line*)self.busLinesInStop[indexPath.row]).full_name;
     cell.textLabel.text = text;
+    
+    if(indexPath.row %2)
+    {
+        cell.imageView.image = [UIImage imageNamed:@"BlackBus"];
+        cell.backgroundColor = [UIColor whiteColor];
+    }
+    else
+    {
+        cell.imageView.image = [UIImage imageNamed:@"WhiteBus"];
+        cell.backgroundColor = [UIColor blackColor];
+    }
+
 	
     return cell;
 }
