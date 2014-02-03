@@ -14,26 +14,28 @@
 - (NSArray *)planningFrom: (NSArray*)initialLines to: (NSArray *)finalLines
 {
 
-    NSMutableArray *route = [[NSMutableArray alloc] init];
-    self.head = [[Node alloc] initWithData: initialLines[0]];
-    Node *node = self.head;
-    NSInteger size = [finalLines count];
-    
-                      BOOL find = NO;
-                  BOOL stop = NO;
-    int i = 0, j = 0;
-    while (i < [self.lines count] && find != YES && stop == NO){
-        NSInteger index = [finalLines indexOfObjectIdenticalTo: ((Node*)self.lines[i]).data];
-        if (index != NSNotFound){
-            find = YES;
-            while (((Node*)self.lines[i]).data != nil){
-                [route addObject: ((Node*)self.lines[i]).data];
-                self.lines[i] = ((Node*)self.lines[i]).parent;
-            }
-        }
-
-        
-    }
+//    NSMutableArray *route = [[NSMutableArray alloc] init];
+//    self.lines = [[NSMutableArray alloc] init];
+//    for (Bus_line *linee in initialLines){
+//         [self.lines addObject: [[Node alloc] initWithData:linee]];
+//        
+//    }
+//    
+//                      BOOL find = NO;
+//                  BOOL stop = NO;
+//    int i = 0;
+//    while (i < [self.lines count] && find != YES && stop == NO){
+//
+//        if ([finalLines containsObject:((Node*)self.lines[i]).data]){
+//            find = YES;
+//            while (((Node*)self.lines[i]).data != nil){
+//                [route addObject: ((Node*)self.lines[i]).data];
+//                self.lines[i] = ((Node*)self.lines[i]).parent;
+//            }
+//        }
+//
+//        i++;
+//    }
 //        else {
 //            if (j <= size){
 //                node = node.next;
