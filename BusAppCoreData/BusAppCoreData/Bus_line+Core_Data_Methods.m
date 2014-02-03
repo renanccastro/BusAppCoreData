@@ -10,6 +10,8 @@
 #import "Bus_points+CoreDataMethods.h"
 #import "Polyline_points+CoreDataMethods.h"
 #import "CoreDataAndRequestSupervisor.h"
+#import "Interception+CoreDataMethods.h"
+#import "NSMutableArray+UniqueArray.h"
 
 @implementation Bus_line (Core_Data_Methods)
 
@@ -146,6 +148,51 @@
 	
 	return [[NSNumber alloc] initWithInt:[[name substringWithRange:range] integerValue]];
     
+}
+
++(NSArray*)getAllBus{
+	NSManagedObjectContext* context = [CoreDataAndRequestSupervisor startSupervisor].context;
+	
+    
+	//Check if it already exists:
+	NSEntityDescription *entityDescription = [NSEntityDescription
+											  
+								entityForName:@"Bus_line" inManagedObjectContext:context];
+	
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	[request setEntity:entityDescription];
+	NSError *error;
+	NSArray *array = [context executeFetchRequest:request error:&error];
+	if (error){
+		NSLog(@"error getting bus");
+	}
+	return array;
+}
+
+
++(BOOL) createBusInterseptionsReferences{
+	NSArray* buses = [Bus_line getAllBus];
+	
+	for (Bus_line* line in buses) {
+		NSLog(@"Started bus references building for bus %@",line.full_name);
+		for (Bus_points* stop in line.stops) {
+			for (Bus_line* bus in stop.onibus_que_passam) {
+				if (bus != line) {
+					[Interception createInterceptionForBus:line withInterceptionBus:bus withPoint:stop];
+				}
+			}
+		}
+		NSLog(@"Finished building references for %@",line.full_name);
+	}
+	
+	return YES;
+}
+
++(void) removeBusInterseptionsReferences{
+	NSArray* buses = [Bus_line getAllBus];
+	for (Bus_line* line in buses) {
+		[line removeLine_interceptions:line.line_interceptions];
+	}
 }
 
 

@@ -10,6 +10,7 @@
 #import "ServerUpdateRequest.h"
 #import "Bus_line+Core_Data_Methods.h"
 #import "Bus_points+CoreDataMethods.h"
+#import "Interception+CoreDataMethods.h"
 #import "JsonRequest.h"
 
 
@@ -135,6 +136,10 @@ static  CoreDataAndRequestSupervisor *supervisor;
 			self.finishedOperations++;
 			NSLog(@"%d\n",self.finishedOperations);
 			if (self.finishedOperations == self.dueOperations) {
+				NSLog(@"Started creating interseptions references");
+				[Bus_line removeBusInterseptionsReferences];
+				[Bus_line createBusInterseptionsReferences];
+				NSLog(@"Finished creating interseptions references");
 				[[NSUserDefaults standardUserDefaults] setInteger:self.newestVersion forKey:@"version"];
 				self.finishedOperations = 0;
 			}
@@ -158,5 +163,29 @@ static  CoreDataAndRequestSupervisor *supervisor;
 	
 	[self.queue addOperation:operation];
 }
+
+-(void) getRequiredTreeLinesWithInitialPoint:(CLLocationCoordinate2D)initialPoint andFinalPoint:(CLLocationCoordinate2D)finalPoint withRange:(CGFloat)range{
+	NSMutableArray* geoBoxInitial = [[NSMutableArray alloc] init];
+	NSMutableArray* geoBoxFinal = [[NSMutableArray alloc] init];
+	NSBlockOperation * operation = [NSBlockOperation blockOperationWithBlock:^{
+		//Create the geobox
+		for (int i = 0; i < 4; i++) {
+			CLLocationCoordinate2D tempPoint = [CoreLocationExtension NewLocationFrom:initialPoint atDistanceInMeters:range alongBearingInDegrees:i*90.0];
+			[geoBoxInitial addObject:[[CLLocation alloc] initWithLatitude:tempPoint.latitude longitude:tempPoint.longitude]];
+		}
+		for (int i = 0; i < 4; i++) {
+			CLLocationCoordinate2D tempPoint = [CoreLocationExtension NewLocationFrom:finalPoint atDistanceInMeters:range alongBearingInDegrees:i*90.0];
+			[geoBoxFinal addObject:[[CLLocation alloc] initWithLatitude:tempPoint.latitude longitude:tempPoint.longitude]];
+		}
+
+		NSArray* initial = [Bus_points getAllBusStopsWithinGeographicalBox:geoBoxInitial];
+		NSArray* final = [Bus_points getAllBusStopsWithinGeographicalBox:geoBoxFinal];
+		[self.treeDelegate requestDataDidFinishWithInitialArray:initial andWithFinal:final];
+	}];
+	
+	[self.queue addOperation:operation];
+	
+}
+
 
 @end

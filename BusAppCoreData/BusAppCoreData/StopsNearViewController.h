@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "CoreDataAndRequestSupervisor.h"
+#import "ECSlidingViewController.h"
 
 @interface StopsNearViewController : UIViewController <CoreDataRequestDelegate>
 

@@ -11,5 +11,7 @@
 @interface Bus_line (Core_Data_Methods)
 
 +(BOOL) saveBusLineWithDictionary:(NSDictionary*)parsedData;
++(BOOL) createBusInterseptionsReferences;
++(void) removeBusInterseptionsReferences;
 
 @end

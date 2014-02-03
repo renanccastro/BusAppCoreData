@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pq6-yp-7Yp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pq6-yp-7Yp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
@@ -154,7 +154,7 @@
         <!--Stops Near View Controller - Menu-->
         <scene sceneID="M2K-VY-PaJ">
             <objects>
-                <viewController id="XOq-n4-aYC" customClass="StopsNearViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StopsNearViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XOq-n4-aYC" customClass="StopsNearViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yld-Gt-hcp"/>
                         <viewControllerLayoutGuide type="bottom" id="UiZ-D3-hBv"/>
@@ -178,6 +178,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Menu" id="riz-0x-P4a">
                         <barButtonItem key="backBarButtonItem" title="Menu" id="GR2-zI-naN"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="lVD-ec-Xd3"/>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="Uhs-eS-0q1" id="RDr-zF-Qhi"/>
@@ -200,7 +201,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBR-3q-anV">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBR-3q-anV">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button">
@@ -210,7 +211,7 @@
                                     <segue destination="c7x-8d-jaA" kind="push" id="og3-Np-7MU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nb4-YU-adq">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nb4-YU-adq">
                                 <rect key="frame" x="0.0" y="292" width="320" height="283"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button">
@@ -222,17 +223,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="yBR-3q-anV" firstAttribute="leading" secondItem="TKW-Yd-SSP" secondAttribute="leading" constant="137" id="0gq-Hi-Lax"/>
-                            <constraint firstAttribute="trailing" secondItem="yBR-3q-anV" secondAttribute="trailing" constant="137" id="5St-Km-zZL"/>
-                            <constraint firstItem="yBR-3q-anV" firstAttribute="width" secondItem="nb4-YU-adq" secondAttribute="width" id="EBI-OC-k7x"/>
-                            <constraint firstAttribute="trailing" secondItem="nb4-YU-adq" secondAttribute="trailing" constant="137" id="IWa-fe-Y5E"/>
-                            <constraint firstItem="yBR-3q-anV" firstAttribute="height" secondItem="nb4-YU-adq" secondAttribute="height" id="VMU-ZU-ZqV"/>
-                            <constraint firstItem="yBR-3q-anV" firstAttribute="top" secondItem="3zd-t7-HJL" secondAttribute="bottom" constant="190" id="WvC-r6-tkv"/>
-                            <constraint firstItem="yI3-Ax-Wxp" firstAttribute="top" secondItem="nb4-YU-adq" secondAttribute="bottom" constant="226" id="blR-rc-1bX"/>
-                            <constraint firstItem="nb4-YU-adq" firstAttribute="leading" secondItem="TKW-Yd-SSP" secondAttribute="leading" constant="137" id="dnx-dW-DUh"/>
-                            <constraint firstItem="nb4-YU-adq" firstAttribute="top" secondItem="yBR-3q-anV" secondAttribute="bottom" constant="40" id="qDN-fd-ig5"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tipo de Pequisa" id="tgz-z2-FVn">
                         <barButtonItem key="backBarButtonItem" title="Pesquisa" id="oGM-jn-xmh"/>
@@ -240,12 +230,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eq-tS-Vvq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2386" y="-462"/>
+            <point key="canvasLocation" x="2262" y="-471"/>
         </scene>
-        <!--View Controller - Localidade-->
+        <!--Pin Drop View Controller - Localidade-->
         <scene sceneID="j2y-t2-b5P">
             <objects>
-                <viewController id="SaY-Jt-uZn" sceneMemberID="viewController">
+                <viewController id="SaY-Jt-uZn" customClass="PinDropViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5mP-Yw-8TS"/>
                         <viewControllerLayoutGuide type="bottom" id="hCU-WZ-emi"/>
@@ -265,6 +255,7 @@
                         <barButtonItem key="backBarButtonItem" title="Localidade" id="TPB-Rb-f3Y"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="mapView" destination="s6B-jD-31s" id="gkF-qq-fMj"/>
                         <segue destination="ZV3-ap-nIc" kind="push" id="D6B-C1-689"/>
                     </connections>
                 </viewController>
@@ -413,6 +404,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oh7-SQ-u3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1375" y="-112"/>
+        </scene>
+        <!--Sliding View Controller-->
+        <scene sceneID="8dA-Eh-0Qp">
+            <objects>
+                <viewController storyboardIdentifier="SlidingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="a0P-PO-LZy" customClass="SlidingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dPQ-11-vIT"/>
+                        <viewControllerLayoutGuide type="bottom" id="h40-Cv-qev"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xHc-8r-4zB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRx-XP-rx2">
+                                <rect key="frame" x="144" y="150" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xaG-TL-ACt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2386" y="847"/>
         </scene>
     </scenes>
     <color key="tintColor" red="1" green="0.75243891230000004" blue="0.36652966209999999" alpha="1" colorSpace="calibratedRGB"/>
