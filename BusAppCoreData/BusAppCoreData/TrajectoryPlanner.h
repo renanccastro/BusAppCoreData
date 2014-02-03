@@ -13,4 +13,7 @@
 
 @property (nonatomic, strong) Node *head;
 
+
+- (NSArray *)planningFrom: (NSArray*)initialLines to: (NSArray *)finalLines;
+
 @end

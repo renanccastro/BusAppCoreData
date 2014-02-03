@@ -26,8 +26,9 @@
     Node *end = node;
     
     BOOL find = NO;
-    int i = 0;
-    while (find != YES && node.next != nil){
+    int i = 0, j = 0;
+    NSInteger total = size;
+    while (find != YES && node.next != nil && i < 3){
         NSInteger index = [finalLines indexOfObjectIdenticalTo: node.data];
         if (index != NSNotFound){
             find = YES;
@@ -35,19 +36,25 @@
                 [route addObject: node.data];
                 node = node.parent;
             }
-        } else {
-            if (i < size){
-                node = node.next;
-//                end.next = [[Node alloc] initWithData: node.data.INTER[0]];
-                
-                for (NSInteger index = 1; index < size; index++){
-//                    end.next = [[Node alloc] initWithData: node.data.INTER[index]];
-                    end.next.parent = end;
-                    end = end.next;
-                }
-                i++;
-            }
         }
+//        } else {
+//            if (j <= size){
+//                node = node.next;
+//                end.next = [[Node alloc] initWithData: node.data.INTER[0]];
+//                
+//                for (NSInteger index = 1; index < [node.data.INTER[0]; index++){
+//                    end.next = [[Node alloc] initWithData: node.data.INTER[index]];
+//                    end.next.parent = end;
+//                    end = end.next;
+//                }
+//                total += [node.data.INTER[0]];
+//                j++;
+//            if (j == size){
+//                i++;
+//                size = total;
+//            }
+//            }
+//        }
     }
     return route;
 }
