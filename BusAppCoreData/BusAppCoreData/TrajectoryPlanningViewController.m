@@ -36,6 +36,7 @@
     
     TrajectoryPlanner *trajectory = [[TrajectoryPlanner alloc] init];
     NSArray *route = [trajectory planningFrom: initial to: final];
+	NSLog(@"%@",route);
     
 }
 - (void)didReceiveMemoryWarning

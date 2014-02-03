@@ -14,7 +14,7 @@
 - (NSArray *)planningFrom: (NSArray*)initialLines to: (NSArray *)finalLines
 {
 
-    NSMutableArray *route = [NSMutableArray alloc];
+    NSMutableArray *route = [[NSMutableArray alloc] init];
     self.head = [[Node alloc] initWithData: initialLines[0]];
     Node *node = self.head;
     NSInteger size = [finalLines count];
