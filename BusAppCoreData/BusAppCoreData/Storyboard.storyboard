@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="2844" y="-780"/>
         </scene>
-        <!--View Controller - Rota-->
+        <!--Trajectory View Controller - Rota-->
         <scene sceneID="I7c-NH-N4o">
             <objects>
-                <viewController id="ZV3-ap-nIc" sceneMemberID="viewController">
+                <viewController id="ZV3-ap-nIc" customClass="TrajectoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ufl-Us-wlQ"/>
                         <viewControllerLayoutGuide type="bottom" id="EB1-3F-6QV"/>
@@ -97,6 +97,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Rota" id="p3x-Ta-y9D"/>
+                    <connections>
+                        <outlet property="mapView" destination="IX4-6L-dAq" id="ncx-f8-7no"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JXi-2f-O6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,7 +225,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="SaY-Jt-uZn" kind="push" id="hit-bo-3NW"/>
+                                    <segue destination="ZV3-ap-nIc" kind="push" identifier="push" id="jO2-74-3Ij"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -260,7 +263,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="s6B-jD-31s" id="gkF-qq-fMj"/>
-                        <segue destination="ZV3-ap-nIc" kind="push" id="D6B-C1-689"/>
+                        <segue destination="ZV3-ap-nIc" kind="push" identifier="push" id="D6B-C1-689"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d52-cz-s5p" userLabel="First Responder" sceneMemberID="firstResponder"/>

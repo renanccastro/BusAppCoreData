@@ -71,7 +71,7 @@
             route = self.rotaDeIda;
         }
     }
-    CLLocationCoordinate2D *coordinates = malloc(sizeof(CLLocationCoordinate2D)* [self.rotaDeIda count]);
+    CLLocationCoordinate2D *coordinates = malloc(sizeof(CLLocationCoordinate2D)* [route count]);
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order"
 																 ascending:YES];
 	

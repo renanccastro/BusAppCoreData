@@ -18,14 +18,7 @@
 //    for (Bus_line* line in initialLines) {
 //        NSLog(@"initial: %@", line.full_name);
 //    }
-    for (Bus_line* line in finalLines) {
-                    NSLog(@"mudou");
-        for (Interception* interception in line.line_interceptions) {
 
-            NSLog(@"final: %@", interception.bus.line_number);
-
-        }
-    }
     NSMutableArray *route = [[NSMutableArray alloc] init];
     
     self.lines = [[NSMutableArray alloc] init];
@@ -47,10 +40,10 @@
                 node = node.parent;
             }
         } else if (i < 2){
-            NSLog(@"%d",[((Bus_line *)node.data).line_interceptions count]);
+//            NSLog(@"%d",[((Bus_line *)node.data).line_interceptions count]);
                 for (Interception *interception in ((Bus_line *)node.data).line_interceptions){
                     [self.lines addObject: [[Node alloc] initWithData: interception.bus andParent: node]];
-                    NSLog(@"LINHA: %@", interception.bus.full_name);
+//                    NSLog(@"LINHA: %@", interception.bus.full_name);
 
                 }
         }
