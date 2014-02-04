@@ -13,7 +13,7 @@
 @implementation Interception (CoreDataMethods)
 
 //Create a interception with 2 bus lines and a point.
-+(Interception*) createInterceptionForBus:(Bus_line*)bus withInterceptionBus:(Bus_line*)line withPoint:(Bus_points*)stop{
++(Interception*) createInterceptionForBus:(Bus_line*)line withInterceptionBus:(Bus_line*)bus withPoint:(Bus_points*)stop{
 	NSManagedObjectContext* context = [CoreDataAndRequestSupervisor startSupervisor].context;
 	
 	NSError* error = nil;
@@ -21,9 +21,9 @@
 	//Create a new bus_point
 	Interception * inter = [NSEntityDescription insertNewObjectForEntityForName:@"Interception"
 										 inManagedObjectContext:context];
-	inter.bus = line;
+	inter.bus = bus;
 	inter.stop = stop;
-	[bus addLine_interceptionsObject:inter];
+	[line addLine_interceptionsObject:inter];
 	
 	[context save:&error];
 	

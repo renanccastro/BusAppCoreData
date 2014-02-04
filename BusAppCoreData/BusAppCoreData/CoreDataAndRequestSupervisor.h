@@ -19,8 +19,7 @@
 @end
 
 @protocol TreeDataRequestDelegate <NSObject>
-
--(void) requestDataDidFinishWithInitialArray:(NSArray*)initial andWithFinal:(NSArray*)final;
+ -(void) requestDataDidFinishWithInitialArray:(NSArray*)initial andWithFinal:(NSArray*)final;
 -(void) requestdidFailWithError:(NSError*)error;
 
 @end
@@ -34,5 +33,6 @@
 -(void) requestBusLines;
 +(CoreDataAndRequestSupervisor*) startSupervisor;
 -(void) getAllBusPointsAsyncWithinDistance:(CGFloat)distance fromPoint:(CLLocationCoordinate2D)point;
+-(void) getRequiredTreeLinesWithInitialPoint:(CLLocationCoordinate2D)initialPoint andFinalPoint:(CLLocationCoordinate2D)finalPoint withRange:(CGFloat)range;
 
 @end

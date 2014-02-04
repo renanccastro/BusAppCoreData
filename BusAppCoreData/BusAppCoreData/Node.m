@@ -10,11 +10,13 @@
 
 @implementation Node
 
-- (id)initWithData: (Bus_line *)data
+- (id)initWithData: (Bus_line *)data andParent: (Node *)parent
 {
-    self.data = data;
-    self.next = nil;
-    self.parent = nil;
+    self = [super init];
+    if (self) {
+        self.data = data;
+        self.parent = parent;
+    }
 
     return self;
     

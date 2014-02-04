@@ -11,6 +11,7 @@
 #import "Bus_line+Core_Data_Methods.h"
 #import "Bus_points+CoreDataMethods.h"
 #import "Interception+CoreDataMethods.h"
+#import "NSMutableArray+UniqueArray.h"
 #import "JsonRequest.h"
 
 
@@ -177,9 +178,16 @@ static  CoreDataAndRequestSupervisor *supervisor;
 			CLLocationCoordinate2D tempPoint = [CoreLocationExtension NewLocationFrom:finalPoint atDistanceInMeters:range alongBearingInDegrees:i*90.0];
 			[geoBoxFinal addObject:[[CLLocation alloc] initWithLatitude:tempPoint.latitude longitude:tempPoint.longitude]];
 		}
+		NSMutableArray* initial = [[NSMutableArray alloc] init];
+		NSMutableArray* final =  [[NSMutableArray alloc] init];
 
-		NSArray* initial = [Bus_points getAllBusStopsWithinGeographicalBox:geoBoxInitial];
-		NSArray* final = [Bus_points getAllBusStopsWithinGeographicalBox:geoBoxFinal];
+		for (Bus_points* point in [Bus_points getAllBusStopsWithinGeographicalBox:geoBoxInitial]) {
+			[initial addUniqueSet:point.onibus_que_passam];
+		}
+		for (Bus_points* point in [Bus_points getAllBusStopsWithinGeographicalBox:geoBoxFinal]) {
+			[final addUniqueSet:point.onibus_que_passam];
+		}
+
 		[self.treeDelegate requestDataDidFinishWithInitialArray:initial andWithFinal:final];
 	}];
 	

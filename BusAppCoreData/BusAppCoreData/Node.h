@@ -12,9 +12,8 @@
 @interface Node : NSObject
 
 @property (nonatomic, strong) Bus_line* data;
-@property (nonatomic, strong) Node* next;
 @property (nonatomic, strong) Node* parent;
 
-- (id)initWithData: (Bus_line *)data;
+- (id)initWithData: (Bus_line *)data andParent: (Node *)parent;
 
 @end
