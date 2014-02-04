@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CoreDataAndRequestSupervisor.h"
+#import "Bus_line+Core_Data_Methods.h"
 
 @implementation AppDelegate
 
@@ -20,6 +21,11 @@
 	[[CoreDataAndRequestSupervisor startSupervisor] setContext: self.managedObjectContext];
     
     [[CoreDataAndRequestSupervisor startSupervisor] requestBusLines];
+    [Bus_line removeBusInterseptionsReferences];
+    [Bus_line createBusInterseptionsReferences];
+
+    
+    
 
     
     return YES;

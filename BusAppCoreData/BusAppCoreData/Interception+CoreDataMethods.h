@@ -9,5 +9,5 @@
 #import "Interception.h"
 
 @interface Interception (CoreDataMethods)
-+(Bus_points*) createInterceptionForBus:(Bus_line*)bus withInterceptionBus:(Bus_line*)line withPoint:(Bus_points*)stop;
++(Bus_points*) createInterceptionForBus:(Bus_line*)line withInterceptionBus:(Bus_line*)bus withPoint:(Bus_points*)stop;
 @end

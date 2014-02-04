@@ -8,13 +8,24 @@
 
 #import "TrajectoryPlanner.h"
 #import "CoreDataAndRequestSupervisor.h"
+#import "Interception.h"
 
 @implementation TrajectoryPlanner
 
 - (NSArray *)planningFrom: (NSArray*)initialLines to: (NSArray *)finalLines
 
 {
-    
+//    for (Bus_line* line in initialLines) {
+//        NSLog(@"initial: %@", line.full_name);
+//    }
+    for (Bus_line* line in finalLines) {
+                    NSLog(@"mudou");
+        for (Interception* interception in line.line_interceptions) {
+
+            NSLog(@"final: %@", interception.bus.line_number);
+
+        }
+    }
     NSMutableArray *route = [[NSMutableArray alloc] init];
     
     self.lines = [[NSMutableArray alloc] init];
@@ -35,9 +46,12 @@
                 [route addObject: node.data];
                 node = node.parent;
             }
-        } else if (i != 2){
-                for (Bus_line *busLine in ((Bus_line *)node.data).line_interceptions){
-                    [self.lines addObject: [[Node alloc] initWithData: busLine andParent: node]];
+        } else if (i < 2){
+            NSLog(@"%d",[((Bus_line *)node.data).line_interceptions count]);
+                for (Interception *interception in ((Bus_line *)node.data).line_interceptions){
+                    [self.lines addObject: [[Node alloc] initWithData: interception.bus andParent: node]];
+                    NSLog(@"LINHA: %@", interception.bus.full_name);
+
                 }
         }
         if (j == size - 1){
