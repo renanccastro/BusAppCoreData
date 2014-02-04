@@ -35,8 +35,8 @@
 -(void)requestDataDidFinishWithInitialArray:(NSArray *)initial andWithFinal:(NSArray *)final{
     
     TrajectoryPlanner *trajectory = [[TrajectoryPlanner alloc] init];
-    NSArray *route = [trajectory planningFrom: initial to: final];
-	NSLog(@"%@",route);
+    NSArray *route = [[NSArray alloc] initWithArray:[trajectory planningFrom: initial to: final]];
+	NSLog(@"%@, %d;;;;;",route, [route count]);
     
 }
 - (void)didReceiveMemoryWarning
