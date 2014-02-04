@@ -11,7 +11,8 @@
 #import "Bus_line+Core_Data_Methods.h"
 #import <CoreLocation/CoreLocation.h>
 #import "StopsNearViewController.h"
-@interface BusAppViewController ()
+#import "PKRevealController.h"
+@interface BusAppViewController () <PKRevealing>
 
 @end
 
@@ -41,10 +42,22 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 	if ([[segue identifier] isEqualToString:@"stopsNearSegue"]) {
 		StopsNearViewController* vc = [segue destinationViewController];
-//		vc.isStopsOnScreen = NO;
+		vc.isStopsOnScreen = NO;
 	}
 }
 
+- (IBAction)stopsView:(id)sender
+{
+    UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    UITableViewController *left = [mystoryboard instantiateViewControllerWithIdentifier:@"LeftViewControllerId"];
+    UINavigationController *front = [mystoryboard instantiateViewControllerWithIdentifier:@"NavigationControllerId"];
+    PKRevealController *revealView  = [PKRevealController revealControllerWithFrontViewController:front
+                                                                               leftViewController:left];
+    revealView.delegate = self;
+    [self presentViewController:revealView
+                       animated:YES
+                     completion:nil];
+}
 
 
 

@@ -12,6 +12,7 @@
 #import "BusTableViewController.h"
 #import "Bus_points.h"
 #import "Bus_line.h"
+#import "BusPoitsRadiusViewController.h"
 
 @interface StopsNearViewController () <MKMapViewDelegate>
 
