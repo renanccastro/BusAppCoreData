@@ -11,7 +11,8 @@
 #import "Bus_line+Core_Data_Methods.h"
 #import <CoreLocation/CoreLocation.h>
 #import "StopsNearViewController.h"
-@interface BusAppViewController ()
+#import "PKRevealController.h"
+@interface BusAppViewController () <PKRevealing>
 
 @end
 
