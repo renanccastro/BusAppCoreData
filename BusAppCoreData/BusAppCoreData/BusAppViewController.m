@@ -49,10 +49,12 @@
 - (IBAction)stopsView:(id)sender
 {
     UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
-    UITableViewController *left = [mystoryboard instantiateViewControllerWithIdentifier:@"LeftViewControllerId"];
+    UITableViewController *right = [mystoryboard instantiateViewControllerWithIdentifier:@"RightViewControllerId"];
     UINavigationController *front = [mystoryboard instantiateViewControllerWithIdentifier:@"NavigationControllerId"];
     PKRevealController *revealView  = [PKRevealController revealControllerWithFrontViewController:front
-                                                                               leftViewController:left];
+                                                                               rightViewController:right];
+    
+    front.revealController = revealView;
     revealView.delegate = self;
     [self presentViewController:revealView
                        animated:YES

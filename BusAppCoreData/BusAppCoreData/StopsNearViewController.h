@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "CoreDataAndRequestSupervisor.h"
-#import "ECSlidingViewController.h"
+#import "PKRevealController.h"
 
 @interface StopsNearViewController : UIViewController <CoreDataRequestDelegate>
 
 @property (nonatomic, strong) NSArray *annotations;
 @property (nonatomic) BOOL isStopsOnScreen;
+@property (nonatomic, strong) PKRevealController *revealController;
 
 - (void)updateMapView;
 - (void)creatAnnotationsFromBusPointsArray:(NSArray*)stopsNear;
