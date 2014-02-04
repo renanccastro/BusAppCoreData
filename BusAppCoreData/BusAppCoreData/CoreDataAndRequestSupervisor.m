@@ -24,7 +24,6 @@
 @property (nonatomic) int newestVersion;
 @property (nonatomic) int requestsFeitas;
 @property (nonatomic, strong) NSMutableArray* operations;
-@property (nonatomic, strong) NSString* lock;
 
 @end
 

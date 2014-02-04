@@ -21,8 +21,9 @@
 	[[CoreDataAndRequestSupervisor startSupervisor] setContext: self.managedObjectContext];
     
     [[CoreDataAndRequestSupervisor startSupervisor] requestBusLines];
-    [Bus_line removeBusInterseptionsReferences];
-    [Bus_line createBusInterseptionsReferences];
+	
+//    [Bus_line removeBusInterseptionsReferences];
+//    [Bus_line createBusInterseptionsReferences];
 
     
     
@@ -127,7 +128,7 @@
 			NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 			NSDate *firstUpdate = [NSDate date];
 			[prefs setObject:firstUpdate forKey:@"last update"];
-			[prefs setInteger:5 forKey:@"version"];
+			[prefs setInteger:6 forKey:@"version"];
 		}
 		else
 			NSLog(@"Error copying default DB to %@ (%@)", storeURL, error);

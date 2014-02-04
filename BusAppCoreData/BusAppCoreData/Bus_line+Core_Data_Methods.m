@@ -12,6 +12,7 @@
 #import "CoreDataAndRequestSupervisor.h"
 #import "Interception+CoreDataMethods.h"
 #import "NSMutableArray+UniqueArray.h"
+#import "Bus_points+CoreDataMethods.h"
 
 @implementation Bus_line (Core_Data_Methods)
 
@@ -178,13 +179,17 @@
 		for (Bus_points* stop in line.stops) {
 			for (Bus_line* bus in stop.onibus_que_passam) {
 				if (bus != line) {
-					Interception* teste = [Interception createInterceptionForBus:line withInterceptionBus:bus withPoint:stop];
-                    NSLog(@"Creating Interception for bus: %@ with bus: %@",teste.bus.full_name, line.line_number);
+//					@synchronized([[CoreDataAndRequestSupervisor startSupervisor] lock]){
+						Interception* teste = [Interception createInterceptionForBus:line withInterceptionBus:bus withPoint:stop];
+						NSLog(@"Creating Interception for bus: %@ with bus: %@",teste.bus.line_number, line.line_number);
+//					}
 				}
 			}
 		}
 		NSLog(@"Finished building references for %@",line.full_name);
 	}
+	
+	
 	
 	return YES;
 }

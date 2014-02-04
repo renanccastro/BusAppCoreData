@@ -13,5 +13,6 @@
 +(BOOL) saveBusLineWithDictionary:(NSDictionary*)parsedData;
 +(BOOL) createBusInterseptionsReferences;
 +(void) removeBusInterseptionsReferences;
++(NSArray*)getAllBus;
 
 @end

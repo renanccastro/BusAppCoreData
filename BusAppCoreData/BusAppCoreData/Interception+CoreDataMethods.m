@@ -8,6 +8,7 @@
 
 #import "Interception+CoreDataMethods.h"
 #import "CoreDataAndRequestSupervisor.h"
+#import "Bus_points.h"
 #import "Bus_line.h"
 
 @implementation Interception (CoreDataMethods)
@@ -22,10 +23,21 @@
 	Interception * inter = [NSEntityDescription insertNewObjectForEntityForName:@"Interception"
 										 inManagedObjectContext:context];
 	inter.bus = bus;
+	//[inter setValue:bus forKey:@"bus"];
 	inter.stop = stop;
-	[line addLine_interceptionsObject:inter];
+	//[stop addInterceptionsObject:inter];
+	//[line addLine_interceptionsObject:inter];
+	//inter.bus = bus;
+	if (inter.bus != bus) {
+		NSLog(@"tá errado issae");
+	}
+	
 	
 	[context save:&error];
+	
+	if ([inter.bus isEqual: bus]) {
+		NSLog(@"tá errado issae");
+	}
 	
 	return error == nil ? inter : nil;
 }

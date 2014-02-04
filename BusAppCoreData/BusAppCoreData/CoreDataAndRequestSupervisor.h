@@ -26,6 +26,8 @@
 
 @interface CoreDataAndRequestSupervisor : NSObject
 
+
+@property (nonatomic, strong) NSString* lock;
 @property (nonatomic) NSManagedObjectContext* context;
 @property (nonatomic) id<CoreDataRequestDelegate> delegate;
 @property (nonatomic) id<TreeDataRequestDelegate> treeDelegate;
