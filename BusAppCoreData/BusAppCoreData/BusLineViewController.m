@@ -12,6 +12,10 @@
 #import "Polyline_points.h"
 
 @interface BusLineViewController () <MKMapViewDelegate, UIWebViewDelegate>
+{
+    UIColor *color;
+
+}
 
 @property (weak, nonatomic) IBOutlet UIWebView *webPage;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -46,29 +50,39 @@
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webPage loadRequest:requestObj];
-	[self addRoute];
-    
+	[self addRouteWithType: @"ida"];
+    [self addRouteWithType: @"volta"];
+
     
 //    [self activateorientation];
     
 }
 
-- (void)addRoute
+- (void)addRouteWithType: (NSString *)type
 {
+    NSArray *route;
 
-	CLLocationCoordinate2D* coordinates = malloc(sizeof(CLLocationCoordinate2D)* [self.rotaDeIda count]);
-	NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order"
+    if ([type isEqualToString: @"ida"]){
+        route = self.rotaDeIda;
+        color = [[UIColor alloc] initWithRed: 1 green: 0 blue: 0 alpha:0.8];
+    } else {
+        color = [[UIColor alloc] initWithRed: 0 green: 0 blue: 1 alpha:0.8];
+        route = self.rotaDeVolta;
+    }
+    CLLocationCoordinate2D *coordinates = malloc(sizeof(CLLocationCoordinate2D)* [self.rotaDeIda count]);
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order"
 																 ascending:YES];
-	self.rotaDeIda = [self.rotaDeIda sortedArrayUsingDescriptors:@[descriptor]];
-	//	NSMutableArray* coordinates = [[NSMutableArray alloc] init];
+	
+    
+    route = [route sortedArrayUsingDescriptors:@[descriptor]];
 	Polyline_points* point;
-	for (NSInteger index = 0; index < [self.rotaDeIda count]; index++) {
-		point = [self.rotaDeIda objectAtIndex:index];
-		coordinates[index] = CLLocationCoordinate2DMake(point.lat.doubleValue, point.lng.doubleValue);
-	}
-
-    MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:[self.rotaDeIda count]];
-    [_mapView addOverlay:polyLine];
+//	for (NSInteger index = 0; index < [self.rotaDeIda count]; index++) {
+//		point = [route objectAtIndex:index];
+//		coordinates[index] = CLLocationCoordinate2DMake(point.lat.doubleValue, point.lng.doubleValue);
+//	}
+//
+//    MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:[route count]];
+//    [_mapView addOverlay:polyLine];
 }
 
 
@@ -77,8 +91,8 @@
     if (self.mapView.overlays){
         [self.mapView removeOverlays: self.mapView.overlays];
     }
-    if (self.rotaDeIda){
-        [self addRoute];
+    if (self.rotaDeIda || self.rotaDeVolta){
+//        [self addRoute];
     }
 }
 
@@ -88,13 +102,13 @@
     [self updateMapView];
 }
 
-//- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
-//{
-//    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline: overlay];
-//    polylineView.strokeColor = [UIColor blueColor];
-//    polylineView.lineWidth = 5.0;
-//    return polylineView;
-//}
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
+{
+    MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline: overlay];
+    polylineView.strokeColor = color;
+    polylineView.lineWidth = 5.0;
+    return polylineView;
+}
 
 - (void)viewDidAppear:(BOOL)animated {
     
@@ -128,49 +142,50 @@
 }
 
 #pragma - NAO APAGUE AINDA :P
-//-(void) activateorientation{
-//	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-//    [[NSNotificationCenter defaultCenter] addObserver:self										 selector:@selector(didRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
-//}
-//
-//
-//#define degreesToRadian(x) (M_PI * (x) / 180.0)
-//
-//
-//- (void) didRotate:(NSNotification *)notification
-//{
-//	UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-//    
-//	if (orientation == UIDeviceOrientationLandscapeLeft)
-//	{
-//        // implement here
-//	}
-//	if (orientation == UIDeviceOrientationLandscapeRight)
-//	{
-//        // implement here
-//        CGAffineTransform landscapeTransform = CGAffineTransformMakeRotation(degreesToRadian(90));
-//        
-//        
-//        
-//        landscapeTransform = CGAffineTransformTranslate (landscapeTransform, 0.0, 0.0);
-//        
-//        //        self.view.bounds = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, 480, 320);
-//        
-//        //
-//        
-//        //
-//        
-//        //        [self.view setTransform:landscapeTransform];
-//        
-//        
-//        
+-(void) activateorientation{
+	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self										 selector:@selector(didRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
+}
+
+
+#define degreesToRadian(x) (M_PI * (x) / 180.0)
+
+
+- (void) didRotate:(NSNotification *)notification
+{
+	UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    
+	if (orientation == UIDeviceOrientationLandscapeLeft)
+	{
+        // implement here
+	}
+	if (orientation == UIDeviceOrientationLandscapeRight)
+	{
+        // implement here
+        CGAffineTransform landscapeTransform = CGAffineTransformMakeRotation(degreesToRadian(90));
+        
+        
+        
+        landscapeTransform = CGAffineTransformTranslate (landscapeTransform, 0.0, 0.0);
+        
+        //        self.view.bounds = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, 480, 320);
+        
+        //
+        
+        //
+        
+        //        [self.view setTransform:landscapeTransform];
+        
+        
+        
 //        [self.webPage setTransform:landscapeTransform];
-//	}
-//}
-//
-//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-//	return (interfaceOrientation == UIInterfaceOrientationPortrait);
-//}
+//        [self.mapView setTransform: landscapeTransform];
+	}
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+	return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -180,16 +195,16 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     
-//    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('mapFrame').style.display='none';"];
-//    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('tituloTopo').style.display='none';"];
-//    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('portMenu').style.display='none';"];
+    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('mapFrame').style.display='none';"];
+    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('tituloTopo').style.display='none';"];
+    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('portMenu').style.display='none';"];
 	
-	NSString* removeALL = @"var all = document.getElementsByTagName('*');\
-	for (var i = 0; i < all.length; i++) {\
-			all[i].style.display = 'none';\
-	}\
-	document.getElementById('tabs').style.display = 'inline';";
-	[webView stringByEvaluatingJavaScriptFromString:removeALL];
+//	NSString* removeALL = @"var all = document.getElementsByTagName('*');\
+//	for (var i = 0; i < all.length; i++) {\
+//			all[i].style.display = 'none';\
+//	}\
+//	document.getElementById('tabs').style.display = 'inline';";
+//	[webView stringByEvaluatingJavaScriptFromString:removeALL];
 
 //	NSString * removeTables = @"var tables=document.getElementById('conteiner').getElementsByTagName('table');\
 //								for(var i = 0 ; i > tables.length; i++){\

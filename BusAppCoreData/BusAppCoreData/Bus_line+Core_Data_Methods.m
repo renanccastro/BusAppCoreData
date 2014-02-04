@@ -174,16 +174,16 @@
 	NSArray* buses = [Bus_line getAllBus];
 	
 	for (Bus_line* line in buses) {
-		NSLog(@"Started bus references building for bus %@",line.full_name);
+		//NSLog(@"Started bus references building for bus %@",line.full_name);
 		for (Bus_points* stop in line.stops) {
 			for (Bus_line* bus in stop.onibus_que_passam) {
 				if (bus != line) {
 					Interception* teste = [Interception createInterceptionForBus:line withInterceptionBus:bus withPoint:stop];
-                    NSLog(@"Creating Interception for bus: %@ with bus: %@",teste.bus.full_name, line.line_number);
+                   // NSLog(@"Creating Interception for bus: %@ with bus: %@",teste.bus.full_name, line.line_number);
 				}
 			}
 		}
-		NSLog(@"Finished building references for %@",line.full_name);
+		//NSLog(@"Finished building references for %@",line.full_name);
 	}
 	
 	return YES;
