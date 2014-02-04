@@ -9,6 +9,8 @@
 #import "BusTableViewController.h"
 #import "Bus_line+Core_Data_Methods.h"
 #import "BusLineViewController.h"
+#import "MarqueeLabel.h"
+#import "MovingTitleCell.h"
 
 @interface BusTableViewController ()
 
@@ -58,12 +60,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Bus Line";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"BusCell";
+    MovingTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
 	NSString *text  = ((Bus_line*)self.busLinesInStop[indexPath.row]).full_name;
-    cell.textLabel.text = text;
+    cell.movingTitle.text = text;
+    cell.movingTitle.textColor = [UIColor orangeColor];
     
     if(indexPath.row %2)
     {

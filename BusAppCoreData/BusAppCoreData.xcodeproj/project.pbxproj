@@ -15,6 +15,9 @@
 		ABA8476D1896CE0B008B0172 /* StopsNearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA8476C1896CE0B008B0172 /* StopsNearViewController.m */; };
 		B92AA4DB1899561A00A6C8F7 /* Bus_line+Core_Data_Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = B92AA4DA1899561A00A6C8F7 /* Bus_line+Core_Data_Methods.m */; };
 		B92AA4DE189A867300A6C8F7 /* BusTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92AA4DD189A867300A6C8F7 /* BusTableViewController.m */; };
+		B961CC0318A0F78300D5C3E8 /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B961CC0218A0F78300D5C3E8 /* MarqueeLabel.m */; };
+		B961CC0618A0F87400D5C3E8 /* MovingTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B961CC0518A0F87400D5C3E8 /* MovingTitleCell.m */; };
+		B961CC0818A0FB6A00D5C3E8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B961CC0718A0FB6A00D5C3E8 /* QuartzCore.framework */; };
 		B9F926B01896BC7400B5A61E /* CoreDataAndRequestSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926AF1896BC7400B5A61E /* CoreDataAndRequestSupervisor.m */; };
 		B9F926B61896CE1E00B5A61E /* JsonRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926B51896CE1E00B5A61E /* JsonRequest.m */; };
 		B9F926B71897D02300B5A61E /* ServerUpdateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926B21896CC9D00B5A61E /* ServerUpdateRequest.m */; };
@@ -81,6 +84,11 @@
 		B92AA4DA1899561A00A6C8F7 /* Bus_line+Core_Data_Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Bus_line+Core_Data_Methods.m"; sourceTree = "<group>"; };
 		B92AA4DC189A867300A6C8F7 /* BusTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusTableViewController.h; sourceTree = "<group>"; };
 		B92AA4DD189A867300A6C8F7 /* BusTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusTableViewController.m; sourceTree = "<group>"; };
+		B961CC0118A0F78300D5C3E8 /* MarqueeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarqueeLabel.h; sourceTree = "<group>"; };
+		B961CC0218A0F78300D5C3E8 /* MarqueeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarqueeLabel.m; sourceTree = "<group>"; };
+		B961CC0418A0F87400D5C3E8 /* MovingTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovingTitleCell.h; sourceTree = "<group>"; };
+		B961CC0518A0F87400D5C3E8 /* MovingTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovingTitleCell.m; sourceTree = "<group>"; };
+		B961CC0718A0FB6A00D5C3E8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B9F926AE1896BC7400B5A61E /* CoreDataAndRequestSupervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataAndRequestSupervisor.h; sourceTree = "<group>"; };
 		B9F926AF1896BC7400B5A61E /* CoreDataAndRequestSupervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataAndRequestSupervisor.m; sourceTree = "<group>"; };
 		B9F926B11896CC9D00B5A61E /* ServerUpdateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerUpdateRequest.h; sourceTree = "<group>"; };
@@ -152,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B961CC0818A0FB6A00D5C3E8 /* QuartzCore.framework in Frameworks */,
 				E89809341896D84D00ECE205 /* MapKit.framework in Frameworks */,
 				E8BAF7501896BA330087E999 /* CoreGraphics.framework in Frameworks */,
 				E8BAF7541896BA330087E999 /* CoreData.framework in Frameworks */,
@@ -261,6 +270,7 @@
 		E8BAF74C1896BA330087E999 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B961CC0718A0FB6A00D5C3E8 /* QuartzCore.framework */,
 				E89809331896D84D00ECE205 /* MapKit.framework */,
 				E8BAF74D1896BA330087E999 /* Foundation.framework */,
 				E8BAF74F1896BA330087E999 /* CoreGraphics.framework */,
@@ -273,14 +283,18 @@
 		E8BAF7551896BA330087E999 /* BusAppCoreData */ = {
 			isa = PBXGroup;
 			children = (
-				E8E49C0B18A00D4D00B4B629 /* ECSViewController */,
 				E89809311896D6C500ECE205 /* Storyboard.storyboard */,
 				E8E49C06189FFD6800B4B629 /* BusAppCoreData.sqlite */,
 				E89809351896DC4900ECE205 /* BusAppViewController.h */,
 				E89809361896DC4900ECE205 /* BusAppViewController.m */,
+				B961CC0118A0F78300D5C3E8 /* MarqueeLabel.h */,
+				B961CC0218A0F78300D5C3E8 /* MarqueeLabel.m */,
+				B961CC0418A0F87400D5C3E8 /* MovingTitleCell.h */,
+				B961CC0518A0F87400D5C3E8 /* MovingTitleCell.m */,
 				ABA847671896CB2F008B0172 /* Controller */,
 				B9F926AD1896BC4600B5A61E /* Model */,
 				B9F9269A1896BB5200B5A61E /* Core Data */,
+				E8E49C0B18A00D4D00B4B629 /* ECSViewController */,
 				E8BAF75E1896BA330087E999 /* AppDelegate.h */,
 				E8BAF75F1896BA330087E999 /* AppDelegate.m */,
 				E8BAF7641896BA330087E999 /* Images.xcassets */,
@@ -449,6 +463,7 @@
 				B9F926B71897D02300B5A61E /* ServerUpdateRequest.m in Sources */,
 				B9F926B61896CE1E00B5A61E /* JsonRequest.m in Sources */,
 				AB3AB66D189FD20D00BB16BB /* TrajectoryPlanner.m in Sources */,
+				B961CC0618A0F87400D5C3E8 /* MovingTitleCell.m in Sources */,
 				E8E49C1C18A00D6700B4B629 /* ECSlidingSegue.m in Sources */,
 				ABA8476A1896CBA5008B0172 /* TrajectoryPlanningViewController.m in Sources */,
 				E8F78B1B189955E300C0EFCB /* Polyline_points+CoreDataMethods.m in Sources */,
@@ -461,6 +476,7 @@
 				ABA8476D1896CE0B008B0172 /* StopsNearViewController.m in Sources */,
 				E8F78B1E1899561900C0EFCB /* Bus_points+CoreDataMethods.m in Sources */,
 				E8BAF7601896BA330087E999 /* AppDelegate.m in Sources */,
+				B961CC0318A0F78300D5C3E8 /* MarqueeLabel.m in Sources */,
 				E82D9733189A73020005173B /* CoreLocationExtension.m in Sources */,
 				AB5C2AAF18995ED30068F017 /* Annotation.m in Sources */,
 				E8E49C1E18A00D6700B4B629 /* UIViewController+ECSlidingViewController.m in Sources */,
