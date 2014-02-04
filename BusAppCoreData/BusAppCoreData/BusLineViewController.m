@@ -64,10 +64,12 @@
 
     if ([type isEqualToString: @"ida"]){
         route = self.rotaDeIda;
-        color = [[UIColor alloc] initWithRed: 1 green: 0 blue: 0 alpha:0.8];
+        color = [[UIColor alloc] initWithRed: 1 green: 0 blue: 0 alpha:0.5];
     } else {
-        color = [[UIColor alloc] initWithRed: 0 green: 0 blue: 1 alpha:0.8];
-        route = self.rotaDeVolta;
+        color = [[UIColor alloc] initWithRed: 0 green: 0 blue: 1 alpha:0.5];
+        if (![self.rotaDeVolta count]){
+            route = self.rotaDeIda;
+        }
     }
     CLLocationCoordinate2D *coordinates = malloc(sizeof(CLLocationCoordinate2D)* [self.rotaDeIda count]);
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order"
@@ -76,13 +78,13 @@
     
     route = [route sortedArrayUsingDescriptors:@[descriptor]];
 	Polyline_points* point;
-//	for (NSInteger index = 0; index < [self.rotaDeIda count]; index++) {
-//		point = [route objectAtIndex:index];
-//		coordinates[index] = CLLocationCoordinate2DMake(point.lat.doubleValue, point.lng.doubleValue);
-//	}
-//
-//    MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:[route count]];
-//    [_mapView addOverlay:polyLine];
+	for (NSInteger index = 0; index < [route count]; index++) {
+		point = [route objectAtIndex:index];
+		coordinates[index] = CLLocationCoordinate2DMake(point.lat.doubleValue, point.lng.doubleValue);
+	}
+
+    MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:[route count]];
+    [_mapView addOverlay:polyLine];
 }
 
 
