@@ -291,7 +291,7 @@
                                 <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="movingTitle" destination="8gJ-JG-boI" id="b1v-BL-8uU"/>
-                                    <segue destination="bxf-Rf-9fD" kind="push" id="tLv-It-XfT"/>
+                                    <segue destination="bxf-Rf-9fD" kind="push" identifier="BusTrajectory" id="tLv-It-XfT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
