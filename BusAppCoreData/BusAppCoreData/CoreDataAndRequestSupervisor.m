@@ -73,7 +73,7 @@ static  CoreDataAndRequestSupervisor *supervisor;
 //	if ([prefs integerForKey:@"version"] == nil) {
 //		[prefs setObject:[[NSNumber alloc] initWithInt:0] forKey:@"version"];
 //	}
-	NSLog(@"%d",[prefs integerForKey:@"version"]);
+	NSLog(@"%ld",(long)[prefs integerForKey:@"version"]);
     ServerUpdateRequest *serverUpdate = [[ServerUpdateRequest alloc] init];
     
     NSDate *currentDate = [NSDate date];

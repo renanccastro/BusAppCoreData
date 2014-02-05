@@ -141,7 +141,7 @@
         if ([stop.onibus_que_passam count] == 1){
             [annotation setTitle: @"1 linha passa aqui:"];
         } else {
-            [annotation setTitle: [NSString stringWithFormat: @"%d linhas passam aqui:", [stop.onibus_que_passam count]]];
+            [annotation setTitle: [NSString stringWithFormat: @"%lu linhas passam aqui:", (unsigned long)[stop.onibus_que_passam count]]];
         }
 		[annotation setSubtitle: subTitle];
         [annotation setCoordinate: CLLocationCoordinate2DMake([stop.lat doubleValue], [stop.lng doubleValue])];

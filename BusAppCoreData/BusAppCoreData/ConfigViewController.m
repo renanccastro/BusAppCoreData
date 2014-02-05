@@ -39,9 +39,9 @@
     
     NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     self.radiusIncrement.value = [prefs integerForKey:@"SearchRadius"];
-    self.radius.text = [NSString stringWithFormat:@"%dm", [prefs integerForKey:@"SearchRadius"]];
+    self.radius.text = [NSString stringWithFormat:@"%ldm", (long)[prefs integerForKey:@"SearchRadius"]];
     self.howMuchBus.value = [prefs integerForKey:@"Bus"];
-    self.bus.text = [NSString stringWithFormat:@"%d",[prefs integerForKey:@"Bus"]];
+    self.bus.text = [NSString stringWithFormat:@"%ld",(long)[prefs integerForKey:@"Bus"]];
 }
 
 - (void)didReceiveMemoryWarning
