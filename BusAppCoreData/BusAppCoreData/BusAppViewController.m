@@ -39,12 +39,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-	if ([[segue identifier] isEqualToString:@"stopsNearSegue"]) {
-		StopsNearViewController* vc = [segue destinationViewController];
-		vc.isStopsOnScreen = NO;
-	}
-}
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+//	if ([[segue identifier] isEqualToString:@"stopsNearSegue"]) {
+//		StopsNearViewController* vc = [segue destinationViewController];
+//		vc.isStopsOnScreen = NO;
+//	}
+//}
 
 - (IBAction)stopsView:(id)sender
 {
@@ -55,6 +55,7 @@
                                                                                rightViewController:right];
     
     front.revealController = revealView;
+    [revealView setMinimumWidth:180.0 maximumWidth:244.0 forViewController:right];
     revealView.delegate = self;
     [self presentViewController:revealView
                        animated:YES

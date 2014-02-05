@@ -129,6 +129,7 @@
 			NSDate *firstUpdate = [NSDate date];
 			[prefs setObject:firstUpdate forKey:@"last update"];
 			[prefs setInteger:6 forKey:@"version"];
+            [prefs setInteger:600 forKey:@"Radius"];
 		}
 		else
 			NSLog(@"Error copying default DB to %@ (%@)", storeURL, error);

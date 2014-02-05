@@ -10,6 +10,7 @@
 
 @interface BusPoitsRadiusViewController () 
 @property (weak, nonatomic) IBOutlet UILabel *radiusText;
+@property (weak, nonatomic) IBOutlet UIStepper *radiusChange;
 
 @end
 
@@ -28,6 +29,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    //just update the label and the value onthe steper to the value in user preferences
+    NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
+    self.radiusChange.value = [prefs integerForKey:@"Radius"];
+    self.radiusText.text = [NSString stringWithFormat:@"%dm", [prefs integerForKey:@"Radius"]];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,7 +45,9 @@
 
 
 
-- (IBAction)radiusChanged:(UIStepper*)sender {
+- (IBAction)radiusChanged:(UIStepper*)sender
+{
+    //change the value of the radius of search  for bus stops
     self.radius = [sender value];
     self.radiusText.text = [NSString stringWithFormat:@"%dm", self.radius];
     NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
