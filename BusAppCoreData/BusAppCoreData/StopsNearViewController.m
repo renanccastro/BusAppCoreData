@@ -13,8 +13,9 @@
 #import "Bus_points.h"
 #import "Bus_line.h"
 #import "BusPoitsRadiusViewController.h"
+#import "PKRevealController.h"
 
-@interface StopsNearViewController () <MKMapViewDelegate>
+@interface StopsNearViewController () <MKMapViewDelegate,PKRevealing>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic) NSArray* stopsNear;
@@ -40,6 +41,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+//    [self.revealController segueForUnwindingToViewController:self.revealController.rightViewController fromViewController:self identifier:nil];
+    [self.revealController  touchesBegan:nil withEvent:nil];
     self.mapView.delegate = self;
     
 }
@@ -59,6 +62,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma - MapView Methods
 //Remove old annotations and set new ones

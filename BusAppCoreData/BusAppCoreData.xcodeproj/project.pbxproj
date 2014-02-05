@@ -14,6 +14,7 @@
 		AB5C2AAF18995ED30068F017 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5C2AAE18995ED30068F017 /* Annotation.m */; };
 		ABA8476A1896CBA5008B0172 /* TrajectoryPlanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA847691896CBA5008B0172 /* TrajectoryPlanningViewController.m */; };
 		ABA8476D1896CE0B008B0172 /* StopsNearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA8476C1896CE0B008B0172 /* StopsNearViewController.m */; };
+		ABBE88A418A1566B009C3E35 /* TrajectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBE88A318A1566B009C3E35 /* TrajectoryViewController.m */; };
 		B92AA4DB1899561A00A6C8F7 /* Bus_line+Core_Data_Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = B92AA4DA1899561A00A6C8F7 /* Bus_line+Core_Data_Methods.m */; };
 		B92AA4DE189A867300A6C8F7 /* BusTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92AA4DD189A867300A6C8F7 /* BusTableViewController.m */; };
 		B961CC0318A0F78300D5C3E8 /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B961CC0218A0F78300D5C3E8 /* MarqueeLabel.m */; };
@@ -79,6 +80,8 @@
 		ABA847691896CBA5008B0172 /* TrajectoryPlanningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrajectoryPlanningViewController.m; sourceTree = "<group>"; };
 		ABA8476B1896CE0B008B0172 /* StopsNearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopsNearViewController.h; sourceTree = "<group>"; };
 		ABA8476C1896CE0B008B0172 /* StopsNearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopsNearViewController.m; sourceTree = "<group>"; };
+		ABBE88A218A1566B009C3E35 /* TrajectoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrajectoryViewController.h; sourceTree = "<group>"; };
+		ABBE88A318A1566B009C3E35 /* TrajectoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrajectoryViewController.m; sourceTree = "<group>"; };
 		B92AA4DA1899561A00A6C8F7 /* Bus_line+Core_Data_Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Bus_line+Core_Data_Methods.m"; sourceTree = "<group>"; };
 		B92AA4DC189A867300A6C8F7 /* BusTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusTableViewController.h; sourceTree = "<group>"; };
 		B92AA4DD189A867300A6C8F7 /* BusTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusTableViewController.m; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 		ABA847671896CB2F008B0172 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				ABBE88A218A1566B009C3E35 /* TrajectoryViewController.h */,
+				ABBE88A318A1566B009C3E35 /* TrajectoryViewController.m */,
 				ABA847681896CBA5008B0172 /* TrajectoryPlanningViewController.h */,
 				ABA847691896CBA5008B0172 /* TrajectoryPlanningViewController.m */,
 				ABA8476B1896CE0B008B0172 /* StopsNearViewController.h */,

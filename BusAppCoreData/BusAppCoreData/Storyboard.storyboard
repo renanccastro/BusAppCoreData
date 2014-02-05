@@ -75,12 +75,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ew-Sb-j8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2740" y="-1112"/>
+            <point key="canvasLocation" x="2844" y="-780"/>
         </scene>
-        <!--View Controller - Rota-->
+        <!--Trajectory View Controller - Rota-->
         <scene sceneID="I7c-NH-N4o">
             <objects>
-                <viewController id="ZV3-ap-nIc" sceneMemberID="viewController">
+                <viewController id="ZV3-ap-nIc" customClass="TrajectoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ufl-Us-wlQ"/>
                         <viewControllerLayoutGuide type="bottom" id="EB1-3F-6QV"/>
@@ -97,10 +97,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Rota" id="p3x-Ta-y9D"/>
+                    <connections>
+                        <outlet property="mapView" destination="IX4-6L-dAq" id="ncx-f8-7no"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JXi-2f-O6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3092" y="-462"/>
+            <point key="canvasLocation" x="3445" y="-112"/>
         </scene>
         <!--Bus Line View Controller - Rota-->
         <scene sceneID="fcq-NL-50x">
@@ -149,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRg-Md-zVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3448" y="192"/>
+            <point key="canvasLocation" x="2246" y="554"/>
         </scene>
         <!--Stops Near View Controller - Pontos-->
         <scene sceneID="M2K-VY-PaJ">
@@ -178,7 +181,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Pontos" id="riz-0x-P4a">
                         <barButtonItem key="backBarButtonItem" title="Pontos" id="GR2-zI-naN"/>
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="lVD-ec-Xd3"/>
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="lVD-ec-Xd3">
+                            <connections>
+                                <segue destination="3gO-1d-0YW" kind="modal" id="VOE-hN-xI9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="Uhs-eS-0q1" id="RDr-zF-Qhi"/>
@@ -187,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uI-ZH-GQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2740" y="192"/>
+            <point key="canvasLocation" x="1151" y="554"/>
         </scene>
         <!--Trajectory Planning View Controller - Tipo de Pequisa-->
         <scene sceneID="C5V-Sl-fT5">
@@ -218,7 +225,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="SaY-Jt-uZn" kind="push" id="hit-bo-3NW"/>
+                                    <segue destination="ZV3-ap-nIc" kind="push" identifier="push" id="jO2-74-3Ij"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -230,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eq-tS-Vvq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2386" y="-462"/>
+            <point key="canvasLocation" x="2246" y="-112"/>
         </scene>
         <!--Pin Drop View Controller - Localidade-->
         <scene sceneID="j2y-t2-b5P">
@@ -256,12 +263,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="s6B-jD-31s" id="gkF-qq-fMj"/>
-                        <segue destination="ZV3-ap-nIc" kind="push" id="D6B-C1-689"/>
+                        <segue destination="ZV3-ap-nIc" kind="push" identifier="push" id="D6B-C1-689"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d52-cz-s5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2740" y="-462"/>
+            <point key="canvasLocation" x="2844" y="-112"/>
         </scene>
         <!--Bus Table View Controller - Linhas De Onibus-->
         <scene sceneID="RpD-tq-vAM">
@@ -306,7 +313,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NxO-vD-O7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3092" y="192"/>
+            <point key="canvasLocation" x="1898" y="554"/>
         </scene>
         <!--Bus App View Controller - Menu-->
         <scene sceneID="Zv5-AQ-Z1t">
@@ -382,7 +389,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLP-hg-LwM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1770" y="-118"/>
+            <point key="canvasLocation" x="1898" y="-112"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="umu-VO-FdU">
@@ -405,12 +412,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oh7-SQ-u3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1375" y="-112"/>
+            <point key="canvasLocation" x="1151" y="-112"/>
         </scene>
         <!--Bus Poits Radius View Controller-->
         <scene sceneID="iDP-aW-o5C">
             <objects>
-                <tableViewController storyboardIdentifier="LeftViewControllerId" id="htW-Dl-EeB" customClass="BusPoitsRadiusViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RightViewControllerId" id="htW-Dl-EeB" customClass="BusPoitsRadiusViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2ay-Uc-c2R">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -426,14 +433,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohK-3n-7Qd">
-                                                    <rect key="frame" x="10" y="7" width="66" height="32"/>
+                                                    <rect key="frame" x="254" y="5" width="66" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
                                                     <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="600" maximumValue="2000" stepValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="qnZ-LX-60g">
-                                                    <rect key="frame" x="84" y="8" width="94" height="29"/>
+                                                    <rect key="frame" x="152" y="5" width="94" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <connections>
                                                         <action selector="radiusChanged:" destination="htW-Dl-EeB" eventType="valueChanged" id="uqe-Kh-Isf"/>
@@ -456,7 +463,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="deM-K5-ZzK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2734" y="845"/>
+            <point key="canvasLocation" x="1151" y="1210"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r6Z-5r-AlM">
@@ -480,7 +487,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tl0-pp-v8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2386" y="192"/>
+            <point key="canvasLocation" x="799" y="554"/>
         </scene>
     </scenes>
     <color key="tintColor" red="1" green="0.75243891230000004" blue="0.36652966209999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -490,6 +497,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="VOE-hN-xI9"/>
         <segue reference="qdO-fi-I4K"/>
     </inferredMetricsTieBreakers>
 </document>
