@@ -33,7 +33,7 @@
     //just update the label and the value onthe steper to the value in user preferences
     NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     self.radiusChange.value = [prefs integerForKey:@"Radius"];
-    self.radiusText.text = [NSString stringWithFormat:@"%dm", [prefs integerForKey:@"Radius"]];
+    self.radiusText.text = [NSString stringWithFormat:@"%ldm", (long)[prefs integerForKey:@"Radius"]];
     
 }
 
