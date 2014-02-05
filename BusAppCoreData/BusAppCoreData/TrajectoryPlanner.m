@@ -46,7 +46,6 @@
                 node = node.parent;
             }
         } else if (i < 2){
-//            NSLog(@"%d",[((Bus_line *)node.data).line_interceptions count]);
 			NSLog(@"Bus: %@", node.data.line_number);
 			NSArray* array = [Interception getAllInterceptionsForBus:((Bus_line *)node.data)];
 			for (Interception *interception in array){
