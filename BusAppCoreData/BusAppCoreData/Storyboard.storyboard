@@ -75,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ew-Sb-j8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2844" y="-780"/>
+            <point key="canvasLocation" x="2794" y="-776"/>
         </scene>
         <!--Trajectory View Controller - Rota-->
         <scene sceneID="I7c-NH-N4o">
@@ -103,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JXi-2f-O6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3445" y="-112"/>
+            <point key="canvasLocation" x="3333" y="-112"/>
         </scene>
         <!--Bus Line View Controller - Rota-->
         <scene sceneID="fcq-NL-50x">
@@ -183,7 +183,12 @@
                         <barButtonItem key="backBarButtonItem" title="Pontos" id="GR2-zI-naN"/>
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="lVD-ec-Xd3">
                             <connections>
-                                <segue destination="3gO-1d-0YW" kind="modal" id="VOE-hN-xI9"/>
+                                <segue destination="pq6-yp-7Yp" kind="modal" id="S1L-KM-2Au"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Raio de Busca" id="jeC-5X-rgj">
+                            <connections>
+                                <action selector="showConfiguration:" destination="XOq-n4-aYC" id="3Sn-2b-Hhj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -194,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uI-ZH-GQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1151" y="554"/>
+            <point key="canvasLocation" x="1011" y="554"/>
         </scene>
         <!--Trajectory Planning View Controller - Tipo de Pequisa-->
         <scene sceneID="C5V-Sl-fT5">
@@ -268,7 +273,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d52-cz-s5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2844" y="-112"/>
+            <point key="canvasLocation" x="2794" y="-112"/>
         </scene>
         <!--Bus Table View Controller - Linhas De Onibus-->
         <scene sceneID="RpD-tq-vAM">
@@ -412,7 +417,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oh7-SQ-u3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1151" y="-112"/>
+            <point key="canvasLocation" x="1555" y="-112"/>
         </scene>
         <!--Bus Poits Radius View Controller-->
         <scene sceneID="iDP-aW-o5C">
@@ -458,12 +463,13 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="radiusChange" destination="qnZ-LX-60g" id="Sod-1k-kUu"/>
                         <outlet property="radiusText" destination="ohK-3n-7Qd" id="sXE-ji-sS1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="deM-K5-ZzK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1151" y="1210"/>
+            <point key="canvasLocation" x="1011" y="1209"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r6Z-5r-AlM">
@@ -487,7 +493,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tl0-pp-v8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799" y="554"/>
+            <point key="canvasLocation" x="665" y="554"/>
         </scene>
     </scenes>
     <color key="tintColor" red="1" green="0.75243891230000004" blue="0.36652966209999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -497,7 +503,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="VOE-hN-xI9"/>
-        <segue reference="qdO-fi-I4K"/>
+        <segue reference="D6B-C1-689"/>
     </inferredMetricsTieBreakers>
 </document>

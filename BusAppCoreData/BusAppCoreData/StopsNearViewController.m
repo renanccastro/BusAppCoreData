@@ -44,6 +44,7 @@
 //    [self.revealController segueForUnwindingToViewController:self.revealController.rightViewController fromViewController:self identifier:nil];
     [self.revealController  touchesBegan:nil withEvent:nil];
     self.mapView.delegate = self;
+    self.navigationController.revealController.delegate = self;
     
 }
 -(void)viewDidDisappear:(BOOL)animated{
@@ -53,8 +54,12 @@
 //	self.mapView.showsUserLocation = NO;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
+    
 	self.mapView.showsUserLocation = YES;
+
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,6 +92,38 @@
     _annotations = annotations;
     [self updateMapView];
 }
+
+#pragma mark - Button methods
+
+//Call right side view quem the button is pressed
+- (IBAction)showConfiguration:(id)sender
+{
+    [self.navigationController.revealController showViewController:self.navigationController.revealController.rightViewController ];
+
+}
+
+#pragma mark - PKreveal delegate methods
+
+//when the state change form the rightView to the frontView it reload the bus points on the map
+-(void)revealController:(PKRevealController *)revealController willChangeToState:(PKRevealControllerState)state
+{
+    if(state == PKRevealControllerShowsFrontViewController)
+    {
+        if(![self isStopsOnScreen]){
+            NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
+            [[CoreDataAndRequestSupervisor startSupervisor] setDelegate:self];
+            [[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:[prefs integerForKey:@"Radius"]
+                                                                                     fromPoint: self.mapView.userLocation.coordinate];
+            self.isStopsOnScreen = YES;
+        }
+    }
+    else if(state == PKRevealControllerShowsRightViewController)
+    {
+        self.isStopsOnScreen = NO;
+    }
+}
+
+#pragma mark - annotation and map view methods
 
 //Create annotations with data from requests
 - (void)creatAnnotationsFromBusPointsArray:(NSArray*)stopsNear{
@@ -153,8 +190,9 @@
     [self.mapView setRegion:region animated:YES];
 	
 	if(![self isStopsOnScreen]){
+        NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
 		[[CoreDataAndRequestSupervisor startSupervisor] setDelegate:self];
-		[[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:100.0 fromPoint: userLocation.coordinate];
+		[[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:[prefs integerForKey:@"Radius"] fromPoint: userLocation.coordinate];
 		self.isStopsOnScreen = YES;
 	}
 }
