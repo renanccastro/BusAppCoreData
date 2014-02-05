@@ -188,8 +188,9 @@ static  CoreDataAndRequestSupervisor *supervisor;
 		for (Bus_line* line in final) {
 			NSLog(@"%@", line.line_number);
 		}
-
-		[self.treeDelegate requestDataDidFinishWithInitialArray:initial andWithFinal:final];
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self.treeDelegate requestDataDidFinishWithInitialArray:initial andWithFinal:final];
+		});
 	}];
 	
 	[self.queue addOperation:operation];

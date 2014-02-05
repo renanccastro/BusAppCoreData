@@ -65,9 +65,9 @@
     
     MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:[route count]];
 	
-	dispatch_async(dispatch_get_main_queue(), ^{
+//	dispatch_async(dispatch_get_main_queue(), ^{
 		[self.mapView addOverlay:polyLine];
-	});
+//	});
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
