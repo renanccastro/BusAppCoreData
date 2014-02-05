@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Endereço-->
+        <!--Trajectory Address Planner - Endereço-->
         <scene sceneID="Qzf-AQ-U5u">
             <objects>
-                <viewController id="c7x-8d-jaA" sceneMemberID="viewController">
+                <viewController id="c7x-8d-jaA" customClass="TrajectoryAddressPlanner" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="56m-CF-hJE"/>
                         <viewControllerLayoutGuide type="bottom" id="kem-3T-fPP"/>
@@ -63,7 +63,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ZV3-ap-nIc" kind="push" id="qdO-fi-I4K"/>
+                                    <action selector="searchRoute:" destination="c7x-8d-jaA" eventType="touchUpInside" id="98w-DJ-Ovc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -72,6 +72,12 @@
                     <navigationItem key="navigationItem" title="Endereço" id="ndi-Ac-HHd">
                         <barButtonItem key="backBarButtonItem" title="Endereço" id="S8x-e3-ORE"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="address" destination="Hi2-Is-4AL" id="eOD-hS-Gq5"/>
+                        <outlet property="bairro" destination="3CD-L3-m0P" id="bKg-Gx-HHd"/>
+                        <outlet property="number" destination="pkp-b8-AHO" id="rmu-py-6OJ"/>
+                        <segue destination="ZV3-ap-nIc" kind="push" identifier="addressPush" id="X3h-Yy-jzu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ew-Sb-j8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -514,7 +520,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Gb1-U5-LEw"/>
-        <segue reference="dXO-37-sia"/>
+        <segue reference="X3h-Yy-jzu"/>
     </inferredMetricsTieBreakers>
 </document>

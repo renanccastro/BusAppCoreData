@@ -38,8 +38,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.mapView.delegate = self;
-	[[CoreDataAndRequestSupervisor startSupervisor] setTreeDelegate:self];
-    [[CoreDataAndRequestSupervisor startSupervisor] getRequiredTreeLinesWithInitialPoint:self.initial andFinalPoint:self.final withRange:600];
+	self.mapView.showsUserLocation = YES;
     
 }
 
@@ -134,5 +133,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+	[[CoreDataAndRequestSupervisor startSupervisor] setTreeDelegate:self];
+	[[CoreDataAndRequestSupervisor startSupervisor] getRequiredTreeLinesWithInitialPoint:userLocation.coordinate andFinalPoint:self.final withRange:600];
+}
 @end
