@@ -71,7 +71,7 @@
 	[request setEntity:entityDescription];
 	NSPredicate *predicate = [NSPredicate predicateWithFormat:
 							  @"ANY bus_inicial.web_number == %@", bus.web_number];
-	[request setReturnsObjectsAsFaults:NO];
+//	[request setReturnsObjectsAsFaults:NO];
 	[request setPredicate:predicate];
 	NSError *error;
 	NSArray *array = [context executeFetchRequest:request error:&error];
