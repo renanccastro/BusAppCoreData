@@ -14,6 +14,8 @@
 
 - (NSArray *)planningFrom: (NSSet*)initial to: (NSSet *)final
 {
+	NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
+	int busMax = [prefs integerForKey:@"Bus"];
     for (Bus_line* line in initial) {
         NSLog(@"initial: %@", line.full_name);
     }
@@ -37,7 +39,7 @@
 	int i = 0, j = 0;
 	Node *node;
 	NSInteger size = [self.lines count];
-    while (i < 3 && found != YES){
+    while (i < busMax && found != YES){
         node = self.lines[j];
         if ([finalLines containsObject: node.data]){
             found = YES;
@@ -45,7 +47,7 @@
                 [route addObject: node.data];
                 node = node.parent;
             }
-        } else if (i < 2){
+        } else if (i < busMax-1){
 			NSLog(@"Bus: %@", node.data.line_number);
 			NSArray* array = [Interception getAllInterceptionsForBus:((Bus_line *)node.data)];
 			for (Interception *interception in array){

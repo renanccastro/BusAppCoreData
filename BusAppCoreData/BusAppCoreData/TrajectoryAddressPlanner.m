@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "TrajectoryViewController.h"
 
-@interface TrajectoryAddressPlanner ()
+@interface TrajectoryAddressPlanner () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *address;
 @property (weak, nonatomic) IBOutlet UITextField *number;
 @property (weak, nonatomic) IBOutlet UITextField *bairro;
@@ -44,7 +44,18 @@
 {
     [super viewDidLoad];
 	self.geocoder = [[CLGeocoder alloc] init];
+	UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+	[self.view addGestureRecognizer:tap];
 	// Do any additional setup after loading the view.
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+	[textField resignFirstResponder];
+	return YES;
+}
+-(IBAction)dismissKeyboard:(id)sender{
+	[self.address resignFirstResponder];
+	[self.number resignFirstResponder];
+	[self.bairro resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
