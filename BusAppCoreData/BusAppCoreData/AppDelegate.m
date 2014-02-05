@@ -132,6 +132,7 @@
             [prefs setInteger:600 forKey:@"Radius"];
             [prefs setInteger:600 forKey:@"SearchRadius"];
             [prefs setInteger:1 forKey:@"Bus"];
+			[[NSUserDefaults standardUserDefaults] synchronize];
 		}
 		else
 			NSLog(@"Error copying default DB to %@ (%@)", storeURL, error);

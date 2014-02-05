@@ -71,14 +71,14 @@
     }
     
     for(Polyline_points *points in [Polyline_points getBusLineTrajectory:self
-                                                                withTurn:@"linhas_ida"])
+                                                                withTurn:@"linha_ida"])
     {
         [points removePointFromDatabase];
 		[self removePolyline_idaObject:points];
     }
     
     for(Polyline_points *points in [Polyline_points getBusLineTrajectory:self
-                                                                withTurn:@"linhas_volta"])
+                                                                withTurn:@"linha_volta"])
     {
         [points removePointFromDatabase];
 		[self removePolyline_voltaObject:points];

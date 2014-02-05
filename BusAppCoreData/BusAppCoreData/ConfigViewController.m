@@ -58,6 +58,7 @@
     NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     [prefs setInteger:[sender value]
                forKey:@"SearchRadius"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (IBAction)busChange:(UIStepper*)sender
@@ -67,7 +68,7 @@
     NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     [prefs setInteger:[sender value]
                forKey:@"Bus"];
-
+	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end
