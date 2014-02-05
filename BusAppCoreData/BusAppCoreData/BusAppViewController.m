@@ -39,23 +39,42 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-//	if ([[segue identifier] isEqualToString:@"stopsNearSegue"]) {
-//		StopsNearViewController* vc = [segue destinationViewController];
-//		vc.isStopsOnScreen = NO;
-//	}
-//}
+
+- (IBAction)rotePlaningView:(id)sender
+{
+    UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"Storyboard"
+                                                           bundle:nil];
+    UITableViewController *right = [mystoryboard instantiateViewControllerWithIdentifier:@"SearchConfigViewControllerId"];
+    UINavigationController *front = [mystoryboard instantiateViewControllerWithIdentifier:@"SearchViewControllerId"];
+    PKRevealController *revealView = [PKRevealController revealControllerWithFrontViewController:front
+                                                                             rightViewController:right];
+    
+    front.revealController = revealView;
+    [revealView setMinimumWidth:180.0
+                   maximumWidth:244.0
+              forViewController:right];
+    revealView.delegate = self;
+    [self presentViewController:revealView
+                       animated:YES
+                     completion:nil];
+    
+    
+}
 
 - (IBAction)stopsView:(id)sender
 {
-    UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"Storyboard"
+                                                           bundle:nil];
     UITableViewController *right = [mystoryboard instantiateViewControllerWithIdentifier:@"RightViewControllerId"];
     UINavigationController *front = [mystoryboard instantiateViewControllerWithIdentifier:@"NavigationControllerId"];
     PKRevealController *revealView  = [PKRevealController revealControllerWithFrontViewController:front
                                                                                rightViewController:right];
     
     front.revealController = revealView;
-    [revealView setMinimumWidth:180.0 maximumWidth:244.0 forViewController:right];
+    [revealView setMinimumWidth:180.0
+                   maximumWidth:244.0
+              forViewController:right];
+    
     revealView.delegate = self;
     [self presentViewController:revealView
                        animated:YES
