@@ -11,7 +11,7 @@
 #import "TrajectoryPlanner.h"
 #import "TrajectoryViewController.h"
 
-@interface TrajectoryPlanningViewController () <TreeDataRequestDelegate>
+@interface TrajectoryPlanningViewController ()
 
 @property (nonatomic) NSArray *route;
 
@@ -31,22 +31,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[CoreDataAndRequestSupervisor startSupervisor] setTreeDelegate:self];
-    [[CoreDataAndRequestSupervisor startSupervisor] getRequiredTreeLinesWithInitialPoint:CLLocationCoordinate2DMake(-22.82151, -47.08802) andFinalPoint:CLLocationCoordinate2DMake(-22.83010, -47.07940) withRange:600];
 	// Do any additional setup after loading the view.
-}
--(void)requestDataDidFinishWithInitialArray:(NSArray *)initial andWithFinal:(NSArray *)final{
-    
-    TrajectoryPlanner *trajectory = [[TrajectoryPlanner alloc] init];
-	
-    NSArray *route = [[NSArray alloc] initWithArray:[trajectory planningFrom: initial to: final]];
-	NSLog(@"%@, Caminho com %d onibus",route, [route count]);
-    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-	if ([[segue identifier] isEqualToString:@"push"]) {
-		TrajectoryViewController *vc = [segue destinationViewController];
+	if ([[segue identifier] isEqualToString:@"pushTeste"]) {
+		TrajectoryViewController *vc = ((TrajectoryViewController*)[segue destinationViewController]);
 		vc.bus = [[NSArray alloc] initWithArray:self.route];
         NSLog (@"quantidde%d",[vc.bus count]);
 	}

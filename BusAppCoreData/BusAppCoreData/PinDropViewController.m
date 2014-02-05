@@ -8,11 +8,14 @@
 
 #import "PinDropViewController.h"
 #import "Annotation.h"
+#import "TrajectoryViewController.h"
 #import	<MapKit/MapKit.h>
 
 @interface PinDropViewController () <MKMapViewDelegate>
 @property (nonatomic, weak) IBOutlet MKMapView* mapView;
 @property (nonatomic) CLLocationCoordinate2D pinLocation;
+@property (nonatomic) CLLocationCoordinate2D initial;
+
 @end
 
 @implementation PinDropViewController
@@ -54,7 +57,18 @@
     annot.coordinate = touchMapCoordinate;
 	annot.title = @"Destination Point";
 	
+	self.initial = self.mapView.userLocation.coordinate;
+	
     [self.mapView addAnnotation:annot];
+	
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+	if ([[segue identifier] isEqualToString:@"push"]) {
+		TrajectoryViewController *vc = [segue destinationViewController];
+		vc.initial = self.initial;
+		vc.final = self.pinLocation;
+	}
 }
 
 - (void)didReceiveMemoryWarning

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pq6-yp-7Yp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pq6-yp-7Yp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
@@ -98,7 +98,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Rota" id="p3x-Ta-y9D"/>
                     <connections>
-                        <outlet property="mapView" destination="IX4-6L-dAq" id="ncx-f8-7no"/>
+                        <outlet property="mapView" destination="IX4-6L-dAq" id="zhd-Sf-CwR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JXi-2f-O6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -224,8 +224,15 @@
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9A-OR-wf0">
+                                <rect key="frame" x="0.0" y="292" width="320" height="283"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <segue destination="ZV3-ap-nIc" kind="push" identifier="push" id="jO2-74-3Ij"/>
+                                    <segue destination="SaY-Jt-uZn" kind="push" id="aFv-85-TWh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -251,7 +258,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="s6B-jD-31s">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s6B-jD-31s">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
@@ -260,15 +267,19 @@
                     </view>
                     <navigationItem key="navigationItem" title="Localidade" id="7zt-ff-IVN">
                         <barButtonItem key="backBarButtonItem" title="Localidade" id="TPB-Rb-f3Y"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Wr4-bJ-rno">
+                            <connections>
+                                <segue destination="ZV3-ap-nIc" kind="push" identifier="push" id="dXO-37-sia"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="s6B-jD-31s" id="gkF-qq-fMj"/>
-                        <segue destination="ZV3-ap-nIc" kind="push" identifier="push" id="D6B-C1-689"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d52-cz-s5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2844" y="-112"/>
+            <point key="canvasLocation" x="2844" y="94"/>
         </scene>
         <!--Bus Table View Controller - Linhas De Onibus-->
         <scene sceneID="RpD-tq-vAM">
@@ -497,7 +508,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="VOE-hN-xI9"/>
-        <segue reference="qdO-fi-I4K"/>
+        <segue reference="Gb1-U5-LEw"/>
+        <segue reference="dXO-37-sia"/>
     </inferredMetricsTieBreakers>
 </document>

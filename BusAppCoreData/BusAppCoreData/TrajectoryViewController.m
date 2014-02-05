@@ -9,14 +9,14 @@
 #import "TrajectoryViewController.h"
 #import <MapKit/MapKit.h>
 #import "Polyline_points.h"
+#import "TrajectoryPlanner.h"
+#import "CoreDataAndRequestSupervisor.h"
 
-@interface TrajectoryViewController () <MKMapViewDelegate, UIWebViewDelegate>
+@interface TrajectoryViewController () <MKMapViewDelegate, TreeDataRequestDelegate>
 {
     UIColor *color;
     
 }
-
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
@@ -38,12 +38,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.mapView.delegate = self;
+	[[CoreDataAndRequestSupervisor startSupervisor] setTreeDelegate:self];
+    [[CoreDataAndRequestSupervisor startSupervisor] getRequiredTreeLinesWithInitialPoint:self.initial andFinalPoint:self.final withRange:600];
     
-    NSLog(@"aaaaaaaaa");
-    for (Bus_line *line in self.bus){
-        [self addRoute: [line.polyline_ida allObjects] withType: @"ida"];
-        [self addRoute: [line.polyline_volta allObjects] withType: @"volta"];
-    }
 }
 
 
@@ -59,7 +56,6 @@
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order"
 																 ascending:YES];
 	
-    
     route = [route sortedArrayUsingDescriptors:@[descriptor]];
 	Polyline_points* point;
 	for (NSInteger index = 0; index < [route count]; index++) {
@@ -68,7 +64,10 @@
 	}
     
     MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:[route count]];
-    [_mapView addOverlay:polyLine];
+	
+	dispatch_async(dispatch_get_main_queue(), ^{
+		[self.mapView addOverlay:polyLine];
+	});
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
@@ -77,6 +76,22 @@
     polylineView.strokeColor = color;
     polylineView.lineWidth = 5.0;
     return polylineView;
+}
+
+-(void)requestDataDidFinishWithInitialArray:(NSArray *)initial andWithFinal:(NSArray *)final{
+    
+    TrajectoryPlanner *trajectory = [[TrajectoryPlanner alloc] init];
+    self.bus = [[NSArray alloc] initWithArray:[trajectory planningFrom: initial to: final]];
+	
+    for (Bus_line *line in self.bus){
+        [self addRoute: [line.polyline_ida allObjects] withType: @"ida"];
+        [self addRoute: [line.polyline_volta allObjects] withType: @"volta"];
+    }
+
+//	NSLog(@"%@, Caminho com %d onibus",self.bus, [self.bus count]);
+}
+-(void)requestdidFailWithError:(NSError *)error{
+	NSLog(@"Error!");
 }
 
 - (void)viewDidAppear:(BOOL)animated {

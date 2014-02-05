@@ -60,6 +60,7 @@
         }
         j++;
     }
+	NSLog(@"%@, tantos onibus", route);
     return route;
 }
 

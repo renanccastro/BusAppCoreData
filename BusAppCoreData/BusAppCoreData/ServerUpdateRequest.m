@@ -20,7 +20,7 @@
 
 @implementation ServerUpdateRequest
 
--(void) requestServerUpdateWithVersion:(int)version withDelegate:(id<ServerUpdateRequestDelegate>)delegate
+-(void) requestServerUpdateWithVersion:(NSInteger)version withDelegate:(id<ServerUpdateRequestDelegate>)delegate
 {
     [self setDelegate:delegate];
     
