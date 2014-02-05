@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pq6-yp-7Yp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pq6-yp-7Yp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
@@ -21,6 +21,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="c7x-8d-jaA" id="dr0-Bi-6HP"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Endereço" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKL-ok-vQk">
                                 <rect key="frame" x="15" y="248" width="79" height="21"/>
@@ -34,6 +37,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="c7x-8d-jaA" id="yzr-DO-sz0"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Numero" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PiP-sZ-qo4">
                                 <rect key="frame" x="15" y="302" width="64" height="21"/>
@@ -54,6 +60,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="c7x-8d-jaA" id="UXf-ul-pA4"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2i4-ms-Ekl">
                                 <rect key="frame" x="67" y="445" width="184" height="30"/>
@@ -187,12 +196,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Pontos" id="riz-0x-P4a">
                         <barButtonItem key="backBarButtonItem" title="Pontos" id="GR2-zI-naN"/>
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="lVD-ec-Xd3">
+                        <barButtonItem key="leftBarButtonItem" image="oie_transparent" id="lVD-ec-Xd3">
                             <connections>
                                 <segue destination="pq6-yp-7Yp" kind="modal" id="S1L-KM-2Au"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Raio de Busca" id="jeC-5X-rgj">
+                        <barButtonItem key="rightBarButtonItem" image="config_icon" width="41" id="jeC-5X-rgj">
                             <connections>
                                 <action selector="showConfiguration:" destination="XOq-n4-aYC" id="3Sn-2b-Hhj"/>
                             </connections>
@@ -256,7 +265,7 @@
                                 <segue destination="pq6-yp-7Yp" kind="modal" id="zfs-Hl-V8l"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Config" id="1Y6-sw-dzG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="1Y6-sw-dzG">
                             <connections>
                                 <action selector="configurations:" destination="hu4-u4-m8j" id="sbu-ZK-KwO"/>
                             </connections>
@@ -421,7 +430,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLP-hg-LwM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1898" y="-112"/>
+            <point key="canvasLocation" x="2080" y="-112"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="umu-VO-FdU">
@@ -628,6 +637,10 @@
             <point key="canvasLocation" x="665" y="-782"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="config_icon" width="32" height="32"/>
+        <image name="oie_transparent" width="64" height="62"/>
+    </resources>
     <color key="tintColor" red="1" green="0.75243891230000004" blue="0.36652966209999999" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -635,7 +648,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zfs-Hl-V8l"/>
         <segue reference="X3h-Yy-jzu"/>
+        <segue reference="S1L-KM-2Au"/>
     </inferredMetricsTieBreakers>
 </document>
