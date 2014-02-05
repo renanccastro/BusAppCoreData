@@ -196,7 +196,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Pontos" id="riz-0x-P4a">
                         <barButtonItem key="backBarButtonItem" title="Pontos" id="GR2-zI-naN"/>
-                        <barButtonItem key="leftBarButtonItem" image="oie_transparent" id="lVD-ec-Xd3">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="lVD-ec-Xd3">
                             <connections>
                                 <segue destination="pq6-yp-7Yp" kind="modal" id="S1L-KM-2Au"/>
                             </connections>
@@ -639,7 +639,6 @@
     </scenes>
     <resources>
         <image name="config_icon" width="32" height="32"/>
-        <image name="oie_transparent" width="64" height="62"/>
     </resources>
     <color key="tintColor" red="1" green="0.75243891230000004" blue="0.36652966209999999" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

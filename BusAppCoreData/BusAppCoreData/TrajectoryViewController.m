@@ -176,7 +176,8 @@
     
     [self.mapView setRegion: viewRegion animated:YES];
 	[[CoreDataAndRequestSupervisor startSupervisor] setTreeDelegate:self];
-	[[CoreDataAndRequestSupervisor startSupervisor] getRequiredTreeLinesWithInitialPoint:userLocation.coordinate andFinalPoint:self.final withRange:600];
+	NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
+	[[CoreDataAndRequestSupervisor startSupervisor] getRequiredTreeLinesWithInitialPoint:userLocation.coordinate andFinalPoint:self.final withRange:[prefs integerForKey:@"SearchRadius"]];
 }
 
 //Configure annotationView
