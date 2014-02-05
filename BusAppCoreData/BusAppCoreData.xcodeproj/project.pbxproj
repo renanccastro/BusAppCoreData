@@ -16,6 +16,7 @@
 		ABA8476D1896CE0B008B0172 /* StopsNearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA8476C1896CE0B008B0172 /* StopsNearViewController.m */; };
 		B92AA4DB1899561A00A6C8F7 /* Bus_line+Core_Data_Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = B92AA4DA1899561A00A6C8F7 /* Bus_line+Core_Data_Methods.m */; };
 		B92AA4DE189A867300A6C8F7 /* BusTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92AA4DD189A867300A6C8F7 /* BusTableViewController.m */; };
+		B934777818A29F23001F9E0A /* ConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B934777718A29F23001F9E0A /* ConfigViewController.m */; };
 		B961CC0318A0F78300D5C3E8 /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B961CC0218A0F78300D5C3E8 /* MarqueeLabel.m */; };
 		B961CC0618A0F87400D5C3E8 /* MovingTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B961CC0518A0F87400D5C3E8 /* MovingTitleCell.m */; };
 		B961CC0818A0FB6A00D5C3E8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B961CC0718A0FB6A00D5C3E8 /* QuartzCore.framework */; };
@@ -85,6 +86,8 @@
 		B92AA4DA1899561A00A6C8F7 /* Bus_line+Core_Data_Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Bus_line+Core_Data_Methods.m"; sourceTree = "<group>"; };
 		B92AA4DC189A867300A6C8F7 /* BusTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusTableViewController.h; sourceTree = "<group>"; };
 		B92AA4DD189A867300A6C8F7 /* BusTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusTableViewController.m; sourceTree = "<group>"; };
+		B934777618A29F23001F9E0A /* ConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigViewController.h; sourceTree = "<group>"; };
+		B934777718A29F23001F9E0A /* ConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigViewController.m; sourceTree = "<group>"; };
 		B961CC0118A0F78300D5C3E8 /* MarqueeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarqueeLabel.h; sourceTree = "<group>"; };
 		B961CC0218A0F78300D5C3E8 /* MarqueeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarqueeLabel.m; sourceTree = "<group>"; };
 		B961CC0418A0F87400D5C3E8 /* MovingTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovingTitleCell.h; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 				B961CC0B18A1283400D5C3E8 /* BusPoitsRadiusViewController.m */,
 				E814ABF918A275F100035FDC /* TrajectoryAddressPlanner.h */,
 				E814ABFA18A275F100035FDC /* TrajectoryAddressPlanner.m */,
+				B934777618A29F23001F9E0A /* ConfigViewController.h */,
+				B934777718A29F23001F9E0A /* ConfigViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -479,6 +484,7 @@
 				E8A6836618A16E39004CC614 /* Interception.m in Sources */,
 				ABA8476D1896CE0B008B0172 /* StopsNearViewController.m in Sources */,
 				E8F78B1E1899561900C0EFCB /* Bus_points+CoreDataMethods.m in Sources */,
+				B934777818A29F23001F9E0A /* ConfigViewController.m in Sources */,
 				E8BAF7601896BA330087E999 /* AppDelegate.m in Sources */,
 				B961CC0318A0F78300D5C3E8 /* MarqueeLabel.m in Sources */,
 				E8A6836C18A16E39004CC614 /* Bus_points.m in Sources */,

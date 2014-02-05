@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PKRevealController.h"
 
-@interface TrajectoryPlanningViewController : UIViewController
+@interface TrajectoryPlanningViewController : UIViewController <PKRevealing>
+
+@property (nonatomic, strong) PKRevealController *revealController;
 
 @end

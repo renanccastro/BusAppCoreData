@@ -10,8 +10,9 @@
 #import "CoreDataAndRequestSupervisor.h"
 #import "TrajectoryPlanner.h"
 #import "TrajectoryViewController.h"
+#import "PKRevealController.h"
 
-@interface TrajectoryPlanningViewController ()
+@interface TrajectoryPlanningViewController () <PKRevealing>
 
 @end
 
@@ -30,12 +31,18 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)configurations:(id)sender
+{
+    [self.navigationController.revealController showViewController:self.navigationController.revealController.rightViewController ];
 }
 
 @end
