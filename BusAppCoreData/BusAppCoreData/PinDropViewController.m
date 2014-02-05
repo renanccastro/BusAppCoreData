@@ -63,6 +63,18 @@
 	
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.008, 0.008);
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMake(self.mapView.userLocation.coordinate, span);
+    
+    [self.mapView setRegion: viewRegion animated:YES];
+    
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 	if ([[segue identifier] isEqualToString:@"push"]) {
 		TrajectoryViewController *vc = [segue destinationViewController];

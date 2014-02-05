@@ -13,8 +13,6 @@
 
 @interface TrajectoryPlanningViewController ()
 
-@property (nonatomic) NSArray *route;
-
 @end
 
 @implementation TrajectoryPlanningViewController
@@ -32,14 +30,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-	if ([[segue identifier] isEqualToString:@"pushTeste"]) {
-		TrajectoryViewController *vc = ((TrajectoryViewController*)[segue destinationViewController]);
-		vc.bus = [[NSArray alloc] initWithArray:self.route];
-        NSLog (@"quantidde%d",[vc.bus count]);
-	}
 }
 
 - (void)didReceiveMemoryWarning

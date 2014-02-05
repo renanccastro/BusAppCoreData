@@ -88,7 +88,6 @@
         [self addRoute: [line.polyline_volta allObjects] withType: @"volta"];
     }
 
-//	NSLog(@"%@, Caminho com %d onibus",self.bus, [self.bus count]);
 }
 -(void)requestdidFailWithError:(NSError *)error{
 	NSLog(@"Error!");
@@ -123,6 +122,11 @@
 //    
 //    [self.mapView setRegion: viewRegion animated:YES];
     
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.05, 0.05);
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMake(self.mapView.userLocation.coordinate, span);
+    
+    [self.mapView setRegion: viewRegion animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
