@@ -4,7 +4,8 @@
         <attribute name="full_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="line_number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="web_number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="line_interceptions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Interception" inverseName="bus" inverseEntity="Interception" syncable="YES"/>
+        <relationship name="bus_alvo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Interception" inverseName="bus_inicial" inverseEntity="Interception" syncable="YES"/>
+        <relationship name="line_interceptions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Interception" inverseName="bus_alvo" inverseEntity="Interception" syncable="YES"/>
         <relationship name="polyline_ida" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Polyline_points" inverseName="linha_ida" inverseEntity="Polyline_points" syncable="YES"/>
         <relationship name="polyline_volta" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Polyline_points" inverseName="linha_volta" inverseEntity="Polyline_points" syncable="YES"/>
         <relationship name="stops" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bus_points" inverseName="onibus_que_passam" inverseEntity="Bus_points" syncable="YES"/>
@@ -12,11 +13,13 @@
     <entity name="Bus_points" representedClassName="Bus_points" syncable="YES">
         <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="lng" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="interceptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Interception" inverseName="stop" inverseEntity="Interception" syncable="YES"/>
         <relationship name="onibus_que_passam" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bus_line" inverseName="stops" inverseEntity="Bus_line" syncable="YES"/>
     </entity>
     <entity name="Interception" representedClassName="Interception" syncable="YES">
-        <relationship name="bus" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Bus_line" inverseName="line_interceptions" inverseEntity="Bus_line" syncable="YES"/>
-        <relationship name="stop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bus_points" syncable="YES"/>
+        <relationship name="bus_alvo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Bus_line" inverseName="line_interceptions" inverseEntity="Bus_line" syncable="YES"/>
+        <relationship name="bus_inicial" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bus_line" inverseName="bus_alvo" inverseEntity="Bus_line" syncable="YES"/>
+        <relationship name="stop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bus_points" inverseName="interceptions" inverseEntity="Bus_points" syncable="YES"/>
     </entity>
     <entity name="Polyline_points" representedClassName="Polyline_points" syncable="YES">
         <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -26,9 +29,9 @@
         <relationship name="linha_volta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bus_line" inverseName="polyline_volta" inverseEntity="Bus_line" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bus_line" positionX="-209" positionY="-618" width="128" height="148"/>
-        <element name="Bus_points" positionX="126" positionY="-396" width="297" height="90"/>
-        <element name="Polyline_points" positionX="-675" positionY="-387" width="128" height="120"/>
-        <element name="Interception" positionX="-216" positionY="9" width="128" height="73"/>
+        <element name="Bus_line" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Bus_points" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Interception" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Polyline_points" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

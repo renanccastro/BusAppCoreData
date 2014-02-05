@@ -21,6 +21,7 @@
 	[[CoreDataAndRequestSupervisor startSupervisor] setContext: self.managedObjectContext];
     
     [[CoreDataAndRequestSupervisor startSupervisor] requestBusLines];
+	
 //    [Bus_line removeBusInterseptionsReferences];
 //    [Bus_line createBusInterseptionsReferences];
 

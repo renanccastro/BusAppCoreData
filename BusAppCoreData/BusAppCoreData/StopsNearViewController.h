@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "CoreDataAndRequestSupervisor.h"
-#import "PKRevealController.h"
+#include "PKRevealController.h"
 
 @interface StopsNearViewController : UIViewController <CoreDataRequestDelegate>
 

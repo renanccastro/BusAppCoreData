@@ -8,17 +8,23 @@
 
 #import "TrajectoryPlanner.h"
 #import "CoreDataAndRequestSupervisor.h"
-#import "Interception.h"
+#import "Interception+CoreDataMethods.h"
 
 @implementation TrajectoryPlanner
 
-- (NSArray *)planningFrom: (NSArray*)initialLines to: (NSArray *)finalLines
-
+- (NSArray *)planningFrom: (NSSet*)initial to: (NSSet *)final
 {
-//    for (Bus_line* line in initialLines) {
-//        NSLog(@"initial: %@", line.full_name);
-//    }
-
+    for (Bus_line* line in initial) {
+        NSLog(@"initial: %@", line.full_name);
+    }
+	NSArray* initialLines = [initial allObjects];
+	NSArray* finalLines = [final allObjects];
+    for (Bus_line* line in finalLines) {
+                    NSLog(@"mudou");
+		for (Interception *interception in [Interception getAllInterceptionsForBus:line]){
+            NSLog(@"bus: %@ final: %@", line.line_number,interception.bus_alvo.line_number);
+        }
+    }
     NSMutableArray *route = [[NSMutableArray alloc] init];
     
     self.lines = [[NSMutableArray alloc] init];
@@ -40,10 +46,11 @@
                 node = node.parent;
             }
         } else if (i < 2){
-//            NSLog(@"%d",[((Bus_line *)node.data).line_interceptions count]);
-                for (Interception *interception in ((Bus_line *)node.data).line_interceptions){
-                    [self.lines addObject: [[Node alloc] initWithData: interception.bus andParent: node]];
-//                    NSLog(@"LINHA: %@", interception.bus.full_name);
+			NSLog(@"Bus: %@", node.data.line_number);
+			NSArray* array = [Interception getAllInterceptionsForBus:((Bus_line *)node.data)];
+			for (Interception *interception in array){
+                    [self.lines addObject: [[Node alloc] initWithData: interception.bus_alvo andParent: node]];
+                    NSLog(@"LINHA: %@", interception.bus_alvo.full_name);
 
                 }
         }

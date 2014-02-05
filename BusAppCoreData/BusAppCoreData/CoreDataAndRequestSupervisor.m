@@ -24,7 +24,6 @@
 @property (nonatomic) int newestVersion;
 @property (nonatomic) int requestsFeitas;
 @property (nonatomic, strong) NSMutableArray* operations;
-@property (nonatomic, strong) NSString* lock;
 
 @end
 
@@ -178,14 +177,17 @@ static  CoreDataAndRequestSupervisor *supervisor;
 			CLLocationCoordinate2D tempPoint = [CoreLocationExtension NewLocationFrom:finalPoint atDistanceInMeters:range alongBearingInDegrees:i*90.0];
 			[geoBoxFinal addObject:[[CLLocation alloc] initWithLatitude:tempPoint.latitude longitude:tempPoint.longitude]];
 		}
-		NSMutableArray* initial = [[NSMutableArray alloc] init];
-		NSMutableArray* final =  [[NSMutableArray alloc] init];
+		NSMutableSet* initial = [[NSMutableSet alloc] init];
+		NSMutableSet* final =  [[NSMutableSet alloc] init];
 
 		for (Bus_points* point in [Bus_points getAllBusStopsWithinGeographicalBox:geoBoxInitial]) {
-			[initial addUniqueSet:point.onibus_que_passam];
+			[initial addObjectsFromArray:[point.onibus_que_passam allObjects]];
 		}
 		for (Bus_points* point in [Bus_points getAllBusStopsWithinGeographicalBox:geoBoxFinal]) {
-			[final addUniqueSet:point.onibus_que_passam];
+			[final addObjectsFromArray:[point.onibus_que_passam allObjects]];
+		}
+		for (Bus_line* line in final) {
+			NSLog(@"%@", line.line_number);
 		}
 
 		[self.treeDelegate requestDataDidFinishWithInitialArray:initial andWithFinal:final];

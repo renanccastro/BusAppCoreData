@@ -38,8 +38,9 @@
 -(void)requestDataDidFinishWithInitialArray:(NSArray *)initial andWithFinal:(NSArray *)final{
     
     TrajectoryPlanner *trajectory = [[TrajectoryPlanner alloc] init];
-    self.route = [[NSArray alloc] initWithArray:[trajectory planningFrom: initial to: final]];
-	NSLog(@"%@, Caminho com %d onibus", self.route, [self.route count]);
+	
+    NSArray *route = [[NSArray alloc] initWithArray:[trajectory planningFrom: initial to: final]];
+	NSLog(@"%@, Caminho com %d onibus",route, [route count]);
     
 }
 

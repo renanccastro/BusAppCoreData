@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface NSMutableArray (UniqueArray)
--(void) addUniqueSet:(NSSet*)array;
+-(void) addUniqueArray:(NSArray*)array;
 
 @end

@@ -19,13 +19,15 @@
 @end
 
 @protocol TreeDataRequestDelegate <NSObject>
- -(void) requestDataDidFinishWithInitialArray:(NSArray*)initial andWithFinal:(NSArray*)final;
+ -(void) requestDataDidFinishWithInitialArray:(NSSet*)initial andWithFinal:(NSSet*)final;
 -(void) requestdidFailWithError:(NSError*)error;
 
 @end
 
 @interface CoreDataAndRequestSupervisor : NSObject
 
+
+@property (nonatomic, strong) NSString* lock;
 @property (nonatomic) NSManagedObjectContext* context;
 @property (nonatomic) id<CoreDataRequestDelegate> delegate;
 @property (nonatomic) id<TreeDataRequestDelegate> treeDelegate;

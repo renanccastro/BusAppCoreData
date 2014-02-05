@@ -2,7 +2,7 @@
 //  Bus_line.h
 //  BusAppCoreData
 //
-//  Created by Renan Camargo de Castro on 03/02/14.
+//  Created by Renan Camargo de Castro on 04/02/14.
 //  Copyright (c) 2014 BEPiD. All rights reserved.
 //
 
@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSSet *polyline_ida;
 @property (nonatomic, retain) NSSet *polyline_volta;
 @property (nonatomic, retain) NSSet *stops;
+@property (nonatomic, retain) Interception *bus_alvo;
 @end
 
 @interface Bus_line (CoreDataGeneratedAccessors)

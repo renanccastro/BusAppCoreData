@@ -10,7 +10,8 @@
 
 @implementation NSMutableArray (UniqueArray)
 
--(void) addUniqueSet:(NSSet*)array{
+
+-(void) addUniqueArrayOfBus:(NSArray*)array{
 	for (id object in array) {
 		if (![self containsObject:object]) {
 			[self addObject:object];
