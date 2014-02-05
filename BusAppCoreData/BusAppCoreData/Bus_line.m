@@ -21,5 +21,6 @@
 @dynamic polyline_ida;
 @dynamic polyline_volta;
 @dynamic stops;
+@dynamic bus_alvo;
 
 @end

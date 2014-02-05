@@ -23,16 +23,16 @@
 		B9F926B01896BC7400B5A61E /* CoreDataAndRequestSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926AF1896BC7400B5A61E /* CoreDataAndRequestSupervisor.m */; };
 		B9F926B61896CE1E00B5A61E /* JsonRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926B51896CE1E00B5A61E /* JsonRequest.m */; };
 		B9F926B71897D02300B5A61E /* ServerUpdateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926B21896CC9D00B5A61E /* ServerUpdateRequest.m */; };
-		E80530B018A120CB0017D628 /* Bus_line.m in Sources */ = {isa = PBXBuildFile; fileRef = E80530AF18A120CB0017D628 /* Bus_line.m */; };
-		E80530B318A120CB0017D628 /* Polyline_points.m in Sources */ = {isa = PBXBuildFile; fileRef = E80530B218A120CB0017D628 /* Polyline_points.m */; };
-		E80530B618A120CB0017D628 /* Interception.m in Sources */ = {isa = PBXBuildFile; fileRef = E80530B518A120CB0017D628 /* Interception.m */; };
-		E80530B918A120CB0017D628 /* Bus_points.m in Sources */ = {isa = PBXBuildFile; fileRef = E80530B818A120CB0017D628 /* Bus_points.m */; };
-		E80530BB18A154AF0017D628 /* BusAppCoreData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E80530BA18A154AF0017D628 /* BusAppCoreData.sqlite */; };
+		E81FD62418A25BFB0003DB1F /* BusAppCoreData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E81FD62318A25BFB0003DB1F /* BusAppCoreData.sqlite */; };
 		E82D9733189A73020005173B /* CoreLocationExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E82D9732189A73020005173B /* CoreLocationExtension.m */; };
 		E86A2576189FD475005355AC /* NSMutableArray+UniqueArray.m in Sources */ = {isa = PBXBuildFile; fileRef = E86A2575189FD475005355AC /* NSMutableArray+UniqueArray.m */; };
 		E89809321896D6C500ECE205 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89809311896D6C500ECE205 /* Storyboard.storyboard */; };
 		E89809341896D84D00ECE205 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89809331896D84D00ECE205 /* MapKit.framework */; };
 		E89809371896DC4900ECE205 /* BusAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E89809361896DC4900ECE205 /* BusAppViewController.m */; };
+		E8A6836318A16E39004CC614 /* Bus_line.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A6836218A16E39004CC614 /* Bus_line.m */; };
+		E8A6836618A16E39004CC614 /* Interception.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A6836518A16E39004CC614 /* Interception.m */; };
+		E8A6836918A16E39004CC614 /* Polyline_points.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A6836818A16E39004CC614 /* Polyline_points.m */; };
+		E8A6836C18A16E39004CC614 /* Bus_points.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A6836B18A16E39004CC614 /* Bus_points.m */; };
 		E8BAF74E1896BA330087E999 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF74D1896BA330087E999 /* Foundation.framework */; };
 		E8BAF7501896BA330087E999 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF74F1896BA330087E999 /* CoreGraphics.framework */; };
 		E8BAF7541896BA330087E999 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF7531896BA330087E999 /* CoreData.framework */; };
@@ -95,15 +95,7 @@
 		B9F926B21896CC9D00B5A61E /* ServerUpdateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerUpdateRequest.m; sourceTree = "<group>"; };
 		B9F926B41896CE1E00B5A61E /* JsonRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonRequest.h; sourceTree = "<group>"; };
 		B9F926B51896CE1E00B5A61E /* JsonRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonRequest.m; sourceTree = "<group>"; };
-		E80530AE18A120CB0017D628 /* Bus_line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus_line.h; sourceTree = "<group>"; };
-		E80530AF18A120CB0017D628 /* Bus_line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus_line.m; sourceTree = "<group>"; };
-		E80530B118A120CB0017D628 /* Polyline_points.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polyline_points.h; sourceTree = "<group>"; };
-		E80530B218A120CB0017D628 /* Polyline_points.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Polyline_points.m; sourceTree = "<group>"; };
-		E80530B418A120CB0017D628 /* Interception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interception.h; sourceTree = "<group>"; };
-		E80530B518A120CB0017D628 /* Interception.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interception.m; sourceTree = "<group>"; };
-		E80530B718A120CB0017D628 /* Bus_points.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus_points.h; sourceTree = "<group>"; };
-		E80530B818A120CB0017D628 /* Bus_points.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus_points.m; sourceTree = "<group>"; };
-		E80530BA18A154AF0017D628 /* BusAppCoreData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BusAppCoreData.sqlite; sourceTree = "<group>"; };
+		E81FD62318A25BFB0003DB1F /* BusAppCoreData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BusAppCoreData.sqlite; sourceTree = "<group>"; };
 		E82D9731189A73020005173B /* CoreLocationExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationExtension.h; sourceTree = "<group>"; };
 		E82D9732189A73020005173B /* CoreLocationExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLocationExtension.m; sourceTree = "<group>"; };
 		E86A2573189FD2B8005355AC /* Bus_line+Core_Data_Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bus_line+Core_Data_Methods.h"; sourceTree = "<group>"; };
@@ -113,6 +105,14 @@
 		E89809331896D84D00ECE205 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E89809351896DC4900ECE205 /* BusAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusAppViewController.h; sourceTree = "<group>"; };
 		E89809361896DC4900ECE205 /* BusAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusAppViewController.m; sourceTree = "<group>"; };
+		E8A6836118A16E39004CC614 /* Bus_line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus_line.h; sourceTree = "<group>"; };
+		E8A6836218A16E39004CC614 /* Bus_line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus_line.m; sourceTree = "<group>"; };
+		E8A6836418A16E39004CC614 /* Interception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interception.h; sourceTree = "<group>"; };
+		E8A6836518A16E39004CC614 /* Interception.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interception.m; sourceTree = "<group>"; };
+		E8A6836718A16E39004CC614 /* Polyline_points.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polyline_points.h; sourceTree = "<group>"; };
+		E8A6836818A16E39004CC614 /* Polyline_points.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Polyline_points.m; sourceTree = "<group>"; };
+		E8A6836A18A16E39004CC614 /* Bus_points.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus_points.h; sourceTree = "<group>"; };
+		E8A6836B18A16E39004CC614 /* Bus_points.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus_points.m; sourceTree = "<group>"; };
 		E8BAF74A1896BA330087E999 /* BusAppCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusAppCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BAF74D1896BA330087E999 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E8BAF74F1896BA330087E999 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -196,15 +196,15 @@
 		B9F9269A1896BB5200B5A61E /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				E80530AE18A120CB0017D628 /* Bus_line.h */,
-				E80530B718A120CB0017D628 /* Bus_points.h */,
-				E80530B818A120CB0017D628 /* Bus_points.m */,
-				E80530B418A120CB0017D628 /* Interception.h */,
-				E80530B518A120CB0017D628 /* Interception.m */,
-				E80530B118A120CB0017D628 /* Polyline_points.h */,
-				E80530B218A120CB0017D628 /* Polyline_points.m */,
-				E80530AF18A120CB0017D628 /* Bus_line.m */,
 				E8C22A3E189832D10050CD0B /* BusAppCoreData.xcdatamodeld */,
+				E8A6836118A16E39004CC614 /* Bus_line.h */,
+				E8A6836218A16E39004CC614 /* Bus_line.m */,
+				E8A6836418A16E39004CC614 /* Interception.h */,
+				E8A6836518A16E39004CC614 /* Interception.m */,
+				E8A6836718A16E39004CC614 /* Polyline_points.h */,
+				E8A6836818A16E39004CC614 /* Polyline_points.m */,
+				E8A6836A18A16E39004CC614 /* Bus_points.h */,
+				E8A6836B18A16E39004CC614 /* Bus_points.m */,
 				E86A2573189FD2B8005355AC /* Bus_line+Core_Data_Methods.h */,
 				B92AA4DA1899561A00A6C8F7 /* Bus_line+Core_Data_Methods.m */,
 				E8F78B19189955E300C0EFCB /* Polyline_points+CoreDataMethods.h */,
@@ -276,9 +276,9 @@
 			isa = PBXGroup;
 			children = (
 				E89809311896D6C500ECE205 /* Storyboard.storyboard */,
-				E80530BA18A154AF0017D628 /* BusAppCoreData.sqlite */,
 				E89809351896DC4900ECE205 /* BusAppViewController.h */,
 				E89809361896DC4900ECE205 /* BusAppViewController.m */,
+				E81FD62318A25BFB0003DB1F /* BusAppCoreData.sqlite */,
 				B961CC0118A0F78300D5C3E8 /* MarqueeLabel.h */,
 				B961CC0218A0F78300D5C3E8 /* MarqueeLabel.m */,
 				B961CC0418A0F87400D5C3E8 /* MovingTitleCell.h */,
@@ -286,7 +286,6 @@
 				ABA847671896CB2F008B0172 /* Controller */,
 				B9F926AD1896BC4600B5A61E /* Model */,
 				B9F9269A1896BB5200B5A61E /* Core Data */,
-				E8E49C0B18A00D4D00B4B629 /* ECSViewController */,
 				E8BAF75E1896BA330087E999 /* AppDelegate.h */,
 				E8BAF75F1896BA330087E999 /* AppDelegate.m */,
 				E8BAF7641896BA330087E999 /* Images.xcassets */,
@@ -404,7 +403,7 @@
 				E8BAF75A1896BA330087E999 /* InfoPlist.strings in Resources */,
 				E8BAF7651896BA330087E999 /* Images.xcassets in Resources */,
 				E89809321896D6C500ECE205 /* Storyboard.storyboard in Resources */,
-				E80530BB18A154AF0017D628 /* BusAppCoreData.sqlite in Resources */,
+				E81FD62418A25BFB0003DB1F /* BusAppCoreData.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,29 +458,30 @@
 				E8E49C02189FEFC500B4B629 /* Interception+CoreDataMethods.m in Sources */,
 				B92AA4DB1899561A00A6C8F7 /* Bus_line+Core_Data_Methods.m in Sources */,
 				AB5C2AAC1898193B0068F017 /* BusLineViewController.m in Sources */,
+				E8A6836318A16E39004CC614 /* Bus_line.m in Sources */,
 				AB3AB670189FF00E00BB16BB /* Node.m in Sources */,
 				E86A2576189FD475005355AC /* NSMutableArray+UniqueArray.m in Sources */,
 				B92AA4DE189A867300A6C8F7 /* BusTableViewController.m in Sources */,
 				B9F926B71897D02300B5A61E /* ServerUpdateRequest.m in Sources */,
 				B9F926B61896CE1E00B5A61E /* JsonRequest.m in Sources */,
 				AB3AB66D189FD20D00BB16BB /* TrajectoryPlanner.m in Sources */,
-				E80530B918A120CB0017D628 /* Bus_points.m in Sources */,
+				B961CC0618A0F87400D5C3E8 /* MovingTitleCell.m in Sources */,
 				ABA8476A1896CBA5008B0172 /* TrajectoryPlanningViewController.m in Sources */,
 				E8F78B1B189955E300C0EFCB /* Polyline_points+CoreDataMethods.m in Sources */,
 				E8C22A40189832D10050CD0B /* BusAppCoreData.xcdatamodeld in Sources */,
 				E89809371896DC4900ECE205 /* BusAppViewController.m in Sources */,
-				E80530B318A120CB0017D628 /* Polyline_points.m in Sources */,
 				E8E49C2118A00E1000B4B629 /* SlidingViewController.m in Sources */,
-				E80530B018A120CB0017D628 /* Bus_line.m in Sources */,
+				E8A6836618A16E39004CC614 /* Interception.m in Sources */,
 				ABA8476D1896CE0B008B0172 /* StopsNearViewController.m in Sources */,
 				E8F78B1E1899561900C0EFCB /* Bus_points+CoreDataMethods.m in Sources */,
 				E8BAF7601896BA330087E999 /* AppDelegate.m in Sources */,
 				B961CC0318A0F78300D5C3E8 /* MarqueeLabel.m in Sources */,
+				E8A6836C18A16E39004CC614 /* Bus_points.m in Sources */,
+				E8A6836918A16E39004CC614 /* Polyline_points.m in Sources */,
 				E82D9733189A73020005173B /* CoreLocationExtension.m in Sources */,
 				B961CC0C18A1283400D5C3E8 /* BusPoitsRadiusViewController.m in Sources */,
 				AB5C2AAF18995ED30068F017 /* Annotation.m in Sources */,
 				E8BAF75C1896BA330087E999 /* main.m in Sources */,
-				E80530B618A120CB0017D628 /* Interception.m in Sources */,
 				B9F926B01896BC7400B5A61E /* CoreDataAndRequestSupervisor.m in Sources */,
 				E8E49C0A18A003E900B4B629 /* PinDropViewController.m in Sources */,
 			);

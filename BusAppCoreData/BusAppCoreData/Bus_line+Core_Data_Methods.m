@@ -173,19 +173,25 @@
 
 +(BOOL) createBusInterseptionsReferences{
 	NSArray* buses = [Bus_line getAllBus];
-	
+	NSMutableArray* set = [[NSMutableArray alloc] init];
+	NSMutableArray* stops = [[NSMutableArray alloc] init];
 	for (Bus_line* line in buses) {
 		//NSLog(@"Started bus references building for bus %@",line.full_name);
 		for (Bus_points* stop in line.stops) {
 			for (Bus_line* bus in stop.onibus_que_passam) {
-				if (bus != line) {
-//					@synchronized([[CoreDataAndRequestSupervisor startSupervisor] lock]){
-						Interception* teste = [Interception createInterceptionForBus:line withInterceptionBus:bus withPoint:stop];
-						NSLog(@"Creating Interception for bus: %@ with bus: %@",teste.bus.line_number, line.line_number);
-//					}
+				if (![bus.web_number isEqualToNumber:line.web_number]){
+					if (![set containsObject:bus] && ![bus.web_number isEqualToNumber:line.web_number ]) {
+						[stops addObject:stop];
+						[set addObject:bus];
+						NSLog(@"Creating Interception for bus: %@ with bus: %@",bus.line_number, line.line_number);
+					}
 				}
 			}
 		}
+		[Interception createInterceptionForBus:line withSetOfInterceptions:set withPoint:stops];
+		[set removeAllObjects];
+		[stops removeAllObjects];
+
 		//NSLog(@"Finished building references for %@",line.full_name);
 	}
 	

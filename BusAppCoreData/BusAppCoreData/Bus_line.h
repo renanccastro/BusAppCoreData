@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSSet *polyline_ida;
 @property (nonatomic, retain) NSSet *polyline_volta;
 @property (nonatomic, retain) NSSet *stops;
+@property (nonatomic, retain) Interception *bus_alvo;
 @end
 
 @interface Bus_line (CoreDataGeneratedAccessors)

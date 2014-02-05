@@ -13,7 +13,8 @@
 
 @interface Interception : NSManagedObject
 
-@property (nonatomic, retain) Bus_line *bus;
+@property (nonatomic, retain) Bus_line *bus_alvo;
 @property (nonatomic, retain) Bus_points *stop;
+@property (nonatomic, retain) Bus_line *bus_inicial;
 
 @end

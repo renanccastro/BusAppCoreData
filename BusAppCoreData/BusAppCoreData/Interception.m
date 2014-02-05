@@ -13,7 +13,8 @@
 
 @implementation Interception
 
-@dynamic bus;
+@dynamic bus_alvo;
 @dynamic stop;
+@dynamic bus_inicial;
 
 @end

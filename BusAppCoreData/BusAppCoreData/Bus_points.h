@@ -15,20 +15,20 @@
 
 @property (nonatomic, retain) NSNumber * lat;
 @property (nonatomic, retain) NSNumber * lng;
-@property (nonatomic, retain) NSSet *onibus_que_passam;
 @property (nonatomic, retain) NSSet *interceptions;
+@property (nonatomic, retain) NSSet *onibus_que_passam;
 @end
 
 @interface Bus_points (CoreDataGeneratedAccessors)
-
-- (void)addOnibus_que_passamObject:(Bus_line *)value;
-- (void)removeOnibus_que_passamObject:(Bus_line *)value;
-- (void)addOnibus_que_passam:(NSSet *)values;
-- (void)removeOnibus_que_passam:(NSSet *)values;
 
 - (void)addInterceptionsObject:(Interception *)value;
 - (void)removeInterceptionsObject:(Interception *)value;
 - (void)addInterceptions:(NSSet *)values;
 - (void)removeInterceptions:(NSSet *)values;
+
+- (void)addOnibus_que_passamObject:(Bus_line *)value;
+- (void)removeOnibus_que_passamObject:(Bus_line *)value;
+- (void)addOnibus_que_passam:(NSSet *)values;
+- (void)removeOnibus_que_passam:(NSSet *)values;
 
 @end

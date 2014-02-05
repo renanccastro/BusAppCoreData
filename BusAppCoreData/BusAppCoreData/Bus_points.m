@@ -15,7 +15,7 @@
 
 @dynamic lat;
 @dynamic lng;
-@dynamic onibus_que_passam;
 @dynamic interceptions;
+@dynamic onibus_que_passam;
 
 @end
