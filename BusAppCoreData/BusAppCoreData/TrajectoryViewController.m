@@ -11,12 +11,16 @@
 #import "Polyline_points.h"
 #import "TrajectoryPlanner.h"
 #import "CoreDataAndRequestSupervisor.h"
+#import "Annotation.h"
+#import "Bus_points+CoreDataMethods.h"
 
 @interface TrajectoryViewController () <MKMapViewDelegate, TreeDataRequestDelegate>
 {
     UIColor *color;
     
 }
+@property (nonatomic) NSOperationQueue* queue;
+@property (nonatomic) NSArray* annotations;
 
 @end
 
@@ -39,6 +43,9 @@
 	// Do any additional setup after loading the view.
     self.mapView.delegate = self;
 	self.mapView.showsUserLocation = YES;
+	self.queue = [[NSOperationQueue alloc] init];
+	
+	
     
 }
 
@@ -77,15 +84,72 @@
     return polylineView;
 }
 
--(void)requestDataDidFinishWithInitialArray:(NSArray *)initial andWithFinal:(NSArray *)final{
-    
-    TrajectoryPlanner *trajectory = [[TrajectoryPlanner alloc] init];
-    self.bus = [[NSArray alloc] initWithArray:[trajectory planningFrom: initial to: final]];
+- (void)creatAnnotationsFromBusPointsArray:(NSArray*)stopsNear{
 	
-    for (Bus_line *line in self.bus){
-        [self addRoute: [line.polyline_ida allObjects] withType: @"ida"];
-        [self addRoute: [line.polyline_volta allObjects] withType: @"volta"];
+    NSMutableArray* annotationArray = [[NSMutableArray alloc] init];
+	int i = 0;
+    //Each annotation has: title, subtitle, coordinate and index
+	for (Bus_points* stop in stopsNear){
+        Annotation* annotation = [[Annotation alloc] init];
+		NSString* subTitle = [[NSString alloc] init];
+		for (Bus_line* bus in stop.onibus_que_passam) {
+			subTitle = [subTitle stringByAppendingString:[NSString stringWithFormat:@"%@, ", bus.line_number]];
+		}
+		subTitle = [subTitle substringToIndex:[subTitle length]-2];
+        if ([stop.onibus_que_passam count] == 1){
+            [annotation setTitle: @"1 linha passa aqui:"];
+        } else {
+            [annotation setTitle: [NSString stringWithFormat: @"%d linhas passam aqui:", [stop.onibus_que_passam count]]];
+        }
+		[annotation setSubtitle: subTitle];
+        [annotation setCoordinate: CLLocationCoordinate2DMake([stop.lat doubleValue], [stop.lng doubleValue])];
+        [annotationArray addObject: annotation];
+		annotation.index = i;
+		i++;
     }
+	MKPointAnnotation* annotation = [[MKPointAnnotation alloc] init];
+	[annotation setCoordinate:self.final];
+	[annotation setTitle:@"Destino!"];
+	[annotationArray addObject:annotation];
+
+	[self setAnnotations:annotationArray];
+}
+//Remove old annotations and set new ones
+- (void)updateMapView
+{
+    if (self.mapView.annotations){
+        [self.mapView removeAnnotations:self.mapView.annotations];
+    }
+    if (self.annotations){
+        [self.mapView addAnnotations: self.annotations];
+    }
+}
+
+- (void)setAnnotations:(NSArray *)annotations
+{
+    _annotations = annotations;
+    [self updateMapView];
+}
+
+
+-(void)requestDataDidFinishWithInitialArray:(NSArray *)initial andWithFinal:(NSArray *)final{
+    [self.queue addOperationWithBlock:^{
+		TrajectoryPlanner *trajectory = [[TrajectoryPlanner alloc] init];
+		self.bus = [[NSArray alloc] initWithArray:[trajectory planningFrom: initial to: final]];
+		NSMutableArray* busPoints = [[NSMutableArray alloc] init];
+		for (Bus_line* line in self.bus) {
+			[busPoints addObjectsFromArray:[Bus_points getBusLineStops:line]];
+		}
+		
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self creatAnnotationsFromBusPointsArray:busPoints];
+			for (Bus_line *line in self.bus){
+				[self addRoute: [line.polyline_ida allObjects] withType: @"ida"];
+				[self addRoute: [line.polyline_volta allObjects] withType: @"volta"];
+			}
+		});
+
+	}];
 
 }
 -(void)requestdidFailWithError:(NSError *)error{
@@ -95,37 +159,8 @@
 - (void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
-    [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
+
     
-//    CLLocationCoordinate2D max, min;
-//    max = min = CLLocationCoordinate2DMake(((Polyline_points *)self.rotaDeIda[0]).lat.doubleValue, ((Polyline_points *)self.rotaDeIda[0]).lng.doubleValue);
-//    
-//    for (Polyline_points *polyline in self.rotaDeIda) {
-//        if (polyline.lat.doubleValue > max.latitude){
-//            max = CLLocationCoordinate2DMake(polyline.lat.doubleValue, max.longitude);
-//        } else if (polyline.lat.doubleValue < min.latitude){
-//            min = CLLocationCoordinate2DMake(polyline.lat.doubleValue, min.longitude);
-//        }
-//        if (polyline.lng.doubleValue > max.longitude){
-//            max = CLLocationCoordinate2DMake(max.latitude, polyline.lng.doubleValue);
-//        } else if (polyline.lat.doubleValue < min.latitude){
-//            min = CLLocationCoordinate2DMake(min.latitude, polyline.lng.doubleValue);
-//        }
-//    }
-//    
-//    CLLocationCoordinate2D centerCoord = CLLocationCoordinate2DMake((max.latitude + min.latitude)/2, (max.longitude + min.longitude)/2);
-//    
-//    MKCoordinateSpan span = MKCoordinateSpanMake(max.latitude - min.latitude + 0.00001, max.longitude - min.longitude + 0.00001);
-//    
-//    MKCoordinateRegion viewRegion = MKCoordinateRegionMake(centerCoord, span);
-//    
-//    [self.mapView setRegion: viewRegion animated:YES];
-    
-    MKCoordinateSpan span = MKCoordinateSpanMake(0.05, 0.05);
-    
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMake(self.mapView.userLocation.coordinate, span);
-    
-    [self.mapView setRegion: viewRegion animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -134,7 +169,34 @@
     // Dispose of any resources that can be recreated.
 }
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+	[self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
+	MKCoordinateSpan span = MKCoordinateSpanMake(0.05, 0.05);
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMake(self.mapView.userLocation.coordinate, span);
+    
+    [self.mapView setRegion: viewRegion animated:YES];
 	[[CoreDataAndRequestSupervisor startSupervisor] setTreeDelegate:self];
 	[[CoreDataAndRequestSupervisor startSupervisor] getRequiredTreeLinesWithInitialPoint:userLocation.coordinate andFinalPoint:self.final withRange:600];
 }
+
+//Configure annotationView
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    static NSString *identifier = @"myAnnotation";
+    if ([annotation isKindOfClass:[Annotation class]]) {
+        
+        MKAnnotationView *annotationView = (MKAnnotationView *) [_mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        if (annotationView == nil) {
+            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+            annotationView.enabled = YES;
+            annotationView.canShowCallout = YES;
+            annotationView.image = [UIImage imageNamed:@"ThePin.png"];
+        } else {
+            annotationView.annotation = annotation;
+        }
+        return annotationView;
+    }
+    
+    return nil;
+}
+
 @end
