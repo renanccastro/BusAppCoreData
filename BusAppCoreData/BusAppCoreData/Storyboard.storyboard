@@ -307,7 +307,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Localidade" id="7zt-ff-IVN">
                         <barButtonItem key="backBarButtonItem" title="Localidade" id="TPB-Rb-f3Y"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Wr4-bJ-rno">
+                        <barButtonItem key="rightBarButtonItem" title="Rota" id="Wr4-bJ-rno">
                             <connections>
                                 <segue destination="ZV3-ap-nIc" kind="push" identifier="push" id="dXO-37-sia"/>
                             </connections>
@@ -732,6 +732,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="zfs-Hl-V8l"/>
-        <segue reference="X3h-Yy-jzu"/>
+        <segue reference="dXO-37-sia"/>
     </inferredMetricsTieBreakers>
 </document>
