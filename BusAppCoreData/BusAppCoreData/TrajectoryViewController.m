@@ -15,13 +15,11 @@
 #import "Bus_points+CoreDataMethods.h"
 
 @interface TrajectoryViewController () <MKMapViewDelegate, TreeDataRequestDelegate>
-{
-    UIColor *color;
-    
-}
+
 @property (nonatomic) NSOperationQueue* queue;
 @property (nonatomic) NSArray* annotations;
 @property (nonatomic) NSMutableArray* overlays;
+@property (nonatomic) NSMutableArray* colors;
 
 @end
 
@@ -46,22 +44,18 @@
 	self.mapView.showsUserLocation = YES;
 	self.queue = [[NSOperationQueue alloc] init];
 	self.overlays = [[NSMutableArray alloc] init];
+	self.colors = [[NSMutableArray alloc] init];
 }
 -(void)viewWillDisappear:(BOOL)animated{
 	self.mapView.showsUserLocation = YES;
 	[self.mapView removeOverlays:self.overlays];
 	[self.overlays removeAllObjects];
+	[self.colors removeAllObjects];
 }
 
 
 - (void)addRoute: (NSArray *)route withType: (NSString *)type
 {
-    
-    if ([type isEqualToString: @"ida"]){
-        color = [[UIColor alloc] initWithRed: 1 green: 0 blue: 0 alpha:0.5];
-    } else {
-        color = [[UIColor alloc] initWithRed: 0 green: 0 blue: 1 alpha:0.5];
-    }
     CLLocationCoordinate2D *coordinates = [route count] ? malloc(sizeof(CLLocationCoordinate2D)* [route count]) : NULL;
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order"
 																 ascending:YES];
@@ -85,8 +79,9 @@
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
 {
     MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline: overlay];
-    polylineView.strokeColor = [[UIColor alloc] initWithRed:(arc4random() % 255) / 255.0 green:(arc4random() % 255) / 255.0 blue:(arc4random() % 255) / 255.0 alpha:1];
-	//    polylineView.strokeColor = color;
+	UIColor * color = [[UIColor alloc] initWithRed:(arc4random() % 255) / 255.0 green:(arc4random() % 255) / 255.0 blue:(arc4random() % 255) / 255.0 alpha:1];
+	[self.colors addObject:color];
+    polylineView.strokeColor = color;
     polylineView.lineWidth = 5.0;
     return polylineView;
 }
@@ -149,13 +144,11 @@
 				[busPoints addObjectsFromArray:[Bus_points getBusLineStops:line]];
 			}
 			
-//			dispatch_async(dispatch_get_main_queue(), ^{
 				[self creatAnnotationsFromBusPointsArray:busPoints];
 				for (Bus_line *line in self.bus){
 					[self addRoute:  [line.polyline_ida allObjects] withType: @"ida"];
 					[self addRoute: [line.polyline_volta allObjects] withType: @"volta"];
 				}
-//			});
 		}
 		
 
