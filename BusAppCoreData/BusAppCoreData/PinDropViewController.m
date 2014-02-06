@@ -67,7 +67,17 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+	
     
+}
+-(void)viewWillAppear:(BOOL)animated{
+	self.mapView.showsUserLocation = YES;
+	[super viewWillAppear:animated];
+
+}
+-(void)viewWillDisappear:(BOOL)animated{
+	self.mapView.showsUserLocation = NO;
+	[super viewWillDisappear:animated];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
