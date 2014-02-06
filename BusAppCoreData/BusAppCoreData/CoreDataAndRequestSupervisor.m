@@ -86,7 +86,7 @@ static  CoreDataAndRequestSupervisor *supervisor;
     
     NSDate *currentDate = [NSDate date];
     
-    if(([currentDate timeIntervalSinceDate:[prefs objectForKey:@"last update"]] > 60*60*24*7) || ([prefs integerForKey:@"version"] == 0))
+    if(([currentDate timeIntervalSinceDate:[prefs objectForKey:@"last update"]] > 60*60*24*3) || ([prefs integerForKey:@"version"] == 0))
     {
         [serverUpdate requestServerUpdateWithVersion:[prefs integerForKey:@"version"]
                                         withDelegate:self];
