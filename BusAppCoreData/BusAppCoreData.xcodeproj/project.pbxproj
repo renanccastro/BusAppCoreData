@@ -17,6 +17,7 @@
 		B92AA4DB1899561A00A6C8F7 /* Bus_line+Core_Data_Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = B92AA4DA1899561A00A6C8F7 /* Bus_line+Core_Data_Methods.m */; };
 		B92AA4DE189A867300A6C8F7 /* BusTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92AA4DD189A867300A6C8F7 /* BusTableViewController.m */; };
 		B934777818A29F23001F9E0A /* ConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B934777718A29F23001F9E0A /* ConfigViewController.m */; };
+		B934777B18A3F66D001F9E0A /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B934777A18A3F66D001F9E0A /* InformationViewController.m */; };
 		B961CC0318A0F78300D5C3E8 /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B961CC0218A0F78300D5C3E8 /* MarqueeLabel.m */; };
 		B961CC0618A0F87400D5C3E8 /* MovingTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B961CC0518A0F87400D5C3E8 /* MovingTitleCell.m */; };
 		B961CC0818A0FB6A00D5C3E8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B961CC0718A0FB6A00D5C3E8 /* QuartzCore.framework */; };
@@ -88,6 +89,8 @@
 		B92AA4DD189A867300A6C8F7 /* BusTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusTableViewController.m; sourceTree = "<group>"; };
 		B934777618A29F23001F9E0A /* ConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigViewController.h; sourceTree = "<group>"; };
 		B934777718A29F23001F9E0A /* ConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigViewController.m; sourceTree = "<group>"; };
+		B934777918A3F66D001F9E0A /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
+		B934777A18A3F66D001F9E0A /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
 		B961CC0118A0F78300D5C3E8 /* MarqueeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarqueeLabel.h; sourceTree = "<group>"; };
 		B961CC0218A0F78300D5C3E8 /* MarqueeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarqueeLabel.m; sourceTree = "<group>"; };
 		B961CC0418A0F87400D5C3E8 /* MovingTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovingTitleCell.h; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 				E814ABFA18A275F100035FDC /* TrajectoryAddressPlanner.m */,
 				B934777618A29F23001F9E0A /* ConfigViewController.h */,
 				B934777718A29F23001F9E0A /* ConfigViewController.m */,
+				B934777918A3F66D001F9E0A /* InformationViewController.h */,
+				B934777A18A3F66D001F9E0A /* InformationViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -492,6 +497,7 @@
 				E8A6836918A16E39004CC614 /* Polyline_points.m in Sources */,
 				E82D9733189A73020005173B /* CoreLocationExtension.m in Sources */,
 				B961CC0C18A1283400D5C3E8 /* BusPoitsRadiusViewController.m in Sources */,
+				B934777B18A3F66D001F9E0A /* InformationViewController.m in Sources */,
 				AB5C2AAF18995ED30068F017 /* Annotation.m in Sources */,
 				E8BAF75C1896BA330087E999 /* main.m in Sources */,
 				B9F926B01896BC7400B5A61E /* CoreDataAndRequestSupervisor.m in Sources */,

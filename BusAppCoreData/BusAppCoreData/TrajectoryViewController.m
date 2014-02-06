@@ -49,6 +49,10 @@
     
 }
 
+- (IBAction)infoTableView:(id)sender
+{
+    
+}
 
 - (void)addRoute: (NSArray *)route withType: (NSString *)type
 {
