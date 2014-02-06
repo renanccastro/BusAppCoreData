@@ -463,7 +463,6 @@
                                 <rect key="frame" x="55" y="24" width="222" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="23"/>
-                                <color key="textColor" red="1" green="0.75243891230000004" blue="0.36652966209999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -476,6 +475,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Menu" id="JQS-Ol-Zao"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLP-hg-LwM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
