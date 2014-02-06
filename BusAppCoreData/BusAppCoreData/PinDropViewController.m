@@ -37,6 +37,7 @@
 										  initWithTarget:self action:@selector(handleLongPress:)];
 	lpgr.minimumPressDuration = 2.0; //user needs to press for 2 seconds
 	[self.mapView addGestureRecognizer:lpgr];
+	[self.mapView setDelegate:self];
 
 	// Do any additional setup after loading the view.
 }
@@ -66,13 +67,17 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
-    MKCoordinateSpan span = MKCoordinateSpanMake(0.008, 0.008);
+	
     
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMake(self.mapView.userLocation.coordinate, span);
-    
-    [self.mapView setRegion: viewRegion animated:YES];
-    
+}
+-(void)viewWillAppear:(BOOL)animated{
+	self.mapView.showsUserLocation = YES;
+	[super viewWillAppear:animated];
+
+}
+-(void)viewWillDisappear:(BOOL)animated{
+	self.mapView.showsUserLocation = NO;
+	[super viewWillDisappear:animated];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -82,7 +87,14 @@
 		vc.final = self.pinLocation;
 	}
 }
-
+-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+	[self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.008, 0.008);
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMake(self.mapView.userLocation.coordinate, span);
+    
+    [self.mapView setRegion: viewRegion animated:YES];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

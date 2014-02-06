@@ -71,7 +71,7 @@
             route = self.rotaDeIda;
         }
     }
-    CLLocationCoordinate2D *coordinates = malloc(sizeof(CLLocationCoordinate2D)* [route count]);
+    CLLocationCoordinate2D *coordinates = [route count] ? malloc(sizeof(CLLocationCoordinate2D)* [route count]) : NULL;
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order"
 																 ascending:YES];
 	
@@ -84,6 +84,7 @@
 	}
 
     MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:[route count]];
+	free(coordinates);
     [_mapView addOverlay:polyLine];
 }
 

@@ -8,19 +8,18 @@
 
 #import "TrajectoryViewController.h"
 #import <MapKit/MapKit.h>
-#import "Polyline_points.h"
+#import "Polyline_points+CoreDataMethods.h"
 #import "TrajectoryPlanner.h"
 #import "CoreDataAndRequestSupervisor.h"
 #import "Annotation.h"
 #import "Bus_points+CoreDataMethods.h"
 
 @interface TrajectoryViewController () <MKMapViewDelegate, TreeDataRequestDelegate>
-{
-    UIColor *color;
-    
-}
+
 @property (nonatomic) NSOperationQueue* queue;
 @property (nonatomic) NSArray* annotations;
+@property (nonatomic) NSMutableArray* overlays;
+@property (nonatomic) NSMutableArray* colors;
 
 @end
 
@@ -44,9 +43,14 @@
     self.mapView.delegate = self;
 	self.mapView.showsUserLocation = YES;
 	self.queue = [[NSOperationQueue alloc] init];
-	
-	
-    
+	self.overlays = [[NSMutableArray alloc] init];
+	self.colors = [[NSMutableArray alloc] init];
+}
+-(void)viewWillDisappear:(BOOL)animated{
+	self.mapView.showsUserLocation = YES;
+	[self.mapView removeOverlays:self.overlays];
+	[self.overlays removeAllObjects];
+	[self.colors removeAllObjects];
 }
 
 - (IBAction)infoTableView:(id)sender
@@ -56,13 +60,7 @@
 
 - (void)addRoute: (NSArray *)route withType: (NSString *)type
 {
-    
-    if ([type isEqualToString: @"ida"]){
-        color = [[UIColor alloc] initWithRed: 1 green: 0 blue: 0 alpha:0.5];
-    } else {
-        color = [[UIColor alloc] initWithRed: 0 green: 0 blue: 1 alpha:0.5];
-    }
-    CLLocationCoordinate2D *coordinates = malloc(sizeof(CLLocationCoordinate2D)* [route count]);
+    CLLocationCoordinate2D *coordinates = [route count] ? malloc(sizeof(CLLocationCoordinate2D)* [route count]) : NULL;
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order"
 																 ascending:YES];
 	
@@ -72,17 +70,21 @@
 		point = [route objectAtIndex:index];
 		coordinates[index] = CLLocationCoordinate2DMake(point.lat.doubleValue, point.lng.doubleValue);
 	}
-    
-    MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:[route count]];
-	
-//	dispatch_async(dispatch_get_main_queue(), ^{
-		[self.mapView addOverlay:polyLine];
-//	});
+
+		if (coordinates) {
+			MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:[route count]];
+			[self.overlays addObject:polyLine];
+			free(coordinates);
+			[self.mapView addOverlay:polyLine];
+		}
+
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
 {
     MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline: overlay];
+	UIColor * color = [[UIColor alloc] initWithRed:(arc4random() % 255) / 255.0 green:(arc4random() % 255) / 255.0 blue:(arc4random() % 255) / 255.0 alpha:1];
+	[self.colors addObject:color];
     polylineView.strokeColor = color;
     polylineView.lineWidth = 5.0;
     return polylineView;
@@ -103,7 +105,7 @@
         if ([stop.onibus_que_passam count] == 1){
             [annotation setTitle: @"1 linha passa aqui:"];
         } else {
-            [annotation setTitle: [NSString stringWithFormat: @"%d linhas passam aqui:", [stop.onibus_que_passam count]]];
+            [annotation setTitle: [NSString stringWithFormat: @"%lu linhas passam aqui:", (unsigned long)[stop.onibus_que_passam count]]];
         }
 		[annotation setSubtitle: subTitle];
         [annotation setCoordinate: CLLocationCoordinate2DMake([stop.lat doubleValue], [stop.lng doubleValue])];
@@ -137,23 +139,23 @@
 
 
 -(void)requestDataDidFinishWithInitialArray:(NSArray *)initial andWithFinal:(NSArray *)final{
-    [self.queue addOperationWithBlock:^{
+
 		TrajectoryPlanner *trajectory = [[TrajectoryPlanner alloc] init];
 		self.bus = [[NSArray alloc] initWithArray:[trajectory planningFrom: initial to: final]];
-		NSMutableArray* busPoints = [[NSMutableArray alloc] init];
-		for (Bus_line* line in self.bus) {
-			[busPoints addObjectsFromArray:[Bus_points getBusLineStops:line]];
+		if ([self.bus count]) {
+			NSMutableArray* busPoints = [[NSMutableArray alloc] init];
+			for (Bus_line* line in self.bus) {
+				[busPoints addObjectsFromArray:[Bus_points getBusLineStops:line]];
+			}
+			
+				[self creatAnnotationsFromBusPointsArray:busPoints];
+				for (Bus_line *line in self.bus){
+					[self addRoute:  [line.polyline_ida allObjects] withType: @"ida"];
+					[self addRoute: [line.polyline_volta allObjects] withType: @"volta"];
+				}
 		}
 		
-		dispatch_async(dispatch_get_main_queue(), ^{
-			[self creatAnnotationsFromBusPointsArray:busPoints];
-			for (Bus_line *line in self.bus){
-				[self addRoute: [line.polyline_ida allObjects] withType: @"ida"];
-				[self addRoute: [line.polyline_volta allObjects] withType: @"volta"];
-			}
-		});
 
-	}];
 
 }
 -(void)requestdidFailWithError:(NSError *)error{
@@ -181,6 +183,7 @@
     [self.mapView setRegion: viewRegion animated:YES];
 	[[CoreDataAndRequestSupervisor startSupervisor] setTreeDelegate:self];
 	NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
+	
 	[[CoreDataAndRequestSupervisor startSupervisor] getRequiredTreeLinesWithInitialPoint:userLocation.coordinate andFinalPoint:self.final withRange:[prefs integerForKey:@"SearchRadius"]];
 }
 

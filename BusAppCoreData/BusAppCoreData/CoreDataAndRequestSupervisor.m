@@ -24,6 +24,7 @@
 @property (nonatomic) int requestsFeitas;
 @property (nonatomic, strong) NSMutableArray* operations;
 
+
 @end
 
 @implementation CoreDataAndRequestSupervisor
@@ -31,6 +32,13 @@
 static  CoreDataAndRequestSupervisor *supervisor;
 
 #pragma mark -  singleton methods
+
+//-(NSManagedObjectContext*) context{
+//	NSManagedObjectContext * context = [[NSManagedObjectContext alloc] init];
+//	
+//	[context setPersistentStoreCoordinator:self.coordinator];
+//	return context;
+//}
 
 +(id) allocWithZone:(struct _NSZone *)zone
 {

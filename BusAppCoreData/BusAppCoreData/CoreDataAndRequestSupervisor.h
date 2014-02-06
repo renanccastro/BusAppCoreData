@@ -31,6 +31,7 @@
 @property (nonatomic) NSManagedObjectContext* context;
 @property (nonatomic) id<CoreDataRequestDelegate> delegate;
 @property (nonatomic) id<TreeDataRequestDelegate> treeDelegate;
+@property (nonatomic) NSPersistentStoreCoordinator* coordinator;
 
 -(void) requestBusLines;
 +(CoreDataAndRequestSupervisor*) startSupervisor;

@@ -10,6 +10,6 @@
 
 @interface Interception (CoreDataMethods)
 +(Interception*) createInterceptionForBus:(Bus_line*)line withInterceptionBus:(Bus_line*)bus withPoint:(Bus_points*)stop;
-+(NSArray*) getAllInterceptionsForBus:(Bus_line*)bus;
++(NSArray*) getAllInterceptionsForBus:(Bus_line*)bus withContext:(NSManagedObjectContext*)context;
 +(void) createInterceptionForBus:(Bus_line*)line withSetOfInterceptions:(NSArray*)buses withPoint:(NSArray*)stop;
 @end

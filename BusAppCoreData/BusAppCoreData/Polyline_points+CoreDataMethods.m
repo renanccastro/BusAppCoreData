@@ -51,7 +51,7 @@
     
     turn = [turn stringByAppendingString:@".web_number"];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY linha_ida.web_number == %d", [bus.web_number integerValue]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ == %d", turn, [bus.web_number integerValue]];
     [request setPredicate:predicate];
 	NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order"
 																 ascending:YES];

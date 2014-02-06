@@ -47,20 +47,16 @@
     self.navigationController.revealController.delegate = self;
     
 }
--(void)viewDidDisappear:(BOOL)animated{
-	self.mapView.showsUserLocation = NO;
+-(void)viewWillAppear:(BOOL)animated{
+	self.mapView.showsUserLocation = YES;
+	[super viewWillAppear:animated];
+	
 }
 -(void)viewWillDisappear:(BOOL)animated{
-//	self.mapView.showsUserLocation = NO;
+	self.mapView.showsUserLocation = NO;
+	[super viewWillDisappear:animated];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    
-	self.mapView.showsUserLocation = YES;
-
-    
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -168,6 +164,11 @@
             annotationView.annotation = annotation;
         }
         return annotationView;
+    }
+	if ([annotation isKindOfClass:[MKUserLocation class]])
+    {
+        ((MKUserLocation *)annotation).title = @"My Current Location";
+        return nil;  //return nil to use default blue dot view
     }
     
     return nil;
