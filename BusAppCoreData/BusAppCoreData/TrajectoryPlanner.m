@@ -15,6 +15,9 @@
 - (NSArray *)planningFrom: (NSSet*)initial to: (NSSet *)final
 {
 	NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
+	NSManagedObjectContext * context = [CoreDataAndRequestSupervisor startSupervisor].context;
+	
+	
 	int busMax = [prefs integerForKey:@"Bus"];
     for (Bus_line* line in initial) {
         NSLog(@"initial: %@", line.full_name);
@@ -23,7 +26,7 @@
 	NSArray* finalLines = [final allObjects];
     for (Bus_line* line in finalLines) {
                     NSLog(@"mudou");
-		for (Interception *interception in [Interception getAllInterceptionsForBus:line]){
+		for (Interception *interception in [Interception getAllInterceptionsForBus:line withContext:context]){
             NSLog(@"bus: %@ final: %@", line.line_number,interception.bus_alvo.line_number);
         }
     }
@@ -49,7 +52,7 @@
             }
         } else if (i < busMax-1){
 			NSLog(@"Bus: %@", node.data.line_number);
-			NSArray* array = [Interception getAllInterceptionsForBus:((Bus_line *)node.data)];
+			NSArray* array = [Interception getAllInterceptionsForBus:((Bus_line *)node.data) withContext:context];
 			for (Interception *interception in array){
                     [self.lines addObject: [[Node alloc] initWithData: interception.bus_alvo andParent: node]];
                     NSLog(@"LINHA: %@", interception.bus_alvo.full_name);

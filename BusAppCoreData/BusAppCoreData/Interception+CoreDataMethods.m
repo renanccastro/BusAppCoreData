@@ -58,8 +58,7 @@
 }
 
 
-+(NSArray*) getAllInterceptionsForBus:(Bus_line*)bus{
-	NSManagedObjectContext* context = [CoreDataAndRequestSupervisor startSupervisor].context;
++(NSArray*) getAllInterceptionsForBus:(Bus_line*)bus withContext:(NSManagedObjectContext*)context{
 	
     
 	//Check if it already exists:

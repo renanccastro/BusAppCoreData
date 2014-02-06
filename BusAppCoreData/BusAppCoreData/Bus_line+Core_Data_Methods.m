@@ -146,7 +146,7 @@
 													  range:NSMakeRange(0, [name length])];
 	NSRange range = NSMakeRange([match range].location, 3);
 	
-	return [[NSNumber alloc] initWithInt:[[name substringWithRange:range] integerValue]];
+	return [[NSNumber alloc] initWithInt:[[name substringWithRange:range] intValue]];
     
 }
 

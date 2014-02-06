@@ -18,7 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	[[CoreDataAndRequestSupervisor startSupervisor] setContext: self.managedObjectContext];
+	[[CoreDataAndRequestSupervisor startSupervisor] setCoordinator: self.persistentStoreCoordinator];
+	[[CoreDataAndRequestSupervisor startSupervisor] setContext:self.managedObjectContext];
+
     
     [[CoreDataAndRequestSupervisor startSupervisor] requestBusLines];
 	
