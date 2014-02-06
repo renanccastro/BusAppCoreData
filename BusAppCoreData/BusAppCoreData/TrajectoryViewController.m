@@ -53,7 +53,7 @@
 -(void)viewDidDisappear:(BOOL)animated{
     [self.overlays removeAllObjects];
     [self.mapView removeOverlays:self.overlays];
-
+	
 }
 
 - (IBAction)infoTableView:(id)sender
@@ -84,14 +84,14 @@
 		point = [route objectAtIndex:index];
 		coordinates[index] = CLLocationCoordinate2DMake(point.lat.doubleValue, point.lng.doubleValue);
 	}
-
-		if (coordinates) {
-			MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:[route count]];
-			[self.overlays addObject:polyLine];
-			free(coordinates);
-			[self.mapView addOverlay:polyLine];
-		}
-
+	
+	if (coordinates) {
+		MKPolyline *polyLine = [MKPolyline polylineWithCoordinates:coordinates count:[route count]];
+		[self.overlays addObject:polyLine];
+		free(coordinates);
+		[self.mapView addOverlay:polyLine];
+	}
+	
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
@@ -131,7 +131,7 @@
 	[annotation setCoordinate:self.final];
 	[annotation setTitle:@"Destino!"];
 	[annotationArray addObject:annotation];
-
+	
 	[self setAnnotations:annotationArray];
 }
 //Remove old annotations and set new ones
@@ -153,24 +153,25 @@
 
 
 -(void)requestDataDidFinishWithInitialArray:(NSArray *)initial andWithFinal:(NSArray *)final{
-
-		TrajectoryPlanner *trajectory = [[TrajectoryPlanner alloc] init];
-		self.bus = [[NSArray alloc] initWithArray:[trajectory planningFrom: initial to: final]];
-		if ([self.bus count]) {
-			NSMutableArray* busPoints = [[NSMutableArray alloc] init];
-			for (Bus_line* line in self.bus) {
-				[busPoints addObjectsFromArray:[Bus_points getBusLineStops:line]];
-			}
-			
-				[self creatAnnotationsFromBusPointsArray:busPoints];
-				for (Bus_line *line in self.bus){
-					[self addRoute:  [line.polyline_ida allObjects] withType: @"ida"];
-					[self addRoute: [line.polyline_volta allObjects] withType: @"volta"];
-				}
+	
+	[self.colors removeAllObjects];
+	TrajectoryPlanner *trajectory = [[TrajectoryPlanner alloc] init];
+	self.bus = [[NSArray alloc] initWithArray:[trajectory planningFrom: initial to: final]];
+	if ([self.bus count]) {
+		NSMutableArray* busPoints = [[NSMutableArray alloc] init];
+		for (Bus_line* line in self.bus) {
+			[busPoints addObjectsFromArray:[Bus_points getBusLineStops:line]];
 		}
 		
-
-
+		[self creatAnnotationsFromBusPointsArray:busPoints];
+		for (Bus_line *line in self.bus){
+			[self addRoute:  [line.polyline_ida allObjects] withType: @"ida"];
+			[self addRoute: [line.polyline_volta allObjects] withType: @"volta"];
+		}
+	}
+	
+	
+	
 }
 -(void)requestdidFailWithError:(NSError *)error{
 	NSLog(@"Error!");
