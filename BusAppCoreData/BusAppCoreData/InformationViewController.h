@@ -10,4 +10,7 @@
 
 @interface InformationViewController : UITableViewController
 
+@property (nonatomic, strong) NSArray *collors;
+@property (nonatomic, strong) NSArray *busLine;
+
 @end

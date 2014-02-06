@@ -117,7 +117,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Rota" id="p3x-Ta-y9D">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="Obd-pf-d4B">
+                        <barButtonItem key="rightBarButtonItem" image="about-32" style="plain" id="Obd-pf-d4B">
                             <connections>
                                 <action selector="infoTableView:" destination="ZV3-ap-nIc" id="QdJ-1m-5cn"/>
                                 <segue destination="pE5-z9-CHI" kind="push" identifier="infoTableView" id="ZBE-2n-420"/>
@@ -132,16 +132,16 @@
             </objects>
             <point key="canvasLocation" x="2080" y="-782"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Information View Controller-->
         <scene sceneID="BR3-Ob-oJU">
             <objects>
-                <tableViewController id="pE5-z9-CHI" sceneMemberID="viewController">
+                <tableViewController id="pE5-z9-CHI" customClass="InformationViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MMS-oM-W7T">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="NDX-pt-nfB" customClass="MovingTitleCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="infoCell" id="NDX-pt-nfB" customClass="MovingTitleCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NDX-pt-nfB" id="4Ce-6s-JEm">
@@ -149,7 +149,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tP0-Ya-TJU" customClass="MarqueeLabel">
-                                            <rect key="frame" x="106" y="0.0" width="214" height="43"/>
+                                            <rect key="frame" x="82" y="0.0" width="238" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
                                             <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -159,6 +159,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="movingTitle" destination="tP0-Ya-TJU" id="Pmm-iJ-Jfn"/>
+                                    <segue destination="bxf-Rf-9fD" kind="push" identifier="busTrajectory" id="9sl-V6-wv0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -220,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRg-Md-zVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="554"/>
+            <point key="canvasLocation" x="2967" y="554"/>
         </scene>
         <!--Stops Near View Controller - Pontos-->
         <scene sceneID="M2K-VY-PaJ">
@@ -412,7 +413,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NxO-vD-O7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1898" y="554"/>
+            <point key="canvasLocation" x="2080" y="554"/>
         </scene>
         <!--Bus App View Controller - Menu-->
         <scene sceneID="Zv5-AQ-Z1t">
@@ -764,12 +765,10 @@
     </scenes>
     <resources>
         <image name="Apple-Wood-iphone-wallpaper-ilikewallpaper_com" width="640" height="960"/>
+        <image name="about-32" width="32" height="32"/>
         <image name="background" width="640" height="1136"/>
-        <image name="background" width="640" height="1136"/>
-        <image name="config_icon" width="32" height="32"/>
         <image name="config_icon" width="32" height="32"/>
         <image name="jjjjjjjjjj" width="560" height="528"/>
-        <image name="menu" width="32" height="32"/>
         <image name="menu" width="32" height="32"/>
     </resources>
     <color key="tintColor" red="1" green="0.75243891230000004" blue="0.36652966209999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -781,5 +780,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="zfs-Hl-V8l"/>
         <segue reference="dXO-37-sia"/>
+        <segue reference="9sl-V6-wv0"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -13,6 +13,7 @@
 #import "CoreDataAndRequestSupervisor.h"
 #import "Annotation.h"
 #import "Bus_points+CoreDataMethods.h"
+#import "InformationViewController.h"
 
 @interface TrajectoryViewController () <MKMapViewDelegate, TreeDataRequestDelegate>
 
@@ -47,15 +48,28 @@
 	self.colors = [[NSMutableArray alloc] init];
 }
 -(void)viewWillDisappear:(BOOL)animated{
-	self.mapView.showsUserLocation = YES;
-	[self.mapView removeOverlays:self.overlays];
-	[self.overlays removeAllObjects];
-	[self.colors removeAllObjects];
+	self.mapView.showsUserLocation = NO;
+}
+-(void)viewDidDisappear:(BOOL)animated{
+    [self.overlays removeAllObjects];
+    [self.mapView removeOverlays:self.overlays];
+
 }
 
 - (IBAction)infoTableView:(id)sender
 {
-    
+    [self performSegueWithIdentifier:@"infoTableView" sender:nil];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"infoTableView"])
+    {
+        InformationViewController *tela = [segue destinationViewController];
+        
+        tela.collors = self.colors;
+        tela.busLine = self.bus;
+    }
 }
 
 - (void)addRoute: (NSArray *)route withType: (NSString *)type
@@ -161,12 +175,8 @@
 -(void)requestdidFailWithError:(NSError *)error{
 	NSLog(@"Error!");
 }
-
-- (void)viewDidAppear:(BOOL)animated {
-    
-    [super viewDidAppear:animated];
-
-    
+-(void)viewDidUnload:(BOOL)animated{
+    [self.colors removeAllObjects];
 }
 
 - (void)didReceiveMemoryWarning
