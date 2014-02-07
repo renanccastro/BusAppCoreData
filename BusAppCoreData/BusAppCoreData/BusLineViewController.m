@@ -131,7 +131,7 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     
 	//Remove frames from the EMDEC website, so the user can get more useful information.
-    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('mapFrame').style.display='none'; document.getElementById('topo').style.display='none'; var elements = document.getElementsByClassName('bgAzulClaro'); elements[0].style.display = 'none'; var myList = document.getElementsByTagName('table'); a = myList.length; myList[0].style.display = 'none'; myList[1].style.display = 'none'; myList[a-1].style.display = 'none'; myList[a-2].style.display = 'none'; myList[a-3].style.display = 'none'; myList[a-4].style.display = 'none';"];
+    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('mapFrame').style.display='none'; document.getElementById('topo').style.display='none'; var elements = document.getElementsByClassName('bgAzulClaro'); elements[0].style.display = 'none'; var myList = document.getElementsByTagName('table'); a = myList.length; myList[0].style.display = 'none'; myList[1].style.display = 'none'; myList[a-1].style.display = 'none'; myList[a-2].style.display = 'none'; myList[a-3].style.display = 'none'; myList[a-4].style.display = 'none';document.getElementById('conteiner').style.width = '100%'; document.getElementById('conteiner').style.float='left'; document.getElementById('conteiner').style.marginTop='0px';"];
 		[self.activityIndicator stopAnimating];
 	webView.hidden = NO;
 }
