@@ -44,7 +44,6 @@
 	self.navigationItem.title = self.bus_line.full_name;
 	self.annotations = [[NSArray alloc] init];
 	self.mapView.showsUserLocation = YES;
-	// Do any additional setup after loading the view.
     self.mapView.delegate = self;
     
     int webCode = self.bus_line.web_number.intValue;
@@ -132,7 +131,7 @@
     
 	//Remove frames from the EMDEC website, so the user can get more useful information.
     [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('mapFrame').style.display='none'; document.getElementById('topo').style.display='none'; var elements = document.getElementsByClassName('bgAzulClaro'); elements[0].style.display = 'none'; var myList = document.getElementsByTagName('table'); a = myList.length; myList[0].style.display = 'none'; myList[1].style.display = 'none'; myList[a-1].style.display = 'none'; myList[a-2].style.display = 'none'; myList[a-3].style.display = 'none'; myList[a-4].style.display = 'none';document.getElementById('conteiner').style.width = '100%'; document.getElementById('conteiner').style.float='left'; document.getElementById('conteiner').style.marginTop='0px';"];
-		[self.activityIndicator stopAnimating];
+	[self.activityIndicator stopAnimating];
 	webView.hidden = NO;
 }
 
