@@ -41,6 +41,7 @@
     [super viewDidLoad];
 	[self.activityIndicator startAnimating];
 	self.webPage.hidden = YES;
+	self.navigationItem.title = self.bus_line.full_name;
 	self.annotations = [[NSArray alloc] init];
 	self.mapView.showsUserLocation = YES;
 	// Do any additional setup after loading the view.

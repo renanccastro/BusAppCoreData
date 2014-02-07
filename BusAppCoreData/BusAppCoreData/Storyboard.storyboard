@@ -631,8 +631,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raio de Pesquisa" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teb-2H-Bca">
-                                                    <rect key="frame" x="154" y="12" width="146" height="19"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Máxima distância à pé" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="131" translatesAutoresizingMaskIntoConstraints="NO" id="teb-2H-Bca">
+                                                    <rect key="frame" x="169" y="6" width="131" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
                                                     <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -641,7 +641,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="teb-2H-Bca" secondAttribute="trailing" constant="20" symbolic="YES" id="k7q-co-8Ef"/>
-                                                <constraint firstAttribute="centerY" secondItem="teb-2H-Bca" secondAttribute="centerY" id="zdg-RB-f87"/>
+                                                <constraint firstAttribute="centerY" secondItem="teb-2H-Bca" secondAttribute="centerY" constant="-3" id="zdg-RB-f87"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -773,11 +773,8 @@
         <image name="Apple-Wood-iphone-wallpaper-ilikewallpaper_com" width="640" height="960"/>
         <image name="about-32" width="32" height="32"/>
         <image name="background" width="640" height="1136"/>
-        <image name="background" width="640" height="1136"/>
-        <image name="config_icon" width="32" height="32"/>
         <image name="config_icon" width="32" height="32"/>
         <image name="jjjjjjjjjj" width="560" height="528"/>
-        <image name="menu" width="32" height="32"/>
         <image name="menu" width="32" height="32"/>
     </resources>
     <color key="tintColor" red="1" green="0.75243891230000004" blue="0.36652966209999999" alpha="1" colorSpace="calibratedRGB"/>
