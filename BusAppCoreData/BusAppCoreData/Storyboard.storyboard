@@ -198,6 +198,11 @@
                                 <rect key="frame" x="0.0" y="316" width="320" height="252"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="nCs-0h-LeH">
+                                <rect key="frame" x="153" y="160" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="contentStretch" x="0.34999999999999998" y="0.0" width="1" height="1"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -215,6 +220,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Rota" id="EAh-AO-1ee"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="nCs-0h-LeH" id="FNb-RZ-spD"/>
                         <outlet property="mapView" destination="HNT-e3-WZm" id="DiL-eV-uaZ"/>
                         <outlet property="webPage" destination="ghI-2L-iLI" id="Hh3-ic-bNr"/>
                     </connections>

@@ -94,6 +94,7 @@
         tela.rotaDeIda = [((Bus_line*)self.busLine[path.row]).polyline_ida allObjects];
         tela.rotaDeVolta = [((Bus_line*)self.busLine[path.row]).polyline_volta allObjects];
 		tela.bus_line =((Bus_line*)self.busLine[path.row]);
+		tela.color = self.collors[path.row];
         
     }
 }

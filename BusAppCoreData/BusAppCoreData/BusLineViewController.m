@@ -10,15 +10,16 @@
 #import "Polyline_points.h"
 #import <MapKit/MapKit.h>
 #import "Polyline_points.h"
+#import "Bus_points+CoreDataMethods.h"
+#import "Annotation.h"
 
 @interface BusLineViewController () <MKMapViewDelegate, UIWebViewDelegate>
-{
-    UIColor *color;
 
-}
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIWebView *webPage;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (nonatomic) NSArray* annotations;
 
 @end
 
@@ -38,6 +39,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	[self.activityIndicator startAnimating];
+	self.webPage.hidden = YES;
+	self.annotations = [[NSArray alloc] init];
+	self.mapView.showsUserLocation = YES;
 	// Do any additional setup after loading the view.
     self.mapView.delegate = self;
     
@@ -50,27 +55,27 @@
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webPage loadRequest:requestObj];
-	[self addRouteWithType: @"ida"];
-    [self addRouteWithType: @"volta"];
 
-    
-//    [self activateorientation];
-    
 }
 
+//Create a polyline from the self.rotaDeVolta e self.rotaDeIda.
 - (void)addRouteWithType: (NSString *)type
 {
     NSArray *route;
-
-    if ([type isEqualToString: @"ida"]){
-        route = self.rotaDeIda;
-        color = [[UIColor alloc] initWithRed: 1 green: 0 blue: 0 alpha:0.5];
-    } else {
-        color = [[UIColor alloc] initWithRed: 0 green: 0 blue: 1 alpha:0.5];
-        if (![self.rotaDeVolta count]){
-            route = self.rotaDeIda;
-        }
-    }
+	
+	if (self.color == nil) {
+		if ([type isEqualToString: @"ida"]){
+			route = self.rotaDeIda;
+			self.color = [[UIColor alloc] initWithRed: 1 green: 0 blue: 0 alpha:0.5];
+		} else {
+			self.color = [[UIColor alloc] initWithRed: 0 green: 0 blue: 1 alpha:0.5];
+		}
+	}
+	if ([type isEqualToString:@"volta"]) {
+		if (![self.rotaDeVolta count]){
+			route = self.rotaDeIda;
+		}
+	}
     CLLocationCoordinate2D *coordinates = [route count] ? malloc(sizeof(CLLocationCoordinate2D)* [route count]) : NULL;
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order"
 																 ascending:YES];
@@ -91,11 +96,12 @@
 
 - (void)updateMapView
 {
-    if (self.mapView.overlays){
-        [self.mapView removeOverlays: self.mapView.overlays];
+	//Refresh the annotations already on the map
+	if (self.mapView.annotations){
+        [self.mapView removeAnnotations:self.mapView.annotations];
     }
-    if (self.rotaDeIda || self.rotaDeVolta){
-//        [self addRoute];
+    if (self.annotations){
+        [self.mapView addAnnotations: self.annotations];
     }
 }
 
@@ -105,18 +111,96 @@
     [self updateMapView];
 }
 
+//Add a polyline view to the mapView
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
 {
     MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline: overlay];
-    polylineView.strokeColor = color;
+    polylineView.strokeColor = self.color;
     polylineView.lineWidth = 5.0;
     return polylineView;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
     
-    [super viewDidAppear:animated];
-    [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
+	//Remove frames from the EMDEC website, so the user can get more useful information.
+    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('mapFrame').style.display='none'; document.getElementById('topo').style.display='none'; var elements = document.getElementsByClassName('bgAzulClaro'); elements[0].style.display = 'none'; var myList = document.getElementsByTagName('table'); a = myList.length; myList[0].style.display = 'none'; myList[1].style.display = 'none'; myList[a-1].style.display = 'none'; myList[a-2].style.display = 'none'; myList[a-3].style.display = 'none'; myList[a-4].style.display = 'none';"];
+		[self.activityIndicator stopAnimating];
+	webView.hidden = NO;
+}
+
+
+//Create annotations from an array of bus points.
+- (void)creatAnnotationsFromBusPointsArray:(NSArray*)stopsNear{
+	
+    NSMutableArray* annotationArray = [[NSMutableArray alloc] init];
+	int i = 0;
+    //Each annotation has: title, subtitle, coordinate and index
+	for (Bus_points* stop in stopsNear){
+        Annotation* annotation = [[Annotation alloc] init];
+		NSString* subTitle = [[NSString alloc] init];
+		for (Bus_line* bus in stop.onibus_que_passam) {
+			subTitle = [subTitle stringByAppendingString:[NSString stringWithFormat:@"%@, ", bus.line_number]];
+		}
+		subTitle = [subTitle substringToIndex:[subTitle length]-2];
+        if ([stop.onibus_que_passam count] == 1){
+            [annotation setTitle: @"1 linha passa aqui:"];
+        } else {
+            [annotation setTitle: [NSString stringWithFormat: @"%lu linhas passam aqui:", (unsigned long)[stop.onibus_que_passam count]]];
+        }
+		[annotation setSubtitle: subTitle];
+        [annotation setCoordinate: CLLocationCoordinate2DMake([stop.lat doubleValue], [stop.lng doubleValue])];
+        [annotationArray addObject: annotation];
+		annotation.index = i;
+		i++;
+    }
+
+	[self setAnnotations:annotationArray];
+}
+
+//Configure annotationView
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    static NSString *identifier = @"myAnnotation";
+    if ([annotation isKindOfClass:[Annotation class]]) {
+        
+        MKAnnotationView *annotationView = (MKAnnotationView *) [_mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        if (annotationView == nil) {
+            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+            annotationView.enabled = YES;
+            annotationView.canShowCallout = YES;
+            annotationView.image = [UIImage imageNamed:@"ThePin.png"];
+        } else {
+            annotationView.annotation = annotation;
+        }
+        return annotationView;
+    }
+    
+    return nil;
+}
+
+
+//Remove old annotations and set new ones
+
+- (void)setAnnotations:(NSArray *)annotations
+{
+    _annotations = annotations;
+    [self updateMapView];
+}
+
+
+-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+	[self addRouteWithType: @"ida"];
+    [self addRouteWithType: @"volta"];
+
+	[self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
+	
+	[self creatAnnotationsFromBusPointsArray:[Bus_points getBusLineStops:self.bus_line]];
     
     CLLocationCoordinate2D max, min;
     max = min = CLLocationCoordinate2DMake(((Polyline_points *)self.rotaDeIda[0]).lat.doubleValue, ((Polyline_points *)self.rotaDeIda[0]).lng.doubleValue);
@@ -141,64 +225,6 @@
     MKCoordinateRegion viewRegion = MKCoordinateRegionMake(centerCoord, span);
     
     [self.mapView setRegion: viewRegion animated:YES];
-    
-}
-
-#pragma - NAO APAGUE AINDA :P
--(void) activateorientation{
-	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-    [[NSNotificationCenter defaultCenter] addObserver:self										 selector:@selector(didRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
-}
-
-
-#define degreesToRadian(x) (M_PI * (x) / 180.0)
-
-
-- (void) didRotate:(NSNotification *)notification
-{
-	UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    
-	if (orientation == UIDeviceOrientationLandscapeLeft)
-	{
-        // implement here
-	}
-	if (orientation == UIDeviceOrientationLandscapeRight)
-	{
-        // implement here
-        CGAffineTransform landscapeTransform = CGAffineTransformMakeRotation(degreesToRadian(90));
-        
-        
-        
-        landscapeTransform = CGAffineTransformTranslate (landscapeTransform, 0.0, 0.0);
-        
-        //        self.view.bounds = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, 480, 320);
-        
-        //
-        
-        //
-        
-        //        [self.view setTransform:landscapeTransform];
-        
-        
-        
-//        [self.webPage setTransform:landscapeTransform];
-//        [self.mapView setTransform: landscapeTransform];
-	}
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void)webViewDidFinishLoad:(UIWebView *)webView{
-    
-    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('mapFrame').style.display='none'; document.getElementById('topo').style.display='none'; var elements = document.getElementsByClassName('bgAzulClaro'); elements[0].style.display = 'none'; var myList = document.getElementsByTagName('table'); a = myList.length; myList[0].style.display = 'none'; myList[1].style.display = 'none'; myList[a-1].style.display = 'none'; myList[a-2].style.display = 'none'; myList[a-3].style.display = 'none'; myList[a-4].style.display = 'none';"];
 
 }
 @end
