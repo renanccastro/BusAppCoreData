@@ -73,17 +73,4 @@
     return edgePoint;
 }
 
-
-//- (CLLocationCoordinate2D) NewLocationFrom:(CLLocationCoordinate2D)startingPoint
-//						atDistanceInMeters:(float)distanceInMeters
-//                     alongBearingInDegrees:(double)bearingInDegrees {
-//
-//	double LatDistance = cos(bearingInDegrees)*distanceInMeters;
-//	double LongDistance = sin(bearingInDegrees)*distanceInMeters;
-//
-//	CLLocationCoordinate2D destinationPoint = CLLocationCoordinate2DMake(startingPoint.latitude + (LatDistance*0.00001), startingPoint.longitude + (LongDistance*0.00001));
-//
-//	return destinationPoint;
-//}
-
 @end

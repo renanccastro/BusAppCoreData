@@ -48,6 +48,7 @@
 
 - (IBAction)rotePlaningView:(id)sender
 {
+	//Get the references from the storyboard, and do the side bar.
     UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"Storyboard"
                                                            bundle:nil];
     UITableViewController *right = [mystoryboard instantiateViewControllerWithIdentifier:@"SearchConfigViewControllerId"];
@@ -69,6 +70,7 @@
 
 - (IBAction)stopsView:(id)sender
 {
+	//Same as above.
     UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"Storyboard"
                                                            bundle:nil];
     UITableViewController *right = [mystoryboard instantiateViewControllerWithIdentifier:@"RightViewControllerId"];

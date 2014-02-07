@@ -175,7 +175,6 @@
 	NSMutableArray* set = [[NSMutableArray alloc] init];
 	NSMutableArray* stops = [[NSMutableArray alloc] init];
 	for (Bus_line* line in buses) {
-		//NSLog(@"Started bus references building for bus %@",line.full_name);
 		for (Bus_points* stop in line.stops) {
 			for (Bus_line* bus in stop.onibus_que_passam) {
 				if (![bus.web_number isEqualToNumber:line.web_number]){
@@ -191,7 +190,6 @@
 		[set removeAllObjects];
 		[stops removeAllObjects];
 
-		//NSLog(@"Finished building references for %@",line.full_name);
 	}
 	
 	

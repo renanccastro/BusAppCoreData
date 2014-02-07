@@ -72,6 +72,8 @@
     }
 }
 
+
+//Create a route(polyline), and add it to the map
 - (void)addRoute: (NSArray *)route withType: (NSString *)type
 {
     CLLocationCoordinate2D *coordinates = [route count] ? malloc(sizeof(CLLocationCoordinate2D)* [route count]) : NULL;
@@ -143,8 +145,6 @@
 			[self addRoute: [line.polyline_volta allObjects] withType: @"volta"];
 		}
 	}
-	
-	
 	
 }
 -(void)requestdidFailWithError:(NSError *)error{

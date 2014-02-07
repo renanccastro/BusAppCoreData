@@ -41,7 +41,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-//    [self.revealController segueForUnwindingToViewController:self.revealController.rightViewController fromViewController:self identifier:nil];
     [self.revealController  touchesBegan:nil withEvent:nil];
     self.mapView.delegate = self;
     self.navigationController.revealController.delegate = self;

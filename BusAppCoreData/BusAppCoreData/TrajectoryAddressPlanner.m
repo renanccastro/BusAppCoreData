@@ -29,6 +29,7 @@
     return self;
 }
 - (IBAction)searchRoute:(id)sender {
+	//Geocode the string, and send it to the next screen.
 	[self.geocoder geocodeAddressString:[NSString stringWithFormat:@"Brasil, São Paulo, Campinas, %@, %@, %@",\
 										 self.bairro.text ? self.bairro.text : @"",\
 										 self.address.text ? self.address.text : @"",\

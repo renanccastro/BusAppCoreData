@@ -11,7 +11,11 @@
 #import "Interception+CoreDataMethods.h"
 
 @implementation TrajectoryPlanner
-
+/** Method that returns a route, from initial lines to final.
+ @param (NSSet*)initial - Set of initial bus lines.
+ @param (NSSet *)final  - set of final bus lines.
+ @return Route composed of Bus_lines from initial to final.
+ */
 - (NSArray *)planningFrom: (NSSet*)initial to: (NSSet *)final
 {
 	NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];

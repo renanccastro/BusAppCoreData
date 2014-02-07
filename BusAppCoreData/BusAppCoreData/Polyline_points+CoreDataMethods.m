@@ -13,7 +13,11 @@
 @implementation Polyline_points (CoreDataMethods)
 
 
-//Get Polyline points unique
+/** Method that returns a unique polyline_point with given latitude and longitude
+ @param (double)lat - latitude
+ @param (double)lng - longitude
+ @return (Polyline_points*) - polyline_point that matches the parameters.
+ */
 +(Polyline_points*) getPolyLinePointsWithLatitude:(double)lat andWithLongitude:(double)lng
 {
 	NSManagedObjectContext* context = [CoreDataAndRequestSupervisor startSupervisor].context;
@@ -38,7 +42,11 @@
 }
 
 
-//Get all points in the polyline for bus with TURN->ida ou volta
+/** Method that returns an array of polyline_point that belongs to a bus_line
+ @param (Bus_line*)bus - bus line that owns the points
+ @param (NSString*)turn - string that describes the type of polyline, "linha_ida" ou "linha_volta".
+ @return (NSArray*) - Array of polyline_point that matches the parameters.
+ */
 +(NSArray*) getBusLineTrajectory:(Bus_line*)bus withTurn:(NSString*)turn
 {
 	NSManagedObjectContext* context = [CoreDataAndRequestSupervisor startSupervisor].context;
@@ -67,6 +75,13 @@
     return array;
 }
 
+/** Method that creates a polyline point("to") with given parameters.
+ @param (Bus_line*)bus - bus line that owns the points
+ @param (double)lat - latitude
+ @param (double)lng - longitude
+ @param (int)order - order of the given point in the route of the bus.
+ @return (Polyline_points*) - New polyline_point that matches the parameters.
+ */
 +(Polyline_points*) createPolylinePointIdaWithBus:(Bus_line*)bus withLat:(double)lat andLng:(double)lng withOrder:(int)order{
 	NSManagedObjectContext* context = [CoreDataAndRequestSupervisor startSupervisor].context;
 	
@@ -88,6 +103,13 @@
 	return error == nil ? point : nil;
 }
 
+/** Method that creates a polyline point("from") with given parameters.
+ @param (Bus_line*)bus - bus line that owns the points
+ @param (double)lat - latitude
+ @param (double)lng - longitude
+ @param (int)order - order of the given point in the route of the bus.
+ @return (Polyline_points*) - New polyline_point that matches the parameters.
+ */
 +(Polyline_points*) createPolylinePointVoltaWithBus:(Bus_line*)bus withLat:(double)lat andLng:(double)lng withOrder:(int)order
 {
 	NSManagedObjectContext* context = [CoreDataAndRequestSupervisor startSupervisor].context;

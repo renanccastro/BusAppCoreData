@@ -18,18 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	//Save some Core data Variables at the supervisor.
 	[[CoreDataAndRequestSupervisor startSupervisor] setCoordinator: self.persistentStoreCoordinator];
 	[[CoreDataAndRequestSupervisor startSupervisor] setContext:self.managedObjectContext];
 
     
     [[CoreDataAndRequestSupervisor startSupervisor] requestBusLines];
-	
-//    [Bus_line removeBusInterseptionsReferences];
-//    [Bus_line createBusInterseptionsReferences];
-
-    
-    
-
     
     return YES;
 }
@@ -119,6 +113,7 @@
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"BusAppCoreData.sqlite"];
 	
 	NSError *error = nil;
+	//Copy the initial sqlite version to the device if it already doesn`t exist.
 	if (![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]])
 	{
 		if ([[NSFileManager defaultManager] copyItemAtPath:defaultStorePath
@@ -133,7 +128,7 @@
 			[prefs setInteger:6 forKey:@"version"];
             [prefs setInteger:600 forKey:@"Radius"];
             [prefs setInteger:600 forKey:@"SearchRadius"];
-            [prefs setInteger:1 forKey:@"Bus"];
+            [prefs setInteger:3 forKey:@"Bus"];
 			[[NSUserDefaults standardUserDefaults] synchronize];
 		}
 		else

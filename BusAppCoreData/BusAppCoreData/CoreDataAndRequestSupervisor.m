@@ -33,13 +33,6 @@ static  CoreDataAndRequestSupervisor *supervisor;
 
 #pragma mark -  singleton methods
 
-//-(NSManagedObjectContext*) context{
-//	NSManagedObjectContext * context = [[NSManagedObjectContext alloc] init];
-//	
-//	[context setPersistentStoreCoordinator:self.coordinator];
-//	return context;
-//}
-
 +(id) allocWithZone:(struct _NSZone *)zone
 {
     return [CoreDataAndRequestSupervisor startSupervisor];
@@ -78,14 +71,12 @@ static  CoreDataAndRequestSupervisor *supervisor;
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 	
-//	if ([prefs integerForKey:@"version"] == nil) {
-//		[prefs setObject:[[NSNumber alloc] initWithInt:0] forKey:@"version"];
-//	}
 	NSLog(@"%ld",(long)[prefs integerForKey:@"version"]);
     ServerUpdateRequest *serverUpdate = [[ServerUpdateRequest alloc] init];
     
     NSDate *currentDate = [NSDate date];
     
+	//If the current version is equal 0 or, if the update wasn`t done since the last 3 days.
     if(([currentDate timeIntervalSinceDate:[prefs objectForKey:@"last update"]] > 60*60*24*3) || ([prefs integerForKey:@"version"] == 0))
     {
         [serverUpdate requestServerUpdateWithVersion:[prefs integerForKey:@"version"]
@@ -97,7 +88,7 @@ static  CoreDataAndRequestSupervisor *supervisor;
 
 -(void)request:(ServerUpdateRequest *)request didFailWithError:(NSError *)error
 {
-    //TODO
+    NSLog(@"Error!");
 }
 
 -(void)request:(ServerUpdateRequest *)request didFinishWithObject:(id)object
@@ -125,14 +116,16 @@ static  CoreDataAndRequestSupervisor *supervisor;
 
 -(void)request:(JsonRequest *)request didFinishWithJson:(id)json
 {
+	//Start parsing the json!
     NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
         self.requestsFeitas++;
 		NSLog(@"requestsFeitas: %d\n", self.requestsFeitas);
+		
 		BOOL save = NO;
+		//Save the bus line with a synchro lock, otherwise it would cause errors.
 		@synchronized(self.lock){
 			 save = [Bus_line saveBusLineWithDictionary:json];
 		}
-		
         if(!save)
         {
             NSLog(@"i deu zica no save");
@@ -143,10 +136,12 @@ static  CoreDataAndRequestSupervisor *supervisor;
 			self.finishedOperations++;
 			NSLog(@"%d\n",self.finishedOperations);
 			if (self.finishedOperations == self.dueOperations) {
+				//If our DB is complete, start creating interseptions references:
 				NSLog(@"Started creating interseptions references");
 				[Bus_line removeBusInterseptionsReferences];
 				[Bus_line createBusInterseptionsReferences];
 				NSLog(@"Finished creating interseptions references");
+				//if everything was succesfully completed, set the version to the newest one on the server.
 				[[NSUserDefaults standardUserDefaults] setInteger:self.newestVersion forKey:@"version"];
 				self.finishedOperations = 0;
 			}
@@ -157,6 +152,11 @@ static  CoreDataAndRequestSupervisor *supervisor;
 }
 
 #pragma mark - CoreData methods
+/** Function that receives a distance and a point and returns all Bus_points on the database(return it async with a delegate), 
+	that is at "distance" far from the initial point. It uses the Vincent Formulas to geo box the region.
+ @param (CGFloat) distance distance in meters.
+ @param (CLLocationCoordinate2D) startingPoint - Point from wich we have to calculate the distance.
+*/
 -(void) getAllBusPointsAsyncWithinDistance:(CGFloat)distance fromPoint:(CLLocationCoordinate2D)point{
 	NSMutableArray* geoBox = [[NSMutableArray alloc] init];
 	NSBlockOperation * operation = [NSBlockOperation blockOperationWithBlock:^{
@@ -171,6 +171,12 @@ static  CoreDataAndRequestSupervisor *supervisor;
 	[self.queue addOperation:operation];
 }
 
+/** Method that returns(async, as a delegate) the required information to the tree algorithm calculate a route(the lines 
+ that are "range" close to the initial point and the lines that are "range" close to the final point.
+ @param (CLLocationCoordinate2D)initialPoint - initial point
+ @param (CLLocationCoordinate2D)finalPoint - final point
+ @param (CGFloat)range -  max distance that the users want to walk
+ */
 -(void) getRequiredTreeLinesWithInitialPoint:(CLLocationCoordinate2D)initialPoint andFinalPoint:(CLLocationCoordinate2D)finalPoint withRange:(CGFloat)range{
 	NSMutableArray* geoBoxInitial = [[NSMutableArray alloc] init];
 	NSMutableArray* geoBoxFinal = [[NSMutableArray alloc] init];
