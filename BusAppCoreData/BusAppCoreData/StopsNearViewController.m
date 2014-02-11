@@ -63,6 +63,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)goToPoints:(id)sender {
+	//Get the references from the storyboard, and do the side bar.
+    UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"Storyboard"
+                                                           bundle:nil];
+    UITableViewController *right = [mystoryboard instantiateViewControllerWithIdentifier:@"SearchConfigViewControllerId"];
+    UINavigationController *front = [mystoryboard instantiateViewControllerWithIdentifier:@"SearchViewControllerId"];
+    PKRevealController *revealView = [PKRevealController revealControllerWithFrontViewController:front
+                                                                             rightViewController:right];
+    
+    front.revealController = revealView;
+    [revealView setMinimumWidth:180.0
+                   maximumWidth:244.0
+              forViewController:right];
+    revealView.delegate = self;
+    [self presentViewController:revealView
+                       animated:YES
+                     completion:nil];
+}
 
 #pragma - MapView Methods
 //Remove old annotations and set new ones
@@ -93,7 +111,7 @@
 //Call right side view quem the button is pressed
 - (IBAction)showConfiguration:(id)sender
 {
-    [self.navigationController.revealController showViewController:self.navigationController.revealController.rightViewController ];
+    [self.navigationController.revealController showViewController:self.navigationController.revealController.rightViewController];
 
 }
 

@@ -21,6 +21,9 @@
 @property (nonatomic) NSArray* annotations;
 @property (nonatomic) NSMutableArray* overlays;
 @property (nonatomic) NSMutableArray* colors;
+@property (nonatomic) BOOL gotInfo;
+@property (nonatomic) BOOL gotUserLocation;
+
 
 @end
 
@@ -41,6 +44,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+	self.gotInfo = NO;
+	self.gotInfo = YES;
     self.mapView.delegate = self;
 	self.mapView.showsUserLocation = YES;
 	self.queue = [[NSOperationQueue alloc] init];
@@ -49,6 +54,9 @@
 }
 -(void)viewWillDisappear:(BOOL)animated{
 	self.mapView.showsUserLocation = NO;
+}
+-(void)viewWillAppear:(BOOL)animated{
+	self.mapView.showsUserLocation = YES;
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [self.overlays removeAllObjects];
@@ -159,7 +167,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+-(void) justGotInfo{
+	self.gotInfo = YES;
+	if (self.gotUserLocation) {
+		[self setThingsOnMap:self.mapView.userLocation];
+	}
+}
+-(void) setThingsOnMap:(MKUserLocation*)userLocation{
+	if ([self.mapView.overlays count]) {
+		return;
+	}
 	[self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
 	MKCoordinateSpan span = MKCoordinateSpanMake(0.05, 0.05);
     
@@ -170,6 +187,13 @@
 	NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
 	
 	[[CoreDataAndRequestSupervisor startSupervisor] getRequiredTreeLinesWithInitialPoint:userLocation.coordinate andFinalPoint:self.final withRange:[prefs integerForKey:@"SearchRadius"]];
+}
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+	self.gotUserLocation = YES;
+	if (self.gotInfo) {
+		[self setThingsOnMap:userLocation];
+	}
 }
 
 

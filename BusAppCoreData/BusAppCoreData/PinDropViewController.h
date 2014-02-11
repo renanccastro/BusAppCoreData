@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TabBarViewController.h"
 
-@interface PinDropViewController : UIViewController
+@interface PinDropViewController : UIViewController <SetInfo>
 
 @end

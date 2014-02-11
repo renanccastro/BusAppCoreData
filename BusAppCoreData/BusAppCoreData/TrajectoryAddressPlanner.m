@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *address;
 @property (weak, nonatomic) IBOutlet UITextField *number;
 @property (weak, nonatomic) IBOutlet UITextField *bairro;
-@property (nonatomic) CLLocationCoordinate2D final;
 @property (nonatomic) CLGeocoder* geocoder;
 @end
 
@@ -29,16 +28,6 @@
     return self;
 }
 - (IBAction)searchRoute:(id)sender {
-	//Geocode the string, and send it to the next screen.
-	[self.geocoder geocodeAddressString:[NSString stringWithFormat:@"Brasil, São Paulo, Campinas, %@, %@, %@",\
-										 self.bairro.text ? self.bairro.text : @"",\
-										 self.address.text ? self.address.text : @"",\
-										 self.number.text ? self.number.text : @""]
-	 
-				 completionHandler:^(NSArray* placemarks, NSError* error){
-					 self.final = ((CLPlacemark*)[placemarks firstObject]).location.coordinate;
-					 [self performSegueWithIdentifier:@"addressPush" sender:self];
-				 }];
 }
 
 - (void)viewDidLoad
@@ -65,14 +54,25 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-	if ([[segue identifier] isEqualToString:@"addressPush"]) {
-		TrajectoryViewController* vc = [segue destinationViewController];
-		vc.final = self.final;
-	}
+-(void)getInfo:(TrajectoryViewController*)controller{
+	//Geocode the string, and send it to the next screen.
+	[self.geocoder geocodeAddressString:[NSString stringWithFormat:@"Brasil, São Paulo, Campinas, %@, %@, %@",\
+										 self.bairro.text ? self.bairro.text : @"",\
+										 self.address.text ? self.address.text : @"",\
+										 self.number.text ? self.number.text : @""]
+	 
+					  completionHandler:^(NSArray* placemarks, NSError* error){
+						  self.final = ((CLPlacemark*)[placemarks firstObject]).location.coordinate;
+						  controller.final = self.final;
+						  [controller justGotInfo];
+//						  [self performSegueWithIdentifier:@"addressPush" sender:self];
+					  }];
+	
+
 }
-
-
+-(void)setInfoForController:(TrajectoryViewController*)controller{
+	[self getInfo:controller];
+}
 
 
 @end

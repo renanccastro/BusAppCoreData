@@ -11,7 +11,6 @@
 #import "Bus_line.h"
 
 @interface BusLineViewController : UIViewController <UIWebViewDelegate>
-
 @property (nonatomic, strong) NSArray *rotaDeIda;
 @property (nonatomic, strong) NSArray *rotaDeVolta;
 @property (nonatomic)		  Bus_line *bus_line;

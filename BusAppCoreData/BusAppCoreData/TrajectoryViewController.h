@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 - (void)addRoute: (NSArray *)route withType: (NSString *)type;
+-(void) justGotInfo;
 
 @end

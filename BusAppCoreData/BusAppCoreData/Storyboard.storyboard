@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pq6-yp-7Yp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="MWu-ZW-359">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--Trajectory Address Planner - Endereço-->
+        <!--Trajectory Address Planner - Planejamento por endereço-->
         <scene sceneID="Qzf-AQ-U5u">
             <objects>
-                <viewController id="c7x-8d-jaA" customClass="TrajectoryAddressPlanner" sceneMemberID="viewController">
+                <viewController title="Planejamento por endereço" id="c7x-8d-jaA" customClass="TrajectoryAddressPlanner" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="56m-CF-hJE"/>
                         <viewControllerLayoutGuide type="bottom" id="kem-3T-fPP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ibk-Tz-A8I">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Apple-Wood-iphone-wallpaper-ilikewallpaper_com" translatesAutoresizingMaskIntoConstraints="NO" id="XqE-ly-0iV">
@@ -68,21 +68,10 @@
                                     <outlet property="delegate" destination="c7x-8d-jaA" id="UXf-ul-pA4"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2i4-ms-Ekl">
-                                <rect key="frame" x="98" y="401" width="125" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
-                                <state key="normal" title="Pesquisar Rota">
-                                    <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="searchRoute:" destination="c7x-8d-jaA" eventType="touchUpInside" id="98w-DJ-Ovc"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Por Endereço" image="ThePin" id="Edn-DG-KdW"/>
                     <navigationItem key="navigationItem" title="Endereço" id="ndi-Ac-HHd">
                         <barButtonItem key="backBarButtonItem" title="Endereço" id="S8x-e3-ORE"/>
                     </navigationItem>
@@ -90,12 +79,11 @@
                         <outlet property="address" destination="Hi2-Is-4AL" id="eOD-hS-Gq5"/>
                         <outlet property="bairro" destination="3CD-L3-m0P" id="bKg-Gx-HHd"/>
                         <outlet property="number" destination="pkp-b8-AHO" id="rmu-py-6OJ"/>
-                        <segue destination="ZV3-ap-nIc" kind="push" identifier="addressPush" id="X3h-Yy-jzu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ew-Sb-j8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="-1446"/>
+            <point key="canvasLocation" x="790" y="-1962"/>
         </scene>
         <!--Trajectory View Controller - Rota-->
         <scene sceneID="I7c-NH-N4o">
@@ -106,11 +94,11 @@
                         <viewControllerLayoutGuide type="bottom" id="EB1-3F-6QV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yVW-fs-NUu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IX4-6L-dAq">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                         </subviews>
@@ -130,14 +118,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JXi-2f-O6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2080" y="-782"/>
+            <point key="canvasLocation" x="2634" y="-1239"/>
         </scene>
         <!--Information View Controller-->
         <scene sceneID="BR3-Ob-oJU">
             <objects>
                 <tableViewController id="pE5-z9-CHI" customClass="InformationViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MMS-oM-W7T">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -172,7 +160,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WLz-M8-37Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2431" y="-782"/>
+            <point key="canvasLocation" x="3173" y="-1239"/>
         </scene>
         <!--Bus Line View Controller - Rota-->
         <scene sceneID="fcq-NL-50x">
@@ -183,19 +171,19 @@
                         <viewControllerLayoutGuide type="bottom" id="zFi-eO-Oth"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="l8Y-Ie-rRE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghI-2L-iLI">
-                                <rect key="frame" x="0.0" y="64" width="320" height="252"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="228"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="bxf-Rf-9fD" id="GKK-wv-fWJ"/>
                                 </connections>
                             </webView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HNT-e3-WZm">
-                                <rect key="frame" x="0.0" y="316" width="320" height="252"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HNT-e3-WZm">
+                                <rect key="frame" x="0.0" y="292" width="320" height="228"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="nCs-0h-LeH">
@@ -229,10 +217,10 @@
             </objects>
             <point key="canvasLocation" x="2967" y="554"/>
         </scene>
-        <!--Stops Near View Controller - Pontos-->
+        <!--Stops Near View Controller - Pontos de ônibus-->
         <scene sceneID="M2K-VY-PaJ">
             <objects>
-                <viewController storyboardIdentifier="StopsNearViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XOq-n4-aYC" customClass="StopsNearViewController" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="XOq-n4-aYC" customClass="StopsNearViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yld-Gt-hcp"/>
                         <viewControllerLayoutGuide type="bottom" id="UiZ-D3-hBv"/>
@@ -254,11 +242,12 @@
                             <constraint firstItem="Uhs-eS-0q1" firstAttribute="leading" secondItem="3Mc-jr-GTE" secondAttribute="leading" id="mAU-Wc-UCz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Pontos" id="riz-0x-P4a">
+                    <navigationItem key="navigationItem" title="Pontos de ônibus" id="riz-0x-P4a">
                         <barButtonItem key="backBarButtonItem" title="Pontos" id="GR2-zI-naN"/>
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="lVD-ec-Xd3">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="goA-tK-ma1">
                             <connections>
-                                <segue destination="pq6-yp-7Yp" kind="modal" id="S1L-KM-2Au"/>
+                                <action selector="goToPoints:" destination="XOq-n4-aYC" id="bGj-aR-2Jx"/>
+                                <segue destination="Ted-f0-H4S" kind="push" id="IGN-46-k1v"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="config_icon" width="41" id="jeC-5X-rgj">
@@ -276,79 +265,20 @@
             </objects>
             <point key="canvasLocation" x="1011" y="554"/>
         </scene>
-        <!--Trajectory Planning View Controller - Tipo de Pequisa-->
-        <scene sceneID="C5V-Sl-fT5">
-            <objects>
-                <viewController id="hu4-u4-m8j" customClass="TrajectoryPlanningViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3zd-t7-HJL"/>
-                        <viewControllerLayoutGuide type="bottom" id="yI3-Ax-Wxp"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TKW-Yd-SSP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Q59-nX-jGl">
-                                <rect key="frame" x="0.0" y="0.0" width="325" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBR-3q-anV">
-                                <rect key="frame" x="64" y="206" width="193" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="26"/>
-                                <state key="normal" title="Por Endereço">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="c7x-8d-jaA" kind="push" id="og3-Np-7MU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9A-OR-wf0">
-                                <rect key="frame" x="64" y="350" width="193" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
-                                <state key="normal" title="Através do Mapa">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="SaY-Jt-uZn" kind="push" id="aFv-85-TWh"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Tipo de Pequisa" id="tgz-z2-FVn">
-                        <barButtonItem key="backBarButtonItem" title="Pesquisa" id="oGM-jn-xmh"/>
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="KLw-2l-54K">
-                            <connections>
-                                <segue destination="pq6-yp-7Yp" kind="modal" id="zfs-Hl-V8l"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="config_icon" id="1Y6-sw-dzG">
-                            <connections>
-                                <action selector="configurations:" destination="hu4-u4-m8j" id="sbu-ZK-KwO"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2eq-tS-Vvq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1020" y="-782"/>
-        </scene>
-        <!--Pin Drop View Controller - Localidade-->
+        <!--Pin Drop View Controller - Planejamento pelo mapa-->
         <scene sceneID="j2y-t2-b5P">
             <objects>
-                <viewController id="SaY-Jt-uZn" customClass="PinDropViewController" sceneMemberID="viewController">
+                <viewController title="Planejamento pelo mapa" id="SaY-Jt-uZn" customClass="PinDropViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5mP-Yw-8TS"/>
                         <viewControllerLayoutGuide type="bottom" id="hCU-WZ-emi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EsD-pW-Yyw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s6B-jD-31s">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                         </subviews>
@@ -360,13 +290,10 @@
                             <constraint firstItem="s6B-jD-31s" firstAttribute="top" secondItem="5mP-Yw-8TS" secondAttribute="bottom" id="iUZ-ET-92f"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Localidade" id="7zt-ff-IVN">
+                    <tabBarItem key="tabBarItem" title="Pelo Mapa" image="WORLD2" id="juP-5g-Dsd"/>
+                    <navigationItem key="navigationItem" title="Planejamento de Rota" id="7zt-ff-IVN">
                         <barButtonItem key="backBarButtonItem" title="Localidade" id="TPB-Rb-f3Y"/>
-                        <barButtonItem key="rightBarButtonItem" title="Rota" id="Wr4-bJ-rno">
-                            <connections>
-                                <segue destination="ZV3-ap-nIc" kind="push" identifier="push" id="dXO-37-sia"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="KLw-2l-54K"/>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="s6B-jD-31s" id="gkF-qq-fMj"/>
@@ -374,7 +301,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d52-cz-s5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="-782"/>
+            <point key="canvasLocation" x="754" y="-572"/>
+        </scene>
+        <!--Bus App View Controller-->
+        <scene sceneID="w2y-BR-0VU">
+            <objects>
+                <viewController id="MWu-ZW-359" customClass="BusAppViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Muf-4f-q5I"/>
+                        <viewControllerLayoutGuide type="bottom" id="czg-HX-Hlb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lIy-eZ-Fp6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qp9-ed-BNq">
+                                <rect key="frame" x="137" y="269" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="lla:" destination="MWu-ZW-359" eventType="touchUpInside" id="qYk-kO-pGN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PGm-Gz-q95" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1573" y="899"/>
         </scene>
         <!--Bus Table View Controller - Linhas De Onibus-->
         <scene sceneID="RpD-tq-vAM">
@@ -421,99 +378,10 @@
             </objects>
             <point key="canvasLocation" x="2080" y="554"/>
         </scene>
-        <!--Bus App View Controller - Menu-->
-        <scene sceneID="Zv5-AQ-Z1t">
-            <objects>
-                <viewController id="3gO-1d-0YW" customClass="BusAppViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="W1N-OS-VQz"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ara-bz-33F"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="mJi-sT-jbO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="d8z-Rb-SfP">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jjjjjjjjjj" translatesAutoresizingMaskIntoConstraints="NO" id="mHA-r7-SZP">
-                                <rect key="frame" x="73" y="71" width="206" height="183"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YB3-JM-T9o">
-                                <rect key="frame" x="73" y="341" width="175" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
-                                <state key="normal" title="Busca de Rota">
-                                    <color key="titleColor" red="1" green="0.75243891230000004" blue="0.36652966209999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="rotePlaningView:" destination="3gO-1d-0YW" eventType="touchUpInside" id="4ge-LG-nz1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOn-9b-4xV">
-                                <rect key="frame" x="73" y="409" width="175" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
-                                <state key="normal" title="Pontos próximos">
-                                    <color key="titleColor" red="1" green="0.75243891230000004" blue="0.36652966209999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopsView:" destination="3gO-1d-0YW" eventType="touchUpInside" id="iAd-j3-dzt"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iBusão" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLu-EP-ztD">
-                                <rect key="frame" x="55" y="24" width="222" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="23"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.71372550729999995" green="0.91372555489999996" blue="0.55294120309999995" alpha="1" colorSpace="deviceRGB"/>
-                        <constraints>
-                            <constraint firstItem="Ara-bz-33F" firstAttribute="top" secondItem="d8z-Rb-SfP" secondAttribute="bottom" id="Luc-Wh-62Y"/>
-                            <constraint firstAttribute="trailing" secondItem="d8z-Rb-SfP" secondAttribute="trailing" id="Rf7-2Y-is1"/>
-                            <constraint firstItem="d8z-Rb-SfP" firstAttribute="top" secondItem="mJi-sT-jbO" secondAttribute="top" id="bEq-Uk-A2F"/>
-                            <constraint firstItem="d8z-Rb-SfP" firstAttribute="leading" secondItem="mJi-sT-jbO" secondAttribute="leading" id="hKc-Ga-0L7"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Menu" id="JQS-Ol-Zao"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uLP-hg-LwM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2080" y="-112"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="umu-VO-FdU">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pq6-yp-7Yp" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SGg-ae-ACb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                            <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="textShadowColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="3gO-1d-0YW" kind="relationship" relationship="rootViewController" id="Gb1-U5-LEw"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oh7-SQ-u3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1555" y="-112"/>
-        </scene>
         <!--Bus Poits Radius View Controller-->
         <scene sceneID="iDP-aW-o5C">
             <objects>
-                <tableViewController storyboardIdentifier="RightViewControllerId" id="htW-Dl-EeB" customClass="BusPoitsRadiusViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RightViewControllerId" useStoryboardIdentifierAsRestorationIdentifier="YES" id="htW-Dl-EeB" customClass="BusPoitsRadiusViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2ay-Uc-c2R">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -574,6 +442,112 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="                                                Busca de Rota" id="nve-L8-QU2">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Nmu-Ln-uCt">
+                                        <rect key="frame" x="0.0" y="110" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nmu-Ln-uCt" id="5nh-aS-mAa">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Máxima distância à pé" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="131" translatesAutoresizingMaskIntoConstraints="NO" id="VVT-kH-fyY">
+                                                    <rect key="frame" x="169" y="6" width="131" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
+                                                    <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="VVT-kH-fyY" secondAttribute="trailing" constant="20" symbolic="YES" id="cxJ-3S-To7"/>
+                                                <constraint firstAttribute="centerY" secondItem="VVT-kH-fyY" secondAttribute="centerY" constant="-3" id="d1R-aq-mCm"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Qhr-fD-ndm">
+                                        <rect key="frame" x="0.0" y="154" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qhr-fD-ndm" id="w4y-ME-W6A">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="2000" stepValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="7uk-MI-Hei">
+                                                    <rect key="frame" x="152" y="8" width="94" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <connections>
+                                                        <action selector="distanceChanged:" destination="htW-Dl-EeB" eventType="valueChanged" id="ZcJ-fu-7ZO"/>
+                                                    </connections>
+                                                </stepper>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yy1-BE-nGY">
+                                                    <rect key="frame" x="254" y="12" width="46" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
+                                                    <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Yy1-BE-nGY" firstAttribute="leading" secondItem="7uk-MI-Hei" secondAttribute="trailing" constant="8" symbolic="YES" id="a24-0e-B1h"/>
+                                                <constraint firstAttribute="trailing" secondItem="Yy1-BE-nGY" secondAttribute="trailing" constant="20" symbolic="YES" id="daF-cl-oYi"/>
+                                                <constraint firstAttribute="centerY" secondItem="Yy1-BE-nGY" secondAttribute="centerY" id="gfM-gN-60U"/>
+                                                <constraint firstAttribute="centerY" secondItem="7uk-MI-Hei" secondAttribute="centerY" id="vza-V0-iSd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="u8u-OZ-VMp">
+                                        <rect key="frame" x="0.0" y="198" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u8u-OZ-VMp" id="NZr-Np-zaM">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Número máximo de ônibus" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="146" translatesAutoresizingMaskIntoConstraints="NO" id="Isx-ps-gcv">
+                                                    <rect key="frame" x="154" y="3" width="146" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
+                                                    <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="Isx-ps-gcv" secondAttribute="centerY" id="JY7-xH-rT3"/>
+                                                <constraint firstAttribute="trailing" secondItem="Isx-ps-gcv" secondAttribute="trailing" constant="20" symbolic="YES" id="Uxl-dQ-noR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ZfG-vx-39d">
+                                        <rect key="frame" x="0.0" y="242" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZfG-vx-39d" id="v9r-Zl-sZp">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVx-O1-e3X">
+                                                    <rect key="frame" x="273" y="12" width="47" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
+                                                    <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="D7J-Fq-ocM">
+                                                    <rect key="frame" x="171" y="8" width="94" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <connections>
+                                                        <action selector="busChanged:" destination="htW-Dl-EeB" eventType="valueChanged" id="EKH-1N-YLl"/>
+                                                    </connections>
+                                                </stepper>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="DVx-O1-e3X" secondAttribute="centerY" id="JsE-n5-Lgs"/>
+                                                <constraint firstAttribute="trailing" secondItem="DVx-O1-e3X" secondAttribute="trailing" id="RpW-XO-WIV"/>
+                                                <constraint firstAttribute="centerY" secondItem="D7J-Fq-ocM" secondAttribute="centerY" id="ldl-dY-zK3"/>
+                                                <constraint firstItem="DVx-O1-e3X" firstAttribute="leading" secondItem="D7J-Fq-ocM" secondAttribute="trailing" constant="8" symbolic="YES" id="r3W-0z-My9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="htW-Dl-EeB" id="SvW-tU-Z5X"/>
@@ -581,7 +555,11 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="bus" destination="DVx-O1-e3X" id="QOz-UT-fqB"/>
+                        <outlet property="howMuchBus" destination="D7J-Fq-ocM" id="o2a-ea-5dC"/>
+                        <outlet property="radius" destination="Yy1-BE-nGY" id="uvS-Cm-Fsu"/>
                         <outlet property="radiusChange" destination="qnZ-LX-60g" id="Sod-1k-kUu"/>
+                        <outlet property="radiusIncrement" destination="7uk-MI-Hei" id="Dzr-HH-92z"/>
                         <outlet property="radiusText" destination="ohK-3n-7Qd" id="sXE-ji-sS1"/>
                     </connections>
                 </tableViewController>
@@ -592,7 +570,7 @@
         <!--Navigation Controller-->
         <scene sceneID="r6Z-5r-AlM">
             <objects>
-                <navigationController storyboardIdentifier="NavigationControllerId" automaticallyAdjustsScrollViewInsets="NO" id="yUh-JW-h8r" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationControllerId" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yUh-JW-h8r" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FHN-YS-QyX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fZF-Pz-8bL">
@@ -611,170 +589,42 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tl0-pp-v8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="665" y="554"/>
+            <point key="canvasLocation" x="542" y="554"/>
         </scene>
-        <!--Config View Controller-->
-        <scene sceneID="fcw-iN-JuD">
+        <!--Tab Bar View Controller - Planejamento de Rota-->
+        <scene sceneID="9LD-ks-SxJ">
             <objects>
-                <tableViewController storyboardIdentifier="SearchConfigViewControllerId" id="9aa-BN-8cV" customClass="ConfigViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yqa-ZZ-Trt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection id="3ag-ck-edb">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="TvJ-De-ZV5">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TvJ-De-ZV5" id="2bq-iq-cpt">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Máxima distância à pé" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="131" translatesAutoresizingMaskIntoConstraints="NO" id="teb-2H-Bca">
-                                                    <rect key="frame" x="169" y="6" width="131" height="38"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
-                                                    <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="teb-2H-Bca" secondAttribute="trailing" constant="20" symbolic="YES" id="k7q-co-8Ef"/>
-                                                <constraint firstAttribute="centerY" secondItem="teb-2H-Bca" secondAttribute="centerY" constant="-3" id="zdg-RB-f87"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ho5-7C-7Zp">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ho5-7C-7Zp" id="bds-r7-dAk">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="2000" stepValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="5aB-4P-RIr">
-                                                    <rect key="frame" x="152" y="8" width="94" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <connections>
-                                                        <action selector="radiusChange:" destination="9aa-BN-8cV" eventType="valueChanged" id="FCX-CD-QMa"/>
-                                                    </connections>
-                                                </stepper>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCH-89-ggV">
-                                                    <rect key="frame" x="254" y="12" width="46" height="19"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
-                                                    <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="DCH-89-ggV" firstAttribute="leading" secondItem="5aB-4P-RIr" secondAttribute="trailing" constant="8" symbolic="YES" id="GLO-lB-n1e"/>
-                                                <constraint firstAttribute="centerY" secondItem="5aB-4P-RIr" secondAttribute="centerY" id="PIg-bT-Snu"/>
-                                                <constraint firstAttribute="trailing" secondItem="DCH-89-ggV" secondAttribute="trailing" constant="20" symbolic="YES" id="bxc-gF-0vy"/>
-                                                <constraint firstAttribute="centerY" secondItem="DCH-89-ggV" secondAttribute="centerY" id="y83-Rh-miT"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ZLj-kj-z1n">
-                                        <rect key="frame" x="0.0" y="88" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZLj-kj-z1n" id="2GX-dC-pr6">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Número máximo de ônibus" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="146" translatesAutoresizingMaskIntoConstraints="NO" id="hZh-J5-Jb5">
-                                                    <rect key="frame" x="154" y="3" width="146" height="38"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
-                                                    <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="hZh-J5-Jb5" secondAttribute="centerY" id="HGV-Gh-bql"/>
-                                                <constraint firstAttribute="trailing" secondItem="hZh-J5-Jb5" secondAttribute="trailing" constant="20" symbolic="YES" id="ijT-OS-IbL"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0oR-2L-92O">
-                                        <rect key="frame" x="0.0" y="132" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0oR-2L-92O" id="Hac-mW-ob6">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjZ-lE-TqK">
-                                                    <rect key="frame" x="273" y="12" width="47" height="19"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
-                                                    <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="5jD-O8-cbn">
-                                                    <rect key="frame" x="171" y="8" width="94" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <connections>
-                                                        <action selector="busChange:" destination="9aa-BN-8cV" eventType="valueChanged" id="If7-8S-JO7"/>
-                                                    </connections>
-                                                </stepper>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="5jD-O8-cbn" secondAttribute="centerY" id="OVv-9A-kt0"/>
-                                                <constraint firstItem="yjZ-lE-TqK" firstAttribute="leading" secondItem="5jD-O8-cbn" secondAttribute="trailing" constant="8" symbolic="YES" id="Q2P-pO-AjS"/>
-                                                <constraint firstAttribute="centerY" secondItem="yjZ-lE-TqK" secondAttribute="centerY" id="rah-IR-duf"/>
-                                                <constraint firstAttribute="trailing" secondItem="yjZ-lE-TqK" secondAttribute="trailing" id="yhd-8Y-W4C"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="9aa-BN-8cV" id="gKa-0b-c6S"/>
-                            <outlet property="delegate" destination="9aa-BN-8cV" id="Sxn-hN-JYM"/>
-                        </connections>
-                    </tableView>
-                    <connections>
-                        <outlet property="bus" destination="yjZ-lE-TqK" id="Wiv-ZG-cyx"/>
-                        <outlet property="howMuchBus" destination="5jD-O8-cbn" id="vzV-ZG-tVg"/>
-                        <outlet property="radius" destination="DCH-89-ggV" id="m7J-Nx-2az"/>
-                        <outlet property="radiusIncrement" destination="5aB-4P-RIr" id="Riq-bt-KzQ"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cNm-Yd-xvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1011" y="-1446"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="w0m-sx-cTO">
-            <objects>
-                <navigationController storyboardIdentifier="SearchViewControllerId" automaticallyAdjustsScrollViewInsets="NO" id="NvI-qv-ilf" sceneMemberID="viewController">
+                <tabBarController title="Planejamento de Rota" automaticallyAdjustsScrollViewInsets="NO" id="Ted-f0-H4S" customClass="TabBarViewController" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="01i-m1-SzX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <navigationItem key="navigationItem" title="Planejamento de Rota" id="MOl-2u-NH8">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="qkY-lp-nwc">
+                            <connections>
+                                <action selector="planRoute:" destination="Ted-f0-H4S" id="Vi1-6e-DYK"/>
+                                <segue destination="ZV3-ap-nIc" kind="push" identifier="push" id="qlm-5J-k1j"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="nVi-8Z-NkC">
                         <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                            <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="textShadowColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
                     <connections>
-                        <segue destination="hu4-u4-m8j" kind="relationship" relationship="rootViewController" id="VEa-TP-tFQ"/>
+                        <segue destination="c7x-8d-jaA" kind="relationship" relationship="viewControllers" id="cEF-I0-VLI"/>
+                        <segue destination="SaY-Jt-uZn" kind="relationship" relationship="viewControllers" id="xPO-pK-OvA"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B7f-u3-8MN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SCW-xI-XXJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="599" y="-782"/>
+            <point key="canvasLocation" x="1369" y="-1230"/>
         </scene>
     </scenes>
     <resources>
         <image name="Apple-Wood-iphone-wallpaper-ilikewallpaper_com" width="640" height="960"/>
+        <image name="ThePin" width="16" height="30"/>
+        <image name="WORLD2" width="32" height="32"/>
         <image name="about-32" width="32" height="32"/>
-        <image name="background" width="640" height="1136"/>
         <image name="config_icon" width="32" height="32"/>
-        <image name="jjjjjjjjjj" width="560" height="528"/>
         <image name="menu" width="32" height="32"/>
     </resources>
     <color key="tintColor" red="1" green="0.75243891230000004" blue="0.36652966209999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -784,8 +634,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zfs-Hl-V8l"/>
-        <segue reference="dXO-37-sia"/>
         <segue reference="9sl-V6-wv0"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,6 +11,11 @@
 @interface BusPoitsRadiusViewController () 
 @property (weak, nonatomic) IBOutlet UILabel *radiusText;
 @property (weak, nonatomic) IBOutlet UIStepper *radiusChange;
+@property (weak, nonatomic) IBOutlet UIStepper *howMuchBus;
+@property (weak, nonatomic) IBOutlet UIStepper *radiusIncrement;
+@property (weak, nonatomic) IBOutlet UILabel *radius;
+@property (weak, nonatomic) IBOutlet UILabel *bus;
+
 
 @end
 
@@ -34,6 +39,12 @@
     NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     self.radiusChange.value = [prefs integerForKey:@"Radius"];
     self.radiusText.text = [NSString stringWithFormat:@"%ldm", (long)[prefs integerForKey:@"Radius"]];
+	self.radiusIncrement.value = [prefs integerForKey:@"SearchRadius"];
+    self.radius.text = [NSString stringWithFormat:@"%ldm", (long)[prefs integerForKey:@"SearchRadius"]];
+    self.howMuchBus.value = [prefs integerForKey:@"Bus"];
+    self.bus.text = [NSString stringWithFormat:@"%ld",(long)[prefs integerForKey:@"Bus"]];
+
+	
     
 }
 
@@ -42,14 +53,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)distanceChanged:(UIStepper*)sender {
+	//change the value of the radius of search  for bus stops
+    int radius = [sender value];
+    self.radius.text = [NSString stringWithFormat:@"%dm",radius];
+    NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setInteger:[sender value]
+               forKey:@"SearchRadius"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+}
+- (IBAction)busChanged:(UIStepper*)sender {
+	int bus = [sender value];
+    self.bus.text = [NSString stringWithFormat:@"%d",bus];
+    NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setInteger:[sender value]
+               forKey:@"Bus"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 
-
+}
 
 - (IBAction)radiusChanged:(UIStepper*)sender
 {
     //change the value of the radius of search  for bus stops
-    self.radius = [sender value];
-    self.radiusText.text = [NSString stringWithFormat:@"%dm", self.radius];
+    self.radiusCount = [sender value];
+    self.radiusText.text = [NSString stringWithFormat:@"%dm", self.radiusCount];
     NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     [prefs setInteger:[sender value]
                forKey:@"Radius"];

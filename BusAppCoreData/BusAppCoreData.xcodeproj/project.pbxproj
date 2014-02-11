@@ -32,6 +32,7 @@
 		E89809321896D6C500ECE205 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89809311896D6C500ECE205 /* Storyboard.storyboard */; };
 		E89809341896D84D00ECE205 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89809331896D84D00ECE205 /* MapKit.framework */; };
 		E89809371896DC4900ECE205 /* BusAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E89809361896DC4900ECE205 /* BusAppViewController.m */; };
+		E8A115B518AA9DEF0054573A /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A115B418AA9DEF0054573A /* TabBarViewController.m */; };
 		E8A6836318A16E39004CC614 /* Bus_line.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A6836218A16E39004CC614 /* Bus_line.m */; };
 		E8A6836618A16E39004CC614 /* Interception.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A6836518A16E39004CC614 /* Interception.m */; };
 		E8A6836918A16E39004CC614 /* Polyline_points.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A6836818A16E39004CC614 /* Polyline_points.m */; };
@@ -114,6 +115,8 @@
 		E89809331896D84D00ECE205 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E89809351896DC4900ECE205 /* BusAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusAppViewController.h; sourceTree = "<group>"; };
 		E89809361896DC4900ECE205 /* BusAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusAppViewController.m; sourceTree = "<group>"; };
+		E8A115B318AA9DEF0054573A /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		E8A115B418AA9DEF0054573A /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		E8A6836118A16E39004CC614 /* Bus_line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus_line.h; sourceTree = "<group>"; };
 		E8A6836218A16E39004CC614 /* Bus_line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus_line.m; sourceTree = "<group>"; };
 		E8A6836418A16E39004CC614 /* Interception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interception.h; sourceTree = "<group>"; };
@@ -305,6 +308,8 @@
 				E8BAF75F1896BA330087E999 /* AppDelegate.m */,
 				E8BAF7641896BA330087E999 /* Images.xcassets */,
 				E8BAF7561896BA330087E999 /* Supporting Files */,
+				E8A115B318AA9DEF0054573A /* TabBarViewController.h */,
+				E8A115B418AA9DEF0054573A /* TabBarViewController.m */,
 			);
 			path = BusAppCoreData;
 			sourceTree = "<group>";
@@ -477,6 +482,7 @@
 				E8A6836318A16E39004CC614 /* Bus_line.m in Sources */,
 				AB3AB670189FF00E00BB16BB /* Node.m in Sources */,
 				B92AA4DE189A867300A6C8F7 /* BusTableViewController.m in Sources */,
+				E8A115B518AA9DEF0054573A /* TabBarViewController.m in Sources */,
 				B9F926B71897D02300B5A61E /* ServerUpdateRequest.m in Sources */,
 				B9F926B61896CE1E00B5A61E /* JsonRequest.m in Sources */,
 				AB3AB66D189FD20D00BB16BB /* TrajectoryPlanner.m in Sources */,

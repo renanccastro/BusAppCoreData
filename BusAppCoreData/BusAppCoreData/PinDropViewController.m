@@ -101,4 +101,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)setInfoForController:(TrajectoryViewController*)controller{
+		controller.final = self.pinLocation;
+		[controller justGotInfo];
+
+
+}
+
+
 @end

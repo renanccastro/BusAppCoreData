@@ -10,5 +10,5 @@
 
 @interface BusPoitsRadiusViewController : UITableViewController
 
-@property (nonatomic) int radius;
+@property (nonatomic) int radiusCount;
 @end

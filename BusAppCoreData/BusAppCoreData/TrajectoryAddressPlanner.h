@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "TabBarViewController.h"
 
-@interface TrajectoryAddressPlanner : UIViewController
-
+@interface TrajectoryAddressPlanner : UIViewController <SetInfo>
+@property (nonatomic) CLLocationCoordinate2D final;
 @end
