@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Apple-Wood-iphone-wallpaper-ilikewallpaper_com" translatesAutoresizingMaskIntoConstraints="NO" id="XqE-ly-0iV">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Apple-Wood-iphone-wallpaper-ilikewallpaper_com" translatesAutoresizingMaskIntoConstraints="NO" id="XqE-ly-0iV">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hi2-Is-4AL">
@@ -70,6 +70,12 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XqE-ly-0iV" firstAttribute="leading" secondItem="Ibk-Tz-A8I" secondAttribute="leading" id="gcC-Sa-0Qq"/>
+                            <constraint firstAttribute="trailing" secondItem="XqE-ly-0iV" secondAttribute="trailing" id="ifj-xE-tNu"/>
+                            <constraint firstItem="XqE-ly-0iV" firstAttribute="top" secondItem="Ibk-Tz-A8I" secondAttribute="top" id="y34-HA-J0q"/>
+                            <constraint firstAttribute="bottom" secondItem="XqE-ly-0iV" secondAttribute="bottom" id="zxS-hu-P7F"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Por Endereço" image="ThePin" id="Edn-DG-KdW"/>
                     <navigationItem key="navigationItem" title="Endereço" id="ndi-Ac-HHd">
@@ -83,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ew-Sb-j8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="790" y="-1962"/>
+            <point key="canvasLocation" x="1369" y="-1985"/>
         </scene>
         <!--Trajectory View Controller - Rota-->
         <scene sceneID="I7c-NH-N4o">
@@ -118,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JXi-2f-O6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2634" y="-1239"/>
+            <point key="canvasLocation" x="2224" y="-1230"/>
         </scene>
         <!--Information View Controller-->
         <scene sceneID="BR3-Ob-oJU">
@@ -160,7 +166,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WLz-M8-37Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3173" y="-1239"/>
+            <point key="canvasLocation" x="2967" y="-1230"/>
         </scene>
         <!--Bus Line View Controller - Rota-->
         <scene sceneID="fcq-NL-50x">
@@ -171,19 +177,19 @@
                         <viewControllerLayoutGuide type="bottom" id="zFi-eO-Oth"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="l8Y-Ie-rRE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghI-2L-iLI">
-                                <rect key="frame" x="0.0" y="64" width="320" height="228"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="252"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="bxf-Rf-9fD" id="GKK-wv-fWJ"/>
                                 </connections>
                             </webView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HNT-e3-WZm">
-                                <rect key="frame" x="0.0" y="292" width="320" height="228"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HNT-e3-WZm">
+                                <rect key="frame" x="0.0" y="316" width="320" height="252"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="nCs-0h-LeH">
@@ -215,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRg-Md-zVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2967" y="554"/>
+            <point key="canvasLocation" x="3271" y="354"/>
         </scene>
         <!--Stops Near View Controller - Pontos de ônibus-->
         <scene sceneID="M2K-VY-PaJ">
@@ -244,15 +250,15 @@
                     </view>
                     <navigationItem key="navigationItem" title="Pontos de ônibus" id="riz-0x-P4a">
                         <barButtonItem key="backBarButtonItem" title="Pontos" id="GR2-zI-naN"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="goA-tK-ma1">
+                        <barButtonItem key="leftBarButtonItem" image="config_icon" width="41" id="jeC-5X-rgj">
+                            <connections>
+                                <action selector="showConfiguration:" destination="XOq-n4-aYC" id="3Sn-2b-Hhj"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="goA-tK-ma1">
                             <connections>
                                 <action selector="goToPoints:" destination="XOq-n4-aYC" id="bGj-aR-2Jx"/>
                                 <segue destination="Ted-f0-H4S" kind="push" id="IGN-46-k1v"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="config_icon" width="41" id="jeC-5X-rgj">
-                            <connections>
-                                <action selector="showConfiguration:" destination="XOq-n4-aYC" id="3Sn-2b-Hhj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -263,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uI-ZH-GQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1011" y="554"/>
+            <point key="canvasLocation" x="1115" y="364"/>
         </scene>
         <!--Pin Drop View Controller - Planejamento pelo mapa-->
         <scene sceneID="j2y-t2-b5P">
@@ -301,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d52-cz-s5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="754" y="-572"/>
+            <point key="canvasLocation" x="1369" y="-532"/>
         </scene>
         <!--Bus App View Controller-->
         <scene sceneID="w2y-BR-0VU">
@@ -315,23 +321,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qp9-ed-BNq">
-                                <rect key="frame" x="137" y="269" width="31" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qp9-ed-BNq">
+                                <rect key="frame" x="75" y="209" width="171" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="start">
+                                <state key="normal" title="start" image="jjjjjjjjjj">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="lla:" destination="MWu-ZW-359" eventType="touchUpInside" id="qYk-kO-pGN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iBusão" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqx-br-DJs">
+                                <rect key="frame" x="134" y="180" width="53" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PGm-Gz-q95" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1573" y="899"/>
+            <point key="canvasLocation" x="2763" y="1189"/>
         </scene>
         <!--Bus Table View Controller - Linhas De Onibus-->
         <scene sceneID="RpD-tq-vAM">
@@ -376,7 +389,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NxO-vD-O7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2080" y="554"/>
+            <point key="canvasLocation" x="2134" y="354"/>
         </scene>
         <!--Bus Poits Radius View Controller-->
         <scene sceneID="iDP-aW-o5C">
@@ -396,18 +409,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raio de busca" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRC-SQ-5Ln">
-                                                    <rect key="frame" x="179" y="12" width="121" height="19"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Raio de busca" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRC-SQ-5Ln">
+                                                    <rect key="frame" x="20" y="12" width="121" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
                                                     <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="MRC-SQ-5Ln" secondAttribute="trailing" constant="20" symbolic="YES" id="GoN-9C-c8a"/>
-                                                <constraint firstAttribute="centerY" secondItem="MRC-SQ-5Ln" secondAttribute="centerY" id="yOf-V7-ZDu"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="vui-9Q-zIV">
@@ -417,32 +426,26 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600m " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohK-3n-7Qd">
-                                                    <rect key="frame" x="243" y="11" width="57" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600m " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohK-3n-7Qd">
+                                                    <rect key="frame" x="102" y="11" width="70" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
                                                     <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="600" maximumValue="2000" stepValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="qnZ-LX-60g">
-                                                    <rect key="frame" x="141" y="8" width="94" height="29"/>
+                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="600" maximumValue="2000" stepValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="qnZ-LX-60g">
+                                                    <rect key="frame" x="8" y="7" width="94" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <connections>
                                                         <action selector="radiusChanged:" destination="htW-Dl-EeB" eventType="valueChanged" id="uqe-Kh-Isf"/>
                                                     </connections>
                                                 </stepper>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="ohK-3n-7Qd" secondAttribute="trailing" constant="20" symbolic="YES" id="1n7-SH-Gen"/>
-                                                <constraint firstAttribute="centerY" secondItem="ohK-3n-7Qd" secondAttribute="centerY" id="1rR-LE-VY4"/>
-                                                <constraint firstAttribute="centerY" secondItem="qnZ-LX-60g" secondAttribute="centerY" id="3Le-Cj-Tf2"/>
-                                                <constraint firstItem="ohK-3n-7Qd" firstAttribute="leading" secondItem="qnZ-LX-60g" secondAttribute="trailing" constant="8" symbolic="YES" id="ERO-P5-qEN"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="                                                Busca de Rota" id="nve-L8-QU2">
+                            <tableViewSection headerTitle="Busca de Rota" id="nve-L8-QU2">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Nmu-Ln-uCt">
                                         <rect key="frame" x="0.0" y="110" width="320" height="44"/>
@@ -451,18 +454,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Máxima distância à pé" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="131" translatesAutoresizingMaskIntoConstraints="NO" id="VVT-kH-fyY">
-                                                    <rect key="frame" x="169" y="6" width="131" height="38"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Máxima distância à pé" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="131" translatesAutoresizingMaskIntoConstraints="NO" id="VVT-kH-fyY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="131" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
                                                     <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="VVT-kH-fyY" secondAttribute="trailing" constant="20" symbolic="YES" id="cxJ-3S-To7"/>
-                                                <constraint firstAttribute="centerY" secondItem="VVT-kH-fyY" secondAttribute="centerY" constant="-3" id="d1R-aq-mCm"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Qhr-fD-ndm">
@@ -472,27 +471,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="2000" stepValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="7uk-MI-Hei">
-                                                    <rect key="frame" x="152" y="8" width="94" height="29"/>
+                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="2000" stepValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="7uk-MI-Hei">
+                                                    <rect key="frame" x="7" y="7" width="94" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <connections>
                                                         <action selector="distanceChanged:" destination="htW-Dl-EeB" eventType="valueChanged" id="ZcJ-fu-7ZO"/>
                                                     </connections>
                                                 </stepper>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yy1-BE-nGY">
-                                                    <rect key="frame" x="254" y="12" width="46" height="19"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="600m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yy1-BE-nGY">
+                                                    <rect key="frame" x="102" y="12" width="65" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
                                                     <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Yy1-BE-nGY" firstAttribute="leading" secondItem="7uk-MI-Hei" secondAttribute="trailing" constant="8" symbolic="YES" id="a24-0e-B1h"/>
-                                                <constraint firstAttribute="trailing" secondItem="Yy1-BE-nGY" secondAttribute="trailing" constant="20" symbolic="YES" id="daF-cl-oYi"/>
-                                                <constraint firstAttribute="centerY" secondItem="Yy1-BE-nGY" secondAttribute="centerY" id="gfM-gN-60U"/>
-                                                <constraint firstAttribute="centerY" secondItem="7uk-MI-Hei" secondAttribute="centerY" id="vza-V0-iSd"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="u8u-OZ-VMp">
@@ -502,18 +495,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Número máximo de ônibus" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="146" translatesAutoresizingMaskIntoConstraints="NO" id="Isx-ps-gcv">
-                                                    <rect key="frame" x="154" y="3" width="146" height="38"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Número máximo de ônibus" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="146" translatesAutoresizingMaskIntoConstraints="NO" id="Isx-ps-gcv">
+                                                    <rect key="frame" x="0.0" y="3" width="146" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
                                                     <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="Isx-ps-gcv" secondAttribute="centerY" id="JY7-xH-rT3"/>
-                                                <constraint firstAttribute="trailing" secondItem="Isx-ps-gcv" secondAttribute="trailing" constant="20" symbolic="YES" id="Uxl-dQ-noR"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ZfG-vx-39d">
@@ -523,27 +512,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVx-O1-e3X">
-                                                    <rect key="frame" x="273" y="12" width="47" height="19"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="     1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVx-O1-e3X">
+                                                    <rect key="frame" x="79" y="12" width="47" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="15"/>
                                                     <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="D7J-Fq-ocM">
-                                                    <rect key="frame" x="171" y="8" width="94" height="29"/>
+                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="D7J-Fq-ocM">
+                                                    <rect key="frame" x="8" y="7" width="94" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <connections>
                                                         <action selector="busChanged:" destination="htW-Dl-EeB" eventType="valueChanged" id="EKH-1N-YLl"/>
                                                     </connections>
                                                 </stepper>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="DVx-O1-e3X" secondAttribute="centerY" id="JsE-n5-Lgs"/>
-                                                <constraint firstAttribute="trailing" secondItem="DVx-O1-e3X" secondAttribute="trailing" id="RpW-XO-WIV"/>
-                                                <constraint firstAttribute="centerY" secondItem="D7J-Fq-ocM" secondAttribute="centerY" id="ldl-dY-zK3"/>
-                                                <constraint firstItem="DVx-O1-e3X" firstAttribute="leading" secondItem="D7J-Fq-ocM" secondAttribute="trailing" constant="8" symbolic="YES" id="r3W-0z-My9"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -565,7 +548,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="deM-K5-ZzK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1011" y="1219"/>
+            <point key="canvasLocation" x="1010" y="1017"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r6Z-5r-AlM">
@@ -589,7 +572,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tl0-pp-v8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="542" y="554"/>
+            <point key="canvasLocation" x="608" y="354"/>
         </scene>
         <!--Tab Bar View Controller - Planejamento de Rota-->
         <scene sceneID="9LD-ks-SxJ">
@@ -597,7 +580,7 @@
                 <tabBarController title="Planejamento de Rota" automaticallyAdjustsScrollViewInsets="NO" id="Ted-f0-H4S" customClass="TabBarViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Planejamento de Rota" id="MOl-2u-NH8">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="qkY-lp-nwc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="fastForward" id="qkY-lp-nwc">
                             <connections>
                                 <action selector="planRoute:" destination="Ted-f0-H4S" id="Vi1-6e-DYK"/>
                                 <segue destination="ZV3-ap-nIc" kind="push" identifier="push" id="qlm-5J-k1j"/>
@@ -625,6 +608,7 @@
         <image name="WORLD2" width="32" height="32"/>
         <image name="about-32" width="32" height="32"/>
         <image name="config_icon" width="32" height="32"/>
+        <image name="jjjjjjjjjj" width="560" height="528"/>
         <image name="menu" width="32" height="32"/>
     </resources>
     <color key="tintColor" red="1" green="0.75243891230000004" blue="0.36652966209999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -634,6 +618,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="9sl-V6-wv0"/>
+        <segue reference="tLv-It-XfT"/>
     </inferredMetricsTieBreakers>
 </document>

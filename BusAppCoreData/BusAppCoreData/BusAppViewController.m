@@ -36,7 +36,7 @@
     UITableViewController *right = [mystoryboard instantiateViewControllerWithIdentifier:@"RightViewControllerId"];
     UINavigationController *front = [mystoryboard instantiateViewControllerWithIdentifier:@"NavigationControllerId"];
     PKRevealController *revealView  = [PKRevealController revealControllerWithFrontViewController:front
-																			  rightViewController:right];
+																			  leftViewController:right];
     
     front.revealController = revealView;
     [revealView setMinimumWidth:180.0
@@ -56,7 +56,7 @@
     UITableViewController *right = [mystoryboard instantiateViewControllerWithIdentifier:@"RightViewControllerId"];
     UINavigationController *front = [mystoryboard instantiateViewControllerWithIdentifier:@"NavigationControllerId"];
     PKRevealController *revealView  = [PKRevealController revealControllerWithFrontViewController:front
-																			  rightViewController:right];
+																			  leftViewController:right];
     
     front.revealController = revealView;
     [revealView setMinimumWidth:180.0

@@ -111,7 +111,7 @@
 //Call right side view quem the button is pressed
 - (IBAction)showConfiguration:(id)sender
 {
-    [self.navigationController.revealController showViewController:self.navigationController.revealController.rightViewController];
+    [self.navigationController.revealController showViewController:self.navigationController.revealController.leftViewController];
 
 }
 
