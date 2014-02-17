@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="MWu-ZW-359">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="MWu-ZW-359">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
@@ -16,12 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Apple-Wood-iphone-wallpaper-ilikewallpaper_com" translatesAutoresizingMaskIntoConstraints="NO" id="XqE-ly-0iV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grayyyyyLines" translatesAutoresizingMaskIntoConstraints="NO" id="XqE-ly-0iV">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hi2-Is-4AL">
-                                <rect key="frame" x="98" y="175" width="163" height="30"/>
+                                <rect key="frame" x="91" y="200" width="202" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -30,14 +30,14 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Endereço" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKL-ok-vQk">
-                                <rect key="frame" x="14" y="181" width="69" height="17"/>
+                                <rect key="frame" x="20" y="213" width="69" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
                                 <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pkp-b8-AHO">
-                                <rect key="frame" x="98" y="234" width="163" height="30"/>
+                                <rect key="frame" x="91" y="245" width="202" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -46,21 +46,21 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Numero" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PiP-sZ-qo4">
-                                <rect key="frame" x="14" y="234" width="56" height="17"/>
+                                <rect key="frame" x="27" y="251" width="56" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
                                 <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bairro" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uI6-0d-eOA">
-                                <rect key="frame" x="20" y="303" width="46" height="17"/>
+                                <rect key="frame" x="32" y="295" width="46" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
                                 <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3CD-L3-m0P">
-                                <rect key="frame" x="98" y="297" width="163" height="30"/>
+                                <rect key="frame" x="91" y="289" width="202" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -70,12 +70,6 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="XqE-ly-0iV" firstAttribute="leading" secondItem="Ibk-Tz-A8I" secondAttribute="leading" id="gcC-Sa-0Qq"/>
-                            <constraint firstAttribute="trailing" secondItem="XqE-ly-0iV" secondAttribute="trailing" id="ifj-xE-tNu"/>
-                            <constraint firstItem="XqE-ly-0iV" firstAttribute="top" secondItem="Ibk-Tz-A8I" secondAttribute="top" id="y34-HA-J0q"/>
-                            <constraint firstAttribute="bottom" secondItem="XqE-ly-0iV" secondAttribute="bottom" id="zxS-hu-P7F"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Por Endereço" image="ThePin" id="Edn-DG-KdW"/>
                     <navigationItem key="navigationItem" title="Endereço" id="ndi-Ac-HHd">
@@ -321,6 +315,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="gray" translatesAutoresizingMaskIntoConstraints="NO" id="AP7-up-fLN">
+                                <rect key="frame" x="0.0" y="0.0" width="342" height="589"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qp9-ed-BNq">
                                 <rect key="frame" x="75" y="209" width="171" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -332,14 +330,20 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iBusão" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqx-br-DJs">
-                                <rect key="frame" x="134" y="180" width="53" height="21"/>
+                                <rect key="frame" x="124" y="180" width="112" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="AP7-up-fLN" secondAttribute="bottom" id="8SK-V2-zdI"/>
+                            <constraint firstAttribute="trailing" secondItem="AP7-up-fLN" secondAttribute="trailing" id="JqJ-7p-49s"/>
+                            <constraint firstItem="AP7-up-fLN" firstAttribute="leading" secondItem="lIy-eZ-Fp6" secondAttribute="leading" id="wH7-Eh-FM9"/>
+                            <constraint firstItem="AP7-up-fLN" firstAttribute="top" secondItem="lIy-eZ-Fp6" secondAttribute="top" id="yN6-Zt-4WU"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PGm-Gz-q95" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -603,11 +607,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Apple-Wood-iphone-wallpaper-ilikewallpaper_com" width="640" height="960"/>
         <image name="ThePin" width="16" height="30"/>
         <image name="WORLD2" width="32" height="32"/>
         <image name="about-32" width="32" height="32"/>
         <image name="config_icon" width="32" height="32"/>
+        <image name="gray" width="1906" height="1220"/>
+        <image name="grayyyyyLines" width="1920" height="1080"/>
         <image name="jjjjjjjjjj" width="560" height="528"/>
         <image name="menu" width="32" height="32"/>
     </resources>
