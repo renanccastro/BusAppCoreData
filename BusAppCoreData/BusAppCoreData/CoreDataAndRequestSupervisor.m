@@ -12,6 +12,7 @@
 #import "Bus_points+CoreDataMethods.h"
 #import "Interception+CoreDataMethods.h"
 #import "JsonRequest.h"
+#import "StopTime+CoreDataMethods.h"
 
 
 @interface CoreDataAndRequestSupervisor () <ServerUpdateRequestDelegate,JsonRequestDelegate>
@@ -211,6 +212,66 @@ static  CoreDataAndRequestSupervisor *supervisor;
 	[self.queue addOperation:operation];
 	
 }
+
+-(void)circularUnicamp
+{
+    Bus_line *bus = [NSEntityDescription insertNewObjectForEntityForName:@"Bus_line"
+                                                  inManagedObjectContext:self.context];
+    
+    bus.full_name = @"Circular 1";
+    
+    NSMutableDictionary *timeStop  = [[NSMutableDictionary alloc] init];
+    [timeStop setObject:bus forKey:@"Bus"];
+    
+    NSMutableArray *times = [self stopTimesArray];
+    
+    [timeStop setObject:times forKey:@"times"];
+    
+    NSNumber *lat = [NSNumber numberWithDouble:-22.816603];
+    NSNumber *lng = [NSNumber numberWithDouble:-47.07293];
+    
+    [timeStop setObject:lat forKey:@"lat"];
+    [timeStop setObject:lng forKey:@"lg"];
+    
+    BOOL save = [StopTime createBusStopTimeWithDictionary:timeStop];
+    
+    if(!save)
+    {
+        //TODO
+    }
+}
+
+-(NSMutableArray*)stopTimesArray
+{
+    NSMutableArray *times = [[NSMutableArray alloc] init];
+    
+    NSString *timeStr = @"6:43,7:38,8:6,8:19,8:41,8:49,9:16,9:46,10:2,10:15,10:31,10:47,11:3,11:16,11:31,11:47,12:4,12:20,12:30,12:46,13:1,13:15,13:31,13:39,14:0,14:18,14:29,14:46,15:16,15:31,15:45,16:17,16:31,16:40,17:6,17:29,17:37,18:10,19:11";
+    
+    NSArray *array = [[NSArray alloc] init];
+    
+    array = [timeStr componentsSeparatedByString:@","];
+    
+    for(NSString *time in array)
+    {
+        NSArray *minHours = [[NSArray alloc] init];
+        minHours = [time componentsSeparatedByString:@":"];
+        [times addObject:[self returnTimeInSeconds:minHours]];
+    }
+    
+    
+    return times;
+}
+
+-(NSNumber*)returnTimeInSeconds:(NSArray*)time
+{
+    
+    NSTimeInterval seconds = ([time[0] doubleValue]*60*60) + ([time[1] doubleValue]*60);
+    
+    NSNumber *total = [NSNumber numberWithDouble:seconds];
+    
+    return total;
+}
+
 
 
 @end

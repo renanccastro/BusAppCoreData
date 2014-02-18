@@ -2,7 +2,7 @@
 //  StopTime.h
 //  BusAppCoreData
 //
-//  Created by Renan Camargo de Castro on 18/02/14.
+//  Created by Flavio Matheus on 18/02/14.
 //  Copyright (c) 2014 BEPiD. All rights reserved.
 //
 
@@ -13,7 +13,7 @@
 
 @interface StopTime : NSManagedObject
 
-@property (nonatomic, retain) NSDate * time;
+@property (nonatomic, retain) NSNumber * time;
 @property (nonatomic, retain) Bus_line *bus;
 @property (nonatomic, retain) Bus_points *stop;
 

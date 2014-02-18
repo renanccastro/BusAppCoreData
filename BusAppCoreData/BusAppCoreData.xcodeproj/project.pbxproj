@@ -18,6 +18,8 @@
 		B92AA4DE189A867300A6C8F7 /* BusTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92AA4DD189A867300A6C8F7 /* BusTableViewController.m */; };
 		B934777818A29F23001F9E0A /* ConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B934777718A29F23001F9E0A /* ConfigViewController.m */; };
 		B934777B18A3F66D001F9E0A /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B934777A18A3F66D001F9E0A /* InformationViewController.m */; };
+		B954105118B38F46004B86E3 /* StopTime+CoreDataMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = B954105018B38F46004B86E3 /* StopTime+CoreDataMethods.m */; };
+		B954105418B3C026004B86E3 /* StopTime.m in Sources */ = {isa = PBXBuildFile; fileRef = B954105318B3C026004B86E3 /* StopTime.m */; };
 		B961CC0318A0F78300D5C3E8 /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B961CC0218A0F78300D5C3E8 /* MarqueeLabel.m */; };
 		B961CC0618A0F87400D5C3E8 /* MovingTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B961CC0518A0F87400D5C3E8 /* MovingTitleCell.m */; };
 		B961CC0818A0FB6A00D5C3E8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B961CC0718A0FB6A00D5C3E8 /* QuartzCore.framework */; };
@@ -29,7 +31,6 @@
 		E80575ED18B37F23002FAAE4 /* Polyline_points.m in Sources */ = {isa = PBXBuildFile; fileRef = E80575EC18B37F23002FAAE4 /* Polyline_points.m */; };
 		E80575F018B37F23002FAAE4 /* Bus_points.m in Sources */ = {isa = PBXBuildFile; fileRef = E80575EF18B37F23002FAAE4 /* Bus_points.m */; };
 		E80575F318B37F23002FAAE4 /* Bus_line.m in Sources */ = {isa = PBXBuildFile; fileRef = E80575F218B37F23002FAAE4 /* Bus_line.m */; };
-		E80575F618B37F23002FAAE4 /* StopTime.m in Sources */ = {isa = PBXBuildFile; fileRef = E80575F518B37F23002FAAE4 /* StopTime.m */; };
 		E814ABF818A262FC00035FDC /* TrajectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBE88A318A1566B009C3E35 /* TrajectoryViewController.m */; };
 		E814ABFB18A275F100035FDC /* TrajectoryAddressPlanner.m in Sources */ = {isa = PBXBuildFile; fileRef = E814ABFA18A275F100035FDC /* TrajectoryAddressPlanner.m */; };
 		E82D9733189A73020005173B /* CoreLocationExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E82D9732189A73020005173B /* CoreLocationExtension.m */; };
@@ -93,6 +94,10 @@
 		B934777718A29F23001F9E0A /* ConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigViewController.m; sourceTree = "<group>"; };
 		B934777918A3F66D001F9E0A /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
 		B934777A18A3F66D001F9E0A /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
+		B954104F18B38F46004B86E3 /* StopTime+CoreDataMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StopTime+CoreDataMethods.h"; sourceTree = "<group>"; };
+		B954105018B38F46004B86E3 /* StopTime+CoreDataMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "StopTime+CoreDataMethods.m"; sourceTree = "<group>"; };
+		B954105218B3C026004B86E3 /* StopTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopTime.h; sourceTree = "<group>"; };
+		B954105318B3C026004B86E3 /* StopTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopTime.m; sourceTree = "<group>"; };
 		B961CC0118A0F78300D5C3E8 /* MarqueeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarqueeLabel.h; sourceTree = "<group>"; };
 		B961CC0218A0F78300D5C3E8 /* MarqueeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarqueeLabel.m; sourceTree = "<group>"; };
 		B961CC0418A0F87400D5C3E8 /* MovingTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovingTitleCell.h; sourceTree = "<group>"; };
@@ -114,8 +119,6 @@
 		E80575EF18B37F23002FAAE4 /* Bus_points.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus_points.m; sourceTree = "<group>"; };
 		E80575F118B37F23002FAAE4 /* Bus_line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus_line.h; sourceTree = "<group>"; };
 		E80575F218B37F23002FAAE4 /* Bus_line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus_line.m; sourceTree = "<group>"; };
-		E80575F418B37F23002FAAE4 /* StopTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopTime.h; sourceTree = "<group>"; };
-		E80575F518B37F23002FAAE4 /* StopTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopTime.m; sourceTree = "<group>"; };
 		E814ABF918A275F100035FDC /* TrajectoryAddressPlanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrajectoryAddressPlanner.h; sourceTree = "<group>"; };
 		E814ABFA18A275F100035FDC /* TrajectoryAddressPlanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrajectoryAddressPlanner.m; sourceTree = "<group>"; };
 		E82D9731189A73020005173B /* CoreLocationExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationExtension.h; sourceTree = "<group>"; };
@@ -220,8 +223,8 @@
 			isa = PBXGroup;
 			children = (
 				E8C22A3E189832D10050CD0B /* BusAppCoreData.xcdatamodeld */,
-				E80575F418B37F23002FAAE4 /* StopTime.h */,
-				E80575F518B37F23002FAAE4 /* StopTime.m */,
+				B954105218B3C026004B86E3 /* StopTime.h */,
+				B954105318B3C026004B86E3 /* StopTime.m */,
 				E80575F118B37F23002FAAE4 /* Bus_line.h */,
 				E80575F218B37F23002FAAE4 /* Bus_line.m */,
 				E80575EE18B37F23002FAAE4 /* Bus_points.h */,
@@ -238,6 +241,8 @@
 				E8F78B1D1899561900C0EFCB /* Bus_points+CoreDataMethods.m */,
 				E8E49C00189FEFC500B4B629 /* Interception+CoreDataMethods.h */,
 				E8E49C01189FEFC500B4B629 /* Interception+CoreDataMethods.m */,
+				B954104F18B38F46004B86E3 /* StopTime+CoreDataMethods.h */,
+				B954105018B38F46004B86E3 /* StopTime+CoreDataMethods.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -494,6 +499,8 @@
 				B92AA4DE189A867300A6C8F7 /* BusTableViewController.m in Sources */,
 				E8A115B518AA9DEF0054573A /* TabBarViewController.m in Sources */,
 				B9F926B71897D02300B5A61E /* ServerUpdateRequest.m in Sources */,
+				B954105118B38F46004B86E3 /* StopTime+CoreDataMethods.m in Sources */,
+				B954105418B3C026004B86E3 /* StopTime.m in Sources */,
 				B9F926B61896CE1E00B5A61E /* JsonRequest.m in Sources */,
 				AB3AB66D189FD20D00BB16BB /* TrajectoryPlanner.m in Sources */,
 				B961CC0618A0F87400D5C3E8 /* MovingTitleCell.m in Sources */,
@@ -507,7 +514,6 @@
 				B934777818A29F23001F9E0A /* ConfigViewController.m in Sources */,
 				E80575ED18B37F23002FAAE4 /* Polyline_points.m in Sources */,
 				E8BAF7601896BA330087E999 /* AppDelegate.m in Sources */,
-				E80575F618B37F23002FAAE4 /* StopTime.m in Sources */,
 				B961CC0318A0F78300D5C3E8 /* MarqueeLabel.m in Sources */,
 				E814ABFB18A275F100035FDC /* TrajectoryAddressPlanner.m in Sources */,
 				E82D9733189A73020005173B /* CoreLocationExtension.m in Sources */,
