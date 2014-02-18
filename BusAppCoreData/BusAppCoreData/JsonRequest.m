@@ -39,7 +39,7 @@
 -(NSURL*)makeJsonURLWithName:(NSString*)name
 {
     //makes the url for the requested json
-    NSString *urlString = [NSString stringWithFormat:@"http://127.0.0.1:8000/get_json?file=%@",name];
+    NSString *urlString = [NSString stringWithFormat:@"http://127.0.0.1:5000/get_json?file=%@",name];
     
     NSURL *url = [NSURL URLWithString:urlString];
     

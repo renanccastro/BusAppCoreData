@@ -77,11 +77,11 @@ static  CoreDataAndRequestSupervisor *supervisor;
     NSDate *currentDate = [NSDate date];
     
 	//If the current version is equal 0 or, if the update wasn`t done since the last 3 days.
-    if(([currentDate timeIntervalSinceDate:[prefs objectForKey:@"last update"]] > 60*60*24*3) || ([prefs integerForKey:@"version"] == 0))
-    {
+//    if(([currentDate timeIntervalSinceDate:[prefs objectForKey:@"last update"]] > 60*60*24*3) || ([prefs integerForKey:@"version"] == 0))
+//    {
         [serverUpdate requestServerUpdateWithVersion:[prefs integerForKey:@"version"]
                                         withDelegate:self];
-    }
+//    }
 }
 
 #pragma mark - server update delegate methods
@@ -116,6 +116,7 @@ static  CoreDataAndRequestSupervisor *supervisor;
 
 -(void)request:(JsonRequest *)request didFinishWithJson:(id)json
 {
+	NSLog(@"lala");
 	//Start parsing the json!
     NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
         self.requestsFeitas++;

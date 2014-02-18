@@ -18,6 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
+	
+//	NSDictionary* circular2ViaMuseu= @{ [[CLLocation alloc] initWithLatitude:0 longitude:0]:[[NSDate alloc] init]
+//					 };
+	
+	
 	//Save some Core data Variables at the supervisor.
 	[[CoreDataAndRequestSupervisor startSupervisor] setCoordinator: self.persistentStoreCoordinator];
 	[[CoreDataAndRequestSupervisor startSupervisor] setContext:self.managedObjectContext];
