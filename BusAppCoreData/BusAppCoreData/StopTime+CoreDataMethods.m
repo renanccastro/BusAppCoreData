@@ -33,7 +33,7 @@
     }
     NSError * saveError;
 
-    
+    [[CoreDataAndRequestSupervisor startSupervisor].context save:&saveError];
     return saveError ? NO : YES;
 }
 

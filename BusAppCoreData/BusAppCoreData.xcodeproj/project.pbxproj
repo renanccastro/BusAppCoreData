@@ -222,9 +222,9 @@
 		B9F9269A1896BB5200B5A61E /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				E8C22A3E189832D10050CD0B /* BusAppCoreData.xcdatamodeld */,
 				B954105218B3C026004B86E3 /* StopTime.h */,
 				B954105318B3C026004B86E3 /* StopTime.m */,
-				E8C22A3E189832D10050CD0B /* BusAppCoreData.xcdatamodeld */,
 				E80575F118B37F23002FAAE4 /* Bus_line.h */,
 				E80575F218B37F23002FAAE4 /* Bus_line.m */,
 				E80575EE18B37F23002FAAE4 /* Bus_points.h */,
