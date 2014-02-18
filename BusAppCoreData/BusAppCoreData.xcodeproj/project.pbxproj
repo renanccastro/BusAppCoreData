@@ -57,7 +57,7 @@
 		E8E49C2118A00E1000B4B629 /* SlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E49C2018A00E1000B4B629 /* SlidingViewController.m */; };
 		E8F78B1B189955E300C0EFCB /* Polyline_points+CoreDataMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F78B1A189955E300C0EFCB /* Polyline_points+CoreDataMethods.m */; };
 		E8F78B1E1899561900C0EFCB /* Bus_points+CoreDataMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F78B1D1899561900C0EFCB /* Bus_points+CoreDataMethods.m */; };
-		E8F7EF5818B385C000A1F93E /* BusAppCoreData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E8F7EF5718B385C000A1F93E /* BusAppCoreData.sqlite */; };
+		E8F7EF5A18B3A33F00A1F93E /* BusAppCoreData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E8F7EF5918B3A33F00A1F93E /* BusAppCoreData.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,7 +157,7 @@
 		E8F78B1A189955E300C0EFCB /* Polyline_points+CoreDataMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Polyline_points+CoreDataMethods.m"; sourceTree = "<group>"; };
 		E8F78B1C1899561900C0EFCB /* Bus_points+CoreDataMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bus_points+CoreDataMethods.h"; sourceTree = "<group>"; };
 		E8F78B1D1899561900C0EFCB /* Bus_points+CoreDataMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Bus_points+CoreDataMethods.m"; sourceTree = "<group>"; };
-		E8F7EF5718B385C000A1F93E /* BusAppCoreData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BusAppCoreData.sqlite; sourceTree = "<group>"; };
+		E8F7EF5918B3A33F00A1F93E /* BusAppCoreData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BusAppCoreData.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,8 +305,8 @@
 			children = (
 				E89809311896D6C500ECE205 /* Storyboard.storyboard */,
 				E89809351896DC4900ECE205 /* BusAppViewController.h */,
+				E8F7EF5918B3A33F00A1F93E /* BusAppCoreData.sqlite */,
 				E89809361896DC4900ECE205 /* BusAppViewController.m */,
-				E8F7EF5718B385C000A1F93E /* BusAppCoreData.sqlite */,
 				B961CC0118A0F78300D5C3E8 /* MarqueeLabel.h */,
 				B961CC0218A0F78300D5C3E8 /* MarqueeLabel.m */,
 				B961CC0418A0F87400D5C3E8 /* MovingTitleCell.h */,
@@ -402,6 +402,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = BEPiD;
 				TargetAttributes = {
+					E8BAF7491896BA330087E999 = {
+						DevelopmentTeam = BQ5U78JH7Q;
+					};
 					E8BAF7691896BA330087E999 = {
 						TestTargetID = E8BAF7491896BA330087E999;
 					};
@@ -433,7 +436,7 @@
 				E8BAF75A1896BA330087E999 /* InfoPlist.strings in Resources */,
 				E8BAF7651896BA330087E999 /* Images.xcassets in Resources */,
 				E89809321896D6C500ECE205 /* Storyboard.storyboard in Resources */,
-				E8F7EF5818B385C000A1F93E /* BusAppCoreData.sqlite in Resources */,
+				E8F7EF5A18B3A33F00A1F93E /* BusAppCoreData.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,11 +643,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BusAppCoreData/BusAppCoreData-Prefix.pch";
 				INFOPLIST_FILE = "BusAppCoreData/BusAppCoreData-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -657,11 +662,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BusAppCoreData/BusAppCoreData-Prefix.pch";
 				INFOPLIST_FILE = "BusAppCoreData/BusAppCoreData-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

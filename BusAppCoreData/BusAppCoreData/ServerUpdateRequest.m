@@ -36,7 +36,7 @@
 {
     
     //creates the url of the servidor
-    NSString *strURL = [NSString stringWithFormat:@"http://127.0.0.1:8000/update?version=%d",version];
+    NSString *strURL = [NSString stringWithFormat:@"http://127.0.0.1:5000/update?version=%d",version];
     
     NSURL *url = [NSURL URLWithString:strURL];
     
