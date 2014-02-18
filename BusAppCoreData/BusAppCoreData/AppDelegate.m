@@ -125,7 +125,7 @@
 			NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 			NSDate *firstUpdate = [NSDate date];
 			[prefs setObject:firstUpdate forKey:@"last update"];
-			[prefs setInteger:6 forKey:@"version"];
+			[prefs setInteger:1 forKey:@"version"];
             [prefs setInteger:600 forKey:@"Radius"];
             [prefs setInteger:600 forKey:@"SearchRadius"];
             [prefs setInteger:3 forKey:@"Bus"];

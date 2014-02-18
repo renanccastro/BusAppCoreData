@@ -32,7 +32,6 @@
 		E80575F618B37F23002FAAE4 /* StopTime.m in Sources */ = {isa = PBXBuildFile; fileRef = E80575F518B37F23002FAAE4 /* StopTime.m */; };
 		E814ABF818A262FC00035FDC /* TrajectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBE88A318A1566B009C3E35 /* TrajectoryViewController.m */; };
 		E814ABFB18A275F100035FDC /* TrajectoryAddressPlanner.m in Sources */ = {isa = PBXBuildFile; fileRef = E814ABFA18A275F100035FDC /* TrajectoryAddressPlanner.m */; };
-		E81FD62418A25BFB0003DB1F /* BusAppCoreData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E81FD62318A25BFB0003DB1F /* BusAppCoreData.sqlite */; };
 		E82D9733189A73020005173B /* CoreLocationExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E82D9732189A73020005173B /* CoreLocationExtension.m */; };
 		E89809321896D6C500ECE205 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89809311896D6C500ECE205 /* Storyboard.storyboard */; };
 		E89809341896D84D00ECE205 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89809331896D84D00ECE205 /* MapKit.framework */; };
@@ -57,6 +56,7 @@
 		E8E49C2118A00E1000B4B629 /* SlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E49C2018A00E1000B4B629 /* SlidingViewController.m */; };
 		E8F78B1B189955E300C0EFCB /* Polyline_points+CoreDataMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F78B1A189955E300C0EFCB /* Polyline_points+CoreDataMethods.m */; };
 		E8F78B1E1899561900C0EFCB /* Bus_points+CoreDataMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F78B1D1899561900C0EFCB /* Bus_points+CoreDataMethods.m */; };
+		E8F7EF5818B385C000A1F93E /* BusAppCoreData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E8F7EF5718B385C000A1F93E /* BusAppCoreData.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,7 +118,6 @@
 		E80575F518B37F23002FAAE4 /* StopTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopTime.m; sourceTree = "<group>"; };
 		E814ABF918A275F100035FDC /* TrajectoryAddressPlanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrajectoryAddressPlanner.h; sourceTree = "<group>"; };
 		E814ABFA18A275F100035FDC /* TrajectoryAddressPlanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrajectoryAddressPlanner.m; sourceTree = "<group>"; };
-		E81FD62318A25BFB0003DB1F /* BusAppCoreData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BusAppCoreData.sqlite; sourceTree = "<group>"; };
 		E82D9731189A73020005173B /* CoreLocationExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationExtension.h; sourceTree = "<group>"; };
 		E82D9732189A73020005173B /* CoreLocationExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLocationExtension.m; sourceTree = "<group>"; };
 		E86A2573189FD2B8005355AC /* Bus_line+Core_Data_Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bus_line+Core_Data_Methods.h"; sourceTree = "<group>"; };
@@ -155,6 +154,7 @@
 		E8F78B1A189955E300C0EFCB /* Polyline_points+CoreDataMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Polyline_points+CoreDataMethods.m"; sourceTree = "<group>"; };
 		E8F78B1C1899561900C0EFCB /* Bus_points+CoreDataMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bus_points+CoreDataMethods.h"; sourceTree = "<group>"; };
 		E8F78B1D1899561900C0EFCB /* Bus_points+CoreDataMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Bus_points+CoreDataMethods.m"; sourceTree = "<group>"; };
+		E8F7EF5718B385C000A1F93E /* BusAppCoreData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BusAppCoreData.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,7 +301,7 @@
 				E89809311896D6C500ECE205 /* Storyboard.storyboard */,
 				E89809351896DC4900ECE205 /* BusAppViewController.h */,
 				E89809361896DC4900ECE205 /* BusAppViewController.m */,
-				E81FD62318A25BFB0003DB1F /* BusAppCoreData.sqlite */,
+				E8F7EF5718B385C000A1F93E /* BusAppCoreData.sqlite */,
 				B961CC0118A0F78300D5C3E8 /* MarqueeLabel.h */,
 				B961CC0218A0F78300D5C3E8 /* MarqueeLabel.m */,
 				B961CC0418A0F87400D5C3E8 /* MovingTitleCell.h */,
@@ -428,7 +428,7 @@
 				E8BAF75A1896BA330087E999 /* InfoPlist.strings in Resources */,
 				E8BAF7651896BA330087E999 /* Images.xcassets in Resources */,
 				E89809321896D6C500ECE205 /* Storyboard.storyboard in Resources */,
-				E81FD62418A25BFB0003DB1F /* BusAppCoreData.sqlite in Resources */,
+				E8F7EF5818B385C000A1F93E /* BusAppCoreData.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

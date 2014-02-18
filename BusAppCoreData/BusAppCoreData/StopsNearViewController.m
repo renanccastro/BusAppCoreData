@@ -122,13 +122,13 @@
 {
     if(state == PKRevealControllerShowsFrontViewController)
     {
-        if(![self isStopsOnScreen]){
+//        if(![self isStopsOnScreen]){
             NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
             [[CoreDataAndRequestSupervisor startSupervisor] setDelegate:self];
             [[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:[prefs integerForKey:@"Radius"]
                                                                                      fromPoint: self.mapView.userLocation.coordinate];
-            self.isStopsOnScreen = YES;
-        }
+            self.isStopsOnScreen = YES;	
+//        }
     }
     else if(state == PKRevealControllerShowsRightViewController)
     {
