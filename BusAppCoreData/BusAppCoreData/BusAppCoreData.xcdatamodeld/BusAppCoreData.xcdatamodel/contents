@@ -9,12 +9,14 @@
         <relationship name="polyline_ida" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Polyline_points" inverseName="linha_ida" inverseEntity="Polyline_points" syncable="YES"/>
         <relationship name="polyline_volta" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Polyline_points" inverseName="linha_volta" inverseEntity="Polyline_points" syncable="YES"/>
         <relationship name="stops" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bus_points" inverseName="onibus_que_passam" inverseEntity="Bus_points" syncable="YES"/>
+        <relationship name="stoptimes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StopTime" inverseName="bus" inverseEntity="StopTime" syncable="YES"/>
     </entity>
     <entity name="Bus_points" representedClassName="Bus_points" syncable="YES">
         <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="lng" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <relationship name="interceptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Interception" inverseName="stop" inverseEntity="Interception" syncable="YES"/>
         <relationship name="onibus_que_passam" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bus_line" inverseName="stops" inverseEntity="Bus_line" syncable="YES"/>
+        <relationship name="stoptimes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StopTime" inverseName="stop" inverseEntity="StopTime" syncable="YES"/>
     </entity>
     <entity name="Interception" representedClassName="Interception" syncable="YES">
         <relationship name="bus_alvo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Bus_line" inverseName="line_interceptions" inverseEntity="Bus_line" syncable="YES"/>
@@ -28,10 +30,16 @@
         <relationship name="linha_ida" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bus_line" inverseName="polyline_ida" inverseEntity="Bus_line" syncable="YES"/>
         <relationship name="linha_volta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bus_line" inverseName="polyline_volta" inverseEntity="Bus_line" syncable="YES"/>
     </entity>
+    <entity name="StopTime" representedClassName="StopTime" syncable="YES">
+        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="bus" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bus_line" inverseName="stoptimes" inverseEntity="Bus_line" syncable="YES"/>
+        <relationship name="stop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bus_points" inverseName="stoptimes" inverseEntity="Bus_points" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Bus_line" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Bus_points" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Interception" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Polyline_points" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Bus_line" positionX="-137" positionY="-324" width="128" height="180"/>
+        <element name="Bus_points" positionX="-153" positionY="141" width="128" height="120"/>
+        <element name="Interception" positionX="-477" positionY="-54" width="128" height="90"/>
+        <element name="Polyline_points" positionX="124" positionY="-360" width="128" height="120"/>
+        <element name="StopTime" positionX="261" positionY="-9" width="128" height="88"/>
     </elements>
 </model>

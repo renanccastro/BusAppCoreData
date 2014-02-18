@@ -41,8 +41,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.revealController  touchesBegan:nil withEvent:nil];
     self.mapView.delegate = self;
+	self.revealController.delegate = self;
     self.navigationController.revealController.delegate = self;
     
 }
@@ -151,6 +151,11 @@
 			subTitle = [subTitle stringByAppendingString:[NSString stringWithFormat:@"%@, ", bus.line_number]];
 		}
 		subTitle = [subTitle substringToIndex:[subTitle length]-2];
+		
+		// ONLY FOR DEBUG
+		#warning tirar depois
+		subTitle = [NSString stringWithFormat:@" -> %@ ; %@ ", stop.lat, stop.lng];
+		
         if ([stop.onibus_que_passam count] == 1){
             [annotation setTitle: @"1 linha passa aqui:"];
         } else {

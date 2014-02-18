@@ -81,6 +81,7 @@
     [prefs setInteger:[sender value]
                forKey:@"Radius"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
+
 }
 
 

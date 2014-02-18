@@ -2,7 +2,7 @@
 //  Bus_line.m
 //  BusAppCoreData
 //
-//  Created by Renan Camargo de Castro on 04/02/14.
+//  Created by Renan Camargo de Castro on 18/02/14.
 //  Copyright (c) 2014 BEPiD. All rights reserved.
 //
 
@@ -17,10 +17,11 @@
 @dynamic full_name;
 @dynamic line_number;
 @dynamic web_number;
+@dynamic bus_alvo;
 @dynamic line_interceptions;
 @dynamic polyline_ida;
 @dynamic polyline_volta;
 @dynamic stops;
-@dynamic bus_alvo;
+@dynamic stoptimes;
 
 @end

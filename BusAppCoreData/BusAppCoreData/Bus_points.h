@@ -2,7 +2,7 @@
 //  Bus_points.h
 //  BusAppCoreData
 //
-//  Created by Renan Camargo de Castro on 04/02/14.
+//  Created by Renan Camargo de Castro on 18/02/14.
 //  Copyright (c) 2014 BEPiD. All rights reserved.
 //
 
@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSNumber * lng;
 @property (nonatomic, retain) NSSet *interceptions;
 @property (nonatomic, retain) NSSet *onibus_que_passam;
+@property (nonatomic, retain) NSSet *stoptimes;
 @end
 
 @interface Bus_points (CoreDataGeneratedAccessors)
@@ -30,5 +31,10 @@
 - (void)removeOnibus_que_passamObject:(Bus_line *)value;
 - (void)addOnibus_que_passam:(NSSet *)values;
 - (void)removeOnibus_que_passam:(NSSet *)values;
+
+- (void)addStoptimesObject:(NSManagedObject *)value;
+- (void)removeStoptimesObject:(NSManagedObject *)value;
+- (void)addStoptimes:(NSSet *)values;
+- (void)removeStoptimes:(NSSet *)values;
 
 @end

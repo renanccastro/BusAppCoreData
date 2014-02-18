@@ -26,8 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
 }
 
 - (void)didReceiveMemoryWarning

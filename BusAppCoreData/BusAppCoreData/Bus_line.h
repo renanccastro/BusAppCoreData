@@ -2,7 +2,7 @@
 //  Bus_line.h
 //  BusAppCoreData
 //
-//  Created by Renan Camargo de Castro on 04/02/14.
+//  Created by Renan Camargo de Castro on 18/02/14.
 //  Copyright (c) 2014 BEPiD. All rights reserved.
 //
 
@@ -16,11 +16,12 @@
 @property (nonatomic, retain) NSString * full_name;
 @property (nonatomic, retain) NSNumber * line_number;
 @property (nonatomic, retain) NSNumber * web_number;
+@property (nonatomic, retain) Interception *bus_alvo;
 @property (nonatomic, retain) NSSet *line_interceptions;
 @property (nonatomic, retain) NSSet *polyline_ida;
 @property (nonatomic, retain) NSSet *polyline_volta;
 @property (nonatomic, retain) NSSet *stops;
-@property (nonatomic, retain) Interception *bus_alvo;
+@property (nonatomic, retain) NSSet *stoptimes;
 @end
 
 @interface Bus_line (CoreDataGeneratedAccessors)
@@ -44,5 +45,10 @@
 - (void)removeStopsObject:(Bus_points *)value;
 - (void)addStops:(NSSet *)values;
 - (void)removeStops:(NSSet *)values;
+
+- (void)addStoptimesObject:(NSManagedObject *)value;
+- (void)removeStoptimesObject:(NSManagedObject *)value;
+- (void)addStoptimes:(NSSet *)values;
+- (void)removeStoptimes:(NSSet *)values;
 
 @end
