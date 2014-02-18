@@ -28,8 +28,7 @@
     
         stopTime.stop = stop;
         [stop addStoptimesObject:stopTime];
-        [stop addStoptimesObject:stopTime];
-        
+        [stop addOnibus_que_passamObject:times[@"Bus"]];
     }
     NSError * saveError;
 
