@@ -1,5 +1,5 @@
 //
-//  StopTime.m
+//  StopTime+CoreDataMethods.h
 //  BusAppCoreData
 //
 //  Created by Flavio Matheus on 18/02/14.
@@ -7,14 +7,9 @@
 //
 
 #import "StopTime.h"
-#import "Bus_line.h"
-#import "Bus_points.h"
 
+@interface StopTime (CoreDataMethods)
 
-@implementation StopTime
-
-@dynamic time;
-@dynamic bus;
-@dynamic stop;
++(BOOL)createBusStopTimeWithDictionary:(NSDictionary*)times;
 
 @end
