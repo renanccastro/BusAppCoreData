@@ -154,7 +154,8 @@
 		
 		// ONLY FOR DEBUG
 		#warning tirar depois
-		subTitle = [NSString stringWithFormat:@" -> %@ ; %@ ", stop.lat, stop.lng];
+		subTitle = [NSString stringWithFormat:@" -> %f ; %f ", [stop.lat doubleValue], [stop.lng doubleValue]];
+		//
 		
         if ([stop.onibus_que_passam count] == 1){
             [annotation setTitle: @"1 linha passa aqui:"];

@@ -16,6 +16,7 @@
 @property (nonatomic) CLLocationCoordinate2D pinLocation;
 @property (nonatomic) CLLocationCoordinate2D initial;
 
+@property (nonatomic) NSMutableArray* locations;
 @end
 
 @implementation PinDropViewController
@@ -38,6 +39,7 @@
 	lpgr.minimumPressDuration = 2.0; //user needs to press for 2 seconds
 	[self.mapView addGestureRecognizer:lpgr];
 	[self.mapView setDelegate:self];
+	self.locations = [[NSMutableArray alloc] init];
 
 	// Do any additional setup after loading the view.
 }
@@ -57,7 +59,12 @@
     Annotation *annot = [[Annotation alloc] init];
     annot.coordinate = touchMapCoordinate;
 	annot.title = @"Destination Point";
-	
+	//
+#warning tirar depois
+	annot.subtitle = [NSString stringWithFormat:@"%f %f", annot.coordinate.latitude, annot.coordinate.longitude];
+	[self.locations addObject:annot];
+	//
+
 	self.initial = self.mapView.userLocation.coordinate;
 	
     [self.mapView addAnnotation:annot];
@@ -77,11 +84,27 @@
 }
 -(void)viewWillDisappear:(BOOL)animated{
 	self.mapView.showsUserLocation = NO;
+
 	[super viewWillDisappear:animated];
+	
+#warning Tirar depois
+	//
+	NSMutableArray* jsonArray = [[NSMutableArray alloc] init];
+	NSLog(@"lat");
+	for (Annotation* annot in [self locations]) {
+		NSDictionary* dic = @{@"lat": [[NSNumber alloc]initWithDouble:annot.coordinate.latitude], @"long":[[NSNumber alloc]initWithDouble:annot.coordinate.longitude]};
+		[jsonArray addObject:dic];
+	}
+	NSError* error;
+	NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonArray options:0 error:&error];
+	NSLog(@"%@",[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
+	//
+
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 	if ([[segue identifier] isEqualToString:@"push"]) {
+
 		TrajectoryViewController *vc = [segue destinationViewController];
 		vc.initial = self.initial;
 		vc.final = self.pinLocation;
