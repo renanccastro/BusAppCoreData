@@ -9,6 +9,7 @@
 #import "StopTime+CoreDataMethods.h"
 #import "CoreDataAndRequestSupervisor.h"
 #import "Bus_points+CoreDataMethods.h"
+#import "Bus_line+Core_Data_Methods.h"
 
 @implementation StopTime (CoreDataMethods)
 
@@ -24,9 +25,10 @@
     
         Bus_points *stop  = [Bus_points createBusPointFromBusLine:[times objectForKey:@"Bus"]
                                                           withLat:[[times objectForKey:@"lat"] doubleValue]
-                                                          andLong:[[times objectForKey:@"ln"] doubleValue]];
+                                                          andLong:[[times objectForKey:@"lg"] doubleValue]];
     
         stopTime.stop = stop;
+        [((Bus_line*)[times objectForKey:@"Bus"]) addStoptimesObject:stopTime];
         [stop addStoptimesObject:stopTime];
         [stop addOnibus_que_passamObject:times[@"Bus"]];
     }
