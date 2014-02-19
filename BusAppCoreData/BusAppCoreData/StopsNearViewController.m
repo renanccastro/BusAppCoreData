@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic) NSArray* stopsNear;
 @property (nonatomic) NSArray* selectedAnnotationInfo;
+@property (nonatomic, strong) Bus_points* selectedStop;
 
 @end
 
@@ -204,6 +205,8 @@
     NSNumber *index = [NSNumber numberWithInt:((Annotation*)view.annotation).index];
 	
     self.selectedAnnotationInfo = [((Bus_points*)self.stopsNear[index.intValue]).onibus_que_passam allObjects];
+	
+	self.selectedStop = self.stopsNear[index.intValue];
     [self performSegueWithIdentifier: @"BusLines" sender:nil];
     
 }
@@ -228,6 +231,7 @@
     {
         BusTableViewController *tela = (BusTableViewController*)[segue destinationViewController];
         tela.busLinesInStop = self.selectedAnnotationInfo;
+		tela.stop = self.selectedStop;
      }
 }
 

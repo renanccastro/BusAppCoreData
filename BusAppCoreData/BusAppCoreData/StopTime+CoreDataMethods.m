@@ -38,5 +38,30 @@
     [[CoreDataAndRequestSupervisor startSupervisor].context save:&saveError];
     return saveError ? NO : YES;
 }
++(NSArray*) getAllTimesForStop:(Bus_points*)stop andBus:(Bus_line*)bus{
+	NSManagedObjectContext* context = [CoreDataAndRequestSupervisor startSupervisor].context;
+	
+	NSEntityDescription *entityDescription = [NSEntityDescription
+											  
+											  entityForName:@"StopTime" inManagedObjectContext:context];
+	NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"time"
+																 ascending:YES];
+	
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	[request setEntity:entityDescription];
+	request.sortDescriptors = @[descriptor];
+	
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:
+							  @"bus == %@ AND stop == %@", bus, stop];
+	
+	[request setPredicate:predicate];
+	NSError *error;
+	NSArray *array = [context executeFetchRequest:request error:&error];
+	
+	if (error){
+		NSLog(@"error getting bus");
+	}
+	return array;
+}
 
 @end

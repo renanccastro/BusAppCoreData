@@ -15,5 +15,6 @@
 @property (nonatomic, strong) NSArray *rotaDeVolta;
 @property (nonatomic)		  Bus_line *bus_line;
 @property (nonatomic) UIColor* color;
+@property (nonatomic, strong) Bus_points* stop;
 
 @end

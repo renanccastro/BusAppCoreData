@@ -58,6 +58,9 @@
 		E8F78B1B189955E300C0EFCB /* Polyline_points+CoreDataMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F78B1A189955E300C0EFCB /* Polyline_points+CoreDataMethods.m */; };
 		E8F78B1E1899561900C0EFCB /* Bus_points+CoreDataMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F78B1D1899561900C0EFCB /* Bus_points+CoreDataMethods.m */; };
 		E8F7EF5A18B3A33F00A1F93E /* BusAppCoreData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E8F7EF5918B3A33F00A1F93E /* BusAppCoreData.sqlite */; };
+		E8F7EF5E18B53AF400A1F93E /* Circular2Trajetoria.json in Resources */ = {isa = PBXBuildFile; fileRef = E8F7EF5D18B53AF400A1F93E /* Circular2Trajetoria.json */; };
+		E8F7EF6018B53C6000A1F93E /* circular1_trajetoria.json in Resources */ = {isa = PBXBuildFile; fileRef = E8F7EF5F18B53C6000A1F93E /* circular1_trajetoria.json */; };
+		E8F7EF6218B5424800A1F93E /* Circular2ViaMuseuTrajetoria.json in Resources */ = {isa = PBXBuildFile; fileRef = E8F7EF6118B5424800A1F93E /* Circular2ViaMuseuTrajetoria.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +161,9 @@
 		E8F78B1C1899561900C0EFCB /* Bus_points+CoreDataMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bus_points+CoreDataMethods.h"; sourceTree = "<group>"; };
 		E8F78B1D1899561900C0EFCB /* Bus_points+CoreDataMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Bus_points+CoreDataMethods.m"; sourceTree = "<group>"; };
 		E8F7EF5918B3A33F00A1F93E /* BusAppCoreData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BusAppCoreData.sqlite; sourceTree = "<group>"; };
+		E8F7EF5D18B53AF400A1F93E /* Circular2Trajetoria.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Circular2Trajetoria.json; sourceTree = "<group>"; };
+		E8F7EF5F18B53C6000A1F93E /* circular1_trajetoria.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = circular1_trajetoria.json; sourceTree = "<group>"; };
+		E8F7EF6118B5424800A1F93E /* Circular2ViaMuseuTrajetoria.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Circular2ViaMuseuTrajetoria.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +309,9 @@
 		E8BAF7551896BA330087E999 /* BusAppCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				E8F7EF5D18B53AF400A1F93E /* Circular2Trajetoria.json */,
+				E8F7EF5F18B53C6000A1F93E /* circular1_trajetoria.json */,
+				E8F7EF6118B5424800A1F93E /* Circular2ViaMuseuTrajetoria.json */,
 				E89809311896D6C500ECE205 /* Storyboard.storyboard */,
 				E89809351896DC4900ECE205 /* BusAppViewController.h */,
 				E8F7EF5918B3A33F00A1F93E /* BusAppCoreData.sqlite */,
@@ -433,10 +442,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8F7EF5E18B53AF400A1F93E /* Circular2Trajetoria.json in Resources */,
+				E8F7EF6218B5424800A1F93E /* Circular2ViaMuseuTrajetoria.json in Resources */,
 				E8BAF75A1896BA330087E999 /* InfoPlist.strings in Resources */,
 				E8BAF7651896BA330087E999 /* Images.xcassets in Resources */,
 				E89809321896D6C500ECE205 /* Storyboard.storyboard in Resources */,
 				E8F7EF5A18B3A33F00A1F93E /* BusAppCoreData.sqlite in Resources */,
+				E8F7EF6018B53C6000A1F93E /* circular1_trajetoria.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -64,10 +64,11 @@
     }
     else
     {
-        NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES];
+//        NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES];
         self.webPage.hidden = YES;
         self.stopTimesTableView.hidden = NO;
-        self.stoptimes = [[self.bus_line.stoptimes allObjects] sortedArrayUsingDescriptors:@[sort]];
+		self.stoptimes = [StopTime getAllTimesForStop:self.stop andBus:self.bus_line];
+//        self.stoptimes = [[self.bus_line.stoptimes allObjects] sortedArrayUsingDescriptors:@[sort]];
         [self.stopTimesTableView reloadData];
     }
 }
@@ -209,36 +210,36 @@
 
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-//	[self addRouteWithType: @"ida"];
-//    [self addRouteWithType: @"volta"];
-//
-//	[self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
-//	
-//	[self creatAnnotationsFromBusPointsArray:[Bus_points getBusLineStops:self.bus_line]];
-//    
-//    CLLocationCoordinate2D max, min;
-//    max = min = CLLocationCoordinate2DMake(((Polyline_points *)self.rotaDeIda[0]).lat.doubleValue, ((Polyline_points *)self.rotaDeIda[0]).lng.doubleValue);
-//    
-//    for (Polyline_points *polyline in self.rotaDeIda) {
-//        if (polyline.lat.doubleValue > max.latitude){
-//            max = CLLocationCoordinate2DMake(polyline.lat.doubleValue, max.longitude);
-//        } else if (polyline.lat.doubleValue < min.latitude){
-//            min = CLLocationCoordinate2DMake(polyline.lat.doubleValue, min.longitude);
-//        }
-//        if (polyline.lng.doubleValue > max.longitude){
-//            max = CLLocationCoordinate2DMake(max.latitude, polyline.lng.doubleValue);
-//        } else if (polyline.lat.doubleValue < min.latitude){
-//            min = CLLocationCoordinate2DMake(min.latitude, polyline.lng.doubleValue);
-//        }
-//    }
-//    
-//    CLLocationCoordinate2D centerCoord = CLLocationCoordinate2DMake((max.latitude + min.latitude)/2, (max.longitude + min.longitude)/2);
-//    
-//    MKCoordinateSpan span = MKCoordinateSpanMake(max.latitude - min.latitude + 0.00001, max.longitude - min.longitude + 0.00001);
-//    
-//    MKCoordinateRegion viewRegion = MKCoordinateRegionMake(centerCoord, span);
-//    
-//    [self.mapView setRegion: viewRegion animated:YES];
+	[self addRouteWithType: @"ida"];
+    [self addRouteWithType: @"volta"];
+
+	[self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
+	
+	[self creatAnnotationsFromBusPointsArray:[Bus_points getBusLineStops:self.bus_line]];
+    
+    CLLocationCoordinate2D max, min;
+    max = min = CLLocationCoordinate2DMake(((Polyline_points *)self.rotaDeIda[0]).lat.doubleValue, ((Polyline_points *)self.rotaDeIda[0]).lng.doubleValue);
+    
+    for (Polyline_points *polyline in self.rotaDeIda) {
+        if (polyline.lat.doubleValue > max.latitude){
+            max = CLLocationCoordinate2DMake(polyline.lat.doubleValue, max.longitude);
+        } else if (polyline.lat.doubleValue < min.latitude){
+            min = CLLocationCoordinate2DMake(polyline.lat.doubleValue, min.longitude);
+        }
+        if (polyline.lng.doubleValue > max.longitude){
+            max = CLLocationCoordinate2DMake(max.latitude, polyline.lng.doubleValue);
+        } else if (polyline.lat.doubleValue < min.latitude){
+            min = CLLocationCoordinate2DMake(min.latitude, polyline.lng.doubleValue);
+        }
+    }
+    
+    CLLocationCoordinate2D centerCoord = CLLocationCoordinate2DMake((max.latitude + min.latitude)/2, (max.longitude + min.longitude)/2);
+    
+    MKCoordinateSpan span = MKCoordinateSpanMake(max.latitude - min.latitude + 0.00001, max.longitude - min.longitude + 0.00001);
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMake(centerCoord, span);
+    
+    [self.mapView setRegion: viewRegion animated:YES];
 
 }
 

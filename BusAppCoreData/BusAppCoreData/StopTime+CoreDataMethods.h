@@ -11,5 +11,6 @@
 @interface StopTime (CoreDataMethods)
 
 +(BOOL)createBusStopTimeWithDictionary:(NSDictionary*)times;
++(NSArray*) getAllTimesForStop:(Bus_points*)stop andBus:(Bus_line*)bus;
 
 @end

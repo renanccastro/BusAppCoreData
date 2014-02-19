@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Bus_line+Core_Data_Methods.h"
+#import "Bus_points.h"
 
 @interface BusTableViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *busLinesInStop;
+@property (nonatomic, strong) Bus_points* stop;
 
 @end
