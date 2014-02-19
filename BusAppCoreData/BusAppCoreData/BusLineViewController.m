@@ -12,14 +12,17 @@
 #import "Polyline_points.h"
 #import "Bus_points+CoreDataMethods.h"
 #import "Annotation.h"
+#import "StopTime+CoreDataMethods.h"
 
-@interface BusLineViewController () <MKMapViewDelegate, UIWebViewDelegate>
+@interface BusLineViewController () <MKMapViewDelegate, UIWebViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIWebView *webPage;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UITableView *stopTimesTableView;
 @property (nonatomic) NSArray* annotations;
+@property (nonatomic, strong) NSArray *stoptimes;
 
 @end
 
@@ -48,14 +51,25 @@
     
     int webCode = self.bus_line.web_number.intValue;
     
-    self.webPage.scalesPageToFit = YES;
-	NSLog(@"%d", webCode);
+    if(webCode >= 0)
+    {
+        self.stopTimesTableView.hidden = YES;
+        self.webPage.scalesPageToFit = YES;
+        NSLog(@"%d", webCode);
     
-    NSString *fullURL = [NSString stringWithFormat: @"http://www.emdec.com.br/ABusInf/detalhelinha.asp?TpDiaID=0&CdPjOID=%d", webCode];
-    NSURL *url = [NSURL URLWithString:fullURL];
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    [self.webPage loadRequest:requestObj];
-
+        NSString *fullURL = [NSString stringWithFormat: @"http://www.emdec.com.br/ABusInf/detalhelinha.asp?TpDiaID=0&CdPjOID=%d", webCode];
+        NSURL *url = [NSURL URLWithString:fullURL];
+        NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+        [self.webPage loadRequest:requestObj];
+    }
+    else
+    {
+        NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES];
+        self.webPage.hidden = YES;
+        self.stopTimesTableView.hidden = NO;
+        self.stoptimes = [[self.bus_line.stoptimes allObjects] sortedArrayUsingDescriptors:@[sort]];
+        [self.stopTimesTableView reloadData];
+    }
 }
 
 //Create a polyline from the self.rotaDeVolta e self.rotaDeIda.
@@ -195,36 +209,65 @@
 
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-	[self addRouteWithType: @"ida"];
-    [self addRouteWithType: @"volta"];
+//	[self addRouteWithType: @"ida"];
+//    [self addRouteWithType: @"volta"];
+//
+//	[self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
+//	
+//	[self creatAnnotationsFromBusPointsArray:[Bus_points getBusLineStops:self.bus_line]];
+//    
+//    CLLocationCoordinate2D max, min;
+//    max = min = CLLocationCoordinate2DMake(((Polyline_points *)self.rotaDeIda[0]).lat.doubleValue, ((Polyline_points *)self.rotaDeIda[0]).lng.doubleValue);
+//    
+//    for (Polyline_points *polyline in self.rotaDeIda) {
+//        if (polyline.lat.doubleValue > max.latitude){
+//            max = CLLocationCoordinate2DMake(polyline.lat.doubleValue, max.longitude);
+//        } else if (polyline.lat.doubleValue < min.latitude){
+//            min = CLLocationCoordinate2DMake(polyline.lat.doubleValue, min.longitude);
+//        }
+//        if (polyline.lng.doubleValue > max.longitude){
+//            max = CLLocationCoordinate2DMake(max.latitude, polyline.lng.doubleValue);
+//        } else if (polyline.lat.doubleValue < min.latitude){
+//            min = CLLocationCoordinate2DMake(min.latitude, polyline.lng.doubleValue);
+//        }
+//    }
+//    
+//    CLLocationCoordinate2D centerCoord = CLLocationCoordinate2DMake((max.latitude + min.latitude)/2, (max.longitude + min.longitude)/2);
+//    
+//    MKCoordinateSpan span = MKCoordinateSpanMake(max.latitude - min.latitude + 0.00001, max.longitude - min.longitude + 0.00001);
+//    
+//    MKCoordinateRegion viewRegion = MKCoordinateRegionMake(centerCoord, span);
+//    
+//    [self.mapView setRegion: viewRegion animated:YES];
 
-	[self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
-	
-	[self creatAnnotationsFromBusPointsArray:[Bus_points getBusLineStops:self.bus_line]];
-    
-    CLLocationCoordinate2D max, min;
-    max = min = CLLocationCoordinate2DMake(((Polyline_points *)self.rotaDeIda[0]).lat.doubleValue, ((Polyline_points *)self.rotaDeIda[0]).lng.doubleValue);
-    
-    for (Polyline_points *polyline in self.rotaDeIda) {
-        if (polyline.lat.doubleValue > max.latitude){
-            max = CLLocationCoordinate2DMake(polyline.lat.doubleValue, max.longitude);
-        } else if (polyline.lat.doubleValue < min.latitude){
-            min = CLLocationCoordinate2DMake(polyline.lat.doubleValue, min.longitude);
-        }
-        if (polyline.lng.doubleValue > max.longitude){
-            max = CLLocationCoordinate2DMake(max.latitude, polyline.lng.doubleValue);
-        } else if (polyline.lat.doubleValue < min.latitude){
-            min = CLLocationCoordinate2DMake(min.latitude, polyline.lng.doubleValue);
-        }
-    }
-    
-    CLLocationCoordinate2D centerCoord = CLLocationCoordinate2DMake((max.latitude + min.latitude)/2, (max.longitude + min.longitude)/2);
-    
-    MKCoordinateSpan span = MKCoordinateSpanMake(max.latitude - min.latitude + 0.00001, max.longitude - min.longitude + 0.00001);
-    
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMake(centerCoord, span);
-    
-    [self.mapView setRegion: viewRegion animated:YES];
+}
 
+#pragma mark - Table View Data Source
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.stoptimes count];
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"TimeStop";
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    StopTime* stoptime = self.stoptimes[indexPath.row];
+    NSNumber *time = stoptime.time;
+    
+    int hour = ([time intValue]/60) / 60;
+    int minute = ([time intValue]/60) % 60;
+    NSString *timeStr = [NSString stringWithFormat:@"%d:%d",hour,minute];
+    
+    cell.textLabel.text = timeStr;
+    
+    return cell;
 }
 @end

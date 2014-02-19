@@ -28,6 +28,7 @@
                                                           andLong:[[times objectForKey:@"lg"] doubleValue]];
     
         stopTime.stop = stop;
+        [((Bus_line*)[times objectForKey:@"Bus"]) addStoptimesObject:stopTime];
         [stop addStoptimesObject:stopTime];
 		[((Bus_line*)times[@"Bus"]) addStoptimesObject:stopTime];
         [stop addOnibus_que_passamObject:times[@"Bus"]];
