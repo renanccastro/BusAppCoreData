@@ -91,9 +91,11 @@
 	//
 	NSMutableArray* jsonArray = [[NSMutableArray alloc] init];
 	NSLog(@"lat");
+	int i = 1;
 	for (Annotation* annot in [self locations]) {
-		NSDictionary* dic = @{@"lat": [[NSNumber alloc]initWithDouble:annot.coordinate.latitude], @"long":[[NSNumber alloc]initWithDouble:annot.coordinate.longitude]};
+		NSDictionary* dic = @{@"order": [[NSNumber alloc] initWithInt:i], @"lat": [[NSNumber alloc]initWithDouble:annot.coordinate.latitude], @"long":[[NSNumber alloc]initWithDouble:annot.coordinate.longitude]};
 		[jsonArray addObject:dic];
+		i++;
 	}
 	NSError* error;
 	NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonArray options:0 error:&error];

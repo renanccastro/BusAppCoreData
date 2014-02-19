@@ -291,8 +291,7 @@ static  CoreDataAndRequestSupervisor *supervisor;
     
         NSMutableArray *times = [self stopTimesArray: string];
     
-    NSNumber *lat = [NSNumber numberWithDouble:-22.816603];
-    NSNumber *lng = [NSNumber numberWithDouble:-47.072930];
+        [timeStop setObject:times forKey:@"times"];
     
         //Alterar lat e lng de acordo com o ponto
         NSNumber *lat = [NSNumber numberWithDouble:-22.816603];
