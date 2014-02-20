@@ -28,6 +28,7 @@
                                                           andLong:[[times objectForKey:@"lg"] doubleValue]];
     
         stopTime.stop = stop;
+		stopTime.bus = [times objectForKey:@"Bus"];
         [((Bus_line*)[times objectForKey:@"Bus"]) addStoptimesObject:stopTime];
         [stop addStoptimesObject:stopTime];
 		[((Bus_line*)times[@"Bus"]) addStoptimesObject:stopTime];
@@ -42,8 +43,8 @@
 	NSManagedObjectContext* context = [CoreDataAndRequestSupervisor startSupervisor].context;
 	
 	NSEntityDescription *entityDescription = [NSEntityDescription
-											  
 											  entityForName:@"StopTime" inManagedObjectContext:context];
+	
 	NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"time"
 																 ascending:YES];
 	

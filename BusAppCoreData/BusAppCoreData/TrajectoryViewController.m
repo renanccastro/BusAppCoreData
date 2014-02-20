@@ -44,8 +44,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-	self.gotInfo = NO;
-	self.gotInfo = YES;
     self.mapView.delegate = self;
 	self.mapView.showsUserLocation = YES;
 	self.queue = [[NSOperationQueue alloc] init];
@@ -152,6 +150,15 @@
 			[self addRoute:  [line.polyline_ida allObjects] withType: @"ida"];
 			[self addRoute: [line.polyline_volta allObjects] withType: @"volta"];
 		}
+	}
+	else{
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Trajeto não encontrado!"
+														message:@"Tente mudar as suas configurações de busca para algo mais abrangente."
+													   delegate:self
+											  cancelButtonTitle:@"OK"
+											  otherButtonTitles:nil];
+		[alert show];
+
 	}
 	
 }

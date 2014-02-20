@@ -28,8 +28,7 @@
     
 	[[CoreDataAndRequestSupervisor startSupervisor] setCoordinator: self.persistentStoreCoordinator];
 	[[CoreDataAndRequestSupervisor startSupervisor] setContext:self.managedObjectContext];
-
-    [[CoreDataAndRequestSupervisor startSupervisor] circularUnicamp];
+	[[CoreDataAndRequestSupervisor startSupervisor] circularUnicamp];
     [[CoreDataAndRequestSupervisor startSupervisor] requestBusLines];
     
     return YES;
