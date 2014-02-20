@@ -432,79 +432,93 @@ static  CoreDataAndRequestSupervisor *supervisor;
 	
 	
 	//Circular 2 VIA FEC
-//	
-//    Bus_line *viaFEC = [NSEntityDescription insertNewObjectForEntityForName:@"Bus_line"
-//													   inManagedObjectContext:self.context];
-//    viaMuseu.full_name = @"Circular 2 - Via FEC";
-//    viaMuseu.web_number = [NSNumber numberWithInt:-4];
-//	viaMuseu.line_number = [NSNumber numberWithInt:4];
-//	
-//    [timeStop setObject:viaFEC forKey:@"Bus"];
-//	
-//	NSArray* viaFECArray = @[ ];
-//	
-//	NSArray* pontosViaFEC = @[   @{@"lat": [[NSNumber alloc] initWithDouble:-22.82965], @"lg": [[NSNumber alloc] initWithDouble:-47.06258]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.82797], @"lg": [[NSNumber alloc] initWithDouble:-47.063057]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.828272], @"lg": [[NSNumber alloc] initWithDouble:-47.066374]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.82573], @"lg": [[NSNumber alloc] initWithDouble:-47.066289]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.824439], @"lg": [[NSNumber alloc] initWithDouble:-47.067514]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.822122], @"lg": [[NSNumber alloc] initWithDouble:-47.069134]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.821556], @"lg": [[NSNumber alloc] initWithDouble:-47.070109]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.819161], @"lg": [[NSNumber alloc] initWithDouble:-47.072125]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.816572], @"lg": [[NSNumber alloc] initWithDouble:-47.072568]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.814282], @"lg": [[NSNumber alloc] initWithDouble:-47.071371]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.814058], @"lg": [[NSNumber alloc] initWithDouble:-47.069295]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.813868], @"lg": [[NSNumber alloc] initWithDouble:-47.068124]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.812825], @"lg": [[NSNumber alloc] initWithDouble:-47.067281]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.813728], @"lg": [[NSNumber alloc] initWithDouble:-47.065154]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.815090], @"lg": [[NSNumber alloc] initWithDouble:-47.064177]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.815758], @"lg": [[NSNumber alloc] initWithDouble:-47.065938]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.816960], @"lg": [[NSNumber alloc] initWithDouble:-47.066238]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.819232], @"lg": [[NSNumber alloc] initWithDouble:-47.066885]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.821099], @"lg": [[NSNumber alloc] initWithDouble:-47.068044]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.821386], @"lg": [[NSNumber alloc] initWithDouble:-47.067298]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.819690], @"lg": [[NSNumber alloc] initWithDouble:-47.064750]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.817412], @"lg": [[NSNumber alloc] initWithDouble:-47.063412]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.814463], @"lg": [[NSNumber alloc] initWithDouble:-47.063757]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.813579], @"lg": [[NSNumber alloc] initWithDouble:-47.063505]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.816775], @"lg": [[NSNumber alloc] initWithDouble:-47.062649]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.817861], @"lg": [[NSNumber alloc] initWithDouble:-47.063126]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.818430], @"lg": [[NSNumber alloc] initWithDouble:-47.063179]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.818409], @"lg": [[NSNumber alloc] initWithDouble:-47.061060]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.818300], @"lg": [[NSNumber alloc] initWithDouble:-47.059759]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.820915], @"lg": [[NSNumber alloc] initWithDouble:-47.060793]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.823722], @"lg": [[NSNumber alloc] initWithDouble:-47.062820]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.825343], @"lg": [[NSNumber alloc] initWithDouble:-47.066300]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.828360], @"lg": [[NSNumber alloc] initWithDouble:-47.066739]},
-//								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.829783], @"lg": [[NSNumber alloc] initWithDouble:-47.063714]}
-//								 ];
-//	
-//	
-//	
-//	i=0;
-//    for (NSString *string in viaFECArray) {
-//        NSMutableArray *times = [self stopTimesArray: string];
-//		[timeStop setObject:times forKey:@"times"];
-//		//Alterar lat e lng de acordo com o ponto
-//		[timeStop addEntriesFromDictionary:pontosViaFEC[i]];
-//		
-//		BOOL save = [StopTime createBusStopTimeWithDictionary:timeStop];
-//		if(!save){
-//			NSLog(@"Deu zica salvando o circular 2 FEC");
-//		}
-//		[timeStop removeObjectsForKeys:@[@"times", @"lat", @"lg"]];
-//		i++;
-//    }
-//	
-//	NSString *viaFECPath = [[NSBundle mainBundle] pathForResource:@"Circular2ViaFECTrajetoria" ofType:@"json"];
-//    NSData *viaFECJson = [NSData dataWithContentsOfFile:viaFECPath];
-//    if (viaFECJson) {
-//		NSArray* json = [NSJSONSerialization JSONObjectWithData:viaFECJson  options:0 error:nil];
-//		for (NSDictionary* dic in json) {
-//			[Polyline_points createPolylinePointIdaWithBus:viaFEC withLat:[dic[@"lat"] doubleValue] andLng:[dic[@"long"] doubleValue] withOrder:[dic[@"order"] doubleValue]];
-//			
-//		}
-//    }
+	
+    Bus_line *viaFEC = [NSEntityDescription insertNewObjectForEntityForName:@"Bus_line"
+													   inManagedObjectContext:self.context];
+    viaMuseu.full_name = @"Circular 2 - Via FEC";
+    viaMuseu.web_number = [NSNumber numberWithInt:-4];
+	viaMuseu.line_number = [NSNumber numberWithInt:4];
+	
+    [timeStop setObject:viaFEC forKey:@"Bus"];
+	
+	NSArray* viaFECArray = @[    @"06:45,07:10,07:40,08:36,09:11,09:46,10:21,10:56,11:50,12:26,12:56,13:48,14:23,14:56,15:31,16:06,16:42,17:16",
+                                 @"06:47,07:12,07:42,08:38,09:13,09:48,10:22,10:58,11:52,12:27,12:58,13:49,14:25,14:57,15:33,16:07,16:44,17:18",
+                                 @"06:48,07:13,07:43,08:39,09:14,09:50,10:24,10:59,11:53,12:29,12:59,13:50,14:26,14:58,15:34,16:09,16:45,17:19",
+                                 @"06:49,07:14,07:43,08:42,09:16,09:51,10:25,11:01,11:55,12:30,13:00,13:51,14:28,14:59,15:36,16:11,16:46,17:20",
+                                 @"06:49,07:15,07:44,08:43,09:16,09:51,10:25,11:02,11:56,12:31,13:01,13:52,14:28,15:00,15:36,16:12,16:46,17:21",
+                                 @"06:50,07:15,07:45,08:43,09:17,09:52,10:26,11:02,11:57,12:32,13:02,13:53,14:29,15:01,15:38,16:12,16:48,17:22",
+                                 @"06:50,07:17,07:45,08:44,09:19,09:53,10:28,11:03,11:58,12:32,13:03,13:54,14:29,15:03,15:38,16:13,16:48,17:23",
+                                 @"06:51,07:18,07:46,08:45,09:20,09:54,10:28,11:04,11:59,12:33,13:04,13:55,14:30,15:04,15:39,16:14,16:49,17:24",
+                                 @"06:52,07:19,07:48,08:45,09:21,09:55,10:29,11:05,12:00,12:34,13:05,13:56,14:31,15:04,15:39,16:15,16:50,17:25",
+                                 @"06:53,07:19,07:49,08:46,09:22,09:56,10:29,11:05,12:01,12:35,13:06,13:57,14:32,15:05,15:40,16:15,16:50,17:25",
+                                 @"06:53,07:20,07:50,08:47,09:23,09:57,10:30,11:06,12:01,12:35,13:06,13:58,14:32,15:06,15:41,16:16,16:51,17:26",
+                                 @"06:54,07:20,07:50,08:48,09:23,09:58,10:30,11:06,12:02,12:36,13:07,13:58,14:34,15:06,15:42,16:16,16:51,17:26",
+                                 @"06:55,07:21,07:50,08:48,09:24,09:59,10:31,11:06,12:02,12:37,13:08,13:59,14:34,15:07,15:42,16:17,16:52,17:27",
+                                 
+                                 @"06:56 07:22 07:51 08:49 09:25 10:00 10:32 11:07 12:04 12:39 13:09 14:00 14:35 15:08 15:43 16:18 16:53 17:28", @"06:56 07:23 07:53 08:50 09:25 10:01 10:33 11:08 12:05 12:39 13:09 14:00 14:35 15:09 15:44 16:19 16:54 17:29", @"06:57 07:23 07:54 08:51 09:26 10:01 10:34 11:09 12:06 12:41 13:10 14:01 14:36 15:10 15:45 16:20 16:55 17:30", @"06:57 07:24 07:55 08:51 09:27 10:02 10:35 11:08 12:06 12:41 13:11 14:02 14:37 15:11 15:41 16:21 16:55 17:31", @"06:58 07:25 07:56 08:52 09:28 10:03 10:35 11:09 12:07 12:43 13:12 14:03 14:38 15:12 15:42 16:22 16:54 17:32", @"06:58 07:26 07:56 08:52 09:28 10:04 10:35 11:09 12:07 12:43 13:13 14:03 14:39 15:12 15:42 16:23 16:55 17:33", @"06:59 07:26 07:57 08:53 09:29 10:05 10:36 11:10 12:08 12:44 13:14 14:04 14:39 15:13 15:43 16:23 15:56 17:34", @"07:00 07:27 07:58 08:54 09:29 10:06 10:36 11:11 12:09 12:44 13:14 14:05 14:41 15:14 15:44 16:24 16:57 17:35", @"07:01 07:28 07:59 08:54 09:30 10:06 10:37 11:12 12:09 12:45 13:15 14:05 14:41 14:14 15:44 16:24 16:57 17:35", @"07:02 07:29 08:08 08:55 09:30 10:07 10:37 11:12 12:10 12:46 13:16 14:06 14:41 15:15 15:45 16:25 16:58 17:36", @"07:02 07:29 08:08 08:56 09:31 10:07 10:38 11:13 12:11 12:47 13:16 14:42 15:15 15:45 16:25 16:59 17:37", @"07:02 07:29 08:09 08:57 09:32 10:08 10:39 11:13 12:12 12:48 13:17 14:11 14:43 15:17 15:46 16:26 17:00 17:38", @"07:02 07:30 08:09 08:58 09:32 10:08 10:40 11:13 12:13 12:48 13:17 14:11 14:44 15:17 15:46 16:27 17:00 17:39", @"07:03 07:27 08:10 09:00 09:33 10:12 10:41 11:14 12:14 12:49 13:18 14:12 14:45 15:18 15:47 16:28 17:01 17:40", @"07:04 07:28 08:11 09:00 09:34 10:12 10:42 11:15 12:15 12:50 13:19 14:13 14:45 15:19 15:47 16:29 17:02 17:41", @"07:04 07:28 08:11 09:01 09:35 10:12 10:43 11:15 12:16 12:51 13:19 14:15 14:46 15:19 15:48 16:29 17:02 17:42", @"07:05 07:29 08:12 09:02 09:36 10:13 10:44 11:16 12:17 12:52 13:20 14:15 14:47 15:20 15:49 16:30 17:03 17:43", @"07:06 07:30 08:14 09:03 09:37 10:14 10:45 11:17 12:18 12:53 13:21 14:16 14:48 15:21 15:50 16:31 17:04 17:44", @"07:07 07:32 08:17 09:04 09:38 10:15 10:46 11:18 12:19 12:54 13:22 14:17 14:49 15:23 15:52 16:32 17:05 17:45", @"07:08 07:33 08:18 09:05 09:39 10:16 10:48 11:19 12:20 12:55 13:23 14:18 14:50 15:24 15:53 16:33 17:06 17:46"];
+	
+	NSArray* pontosViaFEC = @[   @{@"lat": [[NSNumber alloc] initWithDouble:-22.82965], @"lg": [[NSNumber alloc] initWithDouble:-47.06258]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.82797], @"lg": [[NSNumber alloc] initWithDouble:-47.063057]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.828272], @"lg": [[NSNumber alloc] initWithDouble:-47.066374]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.82573], @"lg": [[NSNumber alloc] initWithDouble:-47.066289]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.824439], @"lg": [[NSNumber alloc] initWithDouble:-47.067514]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.822122], @"lg": [[NSNumber alloc] initWithDouble:-47.069134]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.821556], @"lg": [[NSNumber alloc] initWithDouble:-47.070109]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.819161], @"lg": [[NSNumber alloc] initWithDouble:-47.072125]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.816572], @"lg": [[NSNumber alloc] initWithDouble:-47.072568]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.814282], @"lg": [[NSNumber alloc] initWithDouble:-47.071371]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.814058], @"lg": [[NSNumber alloc] initWithDouble:-47.069295]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.813868], @"lg": [[NSNumber alloc] initWithDouble:-47.068124]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.812825], @"lg": [[NSNumber alloc] initWithDouble:-47.067281]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.813728], @"lg": [[NSNumber alloc] initWithDouble:-47.065154]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.815090], @"lg": [[NSNumber alloc] initWithDouble:-47.064177]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.815758], @"lg": [[NSNumber alloc] initWithDouble:-47.065938]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.816960], @"lg": [[NSNumber alloc] initWithDouble:-47.066238]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.819232], @"lg": [[NSNumber alloc] initWithDouble:-47.066885]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.821099], @"lg": [[NSNumber alloc] initWithDouble:-47.068044]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.821386], @"lg": [[NSNumber alloc] initWithDouble:-47.067298]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.819690], @"lg": [[NSNumber alloc] initWithDouble:-47.064750]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.817412], @"lg": [[NSNumber alloc] initWithDouble:-47.063412]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.814463], @"lg": [[NSNumber alloc] initWithDouble:-47.063757]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.813579], @"lg": [[NSNumber alloc] initWithDouble:-47.063505]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.816775], @"lg": [[NSNumber alloc] initWithDouble:-47.062649]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.817861], @"lg": [[NSNumber alloc] initWithDouble:-47.063126]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.818430], @"lg": [[NSNumber alloc] initWithDouble:-47.063179]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.818409], @"lg": [[NSNumber alloc] initWithDouble:-47.061060]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.818300], @"lg": [[NSNumber alloc] initWithDouble:-47.059759]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.820915], @"lg": [[NSNumber alloc] initWithDouble:-47.060793]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.823722], @"lg": [[NSNumber alloc] initWithDouble:-47.062820]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.825343], @"lg": [[NSNumber alloc] initWithDouble:-47.066300]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.828360], @"lg": [[NSNumber alloc] initWithDouble:-47.066739]},
+								 @{@"lat": [[NSNumber alloc] initWithDouble:-22.829783], @"lg": [[NSNumber alloc] initWithDouble:-47.063714]}
+								 ];
+	
+	
+	
+	i=0;
+    for (NSString *string in viaFECArray) {
+        NSMutableArray *times = [self stopTimesArray: string];
+		[timeStop setObject:times forKey:@"times"];
+		//Alterar lat e lng de acordo com o ponto
+		[timeStop addEntriesFromDictionary:pontosViaFEC[i]];
+		
+		BOOL save = [StopTime createBusStopTimeWithDictionary:timeStop];
+		if(!save){
+			NSLog(@"Deu zica salvando o circular 2 FEC");
+		}
+		[timeStop removeObjectsForKeys:@[@"times", @"lat", @"lg"]];
+		i++;
+    }
+	
+	NSString *viaFECPath = [[NSBundle mainBundle] pathForResource:@"Circular2ViaFECTrajetoria" ofType:@"json"];
+    NSData *viaFECJson = [NSData dataWithContentsOfFile:viaFECPath];
+    if (viaFECJson) {
+		NSArray* json = [NSJSONSerialization JSONObjectWithData:viaFECJson  options:0 error:nil];
+		for (NSDictionary* dic in json) {
+			[Polyline_points createPolylinePointIdaWithBus:viaFEC withLat:[dic[@"lat"] doubleValue] andLng:[dic[@"long"] doubleValue] withOrder:[dic[@"order"] doubleValue]];
+			
+		}
+    }
 
 	
 	
