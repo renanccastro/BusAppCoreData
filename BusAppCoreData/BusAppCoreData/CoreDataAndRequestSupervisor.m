@@ -221,9 +221,8 @@ static  CoreDataAndRequestSupervisor *supervisor;
     Bus_line *circular2 = [NSEntityDescription insertNewObjectForEntityForName:@"Bus_line"
                                                   inManagedObjectContext:self.context];
     circular2.full_name = @"Circular 2";
-    NSNumber *webNumber = [NSNumber numberWithInt:-2];
-    circular2.web_number = webNumber;
-	circular2.line_number = [NSNumber numberWithInteger:20];
+    circular2.web_number = [[NSNumber alloc]  initWithInt:-2];
+	circular2.line_number = [[NSNumber alloc] initWithInteger:20];
 
 
     NSMutableDictionary *timeStop  = [[NSMutableDictionary alloc] init];
@@ -321,8 +320,8 @@ static  CoreDataAndRequestSupervisor *supervisor;
     Bus_line *viaMuseu = [NSEntityDescription insertNewObjectForEntityForName:@"Bus_line"
 														inManagedObjectContext:self.context];
     viaMuseu.full_name = @"Circular 2 - Via Museu";
-    viaMuseu.web_number = [NSNumber numberWithInt:-3];
-	viaMuseu.line_number = [NSNumber numberWithInteger:21];
+    viaMuseu.web_number = [[NSNumber alloc]  initWithInt:-3];
+	viaMuseu.line_number = [[NSNumber alloc]  initWithInt:21];
 	
     [timeStop setObject:viaMuseu forKey:@"Bus"];
 
@@ -436,8 +435,8 @@ static  CoreDataAndRequestSupervisor *supervisor;
 //    Bus_line *viaFEC = [NSEntityDescription insertNewObjectForEntityForName:@"Bus_line"
 //													   inManagedObjectContext:self.context];
 //    viaMuseu.full_name = @"Circular 2 - Via FEC";
-//    viaMuseu.web_number = [NSNumber numberWithInt:-4];
-//	viaMuseu.line_number = [NSNumber numberWithInt:4];
+//    viaMuseu.web_number = [[NSNumber alloc]  initWithInt:-4];
+//	viaMuseu.line_number = [[NSNumber alloc]  initWithInt:4];
 //	
 //    [timeStop setObject:viaFEC forKey:@"Bus"];
 //	
@@ -514,9 +513,8 @@ static  CoreDataAndRequestSupervisor *supervisor;
                                                       inManagedObjectContext:self.context];
     
     circular1.full_name = @"Circular 1";
-    webNumber = [NSNumber numberWithInt:-1];
-    circular1.web_number = webNumber;
-	viaMuseu.line_number = [NSNumber numberWithInteger:1];
+    circular1.web_number = [NSNumber numberWithInt:-1];
+	circular1.line_number = [NSNumber numberWithInt:1];
     
     [timeStop setObject:circular1 forKey:@"Bus"];
 	
@@ -598,7 +596,6 @@ static  CoreDataAndRequestSupervisor *supervisor;
 		NSArray* json = [NSJSONSerialization JSONObjectWithData:circular1Json  options:0 error:nil];
 		for (NSDictionary* dic in json) {
 			[Polyline_points createPolylinePointIdaWithBus:circular1 withLat:[dic[@"lat"] doubleValue] andLng:[dic[@"long"] doubleValue] withOrder:[dic[@"order"] doubleValue]];
-			
 		}
     }
 	NSError* error;

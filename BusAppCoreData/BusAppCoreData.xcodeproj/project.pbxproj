@@ -31,6 +31,7 @@
 		E80575ED18B37F23002FAAE4 /* Polyline_points.m in Sources */ = {isa = PBXBuildFile; fileRef = E80575EC18B37F23002FAAE4 /* Polyline_points.m */; };
 		E80575F018B37F23002FAAE4 /* Bus_points.m in Sources */ = {isa = PBXBuildFile; fileRef = E80575EF18B37F23002FAAE4 /* Bus_points.m */; };
 		E80575F318B37F23002FAAE4 /* Bus_line.m in Sources */ = {isa = PBXBuildFile; fileRef = E80575F218B37F23002FAAE4 /* Bus_line.m */; };
+		E80FEBDC18B784C400403AC7 /* BusAppCoreData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E80FEBDB18B784C400403AC7 /* BusAppCoreData.sqlite */; };
 		E814ABF818A262FC00035FDC /* TrajectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBE88A318A1566B009C3E35 /* TrajectoryViewController.m */; };
 		E814ABFB18A275F100035FDC /* TrajectoryAddressPlanner.m in Sources */ = {isa = PBXBuildFile; fileRef = E814ABFA18A275F100035FDC /* TrajectoryAddressPlanner.m */; };
 		E82D9733189A73020005173B /* CoreLocationExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E82D9732189A73020005173B /* CoreLocationExtension.m */; };
@@ -57,7 +58,6 @@
 		E8E49C2118A00E1000B4B629 /* SlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E49C2018A00E1000B4B629 /* SlidingViewController.m */; };
 		E8F78B1B189955E300C0EFCB /* Polyline_points+CoreDataMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F78B1A189955E300C0EFCB /* Polyline_points+CoreDataMethods.m */; };
 		E8F78B1E1899561900C0EFCB /* Bus_points+CoreDataMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F78B1D1899561900C0EFCB /* Bus_points+CoreDataMethods.m */; };
-		E8F7EF5A18B3A33F00A1F93E /* BusAppCoreData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E8F7EF5918B3A33F00A1F93E /* BusAppCoreData.sqlite */; };
 		E8F7EF5E18B53AF400A1F93E /* Circular2Trajetoria.json in Resources */ = {isa = PBXBuildFile; fileRef = E8F7EF5D18B53AF400A1F93E /* Circular2Trajetoria.json */; };
 		E8F7EF6018B53C6000A1F93E /* circular1_trajetoria.json in Resources */ = {isa = PBXBuildFile; fileRef = E8F7EF5F18B53C6000A1F93E /* circular1_trajetoria.json */; };
 		E8F7EF6218B5424800A1F93E /* Circular2ViaMuseuTrajetoria.json in Resources */ = {isa = PBXBuildFile; fileRef = E8F7EF6118B5424800A1F93E /* Circular2ViaMuseuTrajetoria.json */; };
@@ -123,6 +123,7 @@
 		E80575EF18B37F23002FAAE4 /* Bus_points.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus_points.m; sourceTree = "<group>"; };
 		E80575F118B37F23002FAAE4 /* Bus_line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus_line.h; sourceTree = "<group>"; };
 		E80575F218B37F23002FAAE4 /* Bus_line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus_line.m; sourceTree = "<group>"; };
+		E80FEBDB18B784C400403AC7 /* BusAppCoreData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BusAppCoreData.sqlite; sourceTree = "<group>"; };
 		E814ABF918A275F100035FDC /* TrajectoryAddressPlanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrajectoryAddressPlanner.h; sourceTree = "<group>"; };
 		E814ABFA18A275F100035FDC /* TrajectoryAddressPlanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrajectoryAddressPlanner.m; sourceTree = "<group>"; };
 		E82D9731189A73020005173B /* CoreLocationExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationExtension.h; sourceTree = "<group>"; };
@@ -161,7 +162,6 @@
 		E8F78B1A189955E300C0EFCB /* Polyline_points+CoreDataMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Polyline_points+CoreDataMethods.m"; sourceTree = "<group>"; };
 		E8F78B1C1899561900C0EFCB /* Bus_points+CoreDataMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bus_points+CoreDataMethods.h"; sourceTree = "<group>"; };
 		E8F78B1D1899561900C0EFCB /* Bus_points+CoreDataMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Bus_points+CoreDataMethods.m"; sourceTree = "<group>"; };
-		E8F7EF5918B3A33F00A1F93E /* BusAppCoreData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BusAppCoreData.sqlite; sourceTree = "<group>"; };
 		E8F7EF5D18B53AF400A1F93E /* Circular2Trajetoria.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Circular2Trajetoria.json; sourceTree = "<group>"; };
 		E8F7EF5F18B53C6000A1F93E /* circular1_trajetoria.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = circular1_trajetoria.json; sourceTree = "<group>"; };
 		E8F7EF6118B5424800A1F93E /* Circular2ViaMuseuTrajetoria.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Circular2ViaMuseuTrajetoria.json; sourceTree = "<group>"; };
@@ -315,9 +315,9 @@
 				E8F7EF5F18B53C6000A1F93E /* circular1_trajetoria.json */,
 				E8F7EF6318B665A300A1F93E /* Circular2ViaFECTrajetoria.json */,
 				E8F7EF6118B5424800A1F93E /* Circular2ViaMuseuTrajetoria.json */,
+				E80FEBDB18B784C400403AC7 /* BusAppCoreData.sqlite */,
 				E89809311896D6C500ECE205 /* Storyboard.storyboard */,
 				E89809351896DC4900ECE205 /* BusAppViewController.h */,
-				E8F7EF5918B3A33F00A1F93E /* BusAppCoreData.sqlite */,
 				E89809361896DC4900ECE205 /* BusAppViewController.m */,
 				B961CC0118A0F78300D5C3E8 /* MarqueeLabel.h */,
 				B961CC0218A0F78300D5C3E8 /* MarqueeLabel.m */,
@@ -448,10 +448,10 @@
 				E8F7EF6418B665A300A1F93E /* Circular2ViaFECTrajetoria.json in Resources */,
 				E8F7EF5E18B53AF400A1F93E /* Circular2Trajetoria.json in Resources */,
 				E8F7EF6218B5424800A1F93E /* Circular2ViaMuseuTrajetoria.json in Resources */,
+				E80FEBDC18B784C400403AC7 /* BusAppCoreData.sqlite in Resources */,
 				E8BAF75A1896BA330087E999 /* InfoPlist.strings in Resources */,
 				E8BAF7651896BA330087E999 /* Images.xcassets in Resources */,
 				E89809321896D6C500ECE205 /* Storyboard.storyboard in Resources */,
-				E8F7EF5A18B3A33F00A1F93E /* BusAppCoreData.sqlite in Resources */,
 				E8F7EF6018B53C6000A1F93E /* circular1_trajetoria.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

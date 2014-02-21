@@ -265,7 +265,7 @@
     
     int hour = ([time intValue]/60) / 60;
     int minute = ([time intValue]/60) % 60;
-    NSString *timeStr = [NSString stringWithFormat:@"%d:%d",hour,minute];
+    NSString *timeStr = [NSString stringWithFormat:@"%02d:%02d",hour,minute];
     
     cell.textLabel.text = timeStr;
     

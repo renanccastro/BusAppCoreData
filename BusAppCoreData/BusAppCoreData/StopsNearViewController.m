@@ -152,12 +152,7 @@
 			subTitle = [subTitle stringByAppendingString:[NSString stringWithFormat:@"%@, ", bus.line_number]];
 		}
 		subTitle = [subTitle substringToIndex:[subTitle length]-2];
-		
-		// ONLY FOR DEBUG
-		#warning tirar depois
-		subTitle = [NSString stringWithFormat:@" -> %f ; %f ", [stop.lat doubleValue], [stop.lng doubleValue]];
-		//
-		
+				
         if ([stop.onibus_que_passam count] == 1){
             [annotation setTitle: @"1 linha passa aqui:"];
         } else {
