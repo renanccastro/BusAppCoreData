@@ -24,14 +24,13 @@
 	
 	int busMax = [prefs integerForKey:@"Bus"];
     for (Bus_line* line in initial) {
-        NSLog(@"initial: %@", line.full_name);
+        //NSLog(@"initial: %@", line.full_name);
     }
 	NSArray* initialLines = [initial allObjects];
 	NSArray* finalLines = [final allObjects];
     for (Bus_line* line in finalLines) {
-                    NSLog(@"mudou");
-		for (Interception *interception in [Interception getAllInterceptionsForBus:line withContext:context]){
-            NSLog(@"bus: %@ final: %@", line.line_number,interception.bus_alvo.line_number);
+        for (Interception *interception in [Interception getAllInterceptionsForBus:line withContext:context]){
+            //NSLog(@"bus: %@ final: %@", line.line_number,interception.bus_alvo.line_number);
         }
     }
     NSMutableArray *route = [[NSMutableArray alloc] init];
@@ -55,11 +54,11 @@
                 node = node.parent;
             }
         } else if (i < busMax-1){
-			NSLog(@"Bus: %@", node.data.line_number);
+			//NSLog(@"Bus: %@", node.data.line_number);
 			NSArray* array = [Interception getAllInterceptionsForBus:((Bus_line *)node.data) withContext:context];
 			for (Interception *interception in array){
                     [self.lines addObject: [[Node alloc] initWithData: interception.bus_alvo andParent: node]];
-                    NSLog(@"LINHA: %@", interception.bus_alvo.full_name);
+                    //NSLog(@"LINHA: %@", interception.bus_alvo.full_name);
 
                 }
         }

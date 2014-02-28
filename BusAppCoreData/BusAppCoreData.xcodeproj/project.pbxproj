@@ -415,7 +415,7 @@
 				ORGANIZATIONNAME = BEPiD;
 				TargetAttributes = {
 					E8BAF7491896BA330087E999 = {
-						DevelopmentTeam = BQ5U78JH7Q;
+						DevelopmentTeam = 5L87HLS3X8;
 					};
 					E8BAF7691896BA330087E999 = {
 						TestTargetID = E8BAF7491896BA330087E999;

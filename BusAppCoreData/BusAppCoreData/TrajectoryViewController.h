@@ -18,7 +18,10 @@
 @property (nonatomic) CLLocationCoordinate2D final;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
-- (void)addRoute: (NSArray *)route withType: (NSString *)type;
--(void) justGotInfo;
+- (void)addRoute: (NSArray *)route;
+- (void)justGotInfo;
+- (CLLocationCoordinate2D)findBusStopNear: (CLLocationCoordinate2D) point;
+- (BOOL)point: (CLLocationCoordinate2D)point belongsToGeobox: (NSMutableArray *)box;
+
 
 @end

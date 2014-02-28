@@ -53,6 +53,8 @@
     
 	CLLocationCoordinate2D touchMapCoordinate =
 	[self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+    
+    NSLog(@"\n\nLOCATION pin : %f %f", touchMapCoordinate.latitude, touchMapCoordinate.longitude);
 	
 	self.pinLocation = touchMapCoordinate;
 	
@@ -90,7 +92,7 @@
 #warning Tirar depois
 	//
 	NSMutableArray* jsonArray = [[NSMutableArray alloc] init];
-	NSLog(@"lat");
+	//NSLog(@"lat");
 	int i = 1;
 	for (Annotation* annot in [self locations]) {
 		NSDictionary* dic = @{@"order": [[NSNumber alloc] initWithInt:i], @"lat": [[NSNumber alloc]initWithDouble:annot.coordinate.latitude], @"long":[[NSNumber alloc]initWithDouble:annot.coordinate.longitude]};
@@ -99,7 +101,7 @@
 	}
 	NSError* error;
 	NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonArray options:0 error:&error];
-	NSLog(@"%@",[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
+	//NSLog(@"%@",[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
 	//
 
 }

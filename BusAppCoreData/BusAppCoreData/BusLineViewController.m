@@ -24,6 +24,7 @@
 @property (nonatomic) NSArray* annotations;
 @property (nonatomic, strong) NSArray *stoptimes;
 
+
 @end
 
 @implementation BusLineViewController
@@ -81,9 +82,9 @@
 	if (self.color == nil) {
 		if ([type isEqualToString: @"ida"]){
 			route = self.rotaDeIda;
-			self.color = [[UIColor alloc] initWithRed: 1 green: 0 blue: 0 alpha:0.5];
+			self.color = [[UIColor alloc] initWithRed: 1 green: 0 blue: 0 alpha:0.4];
 		} else {
-			self.color = [[UIColor alloc] initWithRed: 0 green: 0 blue: 1 alpha:0.5];
+			self.color = [[UIColor alloc] initWithRed: 0 green: 0 blue: 1 alpha:0.4];
 		}
 	}
 	if ([type isEqualToString:@"volta"]) {
@@ -131,7 +132,7 @@
 {
     MKPolylineView *polylineView = [[MKPolylineView alloc] initWithPolyline: overlay];
     polylineView.strokeColor = self.color;
-    polylineView.lineWidth = 5.0;
+    polylineView.lineWidth = 7.0;
     return polylineView;
 }
 
@@ -189,7 +190,7 @@
             annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
             annotationView.enabled = YES;
             annotationView.canShowCallout = YES;
-            annotationView.image = [UIImage imageNamed:@"ThePin.png"];
+            annotationView.image = [UIImage imageNamed:@"stop.png"];
         } else {
             annotationView.annotation = annotation;
         }
@@ -271,4 +272,5 @@
     
     return cell;
 }
+
 @end
