@@ -23,16 +23,16 @@
 	
 	
 	int busMax = [prefs integerForKey:@"Bus"];
-    for (Bus_line* line in initial) {
-        //NSLog(@"initial: %@", line.full_name);
-    }
+//    for (Bus_line* line in initial) {
+//        //NSLog(@"initial: %@", line.full_name);
+//    }
 	NSArray* initialLines = [initial allObjects];
 	NSArray* finalLines = [final allObjects];
-    for (Bus_line* line in finalLines) {
-        for (Interception *interception in [Interception getAllInterceptionsForBus:line withContext:context]){
-            //NSLog(@"bus: %@ final: %@", line.line_number,interception.bus_alvo.line_number);
-        }
-    }
+//    for (Bus_line* line in finalLines) {
+//        for (Interception *interception in [Interception getAllInterceptionsForBus:line withContext:context]){
+//            //NSLog(@"bus: %@ final: %@", line.line_number,interception.bus_alvo.line_number);
+//        }
+//    }
     NSMutableArray *route = [[NSMutableArray alloc] init];
     
     self.lines = [[NSMutableArray alloc] init];

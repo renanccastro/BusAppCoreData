@@ -61,11 +61,11 @@
     Annotation *annot = [[Annotation alloc] init];
     annot.coordinate = touchMapCoordinate;
 	annot.title = @"Destination Point";
-	//
-#warning tirar depois
-	annot.subtitle = [NSString stringWithFormat:@"%f %f", annot.coordinate.latitude, annot.coordinate.longitude];
-	[self.locations addObject:annot];
-	//
+//	//
+//#warning tirar depois
+//	annot.subtitle = [NSString stringWithFormat:@"%f %f", annot.coordinate.latitude, annot.coordinate.longitude];
+//	[self.locations addObject:annot];
+//	//
 
 	self.initial = self.mapView.userLocation.coordinate;
 	
@@ -89,20 +89,20 @@
 
 	[super viewWillDisappear:animated];
 	
-#warning Tirar depois
-	//
-	NSMutableArray* jsonArray = [[NSMutableArray alloc] init];
-	//NSLog(@"lat");
-	int i = 1;
-	for (Annotation* annot in [self locations]) {
-		NSDictionary* dic = @{@"order": [[NSNumber alloc] initWithInt:i], @"lat": [[NSNumber alloc]initWithDouble:annot.coordinate.latitude], @"long":[[NSNumber alloc]initWithDouble:annot.coordinate.longitude]};
-		[jsonArray addObject:dic];
-		i++;
-	}
-	NSError* error;
-	NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonArray options:0 error:&error];
-	//NSLog(@"%@",[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
-	//
+//#warning Tirar depois
+//	//
+//	NSMutableArray* jsonArray = [[NSMutableArray alloc] init];
+//	//NSLog(@"lat");
+//	int i = 1;
+//	for (Annotation* annot in [self locations]) {
+//		NSDictionary* dic = @{@"order": [[NSNumber alloc] initWithInt:i], @"lat": [[NSNumber alloc]initWithDouble:annot.coordinate.latitude], @"long":[[NSNumber alloc]initWithDouble:annot.coordinate.longitude]};
+//		[jsonArray addObject:dic];
+//		i++;
+//	}
+//	NSError* error;
+//	NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonArray options:0 error:&error];
+//	//NSLog(@"%@",[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
+//	//
 
 }
 
