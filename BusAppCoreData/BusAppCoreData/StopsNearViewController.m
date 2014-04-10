@@ -14,14 +14,21 @@
 #import "Bus_line.h"
 #import "BusPoitsRadiusViewController.h"
 #import "PKRevealController.h"
+#import "SPGooglePlacesAutocomplete.h"
 
-@interface StopsNearViewController () <MKMapViewDelegate,PKRevealing>
+@interface StopsNearViewController () <MKMapViewDelegate,PKRevealing, UISearchBarDelegate,UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate> {
+    NSArray *searchResultPlaces;
+    SPGooglePlacesAutocompleteQuery *searchQuery;
+    MKPointAnnotation *selectedPlaceAnnotation;
+    BOOL shouldBeginEditing;
+}
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic) NSArray* stopsNear;
 @property (nonatomic) NSArray* selectedAnnotationInfo;
 @property (nonatomic, strong) Bus_points* selectedStop;
-
+@property (nonatomic) CLGeocoder* geocoder;
+@property (nonatomic) NSArray* placemarks;
 @end
 
 @implementation StopsNearViewController
@@ -45,7 +52,7 @@
     self.mapView.delegate = self;
 	self.revealController.delegate = self;
     self.navigationController.revealController.delegate = self;
-    
+	self.geocoder = [[CLGeocoder alloc] init];
 }
 -(void)viewWillAppear:(BOOL)animated{
 	self.mapView.showsUserLocation = YES;
@@ -189,9 +196,26 @@
         ((MKUserLocation *)annotation).title = @"My Current Location";
         return nil;  //return nil to use default blue dot view
     }
+	else{
+		MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+		if (!annotationView) {
+			annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+		}
+		annotationView.animatesDrop = YES;
+		annotationView.canShowCallout = YES;
+		
+		UIButton *detailButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+		[detailButton addTarget:self action:@selector(annotationDetailButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+		annotationView.rightCalloutAccessoryView = detailButton;
+
+	}
     
     return nil;
 }
+- (void)annotationDetailButtonPressed:(id)sender {
+    // Detail view controller application logic here.
+}
+
 
 
 //Save selected annotation info
@@ -240,5 +264,127 @@
 - (void)requestdidFailWithError:(NSError *)error{
 	
 }
+
+
+- (IBAction)recenterMapToUserLocation:(id)sender {
+    MKCoordinateRegion region;
+    MKCoordinateSpan span;
+    
+    span.latitudeDelta = 0.02;
+    span.longitudeDelta = 0.02;
+    
+    region.span = span;
+    region.center = self.mapView.userLocation.coordinate;
+    
+    [self.mapView setRegion:region animated:YES];
+}
+
+#pragma mark -
+#pragma mark UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_placemarks count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"identifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    cell.textLabel.font = [UIFont fontWithName:@"GillSans" size:16.0];
+	CLPlacemark* placemark = ((CLPlacemark*)self.placemarks[indexPath.row]);
+    cell.textLabel.text = [placemark.addressDictionary objectForKey:@"FormattedAddressLines"];
+    return cell;
+}
+
+#pragma mark -
+#pragma mark UITableViewDelegate
+
+- (void)recenterMapToPlacemark:(CLPlacemark *)placemark {
+    MKCoordinateRegion region;
+    MKCoordinateSpan span;
+    
+    span.latitudeDelta = 0.02;
+    span.longitudeDelta = 0.02;
+    
+    region.span = span;
+    region.center = placemark.location.coordinate;
+    
+    [self.mapView setRegion:region];
+}
+
+- (void)addPlacemarkAnnotationToMap:(CLPlacemark *)placemark addressString:(NSString *)address {
+    [self.mapView removeAnnotation:selectedPlaceAnnotation];
+    
+    selectedPlaceAnnotation = [[MKPointAnnotation alloc] init];
+    selectedPlaceAnnotation.coordinate = placemark.location.coordinate;
+    selectedPlaceAnnotation.title = address;
+    [self.mapView addAnnotation:selectedPlaceAnnotation];
+}
+
+- (void)dismissSearchControllerWhileStayingActive {
+    // Animate out the table view.
+    NSTimeInterval animationDuration = 0.3;
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:animationDuration];
+    self.searchDisplayController.searchResultsTableView.alpha = 0.0;
+    [UIView commitAnimations];
+    
+    [self.searchDisplayController.searchBar setShowsCancelButton:NO animated:YES];
+    [self.searchDisplayController.searchBar resignFirstResponder];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CLPlacemark *place = ((CLPlacemark*)self.placemarks[indexPath.row]);
+	[self addPlacemarkAnnotationToMap:place addressString:place.description];
+	[self recenterMapToPlacemark:place];
+	[self dismissSearchControllerWhileStayingActive];
+	[self.searchDisplayController.searchResultsTableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+#pragma mark -
+#pragma mark UISearchDisplayDelegate
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+		[self.geocoder geocodeAddressString:searchString completionHandler:^(NSArray *placemarks, NSError *error) {
+			self.placemarks = placemarks;
+			NSLog(@"%@",((CLPlacemark*)placemarks.firstObject).name);
+			[self.searchDisplayController.searchResultsTableView reloadData];
+		}];
+		return YES;
+    // Return YES to cause the search result table view to be reloaded.
+}
+
+#pragma mark -
+#pragma mark UISearchBar Delegate
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (![searchBar isFirstResponder]) {
+        // User tapped the 'clear' button.
+        shouldBeginEditing = NO;
+        [self.searchDisplayController setActive:NO];
+        [self.mapView removeAnnotation:selectedPlaceAnnotation];
+    }
+}
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    if (shouldBeginEditing) {
+        // Animate in the table view.
+        NSTimeInterval animationDuration = 0.3;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:animationDuration];
+        self.searchDisplayController.searchResultsTableView.alpha = 0.75;
+        [UIView commitAnimations];
+        
+        [self.searchDisplayController.searchBar setShowsCancelButton:YES animated:YES];
+    }
+    BOOL boolToReturn = shouldBeginEditing;
+    shouldBeginEditing = YES;
+    return boolToReturn;
+}
+
+
 
 @end

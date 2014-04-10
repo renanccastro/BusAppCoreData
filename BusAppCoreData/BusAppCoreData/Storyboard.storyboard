@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hi2-Is-4AL">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hi2-Is-4AL">
                                 <rect key="frame" x="84" y="206" width="216" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -30,14 +30,14 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Endereço" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKL-ok-vQk">
-                                <rect key="frame" x="13" y="212" width="69" height="17"/>
+                                <rect key="frame" x="13" y="213" width="69" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
                                 <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pkp-b8-AHO">
-                                <rect key="frame" x="84" y="244" width="216" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pkp-b8-AHO">
+                                <rect key="frame" x="84" y="245" width="216" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -52,14 +52,14 @@
                                 <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bairro" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uI6-0d-eOA">
-                                <rect key="frame" x="25" y="290" width="46" height="17"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bairro" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uI6-0d-eOA">
+                                <rect key="frame" x="25" y="289" width="47" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="13"/>
                                 <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3CD-L3-m0P">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3CD-L3-m0P">
                                 <rect key="frame" x="84" y="283" width="216" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -90,7 +90,7 @@
                             <constraint firstItem="GKL-ok-vQk" firstAttribute="centerX" secondItem="PiP-sZ-qo4" secondAttribute="centerX" constant="-0.5" id="wc2-fA-1Ej"/>
                             <constraint firstItem="PiP-sZ-qo4" firstAttribute="leading" secondItem="Ibk-Tz-A8I" secondAttribute="leading" constant="20" symbolic="YES" id="wi5-KQ-3ci"/>
                             <constraint firstItem="GKL-ok-vQk" firstAttribute="baseline" secondItem="Hi2-Is-4AL" secondAttribute="baseline" id="zMi-RV-kZc"/>
-                            <constraint firstItem="Hi2-Is-4AL" firstAttribute="height" secondItem="pkp-b8-AHO" secondAttribute="height" id="zTu-DJ-dxI"/>
+                            <constraint firstItem="Hi2-Is-4AL" firstAttribute="height" secondItem="pkp-b8-AHO" secondAttribute="height" constant="1" id="zTu-DJ-dxI"/>
                             <constraint firstItem="Hi2-Is-4AL" firstAttribute="centerX" secondItem="pkp-b8-AHO" secondAttribute="centerX" id="zaQ-KS-Cth"/>
                         </constraints>
                     </view>
@@ -282,15 +282,26 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uhs-eS-0q1">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="H5p-Ue-Q9b">
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="XOq-n4-aYC" id="8cf-xg-BTb"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="H5p-Ue-Q9b" firstAttribute="top" secondItem="Yld-Gt-hcp" secondAttribute="bottom" id="Wys-tJ-1Tz"/>
+                            <constraint firstAttribute="trailing" secondItem="H5p-Ue-Q9b" secondAttribute="trailing" id="YRR-3d-Ddu"/>
                             <constraint firstItem="UiZ-D3-hBv" firstAttribute="top" secondItem="Uhs-eS-0q1" secondAttribute="bottom" id="Zqx-yL-HKQ"/>
+                            <constraint firstItem="H5p-Ue-Q9b" firstAttribute="leading" secondItem="3Mc-jr-GTE" secondAttribute="leading" id="aOh-hc-783"/>
                             <constraint firstAttribute="trailing" secondItem="Uhs-eS-0q1" secondAttribute="trailing" id="ayB-Cb-jxm"/>
-                            <constraint firstItem="Uhs-eS-0q1" firstAttribute="top" secondItem="Yld-Gt-hcp" secondAttribute="bottom" id="jIV-k9-C13"/>
+                            <constraint firstItem="Uhs-eS-0q1" firstAttribute="top" secondItem="H5p-Ue-Q9b" secondAttribute="bottom" id="c2m-eD-IP3"/>
                             <constraint firstItem="Uhs-eS-0q1" firstAttribute="leading" secondItem="3Mc-jr-GTE" secondAttribute="leading" id="mAU-Wc-UCz"/>
                         </constraints>
                     </view>
@@ -310,10 +321,20 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="Uhs-eS-0q1" id="RDr-zF-Qhi"/>
+                        <outlet property="searchDisplayController" destination="tJN-KD-vZs" id="4X4-ku-1tU"/>
                         <segue destination="yv4-TG-TzZ" kind="push" identifier="BusLines" id="OgM-gC-zLg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uI-ZH-GQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="tJN-KD-vZs">
+                    <connections>
+                        <outlet property="delegate" destination="XOq-n4-aYC" id="QI7-wV-4I4"/>
+                        <outlet property="searchBar" destination="H5p-Ue-Q9b" id="nBz-90-xhX"/>
+                        <outlet property="searchContentsController" destination="XOq-n4-aYC" id="MYI-HU-ejy"/>
+                        <outlet property="searchResultsDataSource" destination="XOq-n4-aYC" id="unk-VX-1PI"/>
+                        <outlet property="searchResultsDelegate" destination="XOq-n4-aYC" id="40h-8F-eWi"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1115" y="364"/>
         </scene>
