@@ -29,7 +29,7 @@
 	[[CoreDataAndRequestSupervisor startSupervisor] setCoordinator: self.persistentStoreCoordinator];
 	[[CoreDataAndRequestSupervisor startSupervisor] setContext:self.managedObjectContext];
 //	[[CoreDataAndRequestSupervisor startSupervisor] circularUnicamp];
-    [[CoreDataAndRequestSupervisor startSupervisor] requestBusLines];
+//    [[CoreDataAndRequestSupervisor startSupervisor] requestBusLines];
     
     return YES;
 }
@@ -113,7 +113,7 @@
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
     }
-    //Getting initial version from the bundle
+    //Getting initial version from the bundle - change name
 	NSString *defaultStorePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"BusAppCoreData" ofType:@"sqlite"];
 	
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"BusAppCoreData.sqlite"];

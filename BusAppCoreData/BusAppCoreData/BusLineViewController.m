@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webPage;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UITableView *stopTimesTableView;
+@property (nonatomic) NSMutableSet *expandedCells;
 @property (nonatomic) NSArray* annotations;
 @property (nonatomic, strong) NSArray *stoptimes;
 
@@ -66,6 +67,7 @@
     else
     {
 //        NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES];
+		self.expandedCells = [[NSMutableSet alloc] init];
         self.webPage.hidden = YES;
         self.stopTimesTableView.hidden = NO;
 		self.stoptimes = [StopTime getAllTimesForStop:self.stop andBus:self.bus_line];
@@ -272,5 +274,36 @@
     
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+	[self collapseExpandButtonTap:indexPath];
+}
+
+- (void) collapseExpandButtonTap:(NSIndexPath*)cellPath
+{
+    if ([_expandedCells containsObject:cellPath])
+    {
+        [_expandedCells removeObject:cellPath];
+    }
+    else
+    {
+        [_expandedCells addObject:cellPath];
+    }
+    [self.stopTimesTableView setEditing:YES animated:NO];
+	[self.stopTimesTableView setEditing:NO animated:NO];; //Yeah, that old trick to animate cell expand/collapse
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([_expandedCells containsObject:indexPath])
+    {
+        return 44; //It's not necessary a constant, though
+    }
+    else
+    {
+        return 56; //Again not necessary a constant
+    }
+}
+
 
 @end

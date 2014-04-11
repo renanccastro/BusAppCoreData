@@ -15,6 +15,9 @@
 #import "BusPoitsRadiusViewController.h"
 #import "PKRevealController.h"
 #import "SPGooglePlacesAutocomplete.h"
+#import <AddressBookUI/AddressBookUI.h>
+
+
 
 @interface StopsNearViewController () <MKMapViewDelegate,PKRevealing, UISearchBarDelegate,UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate> {
     NSArray *searchResultPlaces;
@@ -48,7 +51,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	UILocalNotification* n1 = [[UILocalNotification alloc] init];
+	n1.fireDate = [NSDate dateWithTimeIntervalSinceNow: 10];
+	[n1 setAlertAction:@"teste"]; //The button's text that launches the application and is shown in the alert
+	[n1 setAlertBody:@""]; //Set the message in the notification from the textField's text
+	n1.soundName = UILocalNotificationDefaultSoundName;
+	[n1 setHasAction: YES]; //Set that pushing the button will launch the application
+	[[UIApplication sharedApplication] scheduleLocalNotification: n1];
+
+	
 	// Do any additional setup after loading the view.
+	self.placemarks = [[NSArray alloc] init];
     self.mapView.delegate = self;
 	self.revealController.delegate = self;
     self.navigationController.revealController.delegate = self;
@@ -283,7 +297,10 @@
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_placemarks count];
+    return [self.placemarks count];
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+	return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -295,12 +312,24 @@
     
     cell.textLabel.font = [UIFont fontWithName:@"GillSans" size:16.0];
 	CLPlacemark* placemark = ((CLPlacemark*)self.placemarks[indexPath.row]);
-    cell.textLabel.text = [placemark.addressDictionary objectForKey:@"FormattedAddressLines"];
+	NSArray *lines = placemark.addressDictionary[ @"FormattedAddressLines"];
+    NSString *addressString = [lines componentsJoinedByString:@", "];
+    cell.textLabel.text = addressString;
+
     return cell;
 }
 
 #pragma mark -
 #pragma mark UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CLPlacemark *place = ((CLPlacemark*)self.placemarks[indexPath.row]);
+	[self addPlacemarkAnnotationToMap:place addressString:place.description];
+	[self recenterMapToPlacemark:place];
+	[self dismissSearchControllerWhileStayingActive];
+	[self.searchDisplayController.searchResultsTableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
 
 - (void)recenterMapToPlacemark:(CLPlacemark *)placemark {
     MKCoordinateRegion region;
@@ -336,21 +365,15 @@
     [self.searchDisplayController.searchBar resignFirstResponder];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    CLPlacemark *place = ((CLPlacemark*)self.placemarks[indexPath.row]);
-	[self addPlacemarkAnnotationToMap:place addressString:place.description];
-	[self recenterMapToPlacemark:place];
-	[self dismissSearchControllerWhileStayingActive];
-	[self.searchDisplayController.searchResultsTableView deselectRowAtIndexPath:indexPath animated:NO];
-}
 
 #pragma mark -
 #pragma mark UISearchDisplayDelegate
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
 		[self.geocoder geocodeAddressString:searchString completionHandler:^(NSArray *placemarks, NSError *error) {
-			self.placemarks = placemarks;
+			self.placemarks = placemarks ? placemarks : self.placemarks;
 			NSLog(@"%@",((CLPlacemark*)placemarks.firstObject).name);
+			NSLog(@"%@",self.placemarks);
 			[self.searchDisplayController.searchResultsTableView reloadData];
 		}];
 		return YES;
