@@ -14,14 +14,12 @@
 #import "Bus_line.h"
 #import "BusPoitsRadiusViewController.h"
 #import "PKRevealController.h"
-#import "SPGooglePlacesAutocomplete.h"
 #import <AddressBookUI/AddressBookUI.h>
 
 
 
 @interface StopsNearViewController () <MKMapViewDelegate,PKRevealing, UISearchBarDelegate,UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate> {
     NSArray *searchResultPlaces;
-    SPGooglePlacesAutocompleteQuery *searchQuery;
     MKPointAnnotation *selectedPlaceAnnotation;
     BOOL shouldBeginEditing;
 }
@@ -190,7 +188,7 @@
 
 //Configure annotationView
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
-    static NSString *identifier = @"myAnnotation";
+    static NSString *identifier = @"myAnnotation2";
     if ([annotation isKindOfClass:[Annotation class]]) {
         
         MKAnnotationView *annotationView = (MKAnnotationView *) [_mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
@@ -211,7 +209,7 @@
         return nil;  //return nil to use default blue dot view
     }
 	else{
-		MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+		MKPinAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"currentloc"];
 		if (!annotationView) {
 			annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
 		}
@@ -360,7 +358,6 @@
     [UIView setAnimationDuration:animationDuration];
     self.searchDisplayController.searchResultsTableView.alpha = 0.0;
     [UIView commitAnimations];
-    
     [self.searchDisplayController.searchBar setShowsCancelButton:NO animated:YES];
     [self.searchDisplayController.searchBar resignFirstResponder];
 }
@@ -388,6 +385,8 @@
         // User tapped the 'clear' button.
         shouldBeginEditing = NO;
         [self.searchDisplayController setActive:NO];
+		self.mapView.showsUserLocation = NO;
+		self.mapView.showsUserLocation = YES;
         [self.mapView removeAnnotation:selectedPlaceAnnotation];
     }
 }

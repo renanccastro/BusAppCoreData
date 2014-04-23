@@ -33,8 +33,8 @@
 		E80575F318B37F23002FAAE4 /* Bus_line.m in Sources */ = {isa = PBXBuildFile; fileRef = E80575F218B37F23002FAAE4 /* Bus_line.m */; };
 		E814ABF818A262FC00035FDC /* TrajectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBE88A318A1566B009C3E35 /* TrajectoryViewController.m */; };
 		E814ABFB18A275F100035FDC /* TrajectoryAddressPlanner.m in Sources */ = {isa = PBXBuildFile; fileRef = E814ABFA18A275F100035FDC /* TrajectoryAddressPlanner.m */; };
-		E81C858A18F8288700D952CC /* BusAppCoreData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E81C858918F8288700D952CC /* BusAppCoreData.sqlite */; };
 		E82D9733189A73020005173B /* CoreLocationExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E82D9732189A73020005173B /* CoreLocationExtension.m */; };
+		E86962D11908295300E998DE /* BusAppCoreData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E86962D01908295300E998DE /* BusAppCoreData.sqlite */; };
 		E89809321896D6C500ECE205 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89809311896D6C500ECE205 /* Storyboard.storyboard */; };
 		E89809341896D84D00ECE205 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89809331896D84D00ECE205 /* MapKit.framework */; };
 		E89809371896DC4900ECE205 /* BusAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E89809361896DC4900ECE205 /* BusAppViewController.m */; };
@@ -53,6 +53,8 @@
 		E8BAF7771896BA330087E999 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E8BAF7751896BA330087E999 /* InfoPlist.strings */; };
 		E8BAF7791896BA330087E999 /* BusAppCoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BAF7781896BA330087E999 /* BusAppCoreDataTests.m */; };
 		E8C22A40189832D10050CD0B /* BusAppCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8C22A3E189832D10050CD0B /* BusAppCoreData.xcdatamodeld */; };
+		E8CB713C18F83303004D41CA /* ExpendableTableViewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8CB713B18F83303004D41CA /* ExpendableTableViewView.xib */; };
+		E8CB713F18F83596004D41CA /* ExpandableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CB713E18F83596004D41CA /* ExpandableView.m */; };
 		E8E49C02189FEFC500B4B629 /* Interception+CoreDataMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E49C01189FEFC500B4B629 /* Interception+CoreDataMethods.m */; };
 		E8E49C0A18A003E900B4B629 /* PinDropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E49C0918A003E900B4B629 /* PinDropViewController.m */; };
 		E8E49C2118A00E1000B4B629 /* SlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E49C2018A00E1000B4B629 /* SlidingViewController.m */; };
@@ -125,9 +127,9 @@
 		E80575F218B37F23002FAAE4 /* Bus_line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus_line.m; sourceTree = "<group>"; };
 		E814ABF918A275F100035FDC /* TrajectoryAddressPlanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrajectoryAddressPlanner.h; sourceTree = "<group>"; };
 		E814ABFA18A275F100035FDC /* TrajectoryAddressPlanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrajectoryAddressPlanner.m; sourceTree = "<group>"; };
-		E81C858918F8288700D952CC /* BusAppCoreData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BusAppCoreData.sqlite; sourceTree = "<group>"; };
 		E82D9731189A73020005173B /* CoreLocationExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationExtension.h; sourceTree = "<group>"; };
 		E82D9732189A73020005173B /* CoreLocationExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLocationExtension.m; sourceTree = "<group>"; };
+		E86962D01908295300E998DE /* BusAppCoreData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BusAppCoreData.sqlite; sourceTree = "<group>"; };
 		E86A2573189FD2B8005355AC /* Bus_line+Core_Data_Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bus_line+Core_Data_Methods.h"; sourceTree = "<group>"; };
 		E89809311896D6C500ECE205 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		E89809331896D84D00ECE205 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -152,6 +154,9 @@
 		E8BAF7761896BA330087E999 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E8BAF7781896BA330087E999 /* BusAppCoreDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusAppCoreDataTests.m; sourceTree = "<group>"; };
 		E8C22A3F189832D10050CD0B /* BusAppCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BusAppCoreData.xcdatamodel; sourceTree = "<group>"; };
+		E8CB713B18F83303004D41CA /* ExpendableTableViewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpendableTableViewView.xib; sourceTree = "<group>"; };
+		E8CB713D18F83596004D41CA /* ExpandableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandableView.h; sourceTree = "<group>"; };
+		E8CB713E18F83596004D41CA /* ExpandableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandableView.m; sourceTree = "<group>"; };
 		E8E49C00189FEFC500B4B629 /* Interception+CoreDataMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Interception+CoreDataMethods.h"; sourceTree = "<group>"; };
 		E8E49C01189FEFC500B4B629 /* Interception+CoreDataMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Interception+CoreDataMethods.m"; sourceTree = "<group>"; };
 		E8E49C0818A003E900B4B629 /* PinDropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinDropViewController.h; sourceTree = "<group>"; };
@@ -314,8 +319,8 @@
 				E8F7EF5D18B53AF400A1F93E /* Circular2Trajetoria.json */,
 				E8F7EF5F18B53C6000A1F93E /* circular1_trajetoria.json */,
 				E8F7EF6318B665A300A1F93E /* Circular2ViaFECTrajetoria.json */,
+				E86962D01908295300E998DE /* BusAppCoreData.sqlite */,
 				E8F7EF6118B5424800A1F93E /* Circular2ViaMuseuTrajetoria.json */,
-				E81C858918F8288700D952CC /* BusAppCoreData.sqlite */,
 				E89809311896D6C500ECE205 /* Storyboard.storyboard */,
 				E89809351896DC4900ECE205 /* BusAppViewController.h */,
 				E89809361896DC4900ECE205 /* BusAppViewController.m */,
@@ -332,6 +337,9 @@
 				E8BAF7561896BA330087E999 /* Supporting Files */,
 				E8A115B318AA9DEF0054573A /* TabBarViewController.h */,
 				E8A115B418AA9DEF0054573A /* TabBarViewController.m */,
+				E8CB713B18F83303004D41CA /* ExpendableTableViewView.xib */,
+				E8CB713D18F83596004D41CA /* ExpandableView.h */,
+				E8CB713E18F83596004D41CA /* ExpandableView.m */,
 			);
 			path = BusAppCoreData;
 			sourceTree = "<group>";
@@ -448,10 +456,11 @@
 				E8F7EF6418B665A300A1F93E /* Circular2ViaFECTrajetoria.json in Resources */,
 				E8F7EF5E18B53AF400A1F93E /* Circular2Trajetoria.json in Resources */,
 				E8F7EF6218B5424800A1F93E /* Circular2ViaMuseuTrajetoria.json in Resources */,
-				E81C858A18F8288700D952CC /* BusAppCoreData.sqlite in Resources */,
 				E8BAF75A1896BA330087E999 /* InfoPlist.strings in Resources */,
+				E86962D11908295300E998DE /* BusAppCoreData.sqlite in Resources */,
 				E8BAF7651896BA330087E999 /* Images.xcassets in Resources */,
 				E89809321896D6C500ECE205 /* Storyboard.storyboard in Resources */,
+				E8CB713C18F83303004D41CA /* ExpendableTableViewView.xib in Resources */,
 				E8F7EF6018B53C6000A1F93E /* circular1_trajetoria.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,6 +515,7 @@
 			files = (
 				E814ABF818A262FC00035FDC /* TrajectoryViewController.m in Sources */,
 				E8E49C02189FEFC500B4B629 /* Interception+CoreDataMethods.m in Sources */,
+				E8CB713F18F83596004D41CA /* ExpandableView.m in Sources */,
 				B92AA4DB1899561A00A6C8F7 /* Bus_line+Core_Data_Methods.m in Sources */,
 				E80575F318B37F23002FAAE4 /* Bus_line.m in Sources */,
 				E80575EA18B37F23002FAAE4 /* Interception.m in Sources */,

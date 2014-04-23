@@ -13,14 +13,16 @@
 #import "Bus_points+CoreDataMethods.h"
 #import "Annotation.h"
 #import "StopTime+CoreDataMethods.h"
+#import "ExpandableView.h"
+#import <CollapseClick.h>
 
-@interface BusLineViewController () <MKMapViewDelegate, UIWebViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface BusLineViewController () <MKMapViewDelegate, UIWebViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, CollapseClickDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIWebView *webPage;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (weak, nonatomic) IBOutlet UITableView *stopTimesTableView;
+@property (weak, nonatomic) IBOutlet CollapseClick *stopTimesTableView;
 @property (nonatomic) NSMutableSet *expandedCells;
 @property (nonatomic) NSArray* annotations;
 @property (nonatomic, strong) NSArray *stoptimes;
@@ -66,13 +68,14 @@
     }
     else
     {
-//        NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES];
-		self.expandedCells = [[NSMutableSet alloc] init];
+		[self.activityIndicator stopAnimating];
+		self.stopTimesTableView.CollapseClickDelegate = self;
+		[_stopTimesTableView reloadCollapseClick];
         self.webPage.hidden = YES;
         self.stopTimesTableView.hidden = NO;
 		self.stoptimes = [StopTime getAllTimesForStop:self.stop andBus:self.bus_line];
 //        self.stoptimes = [[self.bus_line.stoptimes allObjects] sortedArrayUsingDescriptors:@[sort]];
-        [self.stopTimesTableView reloadData];
+        [self.stopTimesTableView reloadCollapseClick];
     }
 }
 
@@ -248,62 +251,36 @@
 
 #pragma mark - Table View Data Source
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.stoptimes count];
+-(int)numberOfCellsForCollapseClick{
+	return [self.stoptimes count];
 }
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"TimeStop";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    StopTime* stoptime = self.stoptimes[indexPath.row];
+-(NSString *)titleForCollapseClickAtIndex:(int)index {
+	StopTime* stoptime = self.stoptimes[index];
     NSNumber *time = stoptime.time;
     
     int hour = ([time intValue]/60) / 60;
     int minute = ([time intValue]/60) % 60;
     NSString *timeStr = [NSString stringWithFormat:@"%02d:%02d",hour,minute];
-    
-    cell.textLabel.text = timeStr;
-    
-    return cell;
+	return timeStr;
+
+}
+-(UIView *)viewForCollapseClickContentViewAtIndex:(int)index {
+	ExpandableView* view = [[NSBundle mainBundle] loadNibNamed:@"ExpendableTableViewView" owner:self options:nil][0];
+	view.pickerView.delegate = self;
+	view.pickerView.dataSource = self;
+	return view;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-	[self collapseExpandButtonTap:indexPath];
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+	return 1;
 }
-
-- (void) collapseExpandButtonTap:(NSIndexPath*)cellPath
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+	return 8;
+}
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if ([_expandedCells containsObject:cellPath])
-    {
-        [_expandedCells removeObject:cellPath];
-    }
-    else
-    {
-        [_expandedCells addObject:cellPath];
-    }
-    [self.stopTimesTableView setEditing:YES animated:NO];
-	[self.stopTimesTableView setEditing:NO animated:NO];; //Yeah, that old trick to animate cell expand/collapse
+	//set item per row
+	return @"teste";
 }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([_expandedCells containsObject:indexPath])
-    {
-        return 44; //It's not necessary a constant, though
-    }
-    else
-    {
-        return 56; //Again not necessary a constant
-    }
-}
-
 
 @end
