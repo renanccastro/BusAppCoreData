@@ -50,6 +50,7 @@
 	self.queue = [[NSOperationQueue alloc] init];
 	self.overlays = [[NSMutableArray alloc] init];
 	self.colors = [[NSMutableArray alloc] init];
+	[self setThingsOnMap:self.initial];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -216,16 +217,14 @@
 
 -(void)justGotInfo{
 	self.gotInfo = YES;
-	if (self.gotUserLocation) {
-		[self setThingsOnMap:self.mapView.userLocation];
-	}
+	[self setThingsOnMap:self.initial];
 }
 
--(void)setThingsOnMap:(MKUserLocation*)userLocation{
+-(void)setThingsOnMap:(CLLocationCoordinate2D)userLocation{
 	if ([self.mapView.overlays count]) {
 		return;
 	}
-	[self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
+	[self.mapView setCenterCoordinate:userLocation animated:YES];
 	MKCoordinateSpan span = MKCoordinateSpanMake(0.05, 0.05);
     
     MKCoordinateRegion viewRegion = MKCoordinateRegionMake(self.mapView.userLocation.coordinate, span);
@@ -234,14 +233,10 @@
 	[[CoreDataAndRequestSupervisor startSupervisor] setTreeDelegate:self];
 	NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
 	
-	[[CoreDataAndRequestSupervisor startSupervisor] getRequiredTreeLinesWithInitialPoint:userLocation.coordinate andFinalPoint:self.final withRange:[prefs integerForKey:@"SearchRadius"]];
+	[[CoreDataAndRequestSupervisor startSupervisor] getRequiredTreeLinesWithInitialPoint:userLocation andFinalPoint:self.final withRange:[prefs integerForKey:@"SearchRadius"]];
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-	self.gotUserLocation = YES;
-	if (self.gotInfo) {
-		[self setThingsOnMap:userLocation];
-	}
 }
 
 - (CLLocationCoordinate2D)findBusStopNear: (CLLocationCoordinate2D) point {

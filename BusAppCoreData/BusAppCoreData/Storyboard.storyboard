@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grayyyyyLines" translatesAutoresizingMaskIntoConstraints="NO" id="XqE-ly-0iV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="grayyyyyLines" translatesAutoresizingMaskIntoConstraints="NO" id="XqE-ly-0iV">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -117,15 +117,21 @@
                         <viewControllerLayoutGuide type="bottom" id="EB1-3F-6QV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yVW-fs-NUu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IX4-6L-dAq">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IX4-6L-dAq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IX4-6L-dAq" firstAttribute="leading" secondItem="yVW-fs-NUu" secondAttribute="leading" id="5lN-I8-rId"/>
+                            <constraint firstAttribute="trailing" secondItem="IX4-6L-dAq" secondAttribute="trailing" id="PA1-WU-5gv"/>
+                            <constraint firstItem="EB1-3F-6QV" firstAttribute="top" secondItem="IX4-6L-dAq" secondAttribute="bottom" id="X5f-Jr-5se"/>
+                            <constraint firstItem="IX4-6L-dAq" firstAttribute="top" secondItem="yVW-fs-NUu" secondAttribute="top" id="mMa-AM-sCq"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Rota" id="p3x-Ta-y9D">
                         <barButtonItem key="rightBarButtonItem" image="about-32" id="Obd-pf-d4B">
@@ -148,7 +154,7 @@
             <objects>
                 <tableViewController id="pE5-z9-CHI" customClass="InformationViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MMS-oM-W7T">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -295,7 +301,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="goA-tK-ma1">
                             <connections>
                                 <action selector="goToPoints:" destination="XOq-n4-aYC" id="bGj-aR-2Jx"/>
-                                <segue destination="Ted-f0-H4S" kind="push" id="IGN-46-k1v"/>
+                                <segue destination="ZV3-ap-nIc" kind="push" identifier="searchPush" id="VTP-wM-HHp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -644,7 +650,6 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="fastForward" id="qkY-lp-nwc">
                             <connections>
                                 <action selector="planRoute:" destination="Ted-f0-H4S" id="Vi1-6e-DYK"/>
-                                <segue destination="ZV3-ap-nIc" kind="push" identifier="push" id="qlm-5J-k1j"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

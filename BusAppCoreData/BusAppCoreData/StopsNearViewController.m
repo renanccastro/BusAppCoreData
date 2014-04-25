@@ -14,6 +14,7 @@
 #import "Bus_line.h"
 #import "BusPoitsRadiusViewController.h"
 #import "PKRevealController.h"
+#import "TrajectoryViewController.h"
 #import <AddressBookUI/AddressBookUI.h>
 
 
@@ -25,6 +26,8 @@
 }
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (nonatomic) MKPointAnnotation* pinAnnotation;
+@property (nonatomic) CLLocationCoordinate2D initial;
 @property (nonatomic) NSArray* stopsNear;
 @property (nonatomic) NSArray* selectedAnnotationInfo;
 @property (nonatomic, strong) Bus_points* selectedStop;
@@ -59,6 +62,13 @@
 	[[UIApplication sharedApplication] scheduleLocalNotification: n1];
 
 	
+	UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
+										  initWithTarget:self action:@selector(handleLongPress:)];
+	lpgr.minimumPressDuration = 2.0; //user needs to press for 2 seconds
+	[self.mapView addGestureRecognizer:lpgr];
+	[self.mapView setDelegate:self];
+
+	
 	// Do any additional setup after loading the view.
 	self.placemarks = [[NSArray alloc] init];
     self.mapView.delegate = self;
@@ -82,6 +92,34 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer
+{
+    if (gestureRecognizer.state != UIGestureRecognizerStateBegan)
+        return;
+		
+	if(self.pinAnnotation)
+		[self.mapView removeAnnotation:self.pinAnnotation];
+	
+    CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
+    
+	CLLocationCoordinate2D touchMapCoordinate =
+	[self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+    
+    NSLog(@"\n\nLOCATION pin : %f %f", touchMapCoordinate.latitude, touchMapCoordinate.longitude);
+
+		
+    MKPointAnnotation *annot = [[MKPointAnnotation alloc] init];
+    annot.coordinate = touchMapCoordinate;
+	annot.title = @"Destination Point";
+	self.pinAnnotation = annot;
+	
+	self.initial = self.mapView.userLocation.coordinate;
+	
+    [self.mapView addAnnotation:annot];
+	
+}
+
 
 - (IBAction)goToPoints:(id)sender {
 	//Get the references from the storyboard, and do the side bar.
@@ -255,17 +293,6 @@
 	}
 }
 
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if( [[segue identifier] isEqualToString:@"BusLines"])
-    {
-        BusTableViewController *tela = (BusTableViewController*)[segue destinationViewController];
-        tela.busLinesInStop = self.selectedAnnotationInfo;
-		tela.stop = self.selectedStop;
-     }
-}
-
 #pragma - Request
 - (void)requestdidFinishWithObject:(NSArray*)nearStops{
 	self.stopsNear = nearStops;
@@ -324,7 +351,8 @@
     CLPlacemark *place = ((CLPlacemark*)self.placemarks[indexPath.row]);
 	[self addPlacemarkAnnotationToMap:place addressString:place.description];
 	[self recenterMapToPlacemark:place];
-	[self dismissSearchControllerWhileStayingActive];
+//	[self dismissSearchControllerWhileStayingActive];
+	[self.searchDisplayController setActive:NO animated:YES];
 	[self.searchDisplayController.searchResultsTableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
@@ -343,12 +371,12 @@
 }
 
 - (void)addPlacemarkAnnotationToMap:(CLPlacemark *)placemark addressString:(NSString *)address {
-    [self.mapView removeAnnotation:selectedPlaceAnnotation];
+    [self.mapView removeAnnotation:self.pinAnnotation];
     
-    selectedPlaceAnnotation = [[MKPointAnnotation alloc] init];
-    selectedPlaceAnnotation.coordinate = placemark.location.coordinate;
-    selectedPlaceAnnotation.title = address;
-    [self.mapView addAnnotation:selectedPlaceAnnotation];
+    self.pinAnnotation = [[MKPointAnnotation alloc] init];
+    self.pinAnnotation.coordinate = placemark.location.coordinate;
+    self.pinAnnotation.title = address;
+    [self.mapView addAnnotation:self.pinAnnotation];
 }
 
 - (void)dismissSearchControllerWhileStayingActive {
@@ -358,6 +386,9 @@
     [UIView setAnimationDuration:animationDuration];
     self.searchDisplayController.searchResultsTableView.alpha = 0.0;
     [UIView commitAnimations];
+//	self.searchDisplayController.searchResultsTableView.hidden = YES;
+//	self.searchDisplayController.searchResultsTableView.userInteractionEnabled = NO;
+	[self.mapView becomeFirstResponder];
     [self.searchDisplayController.searchBar setShowsCancelButton:NO animated:YES];
     [self.searchDisplayController.searchBar resignFirstResponder];
 }
@@ -405,6 +436,25 @@
     BOOL boolToReturn = shouldBeginEditing;
     shouldBeginEditing = YES;
     return boolToReturn;
+}
+
+
+#pragma mark -
+#pragma mark InfoPassing
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if( [[segue identifier] isEqualToString:@"BusLines"])
+    {
+        BusTableViewController *tela = (BusTableViewController*)[segue destinationViewController];
+        tela.busLinesInStop = self.selectedAnnotationInfo;
+		tela.stop = self.selectedStop;
+	}
+	if ([[segue identifier] isEqualToString:@"searchPush"]) {
+		TrajectoryViewController * vc = [segue destinationViewController];
+		vc.final = self.pinAnnotation.coordinate;
+		vc.initial = self.mapView.userLocation.coordinate;
+	}
 }
 
 
