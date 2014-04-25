@@ -52,6 +52,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	[self.navigationController setToolbarHidden:YES animated:YES];
 	
 	UILocalNotification* n1 = [[UILocalNotification alloc] init];
 	n1.fireDate = [NSDate dateWithTimeIntervalSinceNow: 10];
