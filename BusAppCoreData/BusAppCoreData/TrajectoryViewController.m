@@ -172,33 +172,38 @@
 
 
 -(void)requestDataDidFinishWithInitialArray:(NSArray *)initial andWithFinal:(NSArray *)final{
-	
-	[self.colors removeAllObjects];
-	TrajectoryPlanner *trajectory = [[TrajectoryPlanner alloc] init];
-	self.bus = [[NSArray alloc] initWithArray:[trajectory planningFrom: initial to: final]];
-	if ([self.bus count]) {
-		NSMutableArray* busPoints = [[NSMutableArray alloc] init];
-		for (Bus_line* line in self.bus) {
-			[busPoints addObjectsFromArray:[Bus_points getBusLineStops:line]];
-		}
-		//Create destination pin
-		MKPointAnnotation* annotation = [[MKPointAnnotation alloc] init];
-		[annotation setCoordinate:self.final];
-		[annotation setTitle:@"Destino!"];
-		[self.mapView addAnnotation:annotation];
-        
-		for (Bus_line *line in self.bus){
-			[self addRoute:  [line.polyline_ida allObjects]];
-		}
-	} else {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Trajeto não encontrado!"
-														message:@"Tente mudar as suas configurações de busca para algo mais abrangente."
-													   delegate:self
-											  cancelButtonTitle:@"OK"
-											  otherButtonTitles:nil];
-		[alert show];
-        
-	}
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self.colors removeAllObjects];
+        TrajectoryPlanner *trajectory = [[TrajectoryPlanner alloc] init];
+        self.bus = [[NSArray alloc] initWithArray:[trajectory planningFrom: initial to: final]];
+        if ([self.bus count]) {
+            NSMutableArray* busPoints = [[NSMutableArray alloc] init];
+            for (Bus_line* line in self.bus) {
+                [busPoints addObjectsFromArray:[Bus_points getBusLineStops:line]];
+            }
+            //Create destination pin
+            MKPointAnnotation* annotation = [[MKPointAnnotation alloc] init];
+            [annotation setCoordinate:self.final];
+            [annotation setTitle:@"Destino!"];
+            [self.mapView addAnnotation:annotation];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                for (Bus_line *line in self.bus){
+                    [self addRoute:  [line.polyline_ida allObjects]];
+                }
+            });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Trajeto não encontrado!"
+                                                                message:@"Tente mudar as suas configurações de busca para algo mais abrangente."
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+
+            });
+            
+        }
+    });
 	
 }
 
