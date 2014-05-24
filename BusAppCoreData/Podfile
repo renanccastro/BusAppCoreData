@@ -1,3 +1,2 @@
 platform :ios, '7.0'
 pod 'PKRevealController'
-pod 'CollapseClick', '~> 1.0.1'

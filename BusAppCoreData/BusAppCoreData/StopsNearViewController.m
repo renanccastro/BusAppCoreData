@@ -15,11 +15,12 @@
 #import "BusPoitsRadiusViewController.h"
 #import "PKRevealController.h"
 #import "TrajectoryViewController.h"
+#import "FPPopoverController.h"
 #import <AddressBookUI/AddressBookUI.h>
 
 
 
-@interface StopsNearViewController () <MKMapViewDelegate,PKRevealing, UISearchBarDelegate,UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate> {
+@interface StopsNearViewController () <MKMapViewDelegate,PKRevealing, UISearchBarDelegate,UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate, UISearchBarDelegate, MKMapViewDelegate, FPPopoverControllerDelegate> {
     NSArray *searchResultPlaces;
     MKPointAnnotation *selectedPlaceAnnotation;
     BOOL shouldBeginEditing;
@@ -39,6 +40,32 @@
 
 @synthesize mapView = _mapView;
 @synthesize annotations = _annotations;
+- (IBAction)configPopover:(id)sender {
+    //the view controller you want to present as popover
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Storyboard"
+                                                             bundle: nil];
+    
+    UIViewController *controller = (UIViewController*)[mainStoryboard
+                                                       instantiateViewControllerWithIdentifier: @"popoverContent"];
+    
+    //our popover
+    FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:controller];
+    
+    //the popover will be presented from the okButton view
+    [popover presentPopoverFromView:sender];
+    popover.delegate = self;
+    
+    //no release (ARC enable)
+    //[controller release];
+}
+- (void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController{
+    NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
+    NSLog(@"%d", [prefs integerForKey:@"Radius"]);
+    [[CoreDataAndRequestSupervisor startSupervisor] setDelegate:self];
+    [[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:[prefs integerForKey:@"Radius"]
+                                                                             fromPoint: self.mapView.userLocation.coordinate];
+    self.isStopsOnScreen = YES;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

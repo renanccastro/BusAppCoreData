@@ -27,6 +27,11 @@
 		B9F926B01896BC7400B5A61E /* CoreDataAndRequestSupervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926AF1896BC7400B5A61E /* CoreDataAndRequestSupervisor.m */; };
 		B9F926B61896CE1E00B5A61E /* JsonRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926B51896CE1E00B5A61E /* JsonRequest.m */; };
 		B9F926B71897D02300B5A61E /* ServerUpdateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B9F926B21896CC9D00B5A61E /* ServerUpdateRequest.m */; };
+		C20AD59B19308D0500D61EFE /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20AD59619308D0500D61EFE /* FPPopoverController.m */; };
+		C20AD59C19308D0500D61EFE /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C20AD59819308D0500D61EFE /* FPPopoverView.m */; };
+		C20AD59D19308D0500D61EFE /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = C20AD59A19308D0500D61EFE /* FPTouchView.m */; };
+		C20AD5A019308DE600D61EFE /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20AD59F19308DE600D61EFE /* PopoverViewController.m */; };
+		C2497148193080EA00EA91A5 /* TimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2497147193080EA00EA91A5 /* TimeCell.m */; };
 		E80575EA18B37F23002FAAE4 /* Interception.m in Sources */ = {isa = PBXBuildFile; fileRef = E80575E918B37F23002FAAE4 /* Interception.m */; };
 		E80575ED18B37F23002FAAE4 /* Polyline_points.m in Sources */ = {isa = PBXBuildFile; fileRef = E80575EC18B37F23002FAAE4 /* Polyline_points.m */; };
 		E80575F018B37F23002FAAE4 /* Bus_points.m in Sources */ = {isa = PBXBuildFile; fileRef = E80575EF18B37F23002FAAE4 /* Bus_points.m */; };
@@ -117,6 +122,17 @@
 		B9F926B21896CC9D00B5A61E /* ServerUpdateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerUpdateRequest.m; sourceTree = "<group>"; };
 		B9F926B41896CE1E00B5A61E /* JsonRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonRequest.h; sourceTree = "<group>"; };
 		B9F926B51896CE1E00B5A61E /* JsonRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonRequest.m; sourceTree = "<group>"; };
+		C20AD59419308D0500D61EFE /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
+		C20AD59519308D0500D61EFE /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverController.h; sourceTree = "<group>"; };
+		C20AD59619308D0500D61EFE /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
+		C20AD59719308D0500D61EFE /* FPPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverView.h; sourceTree = "<group>"; };
+		C20AD59819308D0500D61EFE /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverView.m; sourceTree = "<group>"; };
+		C20AD59919308D0500D61EFE /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTouchView.h; sourceTree = "<group>"; };
+		C20AD59A19308D0500D61EFE /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
+		C20AD59E19308DE600D61EFE /* PopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
+		C20AD59F19308DE600D61EFE /* PopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
+		C2497146193080EA00EA91A5 /* TimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeCell.h; sourceTree = "<group>"; };
+		C2497147193080EA00EA91A5 /* TimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeCell.m; sourceTree = "<group>"; };
 		E80575E818B37F23002FAAE4 /* Interception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interception.h; sourceTree = "<group>"; };
 		E80575E918B37F23002FAAE4 /* Interception.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interception.m; sourceTree = "<group>"; };
 		E80575EB18B37F23002FAAE4 /* Polyline_points.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polyline_points.h; sourceTree = "<group>"; };
@@ -228,6 +244,8 @@
 				B934777718A29F23001F9E0A /* ConfigViewController.m */,
 				B934777918A3F66D001F9E0A /* InformationViewController.h */,
 				B934777A18A3F66D001F9E0A /* InformationViewController.m */,
+				C20AD59E19308DE600D61EFE /* PopoverViewController.h */,
+				C20AD59F19308DE600D61EFE /* PopoverViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -279,6 +297,40 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		C2061C8B192D890D004CF240 /* CircularDados */ = {
+			isa = PBXGroup;
+			children = (
+				E8F7EF5D18B53AF400A1F93E /* Circular2Trajetoria.json */,
+				E8F7EF5F18B53C6000A1F93E /* circular1_trajetoria.json */,
+				E8F7EF6318B665A300A1F93E /* Circular2ViaFECTrajetoria.json */,
+				E8F7EF6118B5424800A1F93E /* Circular2ViaMuseuTrajetoria.json */,
+			);
+			name = CircularDados;
+			sourceTree = "<group>";
+		};
+		C2061C8C192D891C004CF240 /* BancoDeDados */ = {
+			isa = PBXGroup;
+			children = (
+				E86962D01908295300E998DE /* BusAppCoreData.sqlite */,
+				C2061C8B192D890D004CF240 /* CircularDados */,
+			);
+			name = BancoDeDados;
+			sourceTree = "<group>";
+		};
+		C20AD59319308CF000D61EFE /* FPPopover */ = {
+			isa = PBXGroup;
+			children = (
+				C20AD59419308D0500D61EFE /* ARCMacros.h */,
+				C20AD59519308D0500D61EFE /* FPPopoverController.h */,
+				C20AD59619308D0500D61EFE /* FPPopoverController.m */,
+				C20AD59719308D0500D61EFE /* FPPopoverView.h */,
+				C20AD59819308D0500D61EFE /* FPPopoverView.m */,
+				C20AD59919308D0500D61EFE /* FPTouchView.h */,
+				C20AD59A19308D0500D61EFE /* FPTouchView.m */,
+			);
+			name = FPPopover;
+			sourceTree = "<group>";
+		};
 		E8BAF7411896BA330087E999 = {
 			isa = PBXGroup;
 			children = (
@@ -316,11 +368,8 @@
 		E8BAF7551896BA330087E999 /* BusAppCoreData */ = {
 			isa = PBXGroup;
 			children = (
-				E8F7EF5D18B53AF400A1F93E /* Circular2Trajetoria.json */,
-				E8F7EF5F18B53C6000A1F93E /* circular1_trajetoria.json */,
-				E8F7EF6318B665A300A1F93E /* Circular2ViaFECTrajetoria.json */,
-				E86962D01908295300E998DE /* BusAppCoreData.sqlite */,
-				E8F7EF6118B5424800A1F93E /* Circular2ViaMuseuTrajetoria.json */,
+				C20AD59319308CF000D61EFE /* FPPopover */,
+				C2061C8C192D891C004CF240 /* BancoDeDados */,
 				E89809311896D6C500ECE205 /* Storyboard.storyboard */,
 				E89809351896DC4900ECE205 /* BusAppViewController.h */,
 				E89809361896DC4900ECE205 /* BusAppViewController.m */,
@@ -340,6 +389,8 @@
 				E8CB713B18F83303004D41CA /* ExpendableTableViewView.xib */,
 				E8CB713D18F83596004D41CA /* ExpandableView.h */,
 				E8CB713E18F83596004D41CA /* ExpandableView.m */,
+				C2497146193080EA00EA91A5 /* TimeCell.h */,
+				C2497147193080EA00EA91A5 /* TimeCell.m */,
 			);
 			path = BusAppCoreData;
 			sourceTree = "<group>";
@@ -519,11 +570,14 @@
 				B92AA4DB1899561A00A6C8F7 /* Bus_line+Core_Data_Methods.m in Sources */,
 				E80575F318B37F23002FAAE4 /* Bus_line.m in Sources */,
 				E80575EA18B37F23002FAAE4 /* Interception.m in Sources */,
+				C20AD59C19308D0500D61EFE /* FPPopoverView.m in Sources */,
 				E80575F018B37F23002FAAE4 /* Bus_points.m in Sources */,
 				AB5C2AAC1898193B0068F017 /* BusLineViewController.m in Sources */,
+				C20AD5A019308DE600D61EFE /* PopoverViewController.m in Sources */,
 				AB3AB670189FF00E00BB16BB /* Node.m in Sources */,
 				B92AA4DE189A867300A6C8F7 /* BusTableViewController.m in Sources */,
 				E8A115B518AA9DEF0054573A /* TabBarViewController.m in Sources */,
+				C20AD59B19308D0500D61EFE /* FPPopoverController.m in Sources */,
 				B9F926B71897D02300B5A61E /* ServerUpdateRequest.m in Sources */,
 				B954105118B38F46004B86E3 /* StopTime+CoreDataMethods.m in Sources */,
 				B954105418B3C026004B86E3 /* StopTime.m in Sources */,
@@ -546,6 +600,8 @@
 				B961CC0C18A1283400D5C3E8 /* BusPoitsRadiusViewController.m in Sources */,
 				B934777B18A3F66D001F9E0A /* InformationViewController.m in Sources */,
 				AB5C2AAF18995ED30068F017 /* Annotation.m in Sources */,
+				C2497148193080EA00EA91A5 /* TimeCell.m in Sources */,
+				C20AD59D19308D0500D61EFE /* FPTouchView.m in Sources */,
 				E8BAF75C1896BA330087E999 /* main.m in Sources */,
 				B9F926B01896BC7400B5A61E /* CoreDataAndRequestSupervisor.m in Sources */,
 				E8E49C0A18A003E900B4B629 /* PinDropViewController.m in Sources */,

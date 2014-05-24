@@ -1,13 +1,10 @@
 PODS:
-  - CollapseClick (1.0.1)
   - PKRevealController (2.0.6)
 
 DEPENDENCIES:
-  - CollapseClick (~> 1.0.1)
   - PKRevealController
 
 SPEC CHECKSUMS:
-  CollapseClick: 29304fa55f7ef1e1c12d2721ffdb03afd71ec051
-  PKRevealController: 883287432cecf4cda037184eb822548b9713f8c2
+  PKRevealController: 4f175a432ad868c806dce1ebb3fd8a35d228bdb5
 
-COCOAPODS: 0.29.0
+COCOAPODS: 0.33.1

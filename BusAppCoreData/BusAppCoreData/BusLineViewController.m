@@ -13,17 +13,12 @@
 #import "Bus_points+CoreDataMethods.h"
 #import "Annotation.h"
 #import "StopTime+CoreDataMethods.h"
-#import "ExpandableView.h"
-#import <CollapseClick.h>
 
-@interface BusLineViewController () <MKMapViewDelegate, UIWebViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, CollapseClickDelegate>
+@interface BusLineViewController () <MKMapViewDelegate, UIWebViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (weak, nonatomic) IBOutlet UIWebView *webPage;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (weak, nonatomic) IBOutlet CollapseClick *stopTimesTableView;
-@property (nonatomic) NSMutableSet *expandedCells;
 @property (nonatomic) NSArray* annotations;
 @property (nonatomic, strong) NSArray *stoptimes;
 
@@ -47,7 +42,6 @@
 {
     [super viewDidLoad];
 	[self.activityIndicator startAnimating];
-	self.webPage.hidden = YES;
 	self.navigationItem.title = self.bus_line.full_name;
 	self.annotations = [[NSArray alloc] init];
 	self.mapView.showsUserLocation = YES;
@@ -57,25 +51,25 @@
     
     if(webCode >= 0)
     {
-        self.stopTimesTableView.hidden = YES;
-        self.webPage.scalesPageToFit = YES;
+
+
         NSLog(@"%d", webCode);
-    
-        NSString *fullURL = [NSString stringWithFormat: @"http://www.emdec.com.br/ABusInf/detalhelinha.asp?TpDiaID=0&CdPjOID=%d", webCode];
-        NSURL *url = [NSURL URLWithString:fullURL];
-        NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-        [self.webPage loadRequest:requestObj];
+
+
+
+
+
     }
     else
     {
 		[self.activityIndicator stopAnimating];
-		self.stopTimesTableView.CollapseClickDelegate = self;
-		[_stopTimesTableView reloadCollapseClick];
-        self.webPage.hidden = YES;
-        self.stopTimesTableView.hidden = NO;
+
+
+
+
 		self.stoptimes = [StopTime getAllTimesForStop:self.stop andBus:self.bus_line];
 //        self.stoptimes = [[self.bus_line.stoptimes allObjects] sortedArrayUsingDescriptors:@[sort]];
-        [self.stopTimesTableView reloadCollapseClick];
+
     }
 }
 
@@ -248,39 +242,4 @@
     [self.mapView setRegion: viewRegion animated:YES];
 
 }
-
-#pragma mark - Table View Data Source
-
--(int)numberOfCellsForCollapseClick{
-	return [self.stoptimes count];
-}
--(NSString *)titleForCollapseClickAtIndex:(int)index {
-	StopTime* stoptime = self.stoptimes[index];
-    NSNumber *time = stoptime.time;
-    
-    int hour = ([time intValue]/60) / 60;
-    int minute = ([time intValue]/60) % 60;
-    NSString *timeStr = [NSString stringWithFormat:@"%02d:%02d",hour,minute];
-	return timeStr;
-
-}
--(UIView *)viewForCollapseClickContentViewAtIndex:(int)index {
-	ExpandableView* view = [[NSBundle mainBundle] loadNibNamed:@"ExpendableTableViewView" owner:self options:nil][0];
-	view.pickerView.delegate = self;
-	view.pickerView.dataSource = self;
-	return view;
-}
-
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-	return 1;
-}
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-	return 8;
-}
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-	//set item per row
-	return @"teste";
-}
-
 @end
