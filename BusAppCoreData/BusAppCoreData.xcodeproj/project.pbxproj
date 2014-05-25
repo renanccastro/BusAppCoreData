@@ -33,6 +33,7 @@
 		C20AD5A019308DE600D61EFE /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20AD59F19308DE600D61EFE /* PopoverViewController.m */; };
 		C216C3A719316CB80018A653 /* TimeTableRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C3A619316CB80018A653 /* TimeTableRequest.m */; };
 		C216C3A919319B480018A653 /* BusAppCoreData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C216C3A819319B480018A653 /* BusAppCoreData.sqlite */; };
+		C222DDE2193278A7007E92B9 /* AlarmManagerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C222DDE1193278A7007E92B9 /* AlarmManagerTableViewController.m */; };
 		C2497148193080EA00EA91A5 /* TimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2497147193080EA00EA91A5 /* TimeCell.m */; };
 		E80575EA18B37F23002FAAE4 /* Interception.m in Sources */ = {isa = PBXBuildFile; fileRef = E80575E918B37F23002FAAE4 /* Interception.m */; };
 		E80575ED18B37F23002FAAE4 /* Polyline_points.m in Sources */ = {isa = PBXBuildFile; fileRef = E80575EC18B37F23002FAAE4 /* Polyline_points.m */; };
@@ -135,6 +136,8 @@
 		C216C3A519316CB80018A653 /* TimeTableRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableRequest.h; sourceTree = "<group>"; };
 		C216C3A619316CB80018A653 /* TimeTableRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTableRequest.m; sourceTree = "<group>"; };
 		C216C3A819319B480018A653 /* BusAppCoreData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BusAppCoreData.sqlite; sourceTree = "<group>"; };
+		C222DDE0193278A7007E92B9 /* AlarmManagerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmManagerTableViewController.h; sourceTree = "<group>"; };
+		C222DDE1193278A7007E92B9 /* AlarmManagerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmManagerTableViewController.m; sourceTree = "<group>"; };
 		C2497146193080EA00EA91A5 /* TimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeCell.h; sourceTree = "<group>"; };
 		C2497147193080EA00EA91A5 /* TimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeCell.m; sourceTree = "<group>"; };
 		E80575E818B37F23002FAAE4 /* Interception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interception.h; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 				B934777A18A3F66D001F9E0A /* InformationViewController.m */,
 				C20AD59E19308DE600D61EFE /* PopoverViewController.h */,
 				C20AD59F19308DE600D61EFE /* PopoverViewController.m */,
+				C222DDE0193278A7007E92B9 /* AlarmManagerTableViewController.h */,
+				C222DDE1193278A7007E92B9 /* AlarmManagerTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -579,6 +584,7 @@
 				E80575F018B37F23002FAAE4 /* Bus_points.m in Sources */,
 				AB5C2AAC1898193B0068F017 /* BusLineViewController.m in Sources */,
 				C20AD5A019308DE600D61EFE /* PopoverViewController.m in Sources */,
+				C222DDE2193278A7007E92B9 /* AlarmManagerTableViewController.m in Sources */,
 				AB3AB670189FF00E00BB16BB /* Node.m in Sources */,
 				B92AA4DE189A867300A6C8F7 /* BusTableViewController.m in Sources */,
 				E8A115B518AA9DEF0054573A /* TabBarViewController.m in Sources */,

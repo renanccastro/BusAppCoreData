@@ -14,6 +14,7 @@
 #import "Annotation.h"
 #import "StopTime+CoreDataMethods.h"
 #import "TimeCell.h"
+#import "AlarmManagerTableViewController.h"
 
 @interface BusLineViewController () <MKMapViewDelegate, UIWebViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic) NSArray* annotations;
+@property (nonatomic) int selectedTimeIndex;
 @property (nonatomic, strong) NSArray *stoptimes;
 
 
@@ -240,6 +242,11 @@
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
 }
+- (void)collectionView:(UICollectionView *)collectionView
+didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    _selectedTimeIndex = indexPath.row;
+}
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     TimeCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"timeCell" forIndexPath:indexPath];
     cell.timeLabel.text = [NSString stringWithFormat:@"%@",[self timeFormatted:((StopTime*)[self.stoptimes objectAtIndex:indexPath.row]).time.intValue]];
@@ -251,5 +258,12 @@
     int hours = totalSeconds / 3600;
     
     return [NSString stringWithFormat:@"%02d:%02d",hours, minutes];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"seeTime"]) {
+        AlarmManagerTableViewController* vc = [segue destinationViewController];
+        vc.busTime = self.stoptimes[self.selectedTimeIndex];
+    }
 }
 @end
