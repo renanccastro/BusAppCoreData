@@ -13,11 +13,13 @@
 #import "Bus_points+CoreDataMethods.h"
 #import "Annotation.h"
 #import "StopTime+CoreDataMethods.h"
+#import "TimeCell.h"
 
 @interface BusLineViewController () <MKMapViewDelegate, UIWebViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic) NSArray* annotations;
 @property (nonatomic, strong) NSArray *stoptimes;
@@ -51,22 +53,12 @@
     
     if(webCode >= 0)
     {
-
-
+        self.stoptimes = [StopTime getAllTimesForStop:nil andBus:self.bus_line];
         NSLog(@"%d", webCode);
-
-
-
-
-
     }
     else
     {
 		[self.activityIndicator stopAnimating];
-
-
-
-
 		self.stoptimes = [StopTime getAllTimesForStop:self.stop andBus:self.bus_line];
 //        self.stoptimes = [[self.bus_line.stoptimes allObjects] sortedArrayUsingDescriptors:@[sort]];
 
@@ -241,5 +233,23 @@
     
     [self.mapView setRegion: viewRegion animated:YES];
 
+}
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return [self.stoptimes count];
+}
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    TimeCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"timeCell" forIndexPath:indexPath];
+    cell.timeLabel.text = [NSString stringWithFormat:@"%@",[self timeFormatted:((StopTime*)[self.stoptimes objectAtIndex:indexPath.row]).time.intValue]];
+    return cell;
+}
+- (NSString *)timeFormatted:(int)totalSeconds
+{
+    int minutes = (totalSeconds / 60) % 60;
+    int hours = totalSeconds / 3600;
+    
+    return [NSString stringWithFormat:@"%02d:%02d",hours, minutes];
 }
 @end

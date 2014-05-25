@@ -33,7 +33,10 @@
 @property (nonatomic) id<TreeDataRequestDelegate> treeDelegate;
 @property (nonatomic) NSPersistentStoreCoordinator* coordinator;
 
+-(NSNumber*)returnTimeInSeconds:(NSArray*)time;
 -(void) requestBusLines;
+-(NSManagedObjectContext*)newContext;
+-(void) requestAllTimesTables;
 +(CoreDataAndRequestSupervisor*) startSupervisor;
 -(void) getAllBusPointsAsyncWithinDistance:(CGFloat)distance fromPoint:(CLLocationCoordinate2D)point;
 -(void) getRequiredTreeLinesWithInitialPoint:(CLLocationCoordinate2D)initialPoint andFinalPoint:(CLLocationCoordinate2D)finalPoint withRange:(CGFloat)range;

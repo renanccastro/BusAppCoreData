@@ -13,30 +13,46 @@
 
 @implementation StopTime (CoreDataMethods)
 
-+(BOOL)createBusStopTimeWithDictionary:(NSDictionary*)times
++(BOOL)createBusStopTimeWithDictionary:(NSDictionary*)times withContext:(NSManagedObjectContext*)context
 {
-    
-    for(NSNumber *time in [times objectForKey:@"times"])
-    {
-        StopTime *stopTime = [NSEntityDescription insertNewObjectForEntityForName:@"StopTime"
-                                                       inManagedObjectContext:[CoreDataAndRequestSupervisor startSupervisor].context];
+    if (((Bus_line*)[times objectForKey:@"Bus"]).web_number < 0) {
+        for(NSNumber *time in [times objectForKey:@"times"])
+        {
+            StopTime *stopTime = [NSEntityDescription insertNewObjectForEntityForName:@"StopTime"
+                                                               inManagedObjectContext:context];
+            
+            stopTime.time = time;
+            
+            Bus_points *stop  = [Bus_points createBusPointFromBusLine:[times objectForKey:@"Bus"]
+                                                              withLat:[[times objectForKey:@"lat"] doubleValue]
+                                                              andLong:[[times objectForKey:@"lg"] doubleValue]];
+            
+            stopTime.stop = stop;
+            stopTime.bus = [times objectForKey:@"Bus"];
+            [((Bus_line*)[times objectForKey:@"Bus"]) addStoptimesObject:stopTime];
+            [stop addStoptimesObject:stopTime];
+            [((Bus_line*)times[@"Bus"]) addStoptimesObject:stopTime];
+            [stop addOnibus_que_passamObject:times[@"Bus"]];
+        }
+    }
+    else{
+        for(NSString *time in [times objectForKey:@"times"]){
+            NSArray *minHours = [[NSArray alloc] init];
+            minHours = [time componentsSeparatedByString:@":"];
+            NSNumber* number = [[CoreDataAndRequestSupervisor startSupervisor] returnTimeInSeconds:minHours];
+
+            StopTime *stopTime = [NSEntityDescription insertNewObjectForEntityForName:@"StopTime"
+                                                               inManagedObjectContext:context];
+            
+            stopTime.time = number;
+            stopTime.bus = [times objectForKey:@"Bus"];
+            stopTime.stop = nil;
+        }
         
-        stopTime.time = time;
-    
-        Bus_points *stop  = [Bus_points createBusPointFromBusLine:[times objectForKey:@"Bus"]
-                                                          withLat:[[times objectForKey:@"lat"] doubleValue]
-                                                          andLong:[[times objectForKey:@"lg"] doubleValue]];
-    
-        stopTime.stop = stop;
-		stopTime.bus = [times objectForKey:@"Bus"];
-        [((Bus_line*)[times objectForKey:@"Bus"]) addStoptimesObject:stopTime];
-        [stop addStoptimesObject:stopTime];
-		[((Bus_line*)times[@"Bus"]) addStoptimesObject:stopTime];
-        [stop addOnibus_que_passamObject:times[@"Bus"]];
     }
     NSError * saveError;
 
-    [[CoreDataAndRequestSupervisor startSupervisor].context save:&saveError];
+    [context save:&saveError];
     return saveError ? NO : YES;
 }
 +(NSArray*) getAllTimesForStop:(Bus_points*)stop andBus:(Bus_line*)bus{
@@ -51,9 +67,16 @@
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	[request setEntity:entityDescription];
 	request.sortDescriptors = @[descriptor];
-	
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:
-							  @"bus == %@ AND stop == %@", bus, stop];
+    
+	NSPredicate *predicate;
+    //Se for um circular, procura o ponto específico:
+    if (bus.web_number.intValue < 0) {
+        predicate = [NSPredicate predicateWithFormat:
+                                  @"bus == %@ AND stop == %@", bus, stop];
+    }else{
+         predicate = [NSPredicate predicateWithFormat:
+                                  @"bus == %@", bus];
+    }
 	
 	[request setPredicate:predicate];
 	NSError *error;

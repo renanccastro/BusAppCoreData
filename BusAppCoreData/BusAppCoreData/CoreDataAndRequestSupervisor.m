@@ -13,12 +13,14 @@
 #import "Interception+CoreDataMethods.h"
 #import "Polyline_points+CoreDataMethods.h"
 #import "JsonRequest.h"
+#import "TimeTableRequest.h"
 #import "StopTime+CoreDataMethods.h"
 
 
-@interface CoreDataAndRequestSupervisor () <ServerUpdateRequestDelegate,JsonRequestDelegate>
+@interface CoreDataAndRequestSupervisor () <ServerUpdateRequestDelegate,JsonRequestDelegate, TimeTableRequestDelegate>
 
 @property (nonatomic, strong) NSMutableArray *jsonsRequests;
+@property (nonatomic, strong) NSMutableArray *timesRequests;
 @property (nonatomic, strong) NSOperationQueue *queue;
 @property (nonatomic) int finishedOperations;
 @property (nonatomic) int dueOperations;
@@ -34,7 +36,12 @@
 static  CoreDataAndRequestSupervisor *supervisor;
 
 #pragma mark -  singleton methods
-
+-(NSManagedObjectContext*)newContext{
+    NSManagedObjectContext* context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+//    [context setParentContext:self.context];
+    [context setPersistentStoreCoordinator:self.coordinator];
+    return context;
+}
 +(id) allocWithZone:(struct _NSZone *)zone
 {
     return [CoreDataAndRequestSupervisor startSupervisor];
@@ -109,6 +116,17 @@ static  CoreDataAndRequestSupervisor *supervisor;
     
 }
 
+-(void) requestAllTimesTables{
+    NSArray * bus_lines = [Bus_line getAllBus];
+    for (Bus_line* bus in bus_lines) {
+        if (bus.web_number.intValue < 0) {
+            continue;
+        }
+        TimeTableRequest* request = [[TimeTableRequest alloc] init];
+        [request requestTimeWithBus:bus withdelegate:self];
+        [self.timesRequests addObject:request];
+    }
+}
 #pragma mark - json request delegate  methods
 
 -(void)request:(JsonRequest *)request didFailInGetJson:(NSError *)error
@@ -143,6 +161,7 @@ static  CoreDataAndRequestSupervisor *supervisor;
 				NSLog(@"Started creating interseptions references");
 				[Bus_line removeBusInterseptionsReferences];
 				[Bus_line createBusInterseptionsReferences];
+                [self requestAllTimesTables];
 				NSLog(@"Finished creating interseptions references");
 				//if everything was succesfully completed, set the version to the newest one on the server.
 				[[NSUserDefaults standardUserDefaults] setInteger:self.newestVersion forKey:@"version"];
@@ -153,6 +172,27 @@ static  CoreDataAndRequestSupervisor *supervisor;
     [self.operations addObject:operation];
     [self.queue addOperation:operation];
 }
+-(void)request:(TimeTableRequest *)request didFinishWithTimeJson:(id)json forBus:(Bus_line*)bus
+{
+    NSDictionary* dic = @{@"Bus":bus, @"times":json};
+	//Start parsing the json!
+    NSManagedObjectContext* context = [[CoreDataAndRequestSupervisor startSupervisor] context];
+//    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+		BOOL save = NO;
+		//Save the bus line with a synchro lock, otherwise it would cause errors.
+		@synchronized(self.lock){
+            save = [StopTime createBusStopTimeWithDictionary:dic withContext:context];
+		}
+        if(!save)
+        {
+            NSLog(@"i deu zica no save");
+        }
+
+//    }];
+//    [self.operations addObject:operation];
+//    [self.queue addOperation:operation];
+}
+
 
 #pragma mark - CoreData methods
 /** Function that receives a distance and a point and returns all Bus_points on the database(return it async with a delegate), 
@@ -296,7 +336,7 @@ static  CoreDataAndRequestSupervisor *supervisor;
 			//Alterar lat e lng de acordo com o ponto
 			[timeStop addEntriesFromDictionary:pontosCircular2[i]];
 			
-			BOOL save = [StopTime createBusStopTimeWithDictionary:timeStop];
+			BOOL save = [StopTime createBusStopTimeWithDictionary:timeStop withContext:[[CoreDataAndRequestSupervisor startSupervisor] context]];
 			if(!save){
 				NSLog(@"Deu zica salvando o circular 2");
 			}
@@ -411,7 +451,7 @@ static  CoreDataAndRequestSupervisor *supervisor;
 		//Alterar lat e lng de acordo com o ponto
 		[timeStop addEntriesFromDictionary:pontosViaMuseu[i]];
 		
-		BOOL save = [StopTime createBusStopTimeWithDictionary:timeStop];
+		BOOL save = [StopTime createBusStopTimeWithDictionary:timeStop withContext:[[CoreDataAndRequestSupervisor startSupervisor] context]];
 		if(!save){
 			NSLog(@"Deu zica salvando o circular 2 museu");
 		}
@@ -523,7 +563,7 @@ static  CoreDataAndRequestSupervisor *supervisor;
 		//Alterar lat e lng de acordo com o ponto
 		[timeStop addEntriesFromDictionary:pontosViaFEC[i]];
 		
-		BOOL save = [StopTime createBusStopTimeWithDictionary:timeStop];
+		BOOL save = [StopTime createBusStopTimeWithDictionary:timeStop withContext:[[CoreDataAndRequestSupervisor startSupervisor] context]];
 		if(!save){
 			NSLog(@"Deu zica salvando o circular 2 FEC");
 		}
@@ -617,8 +657,8 @@ static  CoreDataAndRequestSupervisor *supervisor;
 			[timeStop setObject:times forKey:@"times"];
 			//Alterar lat e lng de acordo com o ponto
 			[timeStop addEntriesFromDictionary:pontosCircular1[i]];
-			
-			BOOL save = [StopTime createBusStopTimeWithDictionary:timeStop];
+			 
+			BOOL save = [StopTime createBusStopTimeWithDictionary:timeStop withContext:[[CoreDataAndRequestSupervisor startSupervisor] context]];
 			if(!save){
 				NSLog(@"Deu zica salvando o circular 1");
 			}

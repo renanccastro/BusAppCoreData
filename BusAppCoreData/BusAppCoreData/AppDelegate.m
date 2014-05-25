@@ -28,6 +28,8 @@
     
 	[[CoreDataAndRequestSupervisor startSupervisor] setCoordinator: self.persistentStoreCoordinator];
 	[[CoreDataAndRequestSupervisor startSupervisor] setContext:self.managedObjectContext];
+//    [[CoreDataAndRequestSupervisor startSupervisor] requestAllTimesTables];
+
 //	[[CoreDataAndRequestSupervisor startSupervisor] circularUnicamp];
 //    [[CoreDataAndRequestSupervisor startSupervisor] requestBusLines];
     

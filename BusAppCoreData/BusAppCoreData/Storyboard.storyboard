@@ -246,6 +246,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="bxf-Rf-9fD" id="KPA-Nv-BEd"/>
+                                    <outlet property="delegate" destination="bxf-Rf-9fD" id="1PQ-8G-7Hw"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -262,6 +266,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Rota" id="EAh-AO-1ee"/>
                     <connections>
+                        <outlet property="collectionView" destination="Skr-kk-Lxr" id="rWj-pp-459"/>
                         <outlet property="mapView" destination="HNT-e3-WZm" id="DiL-eV-uaZ"/>
                     </connections>
                 </viewController>

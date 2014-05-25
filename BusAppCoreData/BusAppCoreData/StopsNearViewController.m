@@ -60,10 +60,9 @@
 }
 - (void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController{
     NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
-    NSLog(@"%d", [prefs integerForKey:@"Radius"]);
+    int radius = [prefs integerForKey:@"Radius"];
     [[CoreDataAndRequestSupervisor startSupervisor] setDelegate:self];
-    [[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:[prefs integerForKey:@"Radius"]
-                                                                             fromPoint: self.mapView.userLocation.coordinate];
+    [[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:radius fromPoint: self.mapView.userLocation.coordinate];
     self.isStopsOnScreen = YES;
 }
 
@@ -100,7 +99,6 @@
 	// Do any additional setup after loading the view.
 	self.placemarks = [[NSArray alloc] init];
     self.mapView.delegate = self;
-	self.revealController.delegate = self;
     self.navigationController.revealController.delegate = self;
 	self.geocoder = [[CLGeocoder alloc] init];
 }
@@ -148,79 +146,34 @@
 	
 }
 
-
-- (IBAction)goToPoints:(id)sender {
-	//Get the references from the storyboard, and do the side bar.
-    UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"Storyboard"
-                                                           bundle:nil];
-    UITableViewController *right = [mystoryboard instantiateViewControllerWithIdentifier:@"SearchConfigViewControllerId"];
-    UINavigationController *front = [mystoryboard instantiateViewControllerWithIdentifier:@"SearchViewControllerId"];
-    PKRevealController *revealView = [PKRevealController revealControllerWithFrontViewController:front
-                                                                             rightViewController:right];
-    
-    front.revealController = revealView;
-    [revealView setMinimumWidth:180.0
-                   maximumWidth:244.0
-              forViewController:right];
-    revealView.delegate = self;
-    [self presentViewController:revealView
-                       animated:YES
-                     completion:nil];
-}
-
 #pragma - MapView Methods
 //Remove old annotations and set new ones
-- (void)updateMapView
-{
-    if (self.mapView.annotations){
-        [self.mapView removeAnnotations:self.mapView.annotations];
-    }
-    if (self.annotations){
-        [self.mapView addAnnotations: self.annotations];
-    }
-}
+//- (void)updateMapView
+//{
+//    if (self.mapView.annotations){
+//        [self.mapView removeAnnotations:self.mapView.annotations];
+//    }
+//    if (self.annotations){
+//        [self.mapView addAnnotations: self.annotations];
+//    }
+////    [_mapView setCenterCoordinate:[_mapView centerCoordinate] animated:NO];
+//}
 
 - (void)setMapView:(MKMapView *)mapView
 {
     _mapView = mapView;
-    [self updateMapView];
+//    [self updateMapView];
 }
 
 - (void)setAnnotations:(NSArray *)annotations
 {
+    
     _annotations = annotations;
-    [self updateMapView];
+//    [self updateMapView];
 }
 
 #pragma mark - Button methods
 
-//Call right side view quem the button is pressed
-- (IBAction)showConfiguration:(id)sender
-{
-    [self.navigationController.revealController showViewController:self.navigationController.revealController.leftViewController];
-
-}
-
-#pragma mark - PKreveal delegate methods
-
-//when the state change form the rightView to the frontView it reload the bus points on the map
--(void)revealController:(PKRevealController *)revealController willChangeToState:(PKRevealControllerState)state
-{
-    if(state == PKRevealControllerShowsFrontViewController)
-    {
-//        if(![self isStopsOnScreen]){
-            NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
-            [[CoreDataAndRequestSupervisor startSupervisor] setDelegate:self];
-            [[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:[prefs integerForKey:@"Radius"]
-                                                                                     fromPoint: self.mapView.userLocation.coordinate];
-            self.isStopsOnScreen = YES;	
-//        }
-    }
-    else if(state == PKRevealControllerShowsRightViewController)
-    {
-        self.isStopsOnScreen = NO;
-    }
-}
 
 #pragma mark - annotation and map view methods
 
@@ -249,7 +202,17 @@
 		annotation.index = i;
 		i++;
     }
-	[self setAnnotations:annotationArray];
+	[self.mapView removeAnnotations:self.mapView.annotations];
+    dispatch_async (dispatch_get_main_queue(), ^
+    {
+        [self.mapView addAnnotations:annotationArray];
+        NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
+        int radius = [prefs integerForKey:@"Radius"];
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, radius+800, radius+800);
+        [self.mapView setRegion:region animated:YES];
+        
+    });
+
 }
 
 //Configure annotationView
@@ -308,24 +271,30 @@
     
 }
 
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-	
-	MKCoordinateRegion region = MKCoordinateRegionMake(userLocation.location.coordinate, MKCoordinateSpanMake(0.005, 0.005));
+-(void) updateUserLocationAndGetBusStopsWithLocation:(CLLocationCoordinate2D)location{
+    NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
+    int radius = [prefs integerForKey:@"Radius"];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location, radius+50, radius+50);
     [self.mapView setRegion:region animated:YES];
-	
+    
+    [[CoreDataAndRequestSupervisor startSupervisor] setDelegate:self];
+    [[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:radius fromPoint: location];
+    self.isStopsOnScreen = YES;
+
+}
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
 	if(![self isStopsOnScreen]){
-        NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
-		[[CoreDataAndRequestSupervisor startSupervisor] setDelegate:self];
-		[[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:[prefs integerForKey:@"Radius"] fromPoint: userLocation.coordinate];
-		self.isStopsOnScreen = YES;
+        [self updateUserLocationAndGetBusStopsWithLocation:userLocation.location.coordinate];
 	}
 }
 
 #pragma - Request
 - (void)requestdidFinishWithObject:(NSArray*)nearStops{
-	self.stopsNear = nearStops;
-	[self creatAnnotationsFromBusPointsArray:nearStops];
-	
+    @synchronized(self)
+    {
+        self.stopsNear = nearStops;
+        [self creatAnnotationsFromBusPointsArray:nearStops];
+	}
 }
 
 - (void)requestdidFailWithError:(NSError *)error{

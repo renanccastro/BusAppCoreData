@@ -31,6 +31,8 @@
 		C20AD59C19308D0500D61EFE /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = C20AD59819308D0500D61EFE /* FPPopoverView.m */; };
 		C20AD59D19308D0500D61EFE /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = C20AD59A19308D0500D61EFE /* FPTouchView.m */; };
 		C20AD5A019308DE600D61EFE /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20AD59F19308DE600D61EFE /* PopoverViewController.m */; };
+		C216C3A719316CB80018A653 /* TimeTableRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C3A619316CB80018A653 /* TimeTableRequest.m */; };
+		C216C3A919319B480018A653 /* BusAppCoreData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C216C3A819319B480018A653 /* BusAppCoreData.sqlite */; };
 		C2497148193080EA00EA91A5 /* TimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2497147193080EA00EA91A5 /* TimeCell.m */; };
 		E80575EA18B37F23002FAAE4 /* Interception.m in Sources */ = {isa = PBXBuildFile; fileRef = E80575E918B37F23002FAAE4 /* Interception.m */; };
 		E80575ED18B37F23002FAAE4 /* Polyline_points.m in Sources */ = {isa = PBXBuildFile; fileRef = E80575EC18B37F23002FAAE4 /* Polyline_points.m */; };
@@ -39,7 +41,6 @@
 		E814ABF818A262FC00035FDC /* TrajectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBE88A318A1566B009C3E35 /* TrajectoryViewController.m */; };
 		E814ABFB18A275F100035FDC /* TrajectoryAddressPlanner.m in Sources */ = {isa = PBXBuildFile; fileRef = E814ABFA18A275F100035FDC /* TrajectoryAddressPlanner.m */; };
 		E82D9733189A73020005173B /* CoreLocationExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E82D9732189A73020005173B /* CoreLocationExtension.m */; };
-		E86962D11908295300E998DE /* BusAppCoreData.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E86962D01908295300E998DE /* BusAppCoreData.sqlite */; };
 		E89809321896D6C500ECE205 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89809311896D6C500ECE205 /* Storyboard.storyboard */; };
 		E89809341896D84D00ECE205 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89809331896D84D00ECE205 /* MapKit.framework */; };
 		E89809371896DC4900ECE205 /* BusAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E89809361896DC4900ECE205 /* BusAppViewController.m */; };
@@ -131,6 +132,9 @@
 		C20AD59A19308D0500D61EFE /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
 		C20AD59E19308DE600D61EFE /* PopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
 		C20AD59F19308DE600D61EFE /* PopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
+		C216C3A519316CB80018A653 /* TimeTableRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableRequest.h; sourceTree = "<group>"; };
+		C216C3A619316CB80018A653 /* TimeTableRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTableRequest.m; sourceTree = "<group>"; };
+		C216C3A819319B480018A653 /* BusAppCoreData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BusAppCoreData.sqlite; sourceTree = "<group>"; };
 		C2497146193080EA00EA91A5 /* TimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeCell.h; sourceTree = "<group>"; };
 		C2497147193080EA00EA91A5 /* TimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeCell.m; sourceTree = "<group>"; };
 		E80575E818B37F23002FAAE4 /* Interception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interception.h; sourceTree = "<group>"; };
@@ -145,7 +149,6 @@
 		E814ABFA18A275F100035FDC /* TrajectoryAddressPlanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrajectoryAddressPlanner.m; sourceTree = "<group>"; };
 		E82D9731189A73020005173B /* CoreLocationExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationExtension.h; sourceTree = "<group>"; };
 		E82D9732189A73020005173B /* CoreLocationExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLocationExtension.m; sourceTree = "<group>"; };
-		E86962D01908295300E998DE /* BusAppCoreData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BusAppCoreData.sqlite; sourceTree = "<group>"; };
 		E86A2573189FD2B8005355AC /* Bus_line+Core_Data_Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bus_line+Core_Data_Methods.h"; sourceTree = "<group>"; };
 		E89809311896D6C500ECE205 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		E89809331896D84D00ECE205 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -293,6 +296,8 @@
 				B9F926B51896CE1E00B5A61E /* JsonRequest.m */,
 				E82D9731189A73020005173B /* CoreLocationExtension.h */,
 				E82D9732189A73020005173B /* CoreLocationExtension.m */,
+				C216C3A519316CB80018A653 /* TimeTableRequest.h */,
+				C216C3A619316CB80018A653 /* TimeTableRequest.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -311,7 +316,7 @@
 		C2061C8C192D891C004CF240 /* BancoDeDados */ = {
 			isa = PBXGroup;
 			children = (
-				E86962D01908295300E998DE /* BusAppCoreData.sqlite */,
+				C216C3A819319B480018A653 /* BusAppCoreData.sqlite */,
 				C2061C8B192D890D004CF240 /* CircularDados */,
 			);
 			name = BancoDeDados;
@@ -508,7 +513,7 @@
 				E8F7EF5E18B53AF400A1F93E /* Circular2Trajetoria.json in Resources */,
 				E8F7EF6218B5424800A1F93E /* Circular2ViaMuseuTrajetoria.json in Resources */,
 				E8BAF75A1896BA330087E999 /* InfoPlist.strings in Resources */,
-				E86962D11908295300E998DE /* BusAppCoreData.sqlite in Resources */,
+				C216C3A919319B480018A653 /* BusAppCoreData.sqlite in Resources */,
 				E8BAF7651896BA330087E999 /* Images.xcassets in Resources */,
 				E89809321896D6C500ECE205 /* Storyboard.storyboard in Resources */,
 				E8CB713C18F83303004D41CA /* ExpendableTableViewView.xib in Resources */,
@@ -587,6 +592,7 @@
 				ABA8476A1896CBA5008B0172 /* TrajectoryPlanningViewController.m in Sources */,
 				E8F78B1B189955E300C0EFCB /* Polyline_points+CoreDataMethods.m in Sources */,
 				E8C22A40189832D10050CD0B /* BusAppCoreData.xcdatamodeld in Sources */,
+				C216C3A719316CB80018A653 /* TimeTableRequest.m in Sources */,
 				E89809371896DC4900ECE205 /* BusAppViewController.m in Sources */,
 				E8E49C2118A00E1000B4B629 /* SlidingViewController.m in Sources */,
 				ABA8476D1896CE0B008B0172 /* StopsNearViewController.m in Sources */,
