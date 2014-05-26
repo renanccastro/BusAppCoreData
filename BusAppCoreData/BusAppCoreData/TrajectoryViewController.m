@@ -97,7 +97,7 @@
 		point = [route objectAtIndex:idx];
 		coordinates[idx] = CLLocationCoordinate2DMake(point.lat.doubleValue, point.lng.doubleValue);
 	}
-    
+    /*
     //Find initial bus stop
     CLLocationCoordinate2D initialPoint = [self findBusStopNear: self.mapView.userLocation.coordinate];
     NSLog(@"initial: %f %f", initialPoint.latitude, initialPoint.longitude);
@@ -140,7 +140,11 @@
 		free(coordinates);
 		[self.mapView addOverlay:polyLine];
 	}
-	
+	*/
+    MKPolyline* polyLine = [MKPolyline polylineWithCoordinates:coordinates count:[route count]];
+    [self.overlays addObject:polyLine];
+    free(coordinates);
+    [self.mapView addOverlay:polyLine];
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
