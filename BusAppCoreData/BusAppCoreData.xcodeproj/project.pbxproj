@@ -341,6 +341,17 @@
 			name = FPPopover;
 			sourceTree = "<group>";
 		};
+		C2876EE9193A70C900EDDDF5 /* MarqueeLabel */ = {
+			isa = PBXGroup;
+			children = (
+				B961CC0118A0F78300D5C3E8 /* MarqueeLabel.h */,
+				B961CC0218A0F78300D5C3E8 /* MarqueeLabel.m */,
+				B961CC0418A0F87400D5C3E8 /* MovingTitleCell.h */,
+				B961CC0518A0F87400D5C3E8 /* MovingTitleCell.m */,
+			);
+			name = MarqueeLabel;
+			sourceTree = "<group>";
+		};
 		E8BAF7411896BA330087E999 = {
 			isa = PBXGroup;
 			children = (
@@ -378,15 +389,12 @@
 		E8BAF7551896BA330087E999 /* BusAppCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				C2876EE9193A70C900EDDDF5 /* MarqueeLabel */,
 				C20AD59319308CF000D61EFE /* FPPopover */,
 				C2061C8C192D891C004CF240 /* BancoDeDados */,
 				E89809311896D6C500ECE205 /* Storyboard.storyboard */,
 				E89809351896DC4900ECE205 /* BusAppViewController.h */,
 				E89809361896DC4900ECE205 /* BusAppViewController.m */,
-				B961CC0118A0F78300D5C3E8 /* MarqueeLabel.h */,
-				B961CC0218A0F78300D5C3E8 /* MarqueeLabel.m */,
-				B961CC0418A0F87400D5C3E8 /* MovingTitleCell.h */,
-				B961CC0518A0F87400D5C3E8 /* MovingTitleCell.m */,
 				ABA847671896CB2F008B0172 /* Controller */,
 				B9F926AD1896BC4600B5A61E /* Model */,
 				B9F9269A1896BB5200B5A61E /* Core Data */,

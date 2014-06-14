@@ -244,7 +244,9 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    _selectedTimeIndex = indexPath.row;
+    AlarmManagerTableViewController *viewController = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AlarmManagerTableViewController"];
+    viewController.busTime = self.stoptimes[indexPath.row];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -262,8 +264,6 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"seeTime"]) {
-        AlarmManagerTableViewController* vc = [segue destinationViewController];
-        vc.busTime = self.stoptimes[self.selectedTimeIndex];
     }
 }
 @end
