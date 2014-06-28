@@ -24,6 +24,8 @@
 @property (nonatomic) NSMutableArray* colors;
 @property (nonatomic) BOOL gotInfo;
 @property (nonatomic) BOOL gotUserLocation;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIView *blackView;
 
 
 @end
@@ -145,6 +147,12 @@
     [self.overlays addObject:polyLine];
     free(coordinates);
     [self.mapView addOverlay:polyLine];
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.activityIndicator stopAnimating];
+        self.blackView.alpha = 0;
+    } completion:^(BOOL finished) {
+        self.blackView.hidden = YES;
+    }];
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay
@@ -197,6 +205,8 @@
             });
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
+                [self.activityIndicator stopAnimating];
+                self.blackView.hidden = YES;
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Trajeto não encontrado!"
                                                                 message:@"Tente mudar as suas configurações de busca para algo mais abrangente."
                                                                delegate:self

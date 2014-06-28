@@ -46,6 +46,9 @@
 	Node *node;
 	NSInteger size = [self.lines count];
     while (i < busMax && found != YES){
+        if (j >= [self.lines count]) {
+            return [[NSArray alloc]init];
+        }
         node = self.lines[j];
         if ([finalLines containsObject: node.data]){
             found = YES;

@@ -25,7 +25,9 @@
     MKPointAnnotation *selectedPlaceAnnotation;
     BOOL shouldBeginEditing;
 }
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
+@property (weak, nonatomic) IBOutlet UIView *blackView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic) MKPointAnnotation* pinAnnotation;
 @property (nonatomic) CLLocationCoordinate2D initial;
@@ -34,6 +36,7 @@
 @property (nonatomic, strong) Bus_points* selectedStop;
 @property (nonatomic) CLGeocoder* geocoder;
 @property (nonatomic) NSArray* placemarks;
+@property (nonatomic) CLLocationCoordinate2D savedUserLocation;
 @end
 
 @implementation StopsNearViewController
@@ -61,9 +64,21 @@
 - (void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController{
     NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     int radius = [prefs integerForKey:@"Radius"];
+    
+    self.blackView.hidden = NO;
+    [self.activityIndicator startAnimating];
+
     [[CoreDataAndRequestSupervisor startSupervisor] setDelegate:self];
-    [[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:radius fromPoint: self.mapView.userLocation.coordinate];
+    [[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:radius fromPoint: self.savedUserLocation];
     self.isStopsOnScreen = YES;
+}
+- (IBAction)searchRoute:(id)sender {
+    if (self.pinAnnotation != nil) {
+        [self performSegueWithIdentifier:@"searchPush" sender:self];
+    } else{
+        UIAlertView* view =  [[UIAlertView alloc] initWithTitle:@"Sem destino" message:@"Você deve selecionar um destino no mapa." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [view show];
+    }
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -78,7 +93,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[self.navigationController setToolbarHidden:YES animated:YES];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor orangeColor]];
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIFont boldSystemFontOfSize:19],
+      NSFontAttributeName, nil]];
+//	[self.navigationController setToolbarHidden:YES animated:YES];
 	
 	UILocalNotification* n1 = [[UILocalNotification alloc] init];
 	n1.fireDate = [NSDate dateWithTimeIntervalSinceNow: 10];
@@ -140,7 +160,7 @@
 	annot.title = @"Destination Point";
 	self.pinAnnotation = annot;
 	
-	self.initial = self.mapView.userLocation.coordinate;
+	self.initial = self.savedUserLocation;
 	
     [self.mapView addAnnotation:annot];
 	
@@ -202,13 +222,15 @@
 		annotation.index = i;
 		i++;
     }
-	[self.mapView removeAnnotations:self.mapView.annotations];
     dispatch_async (dispatch_get_main_queue(), ^
     {
+        self.blackView.hidden = YES;
+        [self.activityIndicator stopAnimating];
+        [self.mapView removeAnnotations:self.mapView.annotations];
         [self.mapView addAnnotations:annotationArray];
         NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
         int radius = [prefs integerForKey:@"Radius"];
-        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, radius+800, radius+800);
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(self.savedUserLocation, radius+800, radius+800);
         [self.mapView setRegion:region animated:YES];
         
     });
@@ -276,6 +298,8 @@
     int radius = [prefs integerForKey:@"Radius"];
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location, radius+50, radius+50);
     [self.mapView setRegion:region animated:YES];
+    self.blackView.hidden = NO;
+    [self.activityIndicator startAnimating];
     
     [[CoreDataAndRequestSupervisor startSupervisor] setDelegate:self];
     [[CoreDataAndRequestSupervisor startSupervisor] getAllBusPointsAsyncWithinDistance:radius fromPoint: location];
@@ -283,8 +307,17 @@
 
 }
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-	if(![self isStopsOnScreen]){
+    CLLocation *userLocation1 = [[CLLocation alloc]
+                                initWithLatitude:userLocation.coordinate.latitude
+                                longitude:userLocation.coordinate.longitude];
+    CLLocation *userLocation2 = [[CLLocation alloc]
+                                 initWithLatitude:self.savedUserLocation.latitude
+                                 longitude:self.savedUserLocation.longitude];
+
+	if([userLocation1 distanceFromLocation:userLocation2] >= 200 || ![self isStopsOnScreen]){
+        self.savedUserLocation = userLocation.coordinate;
         [self updateUserLocationAndGetBusStopsWithLocation:userLocation.location.coordinate];
+        [self recenterMapToUserLocation:self.savedUserLocation];
 	}
 }
 
@@ -302,7 +335,7 @@
 }
 
 
-- (IBAction)recenterMapToUserLocation:(id)sender {
+- (IBAction)recenterMapToUserLocation:(CLLocationCoordinate2D)sender {
     MKCoordinateRegion region;
     MKCoordinateSpan span;
     
@@ -310,7 +343,7 @@
     span.longitudeDelta = 0.02;
     
     region.span = span;
-    region.center = self.mapView.userLocation.coordinate;
+    region.center = self.savedUserLocation;
     
     [self.mapView setRegion:region animated:YES];
 }
@@ -449,8 +482,9 @@
 	}
 	if ([[segue identifier] isEqualToString:@"searchPush"]) {
 		TrajectoryViewController * vc = [segue destinationViewController];
+        
 		vc.final = self.pinAnnotation.coordinate;
-		vc.initial = self.mapView.userLocation.coordinate;
+		vc.initial = self.savedUserLocation;
 	}
 }
 
