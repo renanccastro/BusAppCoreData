@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface BusAppCoreDataTests : XCTestCase
+@interface iBusaoTests : XCTestCase
 
 @end
 
-@implementation BusAppCoreDataTests
+@implementation iBusaoTests
 
 - (void)setUp
 {

@@ -168,7 +168,8 @@
 
 #pragma - MapView Methods
 //Remove old annotations and set new ones
-//- (void)updateMapView
+- (void)updateMapView{
+}
 //{
 //    if (self.mapView.annotations){
 //        [self.mapView removeAnnotations:self.mapView.annotations];
@@ -182,7 +183,6 @@
 - (void)setMapView:(MKMapView *)mapView
 {
     _mapView = mapView;
-//    [self updateMapView];
 }
 
 - (void)setAnnotations:(NSArray *)annotations

@@ -58,7 +58,7 @@
 		E8BAF76E1896BA330087E999 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		E8BAF76F1896BA330087E999 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BAF7531896BA330087E999 /* CoreData.framework */; };
 		E8BAF7771896BA330087E999 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E8BAF7751896BA330087E999 /* InfoPlist.strings */; };
-		E8BAF7791896BA330087E999 /* BusAppCoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BAF7781896BA330087E999 /* BusAppCoreDataTests.m */; };
+		E8BAF7791896BA330087E999 /* iBusaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BAF7781896BA330087E999 /* iBusaoTests.m */; };
 		E8C22A40189832D10050CD0B /* BusAppCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8C22A3E189832D10050CD0B /* BusAppCoreData.xcdatamodeld */; };
 		E8CB713C18F83303004D41CA /* ExpendableTableViewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8CB713B18F83303004D41CA /* ExpendableTableViewView.xib */; };
 		E8CB713F18F83596004D41CA /* ExpandableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CB713E18F83596004D41CA /* ExpandableView.m */; };
@@ -159,22 +159,22 @@
 		E89809361896DC4900ECE205 /* BusAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusAppViewController.m; sourceTree = "<group>"; };
 		E8A115B318AA9DEF0054573A /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		E8A115B418AA9DEF0054573A /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
-		E8BAF74A1896BA330087E999 /* BusAppCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusAppCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8BAF74A1896BA330087E999 /* iBusão.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iBusão.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BAF74D1896BA330087E999 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E8BAF74F1896BA330087E999 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E8BAF7531896BA330087E999 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		E8BAF7571896BA330087E999 /* BusAppCoreData-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BusAppCoreData-Info.plist"; sourceTree = "<group>"; };
+		E8BAF7571896BA330087E999 /* iBusão-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iBusão-Info.plist"; sourceTree = "<group>"; };
 		E8BAF7591896BA330087E999 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E8BAF75B1896BA330087E999 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E8BAF75D1896BA330087E999 /* BusAppCoreData-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BusAppCoreData-Prefix.pch"; sourceTree = "<group>"; };
 		E8BAF75E1896BA330087E999 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E8BAF75F1896BA330087E999 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E8BAF7641896BA330087E999 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		E8BAF76A1896BA330087E999 /* BusAppCoreDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusAppCoreDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8BAF76A1896BA330087E999 /* iBusãoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iBusãoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BAF76B1896BA330087E999 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		E8BAF7741896BA330087E999 /* BusAppCoreDataTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BusAppCoreDataTests-Info.plist"; sourceTree = "<group>"; };
+		E8BAF7741896BA330087E999 /* iBusãoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iBusãoTests-Info.plist"; sourceTree = "<group>"; };
 		E8BAF7761896BA330087E999 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E8BAF7781896BA330087E999 /* BusAppCoreDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusAppCoreDataTests.m; sourceTree = "<group>"; };
+		E8BAF7781896BA330087E999 /* iBusaoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iBusaoTests.m; sourceTree = "<group>"; };
 		E8C22A3F189832D10050CD0B /* BusAppCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BusAppCoreData.xcdatamodel; sourceTree = "<group>"; };
 		E8CB713B18F83303004D41CA /* ExpendableTableViewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpendableTableViewView.xib; sourceTree = "<group>"; };
 		E8CB713D18F83596004D41CA /* ExpandableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandableView.h; sourceTree = "<group>"; };
@@ -355,8 +355,8 @@
 		E8BAF7411896BA330087E999 = {
 			isa = PBXGroup;
 			children = (
-				E8BAF7551896BA330087E999 /* BusAppCoreData */,
-				E8BAF7721896BA330087E999 /* BusAppCoreDataTests */,
+				E8BAF7551896BA330087E999 /* iBusao */,
+				E8BAF7721896BA330087E999 /* iBusaoTests */,
 				E8BAF74C1896BA330087E999 /* Frameworks */,
 				E8BAF74B1896BA330087E999 /* Products */,
 				A7E555EF241846278E3CCCF4 /* Pods.xcconfig */,
@@ -366,8 +366,8 @@
 		E8BAF74B1896BA330087E999 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E8BAF74A1896BA330087E999 /* BusAppCoreData.app */,
-				E8BAF76A1896BA330087E999 /* BusAppCoreDataTests.xctest */,
+				E8BAF74A1896BA330087E999 /* iBusão.app */,
+				E8BAF76A1896BA330087E999 /* iBusãoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -386,7 +386,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E8BAF7551896BA330087E999 /* BusAppCoreData */ = {
+		E8BAF7551896BA330087E999 /* iBusao */ = {
 			isa = PBXGroup;
 			children = (
 				C2876EE9193A70C900EDDDF5 /* MarqueeLabel */,
@@ -410,13 +410,14 @@
 				C2497146193080EA00EA91A5 /* TimeCell.h */,
 				C2497147193080EA00EA91A5 /* TimeCell.m */,
 			);
+			name = iBusao;
 			path = BusAppCoreData;
 			sourceTree = "<group>";
 		};
 		E8BAF7561896BA330087E999 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E8BAF7571896BA330087E999 /* BusAppCoreData-Info.plist */,
+				E8BAF7571896BA330087E999 /* iBusão-Info.plist */,
 				E8BAF7581896BA330087E999 /* InfoPlist.strings */,
 				E8BAF75B1896BA330087E999 /* main.m */,
 				E8BAF75D1896BA330087E999 /* BusAppCoreData-Prefix.pch */,
@@ -424,19 +425,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E8BAF7721896BA330087E999 /* BusAppCoreDataTests */ = {
+		E8BAF7721896BA330087E999 /* iBusaoTests */ = {
 			isa = PBXGroup;
 			children = (
-				E8BAF7781896BA330087E999 /* BusAppCoreDataTests.m */,
+				E8BAF7781896BA330087E999 /* iBusaoTests.m */,
 				E8BAF7731896BA330087E999 /* Supporting Files */,
 			);
+			name = iBusaoTests;
 			path = BusAppCoreDataTests;
 			sourceTree = "<group>";
 		};
 		E8BAF7731896BA330087E999 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E8BAF7741896BA330087E999 /* BusAppCoreDataTests-Info.plist */,
+				E8BAF7741896BA330087E999 /* iBusãoTests-Info.plist */,
 				E8BAF7751896BA330087E999 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -445,9 +447,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E8BAF7491896BA330087E999 /* BusAppCoreData */ = {
+		E8BAF7491896BA330087E999 /* iBusão */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E8BAF77C1896BA330087E999 /* Build configuration list for PBXNativeTarget "BusAppCoreData" */;
+			buildConfigurationList = E8BAF77C1896BA330087E999 /* Build configuration list for PBXNativeTarget "iBusão" */;
 			buildPhases = (
 				14CAB70BBB8E4E6C9205215D /* Check Pods Manifest.lock */,
 				E8BAF7461896BA330087E999 /* Sources */,
@@ -459,14 +461,14 @@
 			);
 			dependencies = (
 			);
-			name = BusAppCoreData;
+			name = "iBusão";
 			productName = BusAppCoreData;
-			productReference = E8BAF74A1896BA330087E999 /* BusAppCoreData.app */;
+			productReference = E8BAF74A1896BA330087E999 /* iBusão.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E8BAF7691896BA330087E999 /* BusAppCoreDataTests */ = {
+		E8BAF7691896BA330087E999 /* iBusãoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E8BAF77F1896BA330087E999 /* Build configuration list for PBXNativeTarget "BusAppCoreDataTests" */;
+			buildConfigurationList = E8BAF77F1896BA330087E999 /* Build configuration list for PBXNativeTarget "iBusãoTests" */;
 			buildPhases = (
 				E8BAF7661896BA330087E999 /* Sources */,
 				E8BAF7671896BA330087E999 /* Frameworks */,
@@ -477,9 +479,9 @@
 			dependencies = (
 				E8BAF7711896BA330087E999 /* PBXTargetDependency */,
 			);
-			name = BusAppCoreDataTests;
+			name = "iBusãoTests";
 			productName = BusAppCoreDataTests;
-			productReference = E8BAF76A1896BA330087E999 /* BusAppCoreDataTests.xctest */;
+			productReference = E8BAF76A1896BA330087E999 /* iBusãoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -499,7 +501,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E8BAF7451896BA330087E999 /* Build configuration list for PBXProject "BusAppCoreData" */;
+			buildConfigurationList = E8BAF7451896BA330087E999 /* Build configuration list for PBXProject "iBusão" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -511,8 +513,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E8BAF7491896BA330087E999 /* BusAppCoreData */,
-				E8BAF7691896BA330087E999 /* BusAppCoreDataTests */,
+				E8BAF7491896BA330087E999 /* iBusão */,
+				E8BAF7691896BA330087E999 /* iBusãoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -632,7 +634,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8BAF7791896BA330087E999 /* BusAppCoreDataTests.m in Sources */,
+				E8BAF7791896BA330087E999 /* iBusaoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,7 +643,7 @@
 /* Begin PBXTargetDependency section */
 		E8BAF7711896BA330087E999 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E8BAF7491896BA330087E999 /* BusAppCoreData */;
+			target = E8BAF7491896BA330087E999 /* iBusão */;
 			targetProxy = E8BAF7701896BA330087E999 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -745,10 +747,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BusAppCoreData/BusAppCoreData-Prefix.pch";
-				INFOPLIST_FILE = "BusAppCoreData/BusAppCoreData-Info.plist";
+				GCC_PREFIX_HEADER = "BusAppCoreData/iBusão-Prefix.pch";
+				INFOPLIST_FILE = "BusAppCoreData/iBusão-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "iBusão";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -764,10 +766,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BusAppCoreData/BusAppCoreData-Prefix.pch";
-				INFOPLIST_FILE = "BusAppCoreData/BusAppCoreData-Info.plist";
+				GCC_PREFIX_HEADER = "BusAppCoreData/iBusão-Prefix.pch";
+				INFOPLIST_FILE = "BusAppCoreData/iBusão-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "iBusão";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -789,8 +791,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "BusAppCoreDataTests/BusAppCoreDataTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "BusAppCoreDataTests/iBusãoTests-Info.plist";
+				PRODUCT_NAME = "iBusãoTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -807,8 +809,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BusAppCoreData/BusAppCoreData-Prefix.pch";
-				INFOPLIST_FILE = "BusAppCoreDataTests/BusAppCoreDataTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "BusAppCoreDataTests/iBusãoTests-Info.plist";
+				PRODUCT_NAME = "iBusãoTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -817,7 +819,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E8BAF7451896BA330087E999 /* Build configuration list for PBXProject "BusAppCoreData" */ = {
+		E8BAF7451896BA330087E999 /* Build configuration list for PBXProject "iBusão" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E8BAF77A1896BA330087E999 /* Debug */,
@@ -826,7 +828,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E8BAF77C1896BA330087E999 /* Build configuration list for PBXNativeTarget "BusAppCoreData" */ = {
+		E8BAF77C1896BA330087E999 /* Build configuration list for PBXNativeTarget "iBusão" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E8BAF77D1896BA330087E999 /* Debug */,
@@ -835,7 +837,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E8BAF77F1896BA330087E999 /* Build configuration list for PBXNativeTarget "BusAppCoreDataTests" */ = {
+		E8BAF77F1896BA330087E999 /* Build configuration list for PBXNativeTarget "iBusãoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E8BAF7801896BA330087E999 /* Debug */,

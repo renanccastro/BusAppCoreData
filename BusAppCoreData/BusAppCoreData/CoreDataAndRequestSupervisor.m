@@ -710,6 +710,10 @@ static  CoreDataAndRequestSupervisor *supervisor;
     return total;
 }
 
+-(void) request:(TimeTableRequest *)request didFailInGetTimeJson:(NSError *)error{
+    NSLog(@"Deu pau.");
+}
+
 
 
 @end
