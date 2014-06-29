@@ -55,11 +55,13 @@
     
     if(webCode >= 0)
     {
+        self.title = @"Horário de saída";
         self.stoptimes = [StopTime getAllTimesForStop:nil andBus:self.bus_line];
         NSLog(@"%d", webCode);
     }
     else
     {
+        self.title = @"Horário previsto";
 		[self.activityIndicator stopAnimating];
 		self.stoptimes = [StopTime getAllTimesForStop:self.stop andBus:self.bus_line];
 //        self.stoptimes = [[self.bus_line.stoptimes allObjects] sortedArrayUsingDescriptors:@[sort]];
@@ -244,9 +246,11 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    /*
     AlarmManagerTableViewController *viewController = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AlarmManagerTableViewController"];
     viewController.busTime = self.stoptimes[indexPath.row];
     [self.navigationController pushViewController:viewController animated:YES];
+     */
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
